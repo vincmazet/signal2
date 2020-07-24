@@ -1,0 +1,403 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Installer et utiliser Python &#8212; Traitement du signal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/css/jbvinc.css" />
+    <link rel="stylesheet" type="text/css" href="_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/sphinx-book-theme.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/mystnb.js"></script>
+    <script src="_static/sphinx-book-theme.js"></script>
+    <script src="_static/translations.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Recherche" href="search.html" />
+    <link rel="next" title="📝 Séance du 06/10/2020" href="td1.html" />
+    <link rel="prev" title="Introduction" href="intro.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">Traitement du signal</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Installer et utiliser Python
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Travail en classe
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="td1.html">
+   📝 Séance du 06/10/2020
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="tp1.html">
+   💻 Séance du 07/10/2020
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Annexes
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="biblio.html">
+   Références
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="licence.html">
+   Licence
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/python.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> On this page
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#installation">
+   Installation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#notebooks-python">
+   Notebooks Python
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#cellules-de-code">
+     Cellules de code
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#cellules-markdown">
+     Cellules Markdown
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#jupyter-lab">
+     Jupyter Lab
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ecrire-un-programme-python">
+   Écrire un programme Python
+  </a>
+ </li>
+</ul>
+
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="installer-et-utiliser-python">
+<span id="c-python"></span><h1>Installer et utiliser Python<a class="headerlink" href="#installer-et-utiliser-python" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Cette année, nous utiliserons Python plutôt que Matlab pour les TP. Contrairement à Matlab, Python est libre et gratuit donc plus facilement utilisable en cas de confinement. C’est également un langage moderne et de haut niveau qui est de plus en plus utilisé dans l’industrie et les disciplines scientifiques. Il est à peu près aussi puissant que Matlab pour ce qui est de la programmation scientifique. Enfin, <a class="reference external" href="https://vincmazet.github.io/signal2/_static_figs/matlab-python.png">le sondage de juin dernier</a> a montré une tendance de votre part pour basculer vers Python.</p>
+<p>Dans le cas où les TP ne peuvent se faire en présentiel sur les ordinateur de l’école, vous devrez coder sur vos ordinateurs personnels.
+Cette page décrit donc comment :</p>
+<ul class="simple">
+<li><p>installer Python à travers la distribution Anaconda</p></li>
+<li><p>écrire des <em>notebooks</em> avec Jupyter Lab</p></li>
+<li><p>utiliser des modules additionnels et commencer à programmer</p></li>
+</ul>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Anaconda est une distribution Python spécialisée dans la science des données et l’apprentissage machine.
+Pour un usage individuel, elle est gratuite et suffisante pour effectuer les TP de traitement du signal.
+<a class="reference external" href="https://www.anaconda.com/products/individual">Téléchargez</a> et installer Anaconda si Python n’est pas déjà présent sur votre ordinateur.
+Attention, choisissez la version 3 (ou supérieure) de Python !</p>
+</div>
+<div class="section" id="notebooks-python">
+<span id="c-python-notebook"></span><h2>Notebooks Python<a class="headerlink" href="#notebooks-python" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Après avoir installé Anaconda, vous êtes prêt à écrire et exécuter des notebooks Python !
+Un <a class="reference external" href="https://jupyterlab.readthedocs.io/en/latest/user/notebook.html"><em>notebook</em></a> est un fichier contenant du code, mais également les résultats produits par ce code (comme des valeurs numériques ou des images) et du texte qui accompagnera le code.
+Un notebook est divisé en <em>cellules</em> qui peuvent être de deux tyes : « code » ou « markdown ».
+En appuyant sur <code class="docutils literal notranslate"><span class="pre">Ctrl + Entrée</span></code> dans une cellule, le code de celle-ci (et uniquement de celle-ci) est exécuté.</p>
+<p>Il faut un logiciel spécialisé pour afficher et utiliser un notebook, comme Jupyter Lab.
+Une description de ce logiciel est donné plus bas.</p>
+<div class="section" id="cellules-de-code">
+<h3>Cellules de code<a class="headerlink" href="#cellules-de-code" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Les cellules contiennent par défaut du code Python (<em>input</em>) et le résultat (<em>output</em>).</p>
+<p>Par exemple le code (<em>input</em>) suivant :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">21</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">42</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;La valeur est &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">c</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>produit le résultat (<em>output</em>) :</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>La valeur est 63
+</pre></div>
+</div>
+</div>
+<div class="section" id="cellules-markdown">
+<h3>Cellules Markdown<a class="headerlink" href="#cellules-markdown" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Il est possible de canger une cellule de « code » en cellule « markdown » en sélectionnant <em>Markdown</em> dans la liste déroulante de la barre d’outils.
+Le <a class="reference external" href="https://en.wikipedia.org/wiki/Markdown">Markdown</a> est aussi un langage informatique, mais il sert à mettre en forme du texte (par exemple en écrivant des titres, des listes, des équations…).
+Cela peut être utile pour ajouter des notes et commenter votre code et ses résultats.</p>
+<p>Ainsi :</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>la sinusoïde a pour expression :
+
+$$
+  x(t) = A \sin(2 \pi f t + \varphi)
+$$
+
+où :
+* $A$ est l&#39;_amplitude_
+* $f$ est la _fréquence_
+* $\varphi$ est le _déphasage_
+</pre></div>
+</div>
+<p>produit :</p>
+<hr class="docutils" />
+<div class="highlight-none notranslate">
+<p>la sinusoïde a pour expression :</p>
+<div class="math notranslate nohighlight">
+\[
+  x(t) = A \sin(2 \pi f t + \varphi)
+\]</div>
+<p>où :</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(A\)</span> est l”<em>amplitude</em></p></li>
+<li><p><span class="math notranslate nohighlight">\(f\)</span> est la <em>fréquence</em></p></li>
+<li><p><span class="math notranslate nohighlight">\(\varphi\)</span> est le <em>déphasage</em></p></li>
+</ul>
+</div>
+<p>Vous trouverez le résumé de la syntaxe Markdown sur <a class="reference external" href="https://en.wikipedia.org/wiki/Markdown#Example">cette page</a>.</p>
+</div>
+<div class="section" id="jupyter-lab">
+<h3>Jupyter Lab<a class="headerlink" href="#jupyter-lab" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Pour le développement de programme en Python dans un but scientifique, il est recommandé d’utiliser <a class="reference external" href="https://jupyterlab.readthedocs.io/en/latest/index.html">Jupyter Lab</a>.
+C’est un logiciel moderne et libre pour écrire de notebooks (cf. <a class="reference internal" href="#c-python-notebook"><span class="std std-ref">Notebooks Python</span></a>).</p>
+<p>La <a class="reference internal" href="#f-python-jupyterlab"><span class="std std-numref">figure 1</span></a> montre l’interface de Jupyter Lab :
+elle est suffisamment intuitive pour se débrouiller sans aide, mais vous pouvez toujours consulter <a class="reference external" href="https://jupyterlab.readthedocs.io/en/latest/user/interface.html">cette page</a> pour en savoir plus.</p>
+<div class="figure align-default" id="f-python-jupyterlab">
+<img alt="https://jupyterlab.readthedocs.io/en/latest/_images/interface_jupyterlab.png" src="https://jupyterlab.readthedocs.io/en/latest/_images/interface_jupyterlab.png" />
+<p class="caption"><span class="caption-number">Fig. 1 </span><span class="caption-text">Jupyter Lab.</span><a class="headerlink" href="#f-python-jupyterlab" title="Lien permanent vers cette image">¶</a></p>
+</div>
+<p>Normalement, Jupyter Lab est inclus dans l’installation d’Anaconda.
+Mais si ce n’est pas le cas, vous trouverez les instructions pour installer Jupyter Lab <a class="reference external" href="https://jupyter.org/install.html">ici</a>.</p>
+</div>
+</div>
+<div class="section" id="ecrire-un-programme-python">
+<h2>Écrire un programme Python<a class="headerlink" href="#ecrire-un-programme-python" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Le cœur du langage Python ne dispose pas de toutes les fonctions utiles pour la programmation scientifique, et le traitement du signal en particulier.
+Il est donc nécessaire d’importer des modules dans votre code (normallement, ces modules sont installés avec Anaconda).
+En général, nous n’utiliserons que deux modules :</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://numpy.org/">numpy</a>, qui fournit des fonctions générales pour la programmation scientifiqueg,</p></li>
+<li><p><a class="reference external" href="https://matplotlib.org/">matplotlib</a> pour afficher les signaux.</p></li>
+</ul>
+<p>Les modules Python sont importés dans votre code en utilisant l’instruction <code class="docutils literal notranslate"><span class="pre">import</span></code>.</p>
+<p>Par exemple, le code suivant affiche une sinusoïde :</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Une ligne qui commence par le symbole # est un commentaire et n&#39;est donc pas exécutée</span>
+
+<span class="c1"># Import du module math</span>
+<span class="kn">import</span> <span class="nn">math</span>
+
+<span class="c1"># Import du module &#39;numpy&#39;, que l&#39;on utilisera dans la suite du code &#39;np&#39; pour faire plus court</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># Import du sous-module &#39;pyplot&#39; du module &#39;matplotlib&#39;, et renommage en &#39;plt&#39;</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># Abscisses sur lesquelles sera calculée la sinusoïde</span>
+<span class="n">n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">)</span>
+
+<span class="c1"># Fréquence de la sinuoïde</span>
+<span class="n">f</span> <span class="o">=</span> <span class="mi">4</span>
+
+<span class="c1"># Calcul de la sinusoïde</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">f</span><span class="o">*</span><span class="n">n</span><span class="p">)</span>
+
+<span class="c1"># Création d&#39;une figure</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+
+<span class="c1"># Affichage de la sinusoïde (dans la figure créée)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
+
+<span class="c1"># Légende des axes et titre</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;$n$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;$x[n]$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Une belle sinusoïde&quot;</span><span class="p">)</span>
+
+<span class="c1"># Affichage de la figure (pas toujours utile)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/python_4_0.png" src="_images/python_4_0.png" />
+</div>
+</div>
+</div>
+</div>
+
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="intro.html" title="previous page">Introduction</a>
+    <a class='right-next' id="next-link" href="td1.html" title="next page">📝 Séance du 06/10/2020</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Vincent Mazet (Université de Strasbourg)<br/>
+        
+            &copy; Copyright 2020.<br/>
+          <div class="extra_footer">
+            Traitement du signal &mdash; Vincent Mazet (Université de Strasbourg), 2020 &mdash; <a href="licence.html">CC BY-NC 4.0</a>.
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="_static/js/index.js"></script>
+    
+  </body>
+</html>
