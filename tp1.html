@@ -1,0 +1,365 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <title>💻 Séance du 07/10/2020 &#8212; Traitement du signal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/css/jbvinc.css" />
+    <link rel="stylesheet" type="text/css" href="_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/sphinx-book-theme.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/mystnb.js"></script>
+    <script src="_static/sphinx-book-theme.js"></script>
+    <script src="_static/translations.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Recherche" href="search.html" />
+    <link rel="next" title="Références" href="biblio.html" />
+    <link rel="prev" title="📝 Séance du 06/10/2020" href="td1.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">Traitement du signal</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="python.html">
+   Installer et utiliser Python
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Travail en classe
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="td1.html">
+   📝 Séance du 06/10/2020
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   💻 Séance du 07/10/2020
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Annexes
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="biblio.html">
+   Références
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="licence.html">
+   Licence
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/tp1.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> On this page
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#initiation-a-python">
+   Initiation à Python
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#representation-d-un-signal">
+   Représentation d’un signal
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#produit-de-convolution">
+   Produit de convolution
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#transformee-de-fourier-discrete">
+   Transformée de Fourier discrète
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#analyse-spectrale-d-un-signal-audio">
+   Analyse spectrale d’un signal audio
+  </a>
+ </li>
+</ul>
+
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="seance-du-07-10-2020">
+<h1>💻 Séance du 07/10/2020<a class="headerlink" href="#seance-du-07-10-2020" title="Lien permanent vers ce titre">¶</a></h1>
+<p><font color="red"><strong>donner les codes pour la FFT</strong></font></p>
+<p>Comme la séance précédente, ce TD est un rappel des notions de première année.
+Mais c’est également le TP qui servira d’initiation à Python.</p>
+<div class="section" id="initiation-a-python">
+<h2>Initiation à Python<a class="headerlink" href="#initiation-a-python" title="Lien permanent vers ce titre">¶</a></h2>
+<p><em>python de pbase, indentation, boucles, import, matplotlib, numpy, exemple d’une sinusoïde</em></p>
+<p>Pour représenter la sinusoïde de fréquence <span class="math notranslate nohighlight">\(f=0,3\)</span> Hz</p>
+<div class="math notranslate nohighlight">
+\[
+  w(t) = \sin(2\pi f t),
+\]</div>
+<p>on peut utiliser le code ci-dessous :</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importation de modules nécessaires</span>
+<span class="c1"># Pour les modules dont le nom est un peu long, on peut leur donner un nom plus cours avec `as`</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># Vecteur des abscisses : un point tous les 0,1 s entre 0 et 10 s</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
+
+<span class="c1"># Fréquence de la sinusoïde</span>
+<span class="n">f</span> <span class="o">=</span> <span class="mf">0.3</span>
+
+<span class="c1"># Sinusoïde : c&#39;est tout simple, il suffit d&#39;écrire l&#39;expression mathématique 😎</span>
+<span class="n">w</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">f</span><span class="o">*</span><span class="n">t</span><span class="p">)</span>
+
+<span class="c1"># Affichage du signal</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">w</span><span class="p">)</span>
+
+<span class="c1"># Des légendes, c&#39;est toujours bien !</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;t&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;w(t)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Une belle sinusoïde&quot;</span><span class="p">)</span>
+
+<span class="c1"># Affichage (pas toujours nécessaire, mais parfois c&#39;est indispensable)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/tp1_2_0.png" src="_images/tp1_2_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="representation-d-un-signal">
+<h2>Représentation d’un signal<a class="headerlink" href="#representation-d-un-signal" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Représentez entre 0 et 10 s la sinusoïde amortie</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+  x(t) =
+  \begin{cases}
+    0                                   \text{ si } t&lt;0 \\
+    A e^{-at} \sin(2 \pi f t + \varphi) \text{ si } t\geq 0 \\
+  \end{cases}
+\end{split}\]</div>
+<p>où <span class="math notranslate nohighlight">\(A=2\)</span>, <span class="math notranslate nohighlight">\(a=0,5\)</span>, <span class="math notranslate nohighlight">\(\varphi=1\)</span> et <span class="math notranslate nohighlight">\(f = 2\)</span> Hz.
+Choisissez un pas de temps correct pour obtenir une jolie courbe.</p>
+</div>
+<div class="section" id="produit-de-convolution">
+<h2>Produit de convolution<a class="headerlink" href="#produit-de-convolution" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Représentez le produit de convolution <span class="math notranslate nohighlight">\((x*y)[n]\)</span> où :</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+  x[n] =
+  \begin{cases}
+    +1 \text{ pour } n=1, \\
+    -1 \text{ pour } n=-1, \\
+    0  \text{ ailleurs},
+  \end{cases}
+  \qquad\qquad
+  y[n] =
+  \begin{cases}
+    2 &amp;\text{ pour } |n| \leq 1, \\
+    0 &amp;\text{ ailleurs}.
+  \end{cases}
+\end{split}\]</div>
+<p>Pour définir <span class="math notranslate nohighlight">\(x[n]\)</span>, remarquez que le signal correspond à la somme de deux impulsions discrètes.</p>
+</div>
+<div class="section" id="transformee-de-fourier-discrete">
+<h2>Transformée de Fourier discrète<a class="headerlink" href="#transformee-de-fourier-discrete" title="Lien permanent vers ce titre">¶</a></h2>
+<p>On considère le signal créneau suivant de période <span class="math notranslate nohighlight">\(N=100\)</span> :</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+  x[n] =
+  \begin{cases}
+    1 \quad\text{ si } 0 \leq n &lt; 50, \\
+    0 \quad\text{ si } 50 \leq n &lt; 100.
+  \end{cases}
+\end{split}\]</div>
+<ul class="simple">
+<li><p>Créez et affichez le signal <span class="math notranslate nohighlight">\(x[n]\)</span> sur 100~échantillons.</p></li>
+<li><p>Tracez la transformée de Fourier discrète (TFD) <span class="math notranslate nohighlight">\(X[k]\)</span> de <span class="math notranslate nohighlight">\(x[n]\)</span> entre <span class="math notranslate nohighlight">\(0\)</span> et <span class="math notranslate nohighlight">\(N-1\)</span>.</p></li>
+<li><p>Centrez la TFD pour la représenter entre <span class="math notranslate nohighlight">\(-N/2\)</span> et <span class="math notranslate nohighlight">\(N/2-1\)</span>.</p></li>
+<li><p>Modifiez le vecteur des abscisses pour représenter la TFD en fonction des fréquences (et non des échantillons).
+On suppose que <span class="math notranslate nohighlight">\(T_e=0,5\)</span> s.</p></li>
+</ul>
+</div>
+<div class="section" id="analyse-spectrale-d-un-signal-audio">
+<h2>Analyse spectrale d’un signal audio<a class="headerlink" href="#analyse-spectrale-d-un-signal-audio" title="Lien permanent vers ce titre">¶</a></h2>
+<ul class="simple">
+<li><p>Chargez le signal son.wav.
+C’est un signal sonore enregistré en stéréo : comment le convertir en mono ?
+Affichez-le.</p></li>
+<li><p>Affichez la TFD du signal pour déterminer les harmoniques principales.</p></li>
+<li><p>Quel est l’accord joué ? Vous pouvez également l’écouter si vous avez l’oreille musicale…</p></li>
+</ul>
+</div>
+</div>
+
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="td1.html" title="previous page">📝 Séance du 06/10/2020</a>
+    <a class='right-next' id="next-link" href="biblio.html" title="next page">Références</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Vincent Mazet (Université de Strasbourg)<br/>
+        
+            &copy; Copyright 2020.<br/>
+          <div class="extra_footer">
+            Traitement du signal &mdash; Vincent Mazet (Université de Strasbourg), 2020 &mdash; <a href="licence.html">CC BY-NC 4.0</a>.
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="_static/js/index.js"></script>
+    
+  </body>
+</html>

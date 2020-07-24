@@ -1,0 +1,81 @@
+/* Feuille de style perso VM */
+
+
+/* Style général */
+
+@font-face {
+  font-family: "Source Sans Pro SemiBold";
+  src: url("fonts/SourceSansPro-SemiBold.ttf");
+}
+
+@font-face {
+  font-family: "Source Sans Pro";
+  src: url("fonts/SourceSansPro-Regular.ttf");
+}
+
+body {font-family: "Source Sans Pro"}
+h1, h2, h3, h4, h5, h6 {font-family: "Source Sans Pro SemiBold"}
+h1 {font-size: 2.5em}
+h2 {font-size: 1.7em}
+h3 {font-size: 1.1em}
+
+span.pre {
+  background-color: #eee;
+  padding: 1px 5px;
+  border: 0;
+  color: #000;
+  font-family: Menlo, Consolas, 'DejaVu Sans Mono', monospace;
+  font-size: inherit;
+  line-height: 1.3077
+}
+
+
+/* Cadre exemple */
+
+.example {
+  background-color: #F7F9FA;
+  padding: 1em;
+  border-left: 2px #c6c9cc solid;
+  margin: 1em 0;
+}
+
+.example::before {
+  content: "Exemple";
+  font-weight: bold;
+  color: #9c9ea1;
+}
+
+/* Hack pour faire disparaître les boutons GitHub et Download */
+
+div.dropdown-buttons-trigger {
+    display: none;
+}
+
+
+/* Hack pour faire disparaître le footer (et mettre le mien à la place) */
+
+.footer p {
+    display: none;
+}
+
+
+/* Style pour l'impression */
+
+@media print {
+  body {
+    font-family: Times;
+    margin: 2cm
+  }
+}
+
+
+/* Animations */
+
+.spetsi {
+  position: relative;
+  padding-left: 0;
+  padding-right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
