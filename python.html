@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
   <head>
     <meta charset="utf-8" />
-    <title>Installer et utiliser Python &#8212; Traitement du signal</title>
+    <title>Installer et utiliser Python &#8212; Traitement du signal 2</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="_static/sphinx-book-theme.css" type="text/css" />
@@ -13,6 +13,7 @@
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="_static/css/jbvinc.css" />
     <link rel="stylesheet" type="text/css" href="_static/jupyter-sphinx.css" />
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -31,10 +32,17 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Recherche" href="search.html" />
-    <link rel="next" title="📝 Séance du 06/10/2020" href="td1.html" />
-    <link rel="prev" title="Introduction" href="intro.html" />
+    <link rel="next" title="Références" href="biblio.html" />
+    <link rel="prev" title="Séance du 07/10/2020" href="tp1.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="docsearch:language" content="en">
@@ -54,7 +62,7 @@
 <a class="navbar-brand text-wrap" href="index.html">
   
   
-  <h1 class="site-logo" id="site-title">Traitement du signal</h1>
+  <h1 class="site-logo" id="site-title">Traitement du signal 2</h1>
   
 </a>
 </div>
@@ -72,27 +80,20 @@
   </a>
  </li>
 </ul>
-<ul class="current nav sidenav_l1">
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Installer et utiliser Python
-  </a>
- </li>
-</ul>
 <p class="caption">
  <span class="caption-text">
-  Travail en classe
+  Activités
  </span>
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="td1.html">
-   📝 Séance du 06/10/2020
+   Séance du 06/10/2020
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="tp1.html">
-   💻 Séance du 07/10/2020
+   Séance du 07/10/2020
   </a>
  </li>
 </ul>
@@ -101,7 +102,12 @@
   Annexes
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Installer et utiliser Python
+  </a>
+ </li>
  <li class="toctree-l1">
   <a class="reference internal" href="biblio.html">
    Références
@@ -174,7 +180,7 @@
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
         <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> On this page
+            <i class="fas fa-list"></i> Contents
         </div>
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
@@ -310,16 +316,17 @@ Mais si ce n’est pas le cas, vous trouverez les instructions pour installer Ju
 </div>
 </div>
 <div class="section" id="ecrire-un-programme-python">
-<h2>Écrire un programme Python<a class="headerlink" href="#ecrire-un-programme-python" title="Lien permanent vers ce titre">¶</a></h2>
+<span id="c-python-python"></span><h2>Écrire un programme Python<a class="headerlink" href="#ecrire-un-programme-python" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Le cœur du langage Python ne dispose pas de toutes les fonctions utiles pour la programmation scientifique, et le traitement du signal en particulier.
-Il est donc nécessaire d’importer des modules dans votre code (normallement, ces modules sont installés avec Anaconda).
-En général, nous n’utiliserons que deux modules :</p>
+Il est donc nécessaire d’importer des modules dans votre code (normalement, ces modules sont installés avec Anaconda).
+En général, nous n’utiliserons que trois modules :</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://numpy.org/">numpy</a>, qui fournit des fonctions générales pour la programmation scientifiqueg,</p></li>
-<li><p><a class="reference external" href="https://matplotlib.org/">matplotlib</a> pour afficher les signaux.</p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/math.html">math</a>, pour utiliser des fonctions mathématiques classiques, notamment <span class="math notranslate nohighlight">\(\pi\)</span>,</p></li>
+<li><p><a class="reference external" href="https://numpy.org/">numpy</a>, qui fournit des fonctions générales pour la programmation scientifique,</p></li>
+<li><p><a class="reference external" href="https://matplotlib.org/">matplotlib</a>, pour afficher les signaux.</p></li>
 </ul>
 <p>Les modules Python sont importés dans votre code en utilisant l’instruction <code class="docutils literal notranslate"><span class="pre">import</span></code>.</p>
-<p>Par exemple, le code suivant affiche une sinusoïde :</p>
+<p>Par exemple, le code suivant affiche la sinusoïde <span class="math notranslate nohighlight">\(\sin(2\pi f n)\)</span> de fréquence <span class="math notranslate nohighlight">\(f=0,3\)</span> Hz~:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Une ligne qui commence par le symbole # est un commentaire et n&#39;est donc pas exécutée</span>
@@ -333,13 +340,13 @@ En général, nous n’utiliserons que deux modules :</p>
 <span class="c1"># Import du sous-module &#39;pyplot&#39; du module &#39;matplotlib&#39;, et renommage en &#39;plt&#39;</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
-<span class="c1"># Abscisses sur lesquelles sera calculée la sinusoïde</span>
-<span class="n">n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">)</span>
+<span class="c1"># Abscisses sur lesquelles sera calculée la sinusoïde : un point tous les 0,1 s entre 0 et 10 s</span>
+<span class="n">n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
 
 <span class="c1"># Fréquence de la sinuoïde</span>
-<span class="n">f</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">f</span> <span class="o">=</span> <span class="mf">0.3</span>
 
-<span class="c1"># Calcul de la sinusoïde</span>
+<span class="c1"># Sinusoïde : c&#39;est tout simple, il suffit d&#39;écrire l&#39;expression mathématique 😎</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">f</span><span class="o">*</span><span class="n">n</span><span class="p">)</span>
 
 <span class="c1"># Création d&#39;une figure</span>
@@ -353,18 +360,37 @@ En général, nous n’utiliserons que deux modules :</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;$x[n]$&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Une belle sinusoïde&quot;</span><span class="p">)</span>
 
-<span class="c1"># Affichage de la figure (pas toujours utile)</span>
+<span class="c1"># Affichage (pas toujours nécessaire, mais parfois c&#39;est indispensable)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/python_4_0.png" src="_images/python_4_0.png" />
+<img alt="_images/python_5_0.png" src="_images/python_5_0.png" />
 </div>
 </div>
 </div>
 </div>
 
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
 
               </div>
               
@@ -374,8 +400,8 @@ En général, nous n’utiliserons que deux modules :</p>
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="intro.html" title="previous page">Introduction</a>
-    <a class='right-next' id="next-link" href="td1.html" title="next page">📝 Séance du 06/10/2020</a>
+    <a class='left-prev' id="prev-link" href="tp1.html" title="previous page">Séance du 07/10/2020</a>
+    <a class='right-next' id="next-link" href="biblio.html" title="next page">Références</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
