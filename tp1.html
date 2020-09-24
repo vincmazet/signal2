@@ -2,9 +2,10 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<html lang="fr">
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Séance du 07/10/2020 &#8212; Traitement du signal 2</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="_static/css/index.css" rel="stylesheet">
@@ -15,9 +16,8 @@
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="_static/css/jbvinc.css" />
-    <link rel="stylesheet" type="text/css" href="_static/jupyter-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-dropdown.css" />
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script src="_static/sphinx-book-theme.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
@@ -25,13 +25,11 @@
     <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script src="_static/mystnb.js"></script>
     <script src="_static/sphinx-book-theme.js"></script>
     <script src="_static/translations.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -51,19 +49,19 @@
 
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
-
+    
 
     <div class="container-xl">
       <div class="row">
-
+          
 <div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-
+    
         <div class="navbar-brand-box">
 <a class="navbar-brand text-wrap" href="index.html">
-
-
-  <h1 class="site-logo" id="site-title">Traitement du signal 2 (TEST 12:05)</h1>
-
+  
+  
+  <h1 class="site-logo" id="site-title">Traitement du signal 2</h1>
+  
 </a>
 </div>
 
@@ -104,6 +102,13 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference external" href="https://moodle3.unistra.fr/course/view.php?id=14006">
+   Moodle
+   <i class="fas fa-external-link-alt">
+   </i>
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="python.html">
    Installer et utiliser Python
   </a>
@@ -127,17 +132,17 @@
 </div>
 
 
+          
 
 
-
-
+          
 <main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-
+    
     <div class="row topbar fixed-top container-xl">
     <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
     </div>
     <div class="col pl-2 topbar-main">
-
+        
         <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
             data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
             aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
@@ -146,15 +151,15 @@
             <i class="fas fa-arrow-left"></i>
             <i class="fas fa-arrow-up"></i>
         </button>
-
+        
         <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
             class="fas fa-download"></i></button>
 
-
+    
     <div class="dropdown-buttons">
         <!-- ipynb file if we had a myst markdown file -->
-
+        
         <!-- Download raw file -->
         <a class="dropdown-buttons" href="_sources/tp1.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
@@ -163,7 +168,7 @@
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
-
+    
 </div>
         <!-- Source interaction buttons -->
 
@@ -174,6 +179,22 @@
                     class="fas fa-expand"></i></button></a>
 
         <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/vincmazet/signal2/blob/master/tp1.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
 
     </div>
 
@@ -211,9 +232,9 @@
 </div>
     <div id="main-content" class="row">
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-
+        
               <div>
-
+                
   <div class="section" id="seance-du-07-10-2020">
 <span id="c-tp1"></span><h1>Séance du 07/10/2020<a class="headerlink" href="#seance-du-07-10-2020" title="Lien permanent vers ce titre">¶</a></h1>
 <p>Comme la séance précédente, ce TP est un rappel des notions de première année.
@@ -290,11 +311,11 @@ On suppose que <span class="math notranslate nohighlight">\(T_e=0,5\)</span> s.
 <div class="section" id="analyse-spectrale-d-un-signal-audio">
 <h2>Analyse spectrale d’un signal audio<a class="headerlink" href="#analyse-spectrale-d-un-signal-audio" title="Lien permanent vers ce titre">¶</a></h2>
 <ul class="simple">
-<li><p>Chargez le signal chord.wav (<code class="docutils literal notranslate"><span class="pre">wavfile.read</span></code>).
+<li><p>Chargez le signal <a class="reference external" href="https://vincmazet.github.io/signal2/_static/files/chord.wav">chord.wav</a> (<code class="docutils literal notranslate"><span class="pre">scipy.io.wavfile.read</span></code>).
 C’est un signal sonore enregistré en stéréo : comment le convertir en mono ?
 Affichez-le.</p></li>
 <li><p>Affichez la TFD du signal pour déterminer les harmoniques principales.</p></li>
-<li><p>Quel est l’accord joué ? Vous pouvez également l’écouter si vous avez l’oreille musicale…</p></li>
+<li><p>Quel est l’accord joué ? Vous pouvez également l’écouter si vous avez l’oreille musicale (<code class="docutils literal notranslate"><span class="pre">IPython.display.Audio</span></code>)…</p></li>
 </ul>
 </div>
 </div>
@@ -320,13 +341,13 @@ Affichez-le.</p></li>
     <script>kernelName = 'python3'</script>
 
               </div>
-
+              
         </div>
     </div>
-
-
+    
+    
     <div class='prev-next-bottom'>
-
+        
     <a class='left-prev' id="prev-link" href="td1.html" title="previous page">Séance du 06/10/2020</a>
     <a class='right-next' id="next-link" href="python.html" title="next page">Installer et utiliser Python</a>
 
@@ -334,9 +355,9 @@ Affichez-le.</p></li>
     <footer class="footer mt-5 mt-md-0">
     <div class="container">
       <p>
-
+        
           By Vincent Mazet (Université de Strasbourg)<br/>
-
+        
             &copy; Copyright 2020.<br/>
           <div class="extra_footer">
             Traitement du signal &mdash; Vincent Mazet (Université de Strasbourg), 2020 &mdash; <a href="licence.html">CC BY-NC 4.0</a>.
@@ -351,6 +372,6 @@ Affichez-le.</p></li>
     </div>
 
     <script src="_static/js/index.js"></script>
-
+    
   </body>
 </html>
