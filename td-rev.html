@@ -6,7 +6,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Recherche &#8212; Traitement du signal 2</title>
+    <title>Travaux dirigés &#8212; Traitement du signal 2</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="_static/sphinx-book-theme.css" type="text/css" />
@@ -17,7 +17,6 @@
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="_static/css/jbvinc.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-dropdown.css" />
-    
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
@@ -38,15 +37,13 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script src="_static/searchtools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Recherche" href="#" />
-  <script src="searchindex.js" defer></script>
-  
+    <link rel="search" title="Recherche" href="search.html" />
+    <link rel="next" title="Travaux pratiques" href="tp-rev.html" />
+    <link rel="prev" title="Introduction" href="intro.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="docsearch:language" content="en">
-
 
 
 
@@ -68,7 +65,7 @@
 </a>
 </div>
 
-<form class="bd-search d-flex align-items-center" action="#" method="get">
+<form class="bd-search d-flex align-items-center" action="search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form>
@@ -86,9 +83,9 @@
   Révisions
  </span>
 </p>
-<ul class="nav sidenav_l1">
- <li class="toctree-l1">
-  <a class="reference internal" href="td-rev.html">
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    Travaux dirigés
   </a>
  </li>
@@ -224,6 +221,18 @@
             class="fas fa-download"></i></button>
 
     
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/td-rev.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
 </div>
         <!-- Source interaction buttons -->
 
@@ -235,12 +244,53 @@
 
         <!-- Launch buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/vincmazet/signal2/blob/master/td-rev.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
     </div>
 
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
         <nav id="bd-toc-nav">
-            
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#python">
+   Python
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#signaux-elementaires">
+   Signaux élémentaires
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#produit-de-convolution">
+   Produit de convolution
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#analyse-de-fourier">
+   Analyse de Fourier
+  </a>
+ </li>
+</ul>
+
         </nav>
     </div>
 </div>
@@ -249,26 +299,136 @@
         
               <div>
                 
-  <h1 id="search-documentation">Recherche</h1>
-  <div id="fallback" class="admonition warning">
-  <script>$('#fallback').hide();</script>
-  <p>
-    Veuillez activer le JavaScript pour que la recherche fonctionne.
-  </p>
-  </div>
-  <p>
-    Searching for multiple words only shows matches that contain
-    all words.
-  </p>
-  <form action="" method="get">
-    <input type="text" name="q" aria-labelledby="search-documentation" value="" />
-    <input type="submit" value="rechercher" />
-    <span id="search-progress" style="padding-left: 10px"></span>
-  </form>
-  
-  <div id="search-results">
-  
-  </div>
+  <div class="section" id="travaux-diriges">
+<span id="c-td-rev"></span><h1>Travaux dirigés<a class="headerlink" href="#travaux-diriges" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Cette première séance a pour but de reprendre les notions étudiées en première année, pour se remettre dans le bain…</p>
+<div class="section" id="python">
+<h2>Python<a class="headerlink" href="#python" title="Lien permanent vers ce titre">¶</a></h2>
+<ul class="simple">
+<li><p>Commençons par Python : avez-vous réussi à installer et utiliser Python ?</p></li>
+</ul>
+</div>
+<div class="section" id="signaux-elementaires">
+<h2>Signaux élémentaires<a class="headerlink" href="#signaux-elementaires" title="Lien permanent vers ce titre">¶</a></h2>
+<ul>
+<li><p>Donnez des exemples concrets de signaux échantillonnés, de signaux à temps continu,
+de signaux quantifiés, de signaux analogiques et de signaux numériques.</p></li>
+<li><p>Qu’est-ce qu’un signal causal ?</p></li>
+<li><p>Donnez la définition mathématique et représentez les signaux suivants :</p>
+<ul class="simple">
+<li><p>un échelon,</p></li>
+<li><p>une impulsion de Dirac,</p></li>
+<li><p>une impulsion de Kronecker,</p></li>
+<li><p>une fonction de Heaviside,</p></li>
+<li><p>un peigne de Dirac.</p></li>
+</ul>
+</li>
+<li><p>Représentez les signaux</p>
+<div class="math notranslate nohighlight">
+\[
+    x(t) = 4\,\sin(3\pi t+\pi)
+    \qquad
+    y(t) = 2\,\delta(t-1) - \delta(t+1).
+  \]</div>
+</li>
+<li><p>Donnez la définition du sinus cardinal.
+Parmi les signaux suivants, lequel pourrait correspondre à <span class="math notranslate nohighlight">\(\mathrm{sinc}(t)\)</span> ?</p>
+<div class="figure align-default">
+<img alt="_images/td1-sinc.png" src="_images/td1-sinc.png" />
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="produit-de-convolution">
+<h2>Produit de convolution<a class="headerlink" href="#produit-de-convolution" title="Lien permanent vers ce titre">¶</a></h2>
+<ul>
+<li><p>Calculez le produit de convolution <span class="math notranslate nohighlight">\((x*y)[n]\)</span> où (<span class="math notranslate nohighlight">\(a\in\mathbb{R}\)</span>) :</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+    x[n] =
+    \begin{cases}
+      +1 &amp;\text{pour } n=1, \\
+      -1 &amp;\text{pour } n=-1, \\
+      0  &amp;\text{ailleurs},
+    \end{cases}
+    \qquad\qquad
+    y[n] =
+    \begin{cases}
+      a &amp;\text{pour } |n| \leq 1, \\
+      0 &amp;\text{ailleurs}.
+    \end{cases}
+  \end{split}\]</div>
+</li>
+<li><p>Représentez schématiquement les produits de convolution des signaux ci-dessous.</p>
+<ul class="simple">
+<li><p>A :</p></li>
+</ul>
+<div class="figure align-default">
+<img alt="_images/td1-conv-1.png" src="_images/td1-conv-1.png" />
+</div>
+<ul class="simple">
+<li><p>B :</p></li>
+</ul>
+<div class="figure align-default">
+<img alt="_images/td1-conv-2.png" src="_images/td1-conv-2.png" />
+</div>
+<ul class="simple">
+<li><p>C :</p></li>
+</ul>
+<div class="figure align-default">
+<img alt="_images/td1-conv-3.png" src="_images/td1-conv-3.png" />
+</div>
+</li>
+<li><p>Simplifiez les expressions suivantes :</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\((x*d_0)(t)\;\)</span>   où : <span class="math notranslate nohighlight">\(\quad d_0(t) = \delta(t-\tau)\;\)</span> et <span class="math notranslate nohighlight">\(\;x(t)\)</span> est un signal quelconque</p></li>
+<li><p><span class="math notranslate nohighlight">\((d_1*d_2)(t)\;\)</span> où : <span class="math notranslate nohighlight">\(\quad d_1(t) = \delta(t+t_1)\;\)</span>  et <span class="math notranslate nohighlight">\(\;d_2(t) = \delta(t+t_2)\)</span>.</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="analyse-de-fourier">
+<h2>Analyse de Fourier<a class="headerlink" href="#analyse-de-fourier" title="Lien permanent vers ce titre">¶</a></h2>
+<ul>
+<li><p>Calculez la transformée de Fourier du signal continu et apériodique</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+    x(t) = A\,\mathrm{rect}(2t/T) =
+    \begin{cases}
+      A &amp;\text{si } -\frac{T}{4} \leq t \leq \frac{T}{4}, \\
+      0 &amp;\text{sinon}.
+    \end{cases}
+  \end{split}\]</div>
+</li>
+<li><p>Quel est, intuitivement, le spectre d’un signal temporel constant ?
+En déduire le spectre d’une impulsion de Dirac centrée en 0.
+Qu’en concluez-vous sur la composition fréquentielle d’une impulsion de Dirac ?</p></li>
+<li><p>La transformée de Fourier discrète est-elle périodique ? à support continu ? à valeurs réelles ?</p></li>
+<li><p>Représentez le spectre de <span class="math notranslate nohighlight">\(\cos(t)\)</span> sans calculer sa série de Fourier.</p></li>
+<li><p>Rappelez le théorème de l’échantillonnage (ou théorème de Nyquist-Shannon).</p></li>
+</ul>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
 
               </div>
               
@@ -278,6 +438,8 @@
     
     <div class='prev-next-bottom'>
         
+    <a class='left-prev' id="prev-link" href="intro.html" title="previous page">Introduction</a>
+    <a class='right-next' id="next-link" href="tp-rev.html" title="next page">Travaux pratiques</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
