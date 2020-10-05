@@ -40,7 +40,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Recherche" href="search.html" />
     <link rel="next" title="Transformée de Laplace" href="laplace.html" />
-    <link rel="prev" title="Travaux pratiques" href="tp-rev.html" />
+    <link rel="prev" title="TP Révisions" href="tp-rev.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="docsearch:language" content="en">
@@ -268,7 +268,115 @@
             <i class="fas fa-list"></i> Contents
         </div>
         <nav id="bd-toc-nav">
-            
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vocabulaire">
+   Vocabulaire
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#systeme-lineaire">
+     Système linéaire
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#systeme-invariant">
+     Système invariant
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#systeme-lineaire-invariant">
+     Système linéaire invariant
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#systeme-stable">
+     Système stable
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#reponse-impulsionnelle">
+     Réponse impulsionnelle
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#reponse-frequentielle">
+     Réponse fréquentielle
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#gain">
+     Gain
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#phase">
+     Phase
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#retard-de-groupe">
+     Retard de groupe
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#filtres-ideaux">
+   Filtres idéaux
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#filtre-passe-bas">
+     Filtre passe bas
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#filtre-passe-haut">
+     Filtre passe-haut
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#filtre-passe-bande">
+     Filtre passe-bande
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#filtre-coupe-bande">
+     Filtre coupe-bande
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#filtre-passe-tout">
+     Filtre passe tout
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#filtres-realisables">
+   Filtres réalisables
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#gabarit-d-un-filtre">
+     Gabarit d’un filtre
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#frequence-de-coupure">
+     Fréquence de coupure
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#conception-d-un-filtre">
+     Conception d’un filtre
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
         </nav>
     </div>
 </div>
@@ -279,6 +387,364 @@
                 
   <div class="section" id="introduction">
 <span id="c-filtre-intro"></span><h1>Introduction<a class="headerlink" href="#introduction" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Un filtre est un <em>système</em>, c’est-à-dire un processus qui transforme un signal d’entrée <span class="math notranslate nohighlight">\(x\)</span> en un signal de sortie <span class="math notranslate nohighlight">\(y\)</span>.</p>
+<div class="figure align-default">
+<a class="reference internal image-reference" href="_images/filtre-def1.png"><img alt="_images/filtre-def1.png" src="_images/filtre-def1.png" style="width: 350px;" /></a>
+</div>
+<div class="math notranslate nohighlight">
+\[
+y = \mathcal{S}(x)
+\]</div>
+<p>Nous ne considérons dans le cours que des filtres <em>linéaires</em> et <em>invariants</em> (on parle donc de <em>systèmes linéaires invariants</em>).
+Ces filtres permettent de modifier un signal d’entrée en atténuant ou en amplifiant certaines de ses fréquences.</p>
+<div class="example">
+<p>Une <a class="reference external" href="https://fr.wikipedia.org/wiki/%C3%89galiseur">égaliseur</a>
+est un appareil qui permet d’augmenter ou de réduire les basses et les aigus d’un signal sonore.
+Il s’agit donc d’un filtre qui va amplifier ou atténuer les fréquences du signal.</p>
+<a class="reference internal image-reference" href="https://images.unsplash.com/photo-1500702790369-fe461685b3c8?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1950&amp;q=80"><img alt="Égaliseur" src="https://images.unsplash.com/photo-1500702790369-fe461685b3c8?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1950&amp;q=80" style="width: 300px;" /></a>
+</div>
+<div class="example">
+<p>Un filtre anti-repliement, que l’on utilise en amont d’un convertisseur analogique–numérique,
+supprime les hautes fréquences afin d’éviter les problèmes de repliement spectral (ou <em>aliasing</em>) lors de l’échantillonnage.</p>
+</div>
+<!-- Pendant longtemps, le rôle du filtrage à surtout constitué dans l'élimination des bruits et parasites présents dans les mesures.
+Sa mise en œuvre a été du ressort des électroniciens.
+Avec l'avènement de l'automatique et des calculateurs numériques,
+le filtrage est devenu une théorie à part entière du traitement du signal. --><div class="section" id="vocabulaire">
+<h2>Vocabulaire<a class="headerlink" href="#vocabulaire" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Cette section définit plusieurs termes spécifiques propres au filtres et aux systèmes linéaires invariants.
+Tout d’abord, nous expliquons ce qu’est un système linéaire invariant,
+puis nous introduisons la notion de stabilité d’un système,
+et enfin nous listons ce qui caractérise un filtre,
+en particulier sa réponse impulsionnelle et sa réponse fréquentielle.</p>
+<div class="section" id="systeme-lineaire">
+<h3>Système linéaire<a class="headerlink" href="#systeme-lineaire" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Un système <span class="math notranslate nohighlight">\(\mathcal{S}\)</span> est linéaire si, lorsque son entrée est la somme pondérée de deux signaux <span class="math notranslate nohighlight">\(x\)</span> et <span class="math notranslate nohighlight">\(y\)</span>,
+alors sa sortie est la somme pondérée des réponses du système à <span class="math notranslate nohighlight">\(x\)</span> et <span class="math notranslate nohighlight">\(y\)</span> :</p>
+<div class="math notranslate nohighlight">
+\[
+\mathcal{S}(\alpha x + \beta y) = \alpha \mathcal{S}(x) + \beta \mathcal{S}(y).
+\]</div>
+<div class="example">
+<p>Un élastique a, dans des conditions d’utilisation normale, un comportement linéaire :
+plus on le tend (<span class="math notranslate nohighlight">\(\alpha\)</span> augmente), plus il s’agrandit (et cela, de manière proportionnelle à <span class="math notranslate nohighlight">\(\alpha\)</span>).
+Cependant, si la tension est trop forte, alors il casse et ne s’agrandit plus de manière proportionnelle à <span class="math notranslate nohighlight">\(\alpha\)</span>.
+Dans ce cas, on ne peut plus le considérer comme étant linéaire.</p>
+</div>
+</div>
+<div class="section" id="systeme-invariant">
+<h3>Système invariant<a class="headerlink" href="#systeme-invariant" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Un système est invariant dans le temps si son comportement et ses caractéristiques n’évoluent pas.
+Aussi, si <span class="math notranslate nohighlight">\(y\)</span> est la sortie du sytème à une entrée <span class="math notranslate nohighlight">\(x\)</span>,
+ce sera toujours le cas quel que soit l’instant <span class="math notranslate nohighlight">\(n_0\)</span> auquel apparaît <span class="math notranslate nohighlight">\(x\)</span> :</p>
+<div class="math notranslate nohighlight">
+\[
+y[n] = \mathcal{S}(x[n])
+\quad\Leftrightarrow\quad
+y[n-n_0] = \mathcal{S}(x[n-n_0])
+\]</div>
+<div class="example">
+<p>Un circuit électrique peut être considéré comme un système invariant,
+car normalement les caractéristiques de ses composants ne varient pas dans le temps.
+Ce n’est pas le cas lorsqu’on observe un circuit sur un temps très long (les composants changent en vieillissant),
+dans des conditions qui évoluent (la température peut avoir un impact sur la résistance des composants)
+ou si l’un des composant peut changer (potentiomètre par exemple).</p>
+</div>
+</div>
+<div class="section" id="systeme-lineaire-invariant">
+<h3>Système linéaire invariant<a class="headerlink" href="#systeme-lineaire-invariant" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Les systèmes à la fois linéaires et invariants jouent un rôle important en traitement du signal.
+On parle de systèmes linéaires invariant (<em>linear-time invariant system</em> ou <em>LTI system</em>).
+En effet, la linéarité et l’invariance ont un rôle fondamental pour trois raisons :</p>
+<ul class="simple">
+<li><p>la plupart des systèmes physiques possèdent naturellement ces deux propriétés,</p></li>
+<li><p>l’analyse d’un stystème linéaire invariant peut être très poussée car c’est une modélisation simple,</p></li>
+<li><p>la sortie d’un système linéaire invariant s’exprime par la convolution de l’entrée
+avec la <a class="reference internal" href="#s-filtres-ri"><span class="std std-ref">réponse impulsionnelle</span></a> du système
+(ce qui n’est pas le cas pour d’autres systèmes n’ayant pas ces deux propriétés).</p></li>
+</ul>
+</div>
+<div class="section" id="systeme-stable">
+<h3>Système stable<a class="headerlink" href="#systeme-stable" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Un système est stable si une petite modification de son entrée ne fait pas diverger sa sortie,
+c’est-à-dire qu’elle revient à son état initial où ne s’en éloignent pas indéfiniment
+(elle atteint toujours une valeur limite).
+Formellement, un système est stable si la sortie ne tend pas vers l’infini lorsque l’entrée ne tend pas non plus vers l’infini.
+On peut montrer que sa <a class="reference internal" href="#s-filtres-ri"><span class="std std-ref">réponse impulsionnelle</span></a> est absolument sommable
+(c’est-à-dire que l’intégrale, ou la somme, de la valeur absolue des valeurs de la réponse impulsionnelle n’est pas infinie).</p>
+<div class="example">
+<p>Un <a class="reference external" href="https://fr.wikipedia.org/wiki/Pendule_simple">pendule</a> est un système stable :
+quelle que soit la position et la vitesse initiale qu’on lui donne (et qui constituent l’entrée),
+il oscillera autour de son point d’équilibre (la sortie du système étant sa position).</p>
+<p>À l’inverse, un pendule inversé (qui est initialement positionné avec la masse en équilibre au dessus de l’axe de rotation)
+n’est pas un système stable :
+un petit déséquilibre de sa position intiale le fait tendre vers une position d’équilibre différente de la position initiale.</p>
+</div>
+</div>
+<div class="section" id="reponse-impulsionnelle">
+<span id="s-filtres-ri"></span><h3>Réponse impulsionnelle<a class="headerlink" href="#reponse-impulsionnelle" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Un filtre est caractérisé par sa réponse impulsionnelle (<em>impulse response</em>) <span class="math notranslate nohighlight">\(h\)</span>
+qui correspond à la sortie du filtre lorsque l’entrée est une impulsion <span class="math notranslate nohighlight">\(\delta\)</span>.</p>
+<div class="figure align-default">
+<a class="reference internal image-reference" href="_images/filtre-def2.png"><img alt="_images/filtre-def2.png" src="_images/filtre-def2.png" style="width: 350px;" /></a>
+</div>
+<p>On montre que pour n’importe quelle entrée <span class="math notranslate nohighlight">\(x\)</span>, la sortie du filtre est la convolution entre <span class="math notranslate nohighlight">\(x\)</span> et <span class="math notranslate nohighlight">\(h\)</span> :</p>
+<div class="math notranslate nohighlight">
+\[
+  y = h * x.
+\]</div>
+<p>Si l’entrée est une impulsion, la sortie correspond bien à la réponse impulsionnelle h puisque <span class="math notranslate nohighlight">\(y=h*x = h*\delta=h\)</span>.</p>
+</div>
+<div class="section" id="reponse-frequentielle">
+<h3>Réponse fréquentielle<a class="headerlink" href="#reponse-frequentielle" title="Lien permanent vers ce titre">¶</a></h3>
+<p>La transformée de Fourier de la réponse impulsionnelle est appelée « réponse fréquentielle » (<em>frequency response</em>).
+Elle représente les modifications apportées au signal d’entrée en fonction de la fréquence.</p>
+<p>Comme la sortie <span class="math notranslate nohighlight">\(y\)</span> du filtre est la convolution de l’entrée <span class="math notranslate nohighlight">\(x\)</span> avec la réponse impulsionnelle <span class="math notranslate nohighlight">\(h\)</span>,
+alors la transformée de Fourier de la sortie <span class="math notranslate nohighlight">\(Y\)</span> est la multiplication de la transformée de Fourier de l’entrée <span class="math notranslate nohighlight">\(X\)</span>
+avec la réponse fréquentielle <span class="math notranslate nohighlight">\(H\)</span> :</p>
+<div class="math notranslate nohighlight">
+\[
+  y = h * x
+  \qquad\Leftrightarrow\qquad
+  Y = H×X.
+\]</div>
+<p>Très souvent, la réponse fréquentielle est complexe (puisqu’elle est issue du calcul d’une transformée de Fourier).
+Pour simplifier son analyse on étudiera plutôt son gain, sa phase ou son retard de groupe.</p>
+</div>
+<div class="section" id="gain">
+<h3>Gain<a class="headerlink" href="#gain" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Le gain (<em>magnitude</em>) <span class="math notranslate nohighlight">\(G\)</span> d’un filtre est le module de sa réponse fréquentielle <span class="math notranslate nohighlight">\(H\)</span> :</p>
+<div class="math notranslate nohighlight">
+\[
+  G(f) = \left|H(f)\right|.
+\]</div>
+<p>Il est souvent défini avec une échelle logarithmique et s’exprime alors en décibel (dB) :</p>
+<div class="math notranslate nohighlight">
+\[
+  G_\mathrm{dB}(f) = 20\,\log_{10} \left|H(f)\right|.
+\]</div>
+</div>
+<div class="section" id="phase">
+<h3>Phase<a class="headerlink" href="#phase" title="Lien permanent vers ce titre">¶</a></h3>
+<p>La phase (<em>phase</em>) <span class="math notranslate nohighlight">\(\varphi\)</span> d’un filtre est l’argument de la réponse fréquentielle :</p>
+<div class="math notranslate nohighlight">
+\[
+  \varphi(f) = \mathrm{Arg} \left(H(f)\right)
+\]</div>
+<p>où <span class="math notranslate nohighlight">\(\mathrm{Arg}\)</span> est l’argument d’un nombre complexe.</p>
+</div>
+<div class="section" id="retard-de-groupe">
+<h3>Retard de groupe<a class="headerlink" href="#retard-de-groupe" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Une autre représentation importante est le retard de groupe (<em>group delay</em>) <span class="math notranslate nohighlight">\(\tau\)</span> défini comme la dérivée de la phase :</p>
+<div class="math notranslate nohighlight">
+\[
+  \tau(f) = - \frac{1}{2\pi} \frac{d \varphi(f)}{df}.
+\]</div>
+<p>Une phase linéaire implique donc un retard de groupe constant.</p>
+</div>
+</div>
+<div class="section" id="filtres-ideaux">
+<span id="s-filtre-intro-ideaux"></span><h2>Filtres idéaux<a class="headerlink" href="#filtres-ideaux" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="section" id="filtre-passe-bas">
+<span id="s-filtre-intro-pbas"></span><h3>Filtre passe bas<a class="headerlink" href="#filtre-passe-bas" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Un filtre passe-bas (<em>low-pass filter</em>) laisse passer les fréquences faibles et arrête les fréquences hautes.
+Sa réponse fréquentielle s’écrit sous la forme :</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+H(f) = \begin{cases}
+  K e^{-j 2\pi f a} &amp;\text{si}\; |f| \leq f_c, \\
+  0                 &amp;\text{si}\; |f| &gt; f_c
+\end{cases}
+\end{split}\]</div>
+<p>où <span class="math notranslate nohighlight">\(K\)</span> et <span class="math notranslate nohighlight">\(a\)</span> sont deux paramètres du filtre et <span class="math notranslate nohighlight">\(f_c\)</span> est la « fréquence de coupure » (<em>cutoff frequency</em>).
+Le gain de ce filtre est donc :</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+G(f) = |H(f)| = \begin{cases}
+  K &amp;\text{si}\; |f| \leq f_c, \\
+  0 &amp;\text{si}\; |f| &gt; f_c.
+\end{cases}
+\end{split}\]</div>
+<p>Le gain du filtre passe-bas idéal est représenté <a class="reference internal" href="#f-filtre-intro-pbas-ideal"><span class="std std-numref">Fig. 1</span></a> :
+le gain dans les hautes fréquences est nul, donc le filtre passe-bas supprimera toute fréquence supérieure à <span class="math notranslate nohighlight">\(f_c\)</span>.
+Cette bande de fréquence est appelée « bande atténuée »,
+et la bande de fréquence pour laquelle le gain n’est pas nul est la « bande passante ».</p>
+<div class="figure align-default" id="f-filtre-intro-pbas-ideal">
+<a class="reference internal image-reference" href="_images/filtre-pbas-ideal.png"><img alt="_images/filtre-pbas-ideal.png" src="_images/filtre-pbas-ideal.png" style="width: 300px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 1 </span><span class="caption-text">Gain d’un filtre passe-bas idéal.</span><a class="headerlink" href="#f-filtre-intro-pbas-ideal" title="Lien permanent vers cette image">¶</a></p>
+</div>
+<p>Intéressons-nous à la réponse impulsionnelle de ce filtre,
+en nous plaçant dans le domaine analogique.
+Par définition, la réponse impulsionnelle <span class="math notranslate nohighlight">\(h(t)\)</span> du filtre passe-bas idéal
+est la transformée de Fourier inverse de sa réponse impulsionnelle <span class="math notranslate nohighlight">\(H(f)\)</span>, et donc :</p>
+<div class="math notranslate nohighlight">
+\[
+h(t) = 2 K f_c \mathrm{sinc}(2 f_c (t-a))
+\]</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Démonstration</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+h(t) &amp;= \mathcal{F}^{-1}\left[H(f)\right](t) \\
+     &amp;= \int_{-f_c}^{+f_c} K e^{-j 2\pi f a} e^{+j 2\pi f t} df \\
+     &amp;= \int_{-f_c}^{+f_c} K e^{+j 2\pi f (t-a)} df \\
+     &amp;= K \left[ \frac{e^{+j 2\pi f (t-a)}}{+j 2\pi (t-a)}  \right]_{-f_c}^{+f_c} \\
+     &amp;= K \frac{e^{+j 2\pi f_c (t-a)} - e^{-j 2\pi f_c (t-a)}}{+j 2\pi (t-a)} \\
+     &amp;= K \frac{1}{\pi (t-a)} \sin(2\pi f_c (t-a)) \\
+     &amp;= K \frac{1}{\pi (t-a)} \sin(2\pi f_c (t-a)) \frac{2f_c}{2f_c} \\
+     &amp;= 2 K f_c \mathrm{sinc}(2 f_c (t-a))
+\end{split}\]</div>
+</div>
+<p>La réponse impulsionnelle de l’équation précédente est représentée <a class="reference internal" href="#f-filtre-intro-pbas-ideal-ri"><span class="std std-numref">Fig. 2</span></a>.</p>
+<div class="figure align-default" id="f-filtre-intro-pbas-ideal-ri">
+<div class="cell_output docutils container">
+<img alt="_images/filtre-intro_4_0.png" src="_images/filtre-intro_4_0.png" />
+</div>
+<p class="caption"><span class="caption-number">Fig. 2 </span><span class="caption-text">Réponse impulsionnelle du filtre passe-bas idéal (ici : <span class="math notranslate nohighlight">\(K\)</span> = 0,9, <span class="math notranslate nohighlight">\(f_c\)</span> = 0,5, <span class="math notranslate nohighlight">\(a\)</span> = 0,7).</span><a class="headerlink" href="#f-filtre-intro-pbas-ideal-ri" title="Lien permanent vers cette image">¶</a></p>
+</div>
+<p> </p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<p>En fait, il existe tout de même une manière de réaliser un filtre idéal en effectuant l’opération dans le domaine de Fourier.
+Cela implique toutefois que le filtrage se fasse sur le signal en entier :
+ce n’est donc possible que sur un signal enregistré, mais pas en temps réel.</p>
+</div>
+<p>On observe qu’elle est infinie, et donc non causale (elle n’est pas nulle pour <span class="math notranslate nohighlight">\(t&lt;0\)</span>).
+Qu’est-ce que cela implique ?
+Et bien ce filtre n’est pas réalisable !
+En effet, pour pouvoir implémenter un tel filtre (et donc effectuer convenablement la convolution),
+il aurait déjà fallu commencer le filtrage il y a très très longtemps, et le filtrage se poursuivra jusqu’à la fin des temps ! 😵</p>
+</div>
+<div class="section" id="filtre-passe-haut">
+<h3>Filtre passe-haut<a class="headerlink" href="#filtre-passe-haut" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Un filtre passe-haut (<em>high-pass filter</em>) laisse passer les fréquences hautes et arrête les fréquences faibles.
+Sa réponse fréquentielle s’écrit sous la forme suivante et son gain est représenté <a class="reference internal" href="#f-filtre-intro-phaut-ideal"><span class="std std-numref">Fig. 3</span></a>.
+Comme pour le filtre passe-bas idéal, il n’est pas réalisable.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+H(f) = \begin{cases}
+  K e^{-j 2\pi f a} &amp;\text{si} |f| \geq f_c, \\
+  0                 &amp;\text{si} |f| &lt; f_c.
+\end{cases}
+\end{split}\]</div>
+<div class="figure align-default" id="f-filtre-intro-phaut-ideal">
+<a class="reference internal image-reference" href="_images/filtre-phaut-ideal.png"><img alt="_images/filtre-phaut-ideal.png" src="_images/filtre-phaut-ideal.png" style="width: 300px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 3 </span><span class="caption-text">Gain d’un filtre passe-haut idéal.</span><a class="headerlink" href="#f-filtre-intro-phaut-ideal" title="Lien permanent vers cette image">¶</a></p>
+</div>
+</div>
+<div class="section" id="filtre-passe-bande">
+<h3>Filtre passe-bande<a class="headerlink" href="#filtre-passe-bande" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Un filtre passe-bande (<em>band-pass filter</em>) laisse passer les fréquences moyennes,
+entre deux fréquences de coupure <span class="math notranslate nohighlight">\(f_{c-}\)</span> et <span class="math notranslate nohighlight">\(f_{c+}\)</span>.
+Sa réponse fréquentielle s’écrit sous la forme suivante et son gain est représenté <a class="reference internal" href="#f-filtre-intro-pbande-ideal"><span class="std std-numref">Fig. 4</span></a>.
+Il n’est pas réalisable.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+H(f) = \begin{cases}
+  K e^{-j 2\pi f a} &amp;\text{si} f_{c-} \leq |f| \leq f_{c+}, \\
+  0                 &amp;\text{sinon}.
+\end{cases}
+\end{split}\]</div>
+<div class="figure align-default" id="f-filtre-intro-pbande-ideal">
+<a class="reference internal image-reference" href="_images/filtre-pbande-ideal.png"><img alt="_images/filtre-pbande-ideal.png" src="_images/filtre-pbande-ideal.png" style="width: 300px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 4 </span><span class="caption-text">Gain d’un filtre passe-bande idéal.</span><a class="headerlink" href="#f-filtre-intro-pbande-ideal" title="Lien permanent vers cette image">¶</a></p>
+</div>
+</div>
+<div class="section" id="filtre-coupe-bande">
+<h3>Filtre coupe-bande<a class="headerlink" href="#filtre-coupe-bande" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Un filtre coupe-bande (<em>band-stop filter</em>) ne supprime que les fréquences situées entre <span class="math notranslate nohighlight">\(f_{c-}\)</span> et <span class="math notranslate nohighlight">\(f_{c+}\)</span>.
+Sa réponse fréquentielle s’écrit sous la forme suivante et son gain est représenté <a class="reference internal" href="#f-filtre-intro-cbande-ideal"><span class="std std-numref">Fig. 5</span></a>.
+Il n’est pas réalisable.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+H(f) = \begin{cases}
+  0                 &amp;\text{si} f_{c-} \leq |f| \leq f_{c+}, \\
+  K e^{-j 2\pi f a} &amp;\text{sinon}.
+\end{cases}
+\end{split}\]</div>
+<div class="figure align-default" id="f-filtre-intro-cbande-ideal">
+<a class="reference internal image-reference" href="_images/filtre-cbande-ideal.png"><img alt="_images/filtre-cbande-ideal.png" src="_images/filtre-cbande-ideal.png" style="width: 300px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 5 </span><span class="caption-text">Gain d’un filtre coupe-bande idéal.</span><a class="headerlink" href="#f-filtre-intro-cbande-ideal" title="Lien permanent vers cette image">¶</a></p>
+</div>
+</div>
+<div class="section" id="filtre-passe-tout">
+<h3>Filtre passe tout<a class="headerlink" href="#filtre-passe-tout" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Un filtre passe-tout (<em>all-stop filter</em>) laisse passer toutes les fréquences sont les atténuer, mais modifie leur phase.
+Il est utilisé pour linéariser la phase où introduire des retards.
+Sa réponse fréquentielle s’écrit sous la forme suivante et son gain est représenté <a class="reference internal" href="#f-filtre-intro-ptout-ideal"><span class="std std-numref">Fig. 6</span></a>.
+Comme tous les filtres idéaux précédents, il n’est pas réalisable et bravo si vous lisez encore ce texte !</p>
+<div class="math notranslate nohighlight">
+\[
+H(f) = K e^{-j 2\pi f a}.
+\]</div>
+<div class="figure align-default" id="f-filtre-intro-ptout-ideal">
+<a class="reference internal image-reference" href="_images/filtre-ptout-ideal.png"><img alt="_images/filtre-ptout-ideal.png" src="_images/filtre-ptout-ideal.png" style="width: 300px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 6 </span><span class="caption-text">Gain d’un filtre passe-tout idéal.</span><a class="headerlink" href="#f-filtre-intro-ptout-ideal" title="Lien permanent vers cette image">¶</a></p>
+</div>
+</div>
+</div>
+<div class="section" id="filtres-realisables">
+<h2>Filtres réalisables<a class="headerlink" href="#filtres-realisables" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Comme on l’a vu dans la section <a class="reference internal" href="#s-filtre-intro-ideaux"><span class="std std-ref">Filtres idéaux</span></a>,
+il est impossible de réaliser des filtres idéaux (en temporel en tout cas).
+Par conséquent, les filtres réalisables ne sont que des approximations des filtres idéaux :</p>
+<ul class="simple">
+<li><p>des variations de gain dans les bandes passante et atténuée peuvent apparaître,</p></li>
+<li><p>les transitions d’une bande à l’autre ne peuvent pas être aussi brusques que pour les filtres idéaux.</p></li>
+</ul>
+<p>La figure <a class="reference internal" href="#f-filtre-intro-reel"><span class="std std-numref">Fig. 7</span></a> représente un exemple de gain pour un filtre passe-bas réalisable.</p>
+<div class="figure align-default" id="f-filtre-intro-reel">
+<a class="reference internal image-reference" href="_images/filtre-reel.png"><img alt="_images/filtre-reel.png" src="_images/filtre-reel.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 7 </span><span class="caption-text">Exemple de gain pour un filtre passe-bas réalisable (en bleu) et idéal (en rouge).</span><a class="headerlink" href="#f-filtre-intro-reel" title="Lien permanent vers cette image">¶</a></p>
+</div>
+<div class="section" id="gabarit-d-un-filtre">
+<h3>Gabarit d’un filtre<a class="headerlink" href="#gabarit-d-un-filtre" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Par conséquent, la définition des caractéristiques d’un filtre nécessite au préalable la définition d’un gabarit
+(<em>filter specification</em>) qui définit :</p>
+<ul class="simple">
+<li><p>l’ondulation maximale autorisée en bande passante (<em>pass-band ripple</em>), que l’on souhaite la plus faible possible,</p></li>
+<li><p>l’atténuation minimale en bande atténuée (<em>stop-band attenuation</em>), que l’on souhaite la plus forte possible,</p></li>
+<li><p>la largeur de transition entre bande passante et bande atténuée (<em>transition band</em>),
+que l’on souhaite la plus étroite possible.</p></li>
+</ul>
+<p>À cela s’ajoute la volonté d’avoir un filtre le plus simple possible (car plus facile à réaliser et moins cher),
+ce qui implique une fonction de transfert d’ordre le plus faible possible (on le verra plus loin).</p>
+</div>
+<div class="section" id="frequence-de-coupure">
+<h3>Fréquence de coupure<a class="headerlink" href="#frequence-de-coupure" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Par ailleurs, la transition entre les bandes passante et atténuée n’étant plus instantanée,
+il faut redéfinir la fréquence de coupure.
+Généralement, la fréquence de coupure est définie comme la fréquence
+à laquelle le filtre a perdu la moitié de sa puissance instantanée <span class="math notranslate nohighlight">\(P(f)\)</span>,
+la puissance instantanée étant le carré du gain.</p>
+<p>On cherche donc la valeur de <span class="math notranslate nohighlight">\(f\)</span> pour laquelle <span class="math notranslate nohighlight">\(P(f) = \frac{1}{2} P_\mathrm{max}\)</span>, donc :</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+P(f) &amp;= \frac{1}{2} P_\mathrm{max} \\
+\Leftrightarrow\qquad |H(f)|^2 &amp;= \frac{1}{2} |H(f)|^2_\mathrm{max} \\
+\Leftrightarrow\qquad 10 \log_{10} |H(f)|^2 &amp;= 10 \log_{10} \left[ \frac{1}{2} |H(f)|^2_\mathrm{max} \right] \\
+\Leftrightarrow\qquad 20 \log_{10} |H(f)| &amp;= 10 \log_{10} \frac{1}{2} + 20 \log_{10} |H(f)|_\mathrm{max} \\
+\Leftrightarrow\qquad G_\text{dB}(f) &amp;\approx -3.010 + {G_\text{dB}}_\mathrm{max} \\
+\end{split}\]</div>
+<p>En arrondissant la valeur de <span class="math notranslate nohighlight">\(10 \log_{10} \frac{1}{2}\)</span> à <span class="math notranslate nohighlight">\(3\)</span>,
+on définit la fréquence de coupure <span class="math notranslate nohighlight">\(f_c\)</span> comme étant la fréquence à laquelle le gain du filtre
+est à 3 dB sous le gain maximal.</p>
+</div>
+<div class="section" id="conception-d-un-filtre">
+<h3>Conception d’un filtre<a class="headerlink" href="#conception-d-un-filtre" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Pour résumer, la conception d’un filtre commence par la définition d’un gabarit,
+puis on choisit une méthode de conception pour obtenir un filtre dont la réponse fréquentielle vérifie ce gabarit.
+Les sections <a class="reference internal" href="filtre-analogique.html#c-filtre-analogique"><span class="std std-ref">Filtres analogiques</span></a> et <a class="reference internal" href="filtre-numerique.html#c-filtre-numerique"><span class="std std-ref">Filtres numériques</span></a> présenteront des méthodes pour cela.</p>
+<p>Jusqu’ici, on a beaucoup plus parlé des spécifications des filtres en gain, et non en phase.
+En effet, la réalisation de filtres vérifiant à la fois des spécifications en gain et en phase est trop difficile,
+voire impossible.
+Heureusement, dans la plupart des applications, seul le gain est important ;
+dans ce cas, la phase n’est pas spécifiée et acceptée telle quelle.</p>
+<p>En revanche, si le gain et la phase sont tous les deux importants,
+alors on conçoit d’abord un filtre vérifiant le gain puis, si la phase obtenue n’est pas satisfaisante,
+on ajoute des filtres appelés « égaliseurs de phase » qui n’agissent que sur la phase.</p>
+</div>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -309,7 +775,7 @@
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="tp-rev.html" title="previous page">Travaux pratiques</a>
+    <a class='left-prev' id="prev-link" href="tp-rev.html" title="previous page">TP Révisions</a>
     <a class='right-next' id="next-link" href="laplace.html" title="next page">Transformée de Laplace</a>
 
     </div>

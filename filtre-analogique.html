@@ -268,7 +268,36 @@
             <i class="fas fa-list"></i> Contents
         </div>
         <nav id="bd-toc-nav">
-            
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#synthese-des-filtres-analogiques">
+   Synthèse des filtres analogiques
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#filtre-de-butterworth">
+     Filtre de Butterworth
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#filtre-de-bessel">
+     Filtre de Bessel
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#filtre-de-tchebychev">
+     Filtre de Tchebychev
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#filtre-de-cauer">
+     Filtre de Cauer
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
         </nav>
     </div>
 </div>
@@ -279,6 +308,150 @@
                 
   <div class="section" id="filtres-analogiques">
 <span id="c-filtre-analogique"></span><h1>Filtres analogiques<a class="headerlink" href="#filtres-analogiques" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Malgré le développement incontestable du traitement numérique du signal, le filtrage analogique reste indispensable.
+Par exemple, les filtres anti-repliement seront incontournables pour réduire la bande passante d’un signal analogique.
+De plus, certaines méthodes de synthèse de filtres numériques nécessitent de définir un filtre analogique.</p>
+<p>Les premiers développements de filtres analogiques datent du début du XX<sup>e</sup> siècle avec la téléphonie.
+Les premières théories ont été développées dans les années 1930–1940.
+Les premiers filtres actifs (utilisant des composants actifs) sont apparus dans les années 1940.</p>
+<div class="section" id="synthese-des-filtres-analogiques">
+<h2>Synthèse des filtres analogiques<a class="headerlink" href="#synthese-des-filtres-analogiques" title="Lien permanent vers ce titre">¶</a></h2>
+<p>La méthodologie moderne pour synthétiser un filtre est appelée « <em>network synthesis</em> ».</p>
+<p>Dans le cadre du filtrage analogique,
+c’est la tranformée de Laplace qui est utilisée pour étudier la fonction de transfert des filtres.</p>
+<p>Comme on l’a vu avec la <a class="reference internal" href="laplace.html#s-laplace-inverse"><span class="std std-ref">Transformée de Laplace inverse</span></a>,
+on ne peut pas construire de filtre idéal.
+Les fonctions de transfert des filtres analogiques classiques s’écrivent sous la forme d’une fraction rationnelle
+et ne peuvent qu’approximer le gain d’un filtre idéal :</p>
+<div class="math notranslate nohighlight">
+\[
+H(s) = \frac{ \sum_{n=0}^N b_n s^n }{ \sum_{n=0}^M a_m s^m }
+     = \frac{ b_Ns^N + b_{N-1}s^{N-1} + \dots + b_1s + b_0 }{ a_Ms^M + a_{M-1}s^{M-1} + \dots + a_1s + a_0 }
+\]</div>
+<p>L’enjeu revient donc à déterminer, en fonction du gabarit choisi, les valeurs des coefficients <span class="math notranslate nohighlight">\(b_n\)</span> et <span class="math notranslate nohighlight">\(a_m\)</span> :
+c’est l’objet des travaux de <a class="reference external" href="https://en.wikipedia.org/wiki/Stephen_Butterworth">Butterworth</a>,
+<a class="reference external" href="https://fr.wikipedia.org/wiki/Pafnouti_Tchebychev">Tchebychev</a>
+ou <a class="reference external" href="https://en.wikipedia.org/wiki/Wilhelm_Cauer">Cauer</a>.
+Les caractéristiques de ces filtres varient donc en fonction de ces coefficients.</p>
+<p>La plupart des méthodes de conception des filtres nécessitent de concevoir avant tout un « filtre passe-bas normalisé »,
+c’est-à-dire que sa fréquence de coupure est égale à 1.
+Nous verrons dans la suite l’expression des fonctions de transfert pour obtenir un filtre passe-bas normalisé.
+À partir de la fonction de transfert <span class="math notranslate nohighlight">\(H(f)\)</span> d’un filtre passe-bas normalisé,
+on obtient un filtre quelconque à partir des transformations de fréquence ci-dessous :</p>
+<ul>
+<li><p>un filtre passe-bas de fréquence de coupure <span class="math notranslate nohighlight">\(f_c\)</span> aura pour fonction de transfert :</p>
+<div class="math notranslate nohighlight">
+\[
+  H\left(\frac{f}{f_c}\right)
+  \]</div>
+</li>
+<li><p>un filtre passe-haut de fréquence de coupure <span class="math notranslate nohighlight">\(f_c\)</span> aura pour fonction de transfert :</p>
+<div class="math notranslate nohighlight">
+\[
+  H\left(\frac{f_c}{f}\right)
+  \]</div>
+</li>
+<li><p>un filtre passe-bande de fréquences de coupure <span class="math notranslate nohighlight">\(f_{c-}\)</span> et <span class="math notranslate nohighlight">\(f_{c+}\)</span> aura pour fonction de transfert :</p>
+<div class="math notranslate nohighlight">
+\[
+  H\left(\frac{f^2-f_{c-}f_{c+}}{f(f_{c+}-f_{c-})}\right)
+  \]</div>
+</li>
+<li><p>un coupe-bande de fréquences de coupure <span class="math notranslate nohighlight">\(f_{c-}\)</span> et <span class="math notranslate nohighlight">\(f_{c+}\)</span> aura pour fonction de transfert :</p>
+<div class="math notranslate nohighlight">
+\[
+  H\left(\frac{f(f_{c+}-f_{c-})}{f^2-f_{c-}f_{c+}}\right)
+  \]</div>
+</li>
+</ul>
+<p>Par la suite, nous ne traiteront donc que des filtres passe-bas.
+Dans <a class="reference external" href="https://vincmazet.github.io/signal2/_static/files/fana.pdf">ce document</a>,
+vous trouverez les réponses fréquentielles, réponses impulsionnelles et retard de groupe
+pour les principaux filtres passe-bas normalisés analogiques.</p>
+<div class="section" id="filtre-de-butterworth">
+<h3>Filtre de Butterworth<a class="headerlink" href="#filtre-de-butterworth" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Le gain d’un filtre de Butterworth passe-bas d’ordre <span class="math notranslate nohighlight">\(n\)</span> est défini par :</p>
+<div class="math notranslate nohighlight">
+\[
+G(\omega) = \frac{1}{\sqrt{1+(\omega/\omega_c)^{2n}}}
+\]</div>
+<p>où <span class="math notranslate nohighlight">\(\omega = 2\pi f\)</span> est la « pulsation » (d’unité rad.s<sup>–1</sup>)
+et <span class="math notranslate nohighlight">\(\omega_c\)</span> est la pulsation de coupure du filtre.</p>
+<p>Le filtre de Butterworth est caractérisé par :</p>
+<ul class="simple">
+<li><p>aucune ondulation en bande passante,</p></li>
+<li><p>aucune ondulation en bande atténuée,</p></li>
+<li><p>une bande de transition assez large.</p></li>
+</ul>
+</div>
+<div class="section" id="filtre-de-bessel">
+<h3>Filtre de Bessel<a class="headerlink" href="#filtre-de-bessel" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Un filtre de Bessel passe-bas a pour fonction de transfert</p>
+<div class="math notranslate nohighlight">
+\[
+H(s) = \frac{\theta_n(0)}{\theta_n(s/\omega_c)}
+\]</div>
+<p>où <span class="math notranslate nohighlight">\(\omega_c\)</span> est la pulsation de coupure du filtre
+et <span class="math notranslate nohighlight">\(\theta_n(s)\)</span> est le polynôme de Bessel tel que</p>
+<div class="math notranslate nohighlight">
+\[
+\theta_n(s) = \sum_{k=0}^n \frac{(2n-k)!}{2^{n-k} k! (n-k)!} s^k
+\qquad\text{et}\qquad
+\theta_n(0) = \lim_{x \to 0} \theta_n(x).
+\]</div>
+<p>Le filtre de Bessel est l’approximation d’un retard pur, et ses caractéristiques sont :</p>
+<ul class="simple">
+<li><p>un retard de groupe quasi-constant dans la bande passante,</p></li>
+<li><p>aucune ondulation en bande passante,</p></li>
+<li><p>aucune ondulation en bande atténuée,</p></li>
+<li><p>une bande de transition très large.</p></li>
+</ul>
+</div>
+<div class="section" id="filtre-de-tchebychev">
+<h3>Filtre de Tchebychev<a class="headerlink" href="#filtre-de-tchebychev" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Il existe deux types de filtre de Tchebychev (Chebyshev en anglais, Чебышёв en russe) : le type I et le type II.</p>
+<p>Le gain d’un filtre passe-bas de Tchebychev de type I est défini par :</p>
+<div class="math notranslate nohighlight">
+\[
+G(\omega) = \frac{1}{\sqrt{ 1 + \varepsilon^2 T_n^2 \left(\frac{\omega}{\omega_c}\right) }}
+\]</div>
+<p>où <span class="math notranslate nohighlight">\(T_n\)</span> est le <a class="reference external" href="https://fr.wikipedia.org/wiki/Polyn%C3%B4me_de_Tchebychev">polynôme de Tchebychev</a> d’ordre <span class="math notranslate nohighlight">\(n\)</span>.</p>
+<p>Le type I possède les caractéristiques suivantes :</p>
+<ul class="simple">
+<li><p>présence d’ondulations en bande passante,</p></li>
+<li><p>aucune ondulation en bande atténuée,</p></li>
+<li><p>bande de transition plus étroite que les filtres de Butterworth et Bessel,</p></li>
+<li><p>un retard de groupe très distordue près de la fréquence de coupure.</p></li>
+</ul>
+<p>Le gain d’un filtre passe-bas de Tchebychev de type II est défini quant à lui par :</p>
+<div class="math notranslate nohighlight">
+\[
+G(\omega) = \frac{1}{\sqrt{ 1 + \frac{1}{ \varepsilon^2 T_n^2 \left(\frac{\omega_c}{\omega}\right) } }}
+\]</div>
+<p>Le type II possède les caractéristiques suivantes :</p>
+<ul class="simple">
+<li><p>aucune ondulation en bande passante,</p></li>
+<li><p>présence d’ondulations en bande atténuée,</p></li>
+<li><p>une bande de transition plus étroite que les filtres de Butterworth et Bessel.</p></li>
+</ul>
+</div>
+<div class="section" id="filtre-de-cauer">
+<h3>Filtre de Cauer<a class="headerlink" href="#filtre-de-cauer" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Le gain d’un filtre passe-bas de Cauer est défini par :</p>
+<div class="math notranslate nohighlight">
+\[
+G(\omega) = \frac{1}{\sqrt{1 + \varepsilon^2 R_n^2(\xi,\omega/\omega_c)}}
+\]</div>
+<p>où <span class="math notranslate nohighlight">\(R_n\)</span> est la fonction elliptique d’ordre <span class="math notranslate nohighlight">\(n\)</span>, <span class="math notranslate nohighlight">\(\varepsilon\)</span> est le taux d’ondulation et <span class="math notranslate nohighlight">\(\xi\)</span> la sélectivité.</p>
+<p>Celui-ci possède les caractéristiques ci-dessous :</p>
+<ul class="simple">
+<li><p>présence d’ondulations en bande passante,</p></li>
+<li><p>présence d’ondulations en bande atténuée,</p></li>
+<li><p>une transition très rapide,</p></li>
+<li><p>un retard de groupe très distordu près de la fréquence de coupure.</p></li>
+</ul>
+</div>
+</div>
 </div>
 
     <script type="text/x-thebe-config">

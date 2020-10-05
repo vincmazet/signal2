@@ -6,7 +6,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Travaux dirigés &#8212; Traitement du signal 2</title>
+    <title>TD Filtrage &#8212; Traitement du signal 2</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="_static/sphinx-book-theme.css" type="text/css" />
@@ -39,7 +39,7 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Recherche" href="search.html" />
-    <link rel="next" title="Travaux pratiques" href="tp-filtres.html" />
+    <link rel="next" title="TP Filtrage" href="tp-filtres.html" />
     <link rel="prev" title="Filtres numériques" href="filtre-numerique.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -268,7 +268,29 @@
             <i class="fas fa-list"></i> Contents
         </div>
         <nav id="bd-toc-nav">
-            
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#systeme-lineaire-invariant">
+   Système linéaire invariant
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conception-d-un-gabarit">
+   Conception d’un gabarit
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#filtres-analogiques">
+   Filtres analogiques
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#filtres-numeriques">
+   Filtres numériques
+  </a>
+ </li>
+</ul>
+
         </nav>
     </div>
 </div>
@@ -277,8 +299,121 @@
         
               <div>
                 
-  <div class="section" id="travaux-diriges">
-<span id="c-td-filtres"></span><h1>Travaux dirigés<a class="headerlink" href="#travaux-diriges" title="Lien permanent vers ce titre">¶</a></h1>
+  <div class="section" id="td-filtrage">
+<span id="c-td-filtres"></span><h1>TD Filtrage<a class="headerlink" href="#td-filtrage" title="Lien permanent vers ce titre">¶</a></h1>
+<div class="section" id="systeme-lineaire-invariant">
+<h2>Système linéaire invariant<a class="headerlink" href="#systeme-lineaire-invariant" title="Lien permanent vers ce titre">¶</a></h2>
+<ul class="simple">
+<li><p>Dans le cas de signaux à temps discrets, montrez que la sortie d’un système linéaire invariant
+s’exprime comme la convolution de l’entrée par la réponse impulsionnelle du système.
+Pour cela, on peut remarquer que l’entrée peut s’écrire comme une somme d’impulsions.</p></li>
+</ul>
+</div>
+<div class="section" id="conception-d-un-gabarit">
+<h2>Conception d’un gabarit<a class="headerlink" href="#conception-d-un-gabarit" title="Lien permanent vers ce titre">¶</a></h2>
+<ul class="simple">
+<li><p>Représentez le gabarit d’un filtre passe-bas de largeur de transition 20 Hz,
+de bande passante 100 Hz, d’ondulation maximale en bande passante 1 dB
+et d’atténuation minimale 30 dB.</p></li>
+</ul>
+<br />
+<ul class="simple">
+<li><p>Représentez le gabarit d’un filtre qui atténue d’au moins 60 dB les fréquences inférieures à 10 kHz
+et d’au plus 3 dB les fréquences supérieures à 15 kHz.</p></li>
+</ul>
+<br />
+<ul>
+<li><p>La capture d’écran ci-dessous est tirée de l’outil de conception de filtres analogiques d’Analog Devices.
+Représentez le gabarit correspondant.</p>
+<div class="figure align-default">
+<a class="reference internal image-reference" href="_images/filter-specs.png"><img alt="_images/filter-specs.png" src="_images/filter-specs.png" style="width: 250px;" /></a>
+</div>
+</li>
+</ul>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<p>L”<a class="reference external" href="http://en.wikipedia.org/wiki/Magnetic_particle_imaging">imagerie des particules magnétiques</a>
+est une technique inventée par Gleich &amp; Weizenecker, chercheurs chez Philips, en 2001.</p>
+</div>
+<br />
+<ul>
+<li><p>Kévin, un ancien étudiant en FIP,
+a effectué son projet de fin d’études sur l’imagerie des particules magnétiques.
+Le principe est de mesurer la réponse de particules super-paramagnétiques à un champ magnétique oscillant de fréquence 25 kHz.
+Le signal mesuré en réponse à cette excitation contient, en plus de la fréquence excitatrice,
+des harmoniques de 50 kHz et plus.
+On considère qu’au-delà de 2 MHz, l’amplitude du signal est trop faible pour pouvoir être détectée.
+Le signal d’intérêt qui permet de construire une image de l’objet étudié correspond aux harmoniques.
+Le filtre doit répondre à des critères supplémentaires :</p>
+<ul class="simple">
+<li><p>atténuation maximale de 3 dB dans la bande passante ;</p></li>
+<li><p>atténuation minimale de 60 dB ;</p></li>
+<li><p>le filtrage ne doit pas générer de perturbation.</p></li>
+</ul>
+<p>Proposez le gabarit permettant de concevoir le filtre qui sélectionnera le signal d’intérêt.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="filtres-analogiques">
+<h2>Filtres analogiques<a class="headerlink" href="#filtres-analogiques" title="Lien permanent vers ce titre">¶</a></h2>
+<ul>
+<li><p>On considère un filtre analogique de réponse impulsionnelle :</p>
+<div class="math notranslate nohighlight">
+\[
+  h(t) = (3e^{-2t} - 2e^{-t} )\, u(t)
+  \]</div>
+<ul class="simple">
+<li><p>Calculez la transformée de Laplace de ce filtre.</p></li>
+<li><p>Représentez la région de convergence.</p></li>
+<li><p>Placez les pôles et zéros.</p></li>
+<li><p>Ce filtre est-il stable ?</p></li>
+</ul>
+<!-- Oppenheim 9.2, 9.3, 10.2, 10.4 -->
+</li>
+</ul>
+<br />
+<ul>
+<li><p>Deux filtres <span class="math notranslate nohighlight">\(H_1(s)\)</span> et <span class="math notranslate nohighlight">\(H_2(s)\)</span> sont mis en série.
+Leurs fonctions de transfert sont :</p>
+<div class="math notranslate nohighlight">
+\[
+  H_1(s) = \frac{1}{a_1s + a_0}
+  \qquad
+  H_2(s) = \frac{1}{b_1s + b_0}
+  \]</div>
+<ul class="simple">
+<li><p>Quel est l’ordre de chacun de ces deux filtres ?</p></li>
+<li><p>Quelle est la fonction de transfert du filtre global <span class="math notranslate nohighlight">\(H(s)\)</span> ? Quel est son ordre ?</p></li>
+<li><p>Qu’obtient-on en ajoutant un troisième filtre du premier ordre à <span class="math notranslate nohighlight">\(H(s)\)</span> ?</p></li>
+</ul>
+</li>
+</ul>
+<br />
+<ul class="simple">
+<li><p>Identifiez le type de filtre correspondant à la réponse fréquentielle ci-dessous.
+Précisez également la bande passante du filtre (les fréquences sont données en hertz).</p></li>
+</ul>
+<div class="figure align-default">
+<a class="reference internal image-reference" href="_images/fana-filtre1-gain.png"><img alt="_images/fana-filtre1-gain.png" src="_images/fana-filtre1-gain.png" style="width: 450px;" /></a>
+</div>
+<div class="figure align-default">
+<a class="reference internal image-reference" href="_images/fana-filtre1-phase.png"><img alt="_images/fana-filtre1-phase.png" src="_images/fana-filtre1-phase.png" style="width: 450px;" /></a>
+</div>
+<br />
+<ul class="simple">
+<li><p>Identifiez le type de filtre correspondant à la réponse fréquentielle ci-dessous.
+Précisez également la bande passante du filtre (les fréquences sont données en hertz).</p></li>
+</ul>
+<div class="figure align-default">
+<a class="reference internal image-reference" href="_images/fana-filtre2-gain.png"><img alt="_images/fana-filtre2-gain.png" src="_images/fana-filtre2-gain.png" style="width: 450px;" /></a>
+</div>
+<div class="figure align-default">
+<a class="reference internal image-reference" href="_images/fana-filtre2-phase.png"><img alt="_images/fana-filtre2-phase.png" src="_images/fana-filtre2-phase.png" style="width: 450px;" /></a>
+</div>
+</div>
+<div class="section" id="filtres-numeriques">
+<h2>Filtres numériques<a class="headerlink" href="#filtres-numeriques" title="Lien permanent vers ce titre">¶</a></h2>
+<!-- * [Énoncé 2019-2020 (filtres numériques)](https://vincmazet.github.io/signal2/_static/files/fnum-td.pdf) --></div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -310,7 +445,7 @@
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="filtre-numerique.html" title="previous page">Filtres numériques</a>
-    <a class='right-next' id="next-link" href="tp-filtres.html" title="next page">Travaux pratiques</a>
+    <a class='right-next' id="next-link" href="tp-filtres.html" title="next page">TP Filtrage</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

@@ -39,7 +39,7 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Recherche" href="search.html" />
-    <link rel="next" title="Travaux dirigés" href="td-filtres.html" />
+    <link rel="next" title="TD Filtrage" href="td-filtres.html" />
     <link rel="prev" title="Filtres analogiques" href="filtre-analogique.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -268,7 +268,68 @@
             <i class="fas fa-list"></i> Contents
         </div>
         <nav id="bd-toc-nav">
-            
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#filtres-rif">
+   Filtres RIF
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#reponse-impulsionnelle">
+     Réponse impulsionnelle
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fonction-de-transfert">
+     Fonction de transfert
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#schema-bloc">
+     Schéma bloc
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#linearite-de-la-phase">
+     Linéarité de la phase
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#methode-des-fenetres">
+     Méthode des fenêtres
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#filtres-rii">
+   Filtres RII
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Réponse impulsionnelle
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Fonction de transfert
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     Schéma bloc
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#transformation-bilineaire">
+     Transformation bilinéaire
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
         </nav>
     </div>
 </div>
@@ -279,6 +340,301 @@
                 
   <div class="section" id="filtres-numeriques">
 <span id="c-filtre-numerique"></span><h1>Filtres numériques<a class="headerlink" href="#filtres-numeriques" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Les filtres numériques sont très courants et utilisés dans de nombreux domaines :
+télécommunications, traitement de la parole, Hi-Fi, radar et sonar, asservissement, vidéo, photos, modem, etc.</p>
+<p>S’ils sont à ce point répandus, c’est en raison de leurs nombreux avantages par rapport aux filtres analogiques :</p>
+<ul class="simple">
+<li><p>deux filtres numériques de même configuration sont parfaitement identiques,</p></li>
+<li><p>un filtre numérique est facilement reprogrammable,</p></li>
+<li><p>l’association de filtres numériques ne pose pas de problème d’impédance,</p></li>
+<li><p>il n’y a pas de variation des caractéristiques en fonction de l’âge ou de la température des composants,</p></li>
+<li><p>on dispose d’une grande précision de calcul.</p></li>
+</ul>
+<p>En revanche, les filtres numériques sont bien entendu limités par leur fréquence d’échantillonnage
+et naturellement inadaptés au traitement du signal analogique.</p>
+<p>La réponse impulsionnelle d’un filtre numérique est échantillonnée à une fréquence d’échantillonnage <span class="math notranslate nohighlight">\(f_e\)</span>.
+Dans ce cours, on traitera uniquement des filtres causaux :</p>
+<div class="math notranslate nohighlight">
+\[
+h[n] = 0\;\text{si}\; n&lt;0.
+\]</div>
+<p>Par ailleurs, lorsque la réponse impulsionnelle est à durée limitée, c’est à dire <span class="math notranslate nohighlight">\(h[n]=0\)</span> si <span class="math notranslate nohighlight">\(n &gt; N\)</span>,
+alors le filtre est à réponse impulsionnelle finie (RIF).
+Dans le cas contraire, on parle de filtre à réponse impulsionnelle infinie (RII).
+Ces deux types de filtres sont présentés ci-après, ainsi que deux méthodes de conception :</p>
+<ul class="simple">
+<li><p>la méthode des fenêtres pour les filtres RIF,</p></li>
+<li><p>la transformation bilinéaire pour les filtres RII.</p></li>
+</ul>
+<div class="section" id="filtres-rif">
+<h2>Filtres RIF<a class="headerlink" href="#filtres-rif" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="section" id="reponse-impulsionnelle">
+<h3>Réponse impulsionnelle<a class="headerlink" href="#reponse-impulsionnelle" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Un filtre RIF a pour réponse impulsionnelle :</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+h[n] =
+\begin{cases}
+a_n &amp;\text{si}\, n \in \{0,\dots,N\}, \\
+0   &amp;\text{sinon}.
+\end{cases}
+\end{split}\]</div>
+<p>Sa réponse impulsionnelle est bien finie car elle possède <span class="math notranslate nohighlight">\(N+1\)</span> coefficients non nuls :
+on dit que le filtre est de longueur <span class="math notranslate nohighlight">\(N+1\)</span>, ou d’ordre <span class="math notranslate nohighlight">\(N\)</span>.</p>
+</div>
+<div class="section" id="fonction-de-transfert">
+<h3>Fonction de transfert<a class="headerlink" href="#fonction-de-transfert" title="Lien permanent vers ce titre">¶</a></h3>
+<p>La transformée en Z de <span class="math notranslate nohighlight">\(h\)</span> donne la fonction de transfert :</p>
+<div class="math notranslate nohighlight">
+\[
+H(z) = \sum_{n=-\infty}^{+\infty} h[n] z^{-n} = \sum_{n=0}^{N} a_n z^{-n}.
+\]</div>
+<p>Cette fonction de transfert est particulière car elle ne possède pas de pôle,
+autrement dit, son dénominateur est égal à 1.
+L’absence de pôle est une particularité des filtres RIF,
+et comme ils ne risquent pas d’avoir de pôles à l’extérieur du cercle unité, ils sont toujours stables !
+Les filtres RIF sont parfois appelés filtres à moyenne mobile ou MA (<em>moving average</em>).</p>
+</div>
+<div class="section" id="schema-bloc">
+<h3>Schéma bloc<a class="headerlink" href="#schema-bloc" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Les filtres numériques sont souvent représentés sous forme d’un schéma bloc,
+qui illustre graphiquement les relations entre l’entrée et la sortie du filtre.
+Pour cela, il convient d’exprimer la sortie en fonction de l’entrée.
+Comme on sait que la fonction de transfert <span class="math notranslate nohighlight">\(H(z)\)</span> est le rapport entre la sortie sur l’entrée :</p>
+<div class="math notranslate nohighlight">
+\[
+H(z) = \frac{Y(z)}{X(z)},
+\]</div>
+<p>alors :</p>
+<div class="math notranslate nohighlight">
+\[
+\sum_{n=0}^{N} a_n z^{-n} = \frac{Y(z)}{X(z)}
+\qquad\Leftrightarrow\qquad
+Y(z) = \sum_{n=0}^{N} a_n z^{-n} X(z)
+\]</div>
+<p>dont la transformée en z inverse est, grâce à la propriété de linéarité :</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<p>Remarquez qu’on retrouve avec cette formule la formule du produit de convolution !</p>
+</div>
+<div class="math notranslate nohighlight">
+\[
+y[n] = \sum_{k=0}^{N} a_k x[n-k].
+\]</div>
+<p>La sortie <span class="math notranslate nohighlight">\(y[n]\)</span> est donc la somme de <span class="math notranslate nohighlight">\(N+1\)</span> échantillons d’entrée pondérés par les coefficients <span class="math notranslate nohighlight">\(a_k\)</span>
+et retardés de <span class="math notranslate nohighlight">\(k\)</span> échantillons.
+On peut donc adopter la représentation suivante, où le bloc <span class="math notranslate nohighlight">\(z^{-1}\)</span> indique un retard :</p>
+<div class="figure align-default">
+<a class="reference internal image-reference" href="_images/filtre-rif.png"><img alt="_images/filtre-rif.png" src="_images/filtre-rif.png" style="height: 350px;" /></a>
+</div>
+<p>Contrairement aux schémas-blocs des filtres RIF que l’on verra plus loin,
+il n’y a pas de boucle de retour pour les filtres RIF : on dit qu’ils sont non récursifs.
+Par conséquent, la sortie ne peut pas être réinjectée indéfiniment dans le filtre,
+empêchant toute instabilité.</p>
+</div>
+<div class="section" id="linearite-de-la-phase">
+<h3>Linéarité de la phase<a class="headerlink" href="#linearite-de-la-phase" title="Lien permanent vers ce titre">¶</a></h3>
+<!-- La linéarité de la phase est souvent un critère souhaité.
+Les filtres RIF sont à phase linéaire si leur réponse impulsionnelle et symétrique
+(attention, symétrique ne veut pas dire paire ici !) ou antisymétrique, c'est-à-dire :
+
+$$
+\forall n\in\{0,\dots,N\}\quad
+&h[n] = h[N-1-n]  &\quad\text{pour un filtre symétrique,} \\
+&h[n] = -h[N-1-n] &\quad\text{pour un filtre antisymétrique.}
+$$
+
+Démo : Rabiner p. 77 ou Proakis p. 621
+
+**FIG**
+
+**FIG**
+
+Les {numref}`F:num:ri-sym` et {numref}`F:num:ri-antisym` illustre ces propriétés.
+
+Notons que les filtres de type II, III et IV ne sont pas adaptés pour synthétiser des filtres passe-haut. -->
+</div>
+<div class="section" id="methode-des-fenetres">
+<h3>Méthode des fenêtres<a class="headerlink" href="#methode-des-fenetres" title="Lien permanent vers ce titre">¶</a></h3>
+<!-- [Méthode des fenêtres](https://vincmazet.github.io/signal2/_static/files/rif.pdf)
+
+Une idée toute simple pour obtenir un filtre RIF est de tronquer la réponse impulsionnelle d'un filtre idéal.
+
+Prenons l'exemple d'un filtre passe-bas, et considérons la réponse fréquentielle du filtre idéal, telle qu'on l'a vue dans la section {ref}`S:filtre-intro:pbas` (pour simplifier l'exposé, on prend $K=1$ et $a=0$) :
+
+$$
+H_\text{idéal}(f) = \begin{cases}
+  1 &\text{si} |f| \leq f_c, \\
+  0 &\text{si} f_c < |f| < \frac{f_e}{2}.
+\end{cases}
+$$
+
+Remarquez qu'on a rajouté la condition $|f| < \frac{f_e}{2}$ puisque le filtre étant numérique
+et d'après le théorème de l'échantillonnage, il n'y a pas de fréquence au delà de la fréquence de Nyquist.
+
+La tranformée de Fourier à temps discret inverse de $H(f)$ est un sinus cardinal :
+
+$$
+h_\text{idéal} = 2 f_c \mathrm{sinc}(2f_c n).
+$$
+
+En ne conservant que $N+1$ échantillons, on obtient forcément filtre de réponse impulsionnelle finie.
+On choisit pour cela de tronquer $h_\text{idéal}$ autour de l'échantillon $n=0$,
+et de décaler les échantillons conservés de sorte à rendre le filtre causal.
+Ce nouveau filtre a pour réponse impulsionnelle :
+
+$$
+h =
+\begin{cases}
+2 f_c \mathrm{sinc}(2f_c (n-M)) &\text{si $n \in \{0,\dots,M\}$} \\
+0                               &\text{sinon}
+\end{cases}
+$$
+
+où $M = \frac{N}{2}$.
+
+**ILLUSTRATION DE h-idéal et h**
+
+Vous noterez que ce filtre est de type I.
+
+Enfin, la transformée de Fourier à temps discret de $h$ nous permet d'obtenir la réponse fréquentielle du filtre.
+Son expression est assez complexe et nous ne la détaillons pas ici.
+La figure {numref}`F:num:rif-rf` représente le gain de ce filtre RIF construit à partir de la troncature d'un filtre idéal.
+
+**FIG**
+
+On observe plusieurs chose sur cette figure :
+* la bande de transition n'est pas nulle,
+* il y a des oscillations en bande passante et en bande atténuée.
+
+Les oscillations sont d'ailleurs de plus en plus grande lorsqu'on s'approche de la bande de transition :
+c'est le phénomène de Gibbs.
+Par ailleurs, on remarque que les oscillations ne s'atténuent pas lorsque $N$ augmente,
+alors que pourtant le filtre RIF se rapproche de plus en plus du filtre idéal !
+
+L'interprétation que l'on peut faire de ces observations est la suivante.
+La troncature revient à multiplier la réponse impulsionnelle $h_\text{idéal}$ par une porte $w[n]$
+(on parle de « fenêtrage rectangulaire ») :
+
+$$
+h[n] = h_\text{idéal}[n] * w[n].
+$$
+
+Dans le domaine de Fourier, cela revient à convoluer la réponse fréquentielle $H_\text{idéal}$
+par la transformée de Fourier à temps discret de $w[n]$ :
+
+$$
+H(f) = H_\text{idéal}(f) \times \mathcal{F}[w](f).
+$$
+
+La transformée de Fourier à temps discret de $w[n]$ est appelé « noyau de Dirichlet » (cf. {numref}`F:num:dirichlet`)
+et a pour expression :
+
+$$
+W(f) = e^{-j \pi f N} \frac{\sin(\pi f(N+1))}{\pi f}.
+$$
+
+**FIGURE : noyau de dirichlet**
+
+Ainsi, si le lobe principal du noyau de Dirichlet d'élargit, la bande de transition du filtre va s'élargir également.
+Et lorsque les lobes secondaires augmentent,
+les oscillations dans les bandes passantes et atténuée du filtre vont également s'agrandir.
+
+L'idéal est donc d'avoir un lobe principal étroit et des lobes secondaires faibles.
+Il faudrait donc que le noyau de Dirichlet tende vers une impulsione de Dirac,
+mais alors cela implique d'augmenter considérablement l'ordre du filtre $N$,
+résultant alors dans un filtre à réponse impulsionnelle pas tant finie que ça...
+
+```{margin}
+Et oui, en traitement du signal, la porte est un genre de fenêtre !
+```
+
+La méthode des fenêtres consiste donc à effectuer la troncature de la réponse impulsionnelle d'un filtre idéal,
+où la fenêtre n'est pas forcément une porte.
+
+Le tableau ci-dessous donne les propriétés des réponses fréquentielles obtenues pour plusieurs fenêtres
+(la fréquence réduite est la fréquence divisée par $f_e$).
+
+| Fenêtre | Largeur de transition (fréquence réduite) | Ondulation en bande passante (dB) | Atténuation mminimale (dB] |
+| :--- | --- | --- | ---: |
+| Rectangulaire          | $0,9/N$               | $0,742$             | $21$ |
+| Hamming                | $3,3/N$               | $0,019$             | $53$ |
+| Blackman               | $5,5/N$               | $0,002$             | $74$ |
+| Kaiser ($\beta=4,538$) | $2,93/N$              | $0,0274$            | $50$ |
+| Kaiser ($\beta=6,764$) | $4,32/N$              | $0,00275$           | $70$ |
+| Kaiser ($\beta=8,960$) | $5,71/N$              | $0,000275$          | $90$ | -->
+<!-- ### Méthode de Remez
+
+La méthode des fenêtres est sous-optimale et donne des ordres de filtres surévalués,
+tandis que la méthode de Remez est optimale et fournit le filtre d'ordre minimal satisfaisant le gabarit.
+
+http://eeweb.poly.edu/iselesni/EL713/remez/remez.pdf
+https://en.wikipedia.org/wiki/Parks%E2%80%93McClellan_filter_design_algorithm
+http://www.ieee.org.ar/downloads/antoniou-nov03.pdf --></div>
+</div>
+<div class="section" id="filtres-rii">
+<h2>Filtres RII<a class="headerlink" href="#filtres-rii" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="section" id="id1">
+<h3>Réponse impulsionnelle<a class="headerlink" href="#id1" title="Lien permanent vers ce titre">¶</a></h3>
+</div>
+<div class="section" id="id2">
+<h3>Fonction de transfert<a class="headerlink" href="#id2" title="Lien permanent vers ce titre">¶</a></h3>
+<!-- Fonction de transfert. 
+
+Équation 
+
+Les filtres RII sont parfois appelés filtres ARMA car la fonction de transfert est le quotient entre :
+* un numérateur correspondant à un filtre MA (on l'a vu plus haut),
+* et un dénominateur correspondant à un filtre appelé AR (_autoregressive_). -->
+</div>
+<div class="section" id="id3">
+<h3>Schéma bloc<a class="headerlink" href="#id3" title="Lien permanent vers ce titre">¶</a></h3>
+<!-- Exemple, représenter le schéma bloc  -->
+</div>
+<div class="section" id="transformation-bilineaire">
+<h3>Transformation bilinéaire<a class="headerlink" href="#transformation-bilineaire" title="Lien permanent vers ce titre">¶</a></h3>
+<!-- Prototype âge analogique. Il consiste à partir d'un, euh, prototype analogique à obtenir le filtre numérique par transformation de fréquences, (transformation. Passe bas vers passe bas, passe haut, passe bande Ku band. ) et discrétisation, (transformation bilinéaire) 
+
+
+
+Transformation bilinéaire 
+
+C'est une transformation algébrique entre les variables sz qui transforme l'axe des imaginaires du plan en s en le cercle, unité dans le plan on Z : 
+
+Schéma 
+
+Équation 
+
+Ainsi, lorsqu'on dispose de la fonction de transfert analogique, achat de s. Alors, la fonction de transfert numérique à pour expression de points 
+
+Équation 
+
+La transformation appliquée sur les fréquences s'obtient en remplaçant équation. 
+
+Ainsi, lorsque en numérique, les fréquences sont dans. Intervalle, en analogique, elles sont dans l'intervalle. 
+
+Il y a donc une compression des fréquences analogiques, mais cette transformation permet d'éviter les problèmes de repliement spectral qu'on peut avoir avec la variance de la réponse impulsionnelle. 
+
+Par ailleurs. La transformation bilinéaire préserve la stabilité : Si le filtre analogique est stable, là, le filtre numérique est également point En résumé. Schéma 
+
+Lorsque l'ordre des filtres augmente (c'est-à-dire lorsque le nombre de coefficients augmentent) le filtre peut devenir instable à cause de la quantification des coefficients point. Une solution consiste à remplacer le filtre par une série de filtres d'ordre faible (un ou 2) 
+
+Filtres, bi-quad, biquadratique 
+
+SOS s order section 
+
+Après avoir présenté les 2 formes directes, il suffit de déterminer les fonctions de transfert en fonction d à I et PI point. On a une fonction de transfert général et il suffit d'identifier les fonctions de transfert de l'exo 3 pour obtenir sans manipulation les schémas blocs. De même pour l'exo, 4 points, ça veut rien dire du tout. 
+
+Recette pour obtenir le schéma bloc à partir de la fonction de transfert de point. Écrire la sortie en fonction de tout le reste, en faisant apparaître des sommes emplis retard intégrateur, c'est-à-dire bloc disponible. 
+
+ 
+
+saut de ligne représentation ds l iram schéma bloc saut de ligne blog disponible saut de ligne les schéma bloc doit faire apparaître les blocs pour lequel il existe un circuit électronique saut de ligne amplificateur égal d'un saut de ligne sommateur saut de ligne dérivateur parenthèse ouvrante analogique parenthèse fermante soulignent retard, (numérique) 
+
+Structure classique. Forme direct à la ferme direct 2. 
+
+Interconnexion des systèmes. --></div>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -310,7 +666,7 @@
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="filtre-analogique.html" title="previous page">Filtres analogiques</a>
-    <a class='right-next' id="next-link" href="td-filtres.html" title="next page">Travaux dirigés</a>
+    <a class='right-next' id="next-link" href="td-filtres.html" title="next page">TD Filtrage</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
