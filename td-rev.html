@@ -304,17 +304,18 @@
 <p>Cette première séance a pour but de reprendre les notions étudiées en première année, pour se remettre dans le bain…</p>
 <div class="section" id="python">
 <h2>Python<a class="headerlink" href="#python" title="Lien permanent vers ce titre">¶</a></h2>
-<ul class="simple">
-<li><p>Commençons par Python : avez-vous réussi à installer et utiliser Python ?</p></li>
-</ul>
+<p><strong>Exercice 1</strong></p>
+<p>Commençons par Python : avez-vous réussi à installer et utiliser Python ?</p>
 </div>
 <div class="section" id="signaux-elementaires">
 <h2>Signaux élémentaires<a class="headerlink" href="#signaux-elementaires" title="Lien permanent vers ce titre">¶</a></h2>
-<ul>
-<li><p>Donnez des exemples concrets de signaux échantillonnés, de signaux à temps continu,
-de signaux quantifiés, de signaux analogiques et de signaux numériques.</p></li>
-<li><p>Qu’est-ce qu’un signal causal ?</p></li>
-<li><p>Donnez la définition mathématique et représentez les signaux suivants :</p>
+<p><strong>Exercice 2</strong></p>
+<p>Donnez des exemples concrets de signaux échantillonnés, de signaux à temps continu,
+de signaux quantifiés, de signaux analogiques et de signaux numériques.</p>
+<p><strong>Exercice 3</strong></p>
+<p>Qu’est-ce qu’un signal causal ?</p>
+<p><strong>Exercice 4</strong></p>
+<p>Donnez la définition mathématique et représentez les signaux suivants :</p>
 <ul class="simple">
 <li><p>un échelon,</p></li>
 <li><p>une impulsion de Dirac,</p></li>
@@ -322,44 +323,42 @@ de signaux quantifiés, de signaux analogiques et de signaux numériques.</p></l
 <li><p>une fonction de Heaviside,</p></li>
 <li><p>un peigne de Dirac.</p></li>
 </ul>
-</li>
-<li><p>Représentez les signaux</p>
+<p><strong>Exercice 5</strong></p>
+<p>Représentez les signaux</p>
 <div class="math notranslate nohighlight">
 \[
-    x(t) = 4\,\sin(3\pi t+\pi)
-    \qquad
-    y(t) = 2\,\delta(t-1) - \delta(t+1).
-  \]</div>
-</li>
-<li><p>Donnez la définition du sinus cardinal.
+x(t) = 4\,\sin(3\pi t+\pi)
+\qquad
+y(t) = 2\,\delta(t-1) - \delta(t+1).
+\]</div>
+<p><strong>Exercice 6</strong></p>
+<p>Donnez la définition du sinus cardinal.
 Parmi les signaux suivants, lequel pourrait correspondre à <span class="math notranslate nohighlight">\(\mathrm{sinc}(t)\)</span> ?</p>
 <div class="figure align-default">
 <img alt="_images/td1-sinc.png" src="_images/td1-sinc.png" />
 </div>
-</li>
-</ul>
 </div>
 <div class="section" id="produit-de-convolution">
 <h2>Produit de convolution<a class="headerlink" href="#produit-de-convolution" title="Lien permanent vers ce titre">¶</a></h2>
-<ul>
-<li><p>Calculez le produit de convolution <span class="math notranslate nohighlight">\((x*y)[n]\)</span> où (<span class="math notranslate nohighlight">\(a\in\mathbb{R}\)</span>) :</p>
+<p><strong>Exercice 7</strong></p>
+<p>Calculez le produit de convolution <span class="math notranslate nohighlight">\((x*y)[n]\)</span> où (<span class="math notranslate nohighlight">\(a\in\mathbb{R}\)</span>) :</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
-    x[n] =
-    \begin{cases}
-      +1 &amp;\text{pour } n=1, \\
-      -1 &amp;\text{pour } n=-1, \\
-      0  &amp;\text{ailleurs},
-    \end{cases}
-    \qquad\qquad
-    y[n] =
-    \begin{cases}
-      a &amp;\text{pour } |n| \leq 1, \\
-      0 &amp;\text{ailleurs}.
-    \end{cases}
-  \end{split}\]</div>
-</li>
-<li><p>Représentez schématiquement les produits de convolution des signaux ci-dessous.</p>
+x[n] =
+\begin{cases}
+  +1 &amp;\text{pour } n=1, \\
+  -1 &amp;\text{pour } n=-1, \\
+  0  &amp;\text{ailleurs},
+\end{cases}
+\qquad\qquad
+y[n] =
+\begin{cases}
+  a &amp;\text{pour } |n| \leq 1, \\
+  0 &amp;\text{ailleurs}.
+\end{cases}
+\end{split}\]</div>
+<p><strong>Exercice 8</strong></p>
+<p>Représentez schématiquement les produits de convolution des signaux ci-dessous.</p>
 <ul class="simple">
 <li><p>A :</p></li>
 </ul>
@@ -378,35 +377,35 @@ Parmi les signaux suivants, lequel pourrait correspondre à <span class="math no
 <div class="figure align-default">
 <img alt="_images/td1-conv-3.png" src="_images/td1-conv-3.png" />
 </div>
-</li>
-<li><p>Simplifiez les expressions suivantes :</p>
+<p><strong>Exercice 9</strong></p>
+<p>Simplifiez les expressions suivantes :</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\((x*d_0)(t)\;\)</span>   où : <span class="math notranslate nohighlight">\(\quad d_0(t) = \delta(t-\tau)\;\)</span> et <span class="math notranslate nohighlight">\(\;x(t)\)</span> est un signal quelconque</p></li>
 <li><p><span class="math notranslate nohighlight">\((d_1*d_2)(t)\;\)</span> où : <span class="math notranslate nohighlight">\(\quad d_1(t) = \delta(t+t_1)\;\)</span>  et <span class="math notranslate nohighlight">\(\;d_2(t) = \delta(t+t_2)\)</span>.</p></li>
 </ul>
-</li>
-</ul>
 </div>
 <div class="section" id="analyse-de-fourier">
 <h2>Analyse de Fourier<a class="headerlink" href="#analyse-de-fourier" title="Lien permanent vers ce titre">¶</a></h2>
-<ul>
-<li><p>Calculez la transformée de Fourier du signal continu et apériodique</p>
+<p><strong>Exercice 10</strong></p>
+<p>Calculez la transformée de Fourier du signal continu et apériodique</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
-    x(t) = A\,\mathrm{rect}(2t/T) =
-    \begin{cases}
-      A &amp;\text{si } -\frac{T}{4} \leq t \leq \frac{T}{4}, \\
-      0 &amp;\text{sinon}.
-    \end{cases}
-  \end{split}\]</div>
-</li>
-<li><p>Quel est, intuitivement, le spectre d’un signal temporel constant ?
+x(t) = A\,\mathrm{rect}(2t/T) =
+\begin{cases}
+  A &amp;\text{si } -\frac{T}{4} \leq t \leq \frac{T}{4}, \\
+  0 &amp;\text{sinon}.
+\end{cases}
+\end{split}\]</div>
+<p><strong>Exercice 11</strong></p>
+<p>Quel est, intuitivement, le spectre d’un signal temporel constant ?
 En déduire le spectre d’une impulsion de Dirac centrée en 0.
-Qu’en concluez-vous sur la composition fréquentielle d’une impulsion de Dirac ?</p></li>
-<li><p>La transformée de Fourier discrète est-elle périodique ? à support continu ? à valeurs réelles ?</p></li>
-<li><p>Représentez le spectre de <span class="math notranslate nohighlight">\(\cos(t)\)</span> sans calculer sa série de Fourier.</p></li>
-<li><p>Rappelez le théorème de l’échantillonnage (ou théorème de Nyquist-Shannon).</p></li>
-</ul>
+Qu’en concluez-vous sur la composition fréquentielle d’une impulsion de Dirac ?</p>
+<p><strong>Exercice 12</strong></p>
+<p>La transformée de Fourier discrète est-elle périodique ? à support continu ? à valeurs réelles ?</p>
+<p><strong>Exercice 13</strong></p>
+<p>Représentez le spectre de <span class="math notranslate nohighlight">\(\cos(t)\)</span> sans calculer sa série de Fourier.</p>
+<p><strong>Exercice 14</strong></p>
+<p>Rappelez le théorème de l’échantillonnage (ou théorème de Nyquist-Shannon).</p>
 </div>
 </div>
 
