@@ -16,7 +16,8 @@
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="_static/css/jbvinc.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-dropdown.css" />
+    <link rel="stylesheet" type="text/css" href="_static/spanels-index--0afa1ebdab0bb23b98b56d34c23d9f57.css" />
+    <link rel="stylesheet" type="text/css" href="_static/spanels-variables--ffc7f74dcb1b9eecba2dbcbc22818714.css" />
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
@@ -295,6 +296,11 @@
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#une-methode-toute-simple-pour-synthetiser-un-rif">
+     Une méthode toute simple pour synthétiser un RIF
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#methode-des-fenetres">
      Méthode des fenêtres
     </a>
@@ -434,135 +440,170 @@ empêchant toute instabilité.</p>
 </div>
 <div class="section" id="linearite-de-la-phase">
 <h3>Linéarité de la phase<a class="headerlink" href="#linearite-de-la-phase" title="Lien permanent vers ce titre">¶</a></h3>
-<!-- La linéarité de la phase est souvent un critère souhaité.
+<p>La linéarité de la phase est souvent un critère souhaité.
 Les filtres RIF sont à phase linéaire si leur réponse impulsionnelle et symétrique
-(attention, symétrique ne veut pas dire paire ici !) ou antisymétrique, c'est-à-dire :
-
-$$
+(attention, symétrique ne veut pas dire paire ici !) ou antisymétrique, c’est-à-dire :</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
 \forall n\in\{0,\dots,N\}\quad
-&h[n] = h[N-1-n]  &\quad\text{pour un filtre symétrique,} \\
-&h[n] = -h[N-1-n] &\quad\text{pour un filtre antisymétrique.}
-$$
-
-Démo : Rabiner p. 77 ou Proakis p. 621
-
-**FIG**
-
-**FIG**
-
-Les {numref}`F:num:ri-sym` et {numref}`F:num:ri-antisym` illustre ces propriétés.
-
-Notons que les filtres de type II, III et IV ne sont pas adaptés pour synthétiser des filtres passe-haut. -->
+&amp;h[n] = h[N-1-n]  &amp;\quad\text{pour un filtre symétrique,} \\
+&amp;h[n] = -h[N-1-n] &amp;\quad\text{pour un filtre antisymétrique.}
+\end{split}\]</div>
+<p>La <a class="reference internal" href="#f-num-ri"><span class="std std-numref">Fig. 13</span></a> illustre ces propriétés.</p>
+<!-- Démo : Rabiner p. 77 ou Proakis p. 621 -->
+<div class="figure align-default" id="f-num-ri">
+<div class="cell_output docutils container">
+<img alt="_images/filtre-numerique_4_0.png" src="_images/filtre-numerique_4_0.png" />
+</div>
+<p class="caption"><span class="caption-number">Fig. 13 </span><span class="caption-text">Exemples de réponses impulsionnelles symétriques (types I et II) et antisymétriques (types III et IV).</span><a class="headerlink" href="#f-num-ri" title="Lien permanent vers cette image">¶</a></p>
+</div>
+<p>Notons que les filtres de type II, III et IV ne sont pas adaptés pour synthétiser des filtres passe-haut.</p>
+</div>
+<div class="section" id="une-methode-toute-simple-pour-synthetiser-un-rif">
+<h3>Une méthode toute simple pour synthétiser un RIF<a class="headerlink" href="#une-methode-toute-simple-pour-synthetiser-un-rif" title="Lien permanent vers ce titre">¶</a></h3>
+<!-- [Méthode des fenêtres](https://vincmazet.github.io/signal2/_static/files/rif.pdf) -->
+<p>Une idée toute simple pour obtenir un filtre RIF est de tronquer la réponse impulsionnelle d’un filtre idéal.</p>
+<p>Prenons l’exemple d’un filtre passe-bas, et considérons la réponse fréquentielle du filtre idéal, telle qu’on l’a vue dans la section <a class="reference internal" href="filtre-intro.html#s-filtre-intro-pbas"><span class="std std-ref">Filtre passe bas</span></a> (pour simplifier l’exposé, on prend <span class="math notranslate nohighlight">\(K=1\)</span> et <span class="math notranslate nohighlight">\(a=0\)</span>) :</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+H_\text{idéal}(f) = \begin{cases}
+  1 &amp;\text{si} |f| \leq f_c, \\
+  0 &amp;\text{si} f_c &lt; |f| &lt; \frac{f_e}{2}.
+\end{cases}
+\end{split}\]</div>
+<p>Remarquez qu’on a ajouté la condition <span class="math notranslate nohighlight">\(|f| &lt; \frac{f_e}{2}\)</span> puisque le filtre étant numérique
+et d’après le théorème de l’échantillonnage, il n’y a pas de fréquence au delà de la fréquence de Nyquist.</p>
+<p>La transformée de Fourier à temps discret inverse de <span class="math notranslate nohighlight">\(H(f)\)</span> est un sinus cardinal :</p>
+<div class="math notranslate nohighlight">
+\[
+h_\text{idéal}[n] = 2 f_c \mathrm{sinc}(2f_c n).
+\]</div>
+<p>En ne conservant que <span class="math notranslate nohighlight">\(N+1\)</span> échantillons, on obtient forcément un filtre de réponse impulsionnelle finie.
+On choisit pour cela de tronquer <span class="math notranslate nohighlight">\(h_\text{idéal}\)</span> autour de l’échantillon <span class="math notranslate nohighlight">\(n=0\)</span>,
+et de décaler les échantillons conservés de sorte à rendre le filtre causal.
+Ce nouveau filtre a pour réponse impulsionnelle :</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+h =
+\begin{cases}
+2 f_c \mathrm{sinc}(2f_c (n-M)) &amp;\text{si $n \in \{0,\dots,M\}$} \\
+0                               &amp;\text{sinon}
+\end{cases}
+\end{split}\]</div>
+<p>où <span class="math notranslate nohighlight">\(M = \frac{N}{2}\)</span>.</p>
+<div class="figure align-default" id="f-num-fenetre-troncature">
+<div class="cell_output docutils container">
+<img alt="_images/filtre-numerique_5_0.png" src="_images/filtre-numerique_5_0.png" />
+</div>
+<p class="caption"><span class="caption-number">Fig. 14 </span><span class="caption-text">Troncature et décalage de la réponse impulsionnelle idéale.</span><a class="headerlink" href="#f-num-fenetre-troncature" title="Lien permanent vers cette image">¶</a></p>
+</div>
+<p>Vous noterez que ce filtre est de type I.</p>
+<p>Enfin, la transformée de Fourier à temps discret de <span class="math notranslate nohighlight">\(h\)</span> nous permet d’obtenir la réponse fréquentielle du filtre.
+Son expression est assez complexe et nous ne la détaillons pas ici.
+La figure <a class="reference internal" href="#f-num-rif-rf"><span class="std std-numref">Fig. 15</span></a> représente le gain de ce filtre RIF construit à partir de la troncature d’un filtre idéal.</p>
+<div class="figure align-default" id="f-num-rif-rf">
+<div class="cell_output docutils container">
+<img alt="_images/filtre-numerique_6_0.png" src="_images/filtre-numerique_6_0.png" />
+</div>
+<p class="caption"><span class="caption-number">Fig. 15 </span><span class="caption-text">Réponse fréquentielle du filtre tronqué et décalé.</span><a class="headerlink" href="#f-num-rif-rf" title="Lien permanent vers cette image">¶</a></p>
+</div>
+<p>On observe plusieurs chose sur cette figure :</p>
+<ul class="simple">
+<li><p>la bande de transition n’est pas nulle,</p></li>
+<li><p>il y a des oscillations en bande passante et en bande atténuée.</p></li>
+</ul>
+<p>Les oscillations sont d’ailleurs de plus en plus grande lorsqu’on s’approche de la bande de transition :
+c’est le phénomène de Gibbs.
+Par ailleurs, on remarque que les oscillations ne s’atténuent pas lorsque <span class="math notranslate nohighlight">\(N\)</span> augmente,
+alors que pourtant le filtre RIF se rapproche de plus en plus du filtre idéal !</p>
+<p>L’interprétation que l’on peut faire de ces observations est la suivante.
+La troncature revient à multiplier la réponse impulsionnelle <span class="math notranslate nohighlight">\(h_\text{idéal}\)</span> par une porte <span class="math notranslate nohighlight">\(w[n]\)</span>
+(on parle de « fenêtrage rectangulaire ») :</p>
+<div class="math notranslate nohighlight">
+\[
+h[n] = h_\text{idéal}[n] * w[n].
+\]</div>
+<p>Dans le domaine de Fourier, cela revient à convoluer la réponse fréquentielle <span class="math notranslate nohighlight">\(H_\text{idéal}\)</span>
+par la transformée de Fourier à temps discret de <span class="math notranslate nohighlight">\(w[n]\)</span> :</p>
+<div class="math notranslate nohighlight">
+\[
+H(f) = H_\text{idéal}(f) \times \mathcal{F}[w](f).
+\]</div>
+<p>La transformée de Fourier à temps discret de <span class="math notranslate nohighlight">\(w[n]\)</span> a finalement pour expression :</p>
+<div class="math notranslate nohighlight">
+\[
+W(f) = e^{-j \pi f N} \frac{\sin(\pi f(N+1))}{\pi f}.
+\]</div>
+<p>Elle correspond à la multiplication d’une exponentielle avec un « noyau de Dirichlet » (cf. <a class="reference internal" href="#f-num-dirichlet"><span class="std std-numref">Fig. 16</span></a>).</p>
+<div class="figure align-default" id="f-num-dirichlet">
+<div class="cell_output docutils container">
+<img alt="_images/filtre-numerique_7_0.png" src="_images/filtre-numerique_7_0.png" />
+</div>
+<p class="caption"><span class="caption-number">Fig. 16 </span><span class="caption-text">Noyau de Dirichlet, pour deux valeurs de <span class="math notranslate nohighlight">\(N\)</span>.</span><a class="headerlink" href="#f-num-dirichlet" title="Lien permanent vers cette image">¶</a></p>
+</div>
+<p>Ainsi, si le lobe principal du noyau de Dirichlet s’élargit, la bande de transition du filtre va s’élargir également.
+Et lorsque les lobes secondaires augmentent,
+les oscillations dans les bandes passantes et atténuée du filtre vont également s’agrandir.</p>
+<p>L’idéal est donc d’avoir un lobe principal étroit et des lobes secondaires faibles.
+Il faudrait donc que le noyau de Dirichlet tende vers une impulsion de Dirac,
+mais alors cela implique d’augmenter considérablement l’ordre du filtre <span class="math notranslate nohighlight">\(N\)</span>,
+résultant alors dans un filtre à réponse impulsionnelle pas tant finie que ça…</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<p>Et oui, en traitement du signal, la porte est un genre de fenêtre !</p>
+</div>
 </div>
 <div class="section" id="methode-des-fenetres">
 <h3>Méthode des fenêtres<a class="headerlink" href="#methode-des-fenetres" title="Lien permanent vers ce titre">¶</a></h3>
-<!-- [Méthode des fenêtres](https://vincmazet.github.io/signal2/_static/files/rif.pdf)
-
-Une idée toute simple pour obtenir un filtre RIF est de tronquer la réponse impulsionnelle d'un filtre idéal.
-
-Prenons l'exemple d'un filtre passe-bas, et considérons la réponse fréquentielle du filtre idéal, telle qu'on l'a vue dans la section {ref}`S:filtre-intro:pbas` (pour simplifier l'exposé, on prend $K=1$ et $a=0$) :
-
-$$
-H_\text{idéal}(f) = \begin{cases}
-  1 &\text{si} |f| \leq f_c, \\
-  0 &\text{si} f_c < |f| < \frac{f_e}{2}.
-\end{cases}
-$$
-
-Remarquez qu'on a rajouté la condition $|f| < \frac{f_e}{2}$ puisque le filtre étant numérique
-et d'après le théorème de l'échantillonnage, il n'y a pas de fréquence au delà de la fréquence de Nyquist.
-
-La tranformée de Fourier à temps discret inverse de $H(f)$ est un sinus cardinal :
-
-$$
-h_\text{idéal} = 2 f_c \mathrm{sinc}(2f_c n).
-$$
-
-En ne conservant que $N+1$ échantillons, on obtient forcément filtre de réponse impulsionnelle finie.
-On choisit pour cela de tronquer $h_\text{idéal}$ autour de l'échantillon $n=0$,
-et de décaler les échantillons conservés de sorte à rendre le filtre causal.
-Ce nouveau filtre a pour réponse impulsionnelle :
-
-$$
-h =
-\begin{cases}
-2 f_c \mathrm{sinc}(2f_c (n-M)) &\text{si $n \in \{0,\dots,M\}$} \\
-0                               &\text{sinon}
-\end{cases}
-$$
-
-où $M = \frac{N}{2}$.
-
-**ILLUSTRATION DE h-idéal et h**
-
-Vous noterez que ce filtre est de type I.
-
-Enfin, la transformée de Fourier à temps discret de $h$ nous permet d'obtenir la réponse fréquentielle du filtre.
-Son expression est assez complexe et nous ne la détaillons pas ici.
-La figure {numref}`F:num:rif-rf` représente le gain de ce filtre RIF construit à partir de la troncature d'un filtre idéal.
-
-**FIG**
-
-On observe plusieurs chose sur cette figure :
-* la bande de transition n'est pas nulle,
-* il y a des oscillations en bande passante et en bande atténuée.
-
-Les oscillations sont d'ailleurs de plus en plus grande lorsqu'on s'approche de la bande de transition :
-c'est le phénomène de Gibbs.
-Par ailleurs, on remarque que les oscillations ne s'atténuent pas lorsque $N$ augmente,
-alors que pourtant le filtre RIF se rapproche de plus en plus du filtre idéal !
-
-L'interprétation que l'on peut faire de ces observations est la suivante.
-La troncature revient à multiplier la réponse impulsionnelle $h_\text{idéal}$ par une porte $w[n]$
-(on parle de « fenêtrage rectangulaire ») :
-
-$$
-h[n] = h_\text{idéal}[n] * w[n].
-$$
-
-Dans le domaine de Fourier, cela revient à convoluer la réponse fréquentielle $H_\text{idéal}$
-par la transformée de Fourier à temps discret de $w[n]$ :
-
-$$
-H(f) = H_\text{idéal}(f) \times \mathcal{F}[w](f).
-$$
-
-La transformée de Fourier à temps discret de $w[n]$ est appelé « noyau de Dirichlet » (cf. {numref}`F:num:dirichlet`)
-et a pour expression :
-
-$$
-W(f) = e^{-j \pi f N} \frac{\sin(\pi f(N+1))}{\pi f}.
-$$
-
-**FIGURE : noyau de dirichlet**
-
-Ainsi, si le lobe principal du noyau de Dirichlet d'élargit, la bande de transition du filtre va s'élargir également.
-Et lorsque les lobes secondaires augmentent,
-les oscillations dans les bandes passantes et atténuée du filtre vont également s'agrandir.
-
-L'idéal est donc d'avoir un lobe principal étroit et des lobes secondaires faibles.
-Il faudrait donc que le noyau de Dirichlet tende vers une impulsione de Dirac,
-mais alors cela implique d'augmenter considérablement l'ordre du filtre $N$,
-résultant alors dans un filtre à réponse impulsionnelle pas tant finie que ça...
-
-```{margin}
-Et oui, en traitement du signal, la porte est un genre de fenêtre !
-```
-
-La méthode des fenêtres consiste donc à effectuer la troncature de la réponse impulsionnelle d'un filtre idéal,
-où la fenêtre n'est pas forcément une porte.
-
-Le tableau ci-dessous donne les propriétés des réponses fréquentielles obtenues pour plusieurs fenêtres
-(la fréquence réduite est la fréquence divisée par $f_e$).
-
-| Fenêtre | Largeur de transition (fréquence réduite) | Ondulation en bande passante (dB) | Atténuation mminimale (dB] |
-| :--- | --- | --- | ---: |
-| Rectangulaire          | $0,9/N$               | $0,742$             | $21$ |
-| Hamming                | $3,3/N$               | $0,019$             | $53$ |
-| Blackman               | $5,5/N$               | $0,002$             | $74$ |
-| Kaiser ($\beta=4,538$) | $2,93/N$              | $0,0274$            | $50$ |
-| Kaiser ($\beta=6,764$) | $4,32/N$              | $0,00275$           | $70$ |
-| Kaiser ($\beta=8,960$) | $5,71/N$              | $0,000275$          | $90$ | -->
+<p>La méthode des fenêtres consiste donc à effectuer la troncature de la réponse impulsionnelle d’un filtre idéal,
+où la fenêtre n’est pas forcément une porte.</p>
+<p>Le tableau ci-dessous donne les propriétés des réponses fréquentielles obtenues pour plusieurs fenêtres
+(la fréquence réduite est la fréquence divisée par <span class="math notranslate nohighlight">\(f_e\)</span>).</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:left head"><p>Fenêtre</p></th>
+<th class="head"><p>Largeur de transition (fréquence réduite)</p></th>
+<th class="head"><p>Ondulation en bande passante (dB)</p></th>
+<th class="text-align:right head"><p>Atténuation mminimale (dB]</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:left"><p>Rectangulaire</p></td>
+<td><p><span class="math notranslate nohighlight">\(0,9/N\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(0,742\)</span></p></td>
+<td class="text-align:right"><p><span class="math notranslate nohighlight">\(21\)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>Hamming</p></td>
+<td><p><span class="math notranslate nohighlight">\(3,3/N\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(0,019\)</span></p></td>
+<td class="text-align:right"><p><span class="math notranslate nohighlight">\(53\)</span></p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>Blackman</p></td>
+<td><p><span class="math notranslate nohighlight">\(5,5/N\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(0,002\)</span></p></td>
+<td class="text-align:right"><p><span class="math notranslate nohighlight">\(74\)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>Kaiser (<span class="math notranslate nohighlight">\(\beta=4,538\)</span>)</p></td>
+<td><p><span class="math notranslate nohighlight">\(2,93/N\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(0,0274\)</span></p></td>
+<td class="text-align:right"><p><span class="math notranslate nohighlight">\(50\)</span></p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>Kaiser (<span class="math notranslate nohighlight">\(\beta=6,764\)</span>)</p></td>
+<td><p><span class="math notranslate nohighlight">\(4,32/N\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(0,00275\)</span></p></td>
+<td class="text-align:right"><p><span class="math notranslate nohighlight">\(70\)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>Kaiser (<span class="math notranslate nohighlight">\(\beta=8,960\)</span>)</p></td>
+<td><p><span class="math notranslate nohighlight">\(5,71/N\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(0,000275\)</span></p></td>
+<td class="text-align:right"><p><span class="math notranslate nohighlight">\(90\)</span></p></td>
+</tr>
+</tbody>
+</table>
+<div class="figure align-default" id="f-filtre-intro-fenetre">
+<a class="reference internal image-reference" href="_images/filtre-fenetres.png"><img alt="_images/filtre-fenetres.png" src="_images/filtre-fenetres.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 17 </span><span class="caption-text">Définition des différents éléments de la réponse fréquentielle.</span><a class="headerlink" href="#f-filtre-intro-fenetre" title="Lien permanent vers cette image">¶</a></p>
+</div>
 <!-- ### Méthode de Remez
 
 La méthode des fenêtres est sous-optimale et donne des ordres de filtres surévalués,
