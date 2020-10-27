@@ -388,21 +388,21 @@ pour obtenir l’expression de la transformée inverse.</p>
 <p>Les transformées de Laplace s’écrivent donc dans la plupart des cas sous la forme :</p>
 <div class="math notranslate nohighlight">
 \[
-H(s) = \frac{ \sum_{n=0}^{N-1} b_n s^n }{ \sum_{n=0}^{M-1} a_m s^m }
-     = \frac{ b_{N-1}s^{N-1} + b_{N-2}s^{N-2} + \dots + b_1s + b_0 }{ a_{M-1}s^{M-1} + a_{M-2}s^{M-2} + \dots + a_1s + a_0 }
+H(s) = \frac{ \sum_{m=0}^{M} b_m s^m }{ \sum_{n=0}^{N} a_n s^n }
+     = \frac{ b_Ms^M + b_{M-1}s^{M-1} + \dots + b_1s + b_0 }{ a_Ns^N + a_{N-1}s^{N-1} + \dots + a_1s + a_0 }
 \]</div>
-<p>où les constantes <span class="math notranslate nohighlight">\(b_n\)</span> et <span class="math notranslate nohighlight">\(a_m\)</span> sont les coefficients de la fonction de transfert <span class="math notranslate nohighlight">\(H(s)\)</span>.
+<p>où les constantes <span class="math notranslate nohighlight">\(b_m\)</span> et <span class="math notranslate nohighlight">\(a_n\)</span> sont les coefficients de la fonction de transfert <span class="math notranslate nohighlight">\(H(s)\)</span>.
 Avec un peu de calcul, l’expression précédente peut aussi d’écrire sous la forme :</p>
 <div class="math notranslate nohighlight">
 \[
-H(s) = k \frac{ \prod_{n=0}^{N-1} (s-z_n) }{ \prod_{n=0}^{M-1} (s-p_m) }
-     = k \frac{ (s-z_{N-1})(s-z_{N-2}) \dots (s-z_1)(s-z_0) }{ (s-p_{M-1})(s-p_{M-2}) \dots (s-p_1)(s-p_0) }
+H(s) = k \frac{ \prod_{m=0}^{M} (s-z_m) }{ \prod_{n=0}^{N} (s-p_n) }
+     = k \frac{ (s-z_M)(s-z_{M-1}) \dots (s-z_1)(s-z_0) }{ (s-p_N)(s-p_{N-1}) \dots (s-p_1)(s-p_0) }
 \]</div>
-<p>où les constantes <span class="math notranslate nohighlight">\(z_n\)</span> et <span class="math notranslate nohighlight">\(p_m\)</span> sont respectivement les zéros et les pôles de la fonction de transfert <span class="math notranslate nohighlight">\(H(s)\)</span>
+<p>où les constantes <span class="math notranslate nohighlight">\(z_m\)</span> et <span class="math notranslate nohighlight">\(p_n\)</span> sont respectivement les zéros et les pôles de la fonction de transfert <span class="math notranslate nohighlight">\(H(s)\)</span>
 et <span class="math notranslate nohighlight">\(k\)</span> est une constante multiplicative appelée gain.
-Les zéros <span class="math notranslate nohighlight">\(z_n\)</span> annulent le numérateur de la fonction de transfert (et donc la fonction de transfert elle-même),
-tandis que les pôles <span class="math notranslate nohighlight">\(p_m\)</span> annulent le dénumérateur (et font tendre la fonction de transfert vers l’infini).</p>
-<p>La constante <span class="math notranslate nohighlight">\(M\)</span> correspond au nombre de pôles et définit l”« ordre » de la fonction de transfert.</p>
+Les zéros <span class="math notranslate nohighlight">\(z_m\)</span> annulent le numérateur de la fonction de transfert (et donc la fonction de transfert elle-même),
+tandis que les pôles <span class="math notranslate nohighlight">\(p_n\)</span> annulent le dénumérateur (et font tendre la fonction de transfert vers l’infini).</p>
+<p>L”« ordre » de la fonction de transfert est la constante <span class="math notranslate nohighlight">\(M\)</span> ou <span class="math notranslate nohighlight">\(N\)</span> la plus grande.</p>
 </div>
 <div class="section" id="proprietes">
 <h2>Propriétés<a class="headerlink" href="#proprietes" title="Lien permanent vers ce titre">¶</a></h2>

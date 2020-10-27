@@ -352,10 +352,10 @@ Dans la pratique, le calcul de <span class="math notranslate nohighlight">\(x[n]
 car les transformées en Z s’expriment sous forme d’une fraction rationnelle :</p>
 <div class="math notranslate nohighlight">
 \[
-H(s) = \frac{ \sum_{n=0}^{N-1} b_n z^{-n} }{ \sum_{n=0}^{M-1} a_m z^{-m} }
-     = k \frac{ \prod_{n=0}^{N-1} (1-z_nz^{-1}) }{ \prod_{n=0}^{M-1} (1-p_mz^{-1}) }
+H(z) = \frac{ \sum_{m=0}^{M} b_m z^{-m} }{ \sum_{n=0}^{N} a_n z^{-n} }
+     = k \frac{ \prod_{m=0}^{M} (1-z_mz^{-1}) }{ \prod_{n=0}^{N} (1-p_nz^{-1}) }
 \]</div>
-<p>La fonction de transfert est donc définie par ses coefficients <span class="math notranslate nohighlight">\(b_n\)</span> et <span class="math notranslate nohighlight">\(a_m\)</span>, ou par ses zéros <span class="math notranslate nohighlight">\(z_n\)</span>, pôles <span class="math notranslate nohighlight">\(p_m\)</span> et gain <span class="math notranslate nohighlight">\(k\)</span>.</p>
+<p>La fonction de transfert est donc définie par ses coefficients <span class="math notranslate nohighlight">\(b_m\)</span> et <span class="math notranslate nohighlight">\(a_n\)</span>, ou par ses zéros <span class="math notranslate nohighlight">\(z_m\)</span>, pôles <span class="math notranslate nohighlight">\(p_n\)</span> et gain <span class="math notranslate nohighlight">\(k\)</span>.</p>
 </div>
 <div class="section" id="proprietes">
 <h2>Propriétés<a class="headerlink" href="#proprietes" title="Lien permanent vers ce titre">¶</a></h2>

@@ -16,7 +16,8 @@
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="_static/css/jbvinc.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-dropdown.css" />
+    <link rel="stylesheet" type="text/css" href="_static/spanels-index--0afa1ebdab0bb23b98b56d34c23d9f57.css" />
+    <link rel="stylesheet" type="text/css" href="_static/spanels-variables--ffc7f74dcb1b9eecba2dbcbc22818714.css" />
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
@@ -325,10 +326,10 @@ Les fonctions de transfert des filtres analogiques classiques s’écrivent sous
 et ne peuvent qu’approximer le gain d’un filtre idéal :</p>
 <div class="math notranslate nohighlight">
 \[
-H(s) = \frac{ \sum_{n=0}^N b_n s^n }{ \sum_{n=0}^M a_m s^m }
-     = \frac{ b_Ns^N + b_{N-1}s^{N-1} + \dots + b_1s + b_0 }{ a_Ms^M + a_{M-1}s^{M-1} + \dots + a_1s + a_0 }
+H(s) = \frac{ \sum_{m=0}^M b_m s^m }{ \sum_{n=0}^N a_n s^n }
+     = \frac{ b_Ms^M + b_{M-1}s^{M-1} + \dots + b_1s + b_0 }{ a_Ns^N + a_{N-1}s^{N-1} + \dots + a_1s + a_0 }
 \]</div>
-<p>L’enjeu revient donc à déterminer, en fonction du gabarit choisi, les valeurs des coefficients <span class="math notranslate nohighlight">\(b_n\)</span> et <span class="math notranslate nohighlight">\(a_m\)</span> :
+<p>L’enjeu revient donc à déterminer, en fonction du gabarit choisi, les valeurs des coefficients <span class="math notranslate nohighlight">\(b_m\)</span> et <span class="math notranslate nohighlight">\(a_n\)</span> :
 c’est l’objet des travaux de <a class="reference external" href="https://en.wikipedia.org/wiki/Stephen_Butterworth">Butterworth</a>,
 <a class="reference external" href="https://fr.wikipedia.org/wiki/Pafnouti_Tchebychev">Tchebychev</a>
 ou <a class="reference external" href="https://en.wikipedia.org/wiki/Wilhelm_Cauer">Cauer</a>.
