@@ -16,7 +16,8 @@
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="_static/css/jbvinc.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-dropdown.css" />
+    <link rel="stylesheet" type="text/css" href="_static/spanels-index--0afa1ebdab0bb23b98b56d34c23d9f57.css" />
+    <link rel="stylesheet" type="text/css" href="_static/spanels-variables--ffc7f74dcb1b9eecba2dbcbc22818714.css" />
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
@@ -320,7 +321,7 @@ X(z) = \sum_{n=-\infty}^{+\infty} x[n] z^{-n}
 C’est une variable continue, même si <span class="math notranslate nohighlight">\(s\)</span> est échantillonné.
 Cette formule ressemble à la transformée de Fourier discrète, mais l’exponentielle est ici remplacée par la variable <span class="math notranslate nohighlight">\(z\)</span>.</p>
 <p>On notera dans la suite : <span class="math notranslate nohighlight">\(X(z) = \mathcal{Z}[x[n]]\)</span>.</p>
-<p><span class="math notranslate nohighlight">\(H(z)\)</span> est la fonction de transfert du filtre numérique de réponse impulsionnelle h[n],
+<p><span class="math notranslate nohighlight">\(H(z)\)</span> est la fonction de transfert du filtre numérique de réponse impulsionnelle <span class="math notranslate nohighlight">\(h[n]\)</span>,
 et exprime le quotient des transformées en Z de la sortie sur l’entrée :</p>
 <div class="math notranslate nohighlight">
 \[
@@ -334,7 +335,7 @@ et il serait difficile et inutile de la représenter.</p>
 <p>On utilise alors le diagramme pôles–zéros qui se construit de la même manière
 que pour la <a class="reference internal" href="laplace.html#s-laplace-pz"><span class="std std-ref">transformée de Laplace</span></a>.</p>
 <p>Lorque <span class="math notranslate nohighlight">\(\rho=1\)</span>, alors <span class="math notranslate nohighlight">\(z=e^{j\theta}\)</span>.
-En réécrivant <span class="math notranslate nohighlight">\(\theta^= 2\pi f\)</span>, on retrouver alors l’expression de la transformée de Fourier discrète.
+En réécrivant <span class="math notranslate nohighlight">\(\theta = 2\pi f\)</span>, on retrouver alors l’expression de la transformée de Fourier discrète.
 En d’autres termes, la transformée de Fourier discrète est égale à la transformée en Z lorsque <span class="math notranslate nohighlight">\(z\)</span> est de module 1.
 Cela correspond à un cercle de rayon 1 centré sur l’origine.</p>
 </div>
@@ -351,8 +352,8 @@ Dans la pratique, le calcul de <span class="math notranslate nohighlight">\(x[n]
 car les transformées en Z s’expriment sous forme d’une fraction rationnelle :</p>
 <div class="math notranslate nohighlight">
 \[
-H(s) = \frac{ \sum_{n=0}^N b_n z^{-n} }{ \sum_{n=0}^M a_m z^{-m} }
-     = k \frac{ \prod_{n=0}^N (1-z_nz^{-1}) }{ \prod_{n=0}^M (1-p_mz^{-1}) }
+H(s) = \frac{ \sum_{n=0}^{N-1} b_n z^{-n} }{ \sum_{n=0}^{M-1} a_m z^{-m} }
+     = k \frac{ \prod_{n=0}^{N-1} (1-z_nz^{-1}) }{ \prod_{n=0}^{M-1} (1-p_mz^{-1}) }
 \]</div>
 <p>La fonction de transfert est donc définie par ses coefficients <span class="math notranslate nohighlight">\(b_n\)</span> et <span class="math notranslate nohighlight">\(a_m\)</span>, ou par ses zéros <span class="math notranslate nohighlight">\(z_n\)</span>, pôles <span class="math notranslate nohighlight">\(p_m\)</span> et gain <span class="math notranslate nohighlight">\(k\)</span>.</p>
 </div>
@@ -396,9 +397,9 @@ Prenons l’exemple de la réponse impulsionnelle <span class="math notranslate 
 Sa transformée en Z est :</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
-H(z) &amp;= \sum_{n=-\infty}^{+-\infty} h[n] z^{-n} \\
-     &amp;= \sum_{n=0}^{+-\infty} a^n z^{-n} \\
-     &amp;= \sum_{n=0}^{+-\infty} (az^{-1})^n
+H(z) &amp;= \sum_{n=-\infty}^{+\infty} h[n] z^{-n} \\
+     &amp;= \sum_{n=0}^{+\infty} a^n z^{-n} \\
+     &amp;= \sum_{n=0}^{+\infty} (az^{-1})^n
 \end{split}\]</div>
 <p><span class="math notranslate nohighlight">\(H(z)\)</span> est la somme des termes d’une suite géométrique de raison <span class="math notranslate nohighlight">\(az^{-1}\)</span>.
 Cette suite est convergente si et seulement si <span class="math notranslate nohighlight">\(|az^{-1}|&lt;1\)</span>.
@@ -427,7 +428,7 @@ le lieu de la transformée de Fourier discrète étant intégralement dans la r�
 on en déduit que le système est stable.</p>
 <p>De manière générale, on montre qu’un système numérique est stable
 si et seulement si tous ses pôles sont dans le cercle unité (cercle de rayon 1 centré sur l’origine),
-impliquant qu’ils sont d emodule inférieur à 1.</p>
+impliquant qu’ils sont de module inférieur à 1.</p>
 </div>
 </div>
 

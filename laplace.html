@@ -16,7 +16,8 @@
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="_static/css/jbvinc.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-dropdown.css" />
+    <link rel="stylesheet" type="text/css" href="_static/spanels-index--0afa1ebdab0bb23b98b56d34c23d9f57.css" />
+    <link rel="stylesheet" type="text/css" href="_static/spanels-variables--ffc7f74dcb1b9eecba2dbcbc22818714.css" />
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
@@ -387,15 +388,15 @@ pour obtenir l’expression de la transformée inverse.</p>
 <p>Les transformées de Laplace s’écrivent donc dans la plupart des cas sous la forme :</p>
 <div class="math notranslate nohighlight">
 \[
-H(s) = \frac{ \sum_{n=0}^N b_n s^n }{ \sum_{n=0}^M a_m s^m }
-     = \frac{ b_Ns^N + b_{N-1}s^{N-1} + \dots + b_1s + b_0 }{ a_Ms^M + a_{M-1}s^{M-1} + \dots + a_1s + a_0 }
+H(s) = \frac{ \sum_{n=0}^{N-1} b_n s^n }{ \sum_{n=0}^{M-1} a_m s^m }
+     = \frac{ b_{N-1}s^{N-1} + b_{N-2}s^{N-2} + \dots + b_1s + b_0 }{ a_{M-1}s^{M-1} + a_{M-2}s^{M-2} + \dots + a_1s + a_0 }
 \]</div>
 <p>où les constantes <span class="math notranslate nohighlight">\(b_n\)</span> et <span class="math notranslate nohighlight">\(a_m\)</span> sont les coefficients de la fonction de transfert <span class="math notranslate nohighlight">\(H(s)\)</span>.
 Avec un peu de calcul, l’expression précédente peut aussi d’écrire sous la forme :</p>
 <div class="math notranslate nohighlight">
 \[
-H(s) = k \frac{ \prod_{n=0}^N (s-z_n) }{ \prod_{n=0}^M (s-p_m) }
-     = k \frac{ (s-z_M)(s-z_{M-1}) \dots (s-z_1)(s-z_0) }{ (s-p_M)(s-p_{M-1}) \dots (s-p_1)(s-p_0) }
+H(s) = k \frac{ \prod_{n=0}^{N-1} (s-z_n) }{ \prod_{n=0}^{M-1} (s-p_m) }
+     = k \frac{ (s-z_{N-1})(s-z_{N-2}) \dots (s-z_1)(s-z_0) }{ (s-p_{M-1})(s-p_{M-2}) \dots (s-p_1)(s-p_0) }
 \]</div>
 <p>où les constantes <span class="math notranslate nohighlight">\(z_n\)</span> et <span class="math notranslate nohighlight">\(p_m\)</span> sont respectivement les zéros et les pôles de la fonction de transfert <span class="math notranslate nohighlight">\(H(s)\)</span>
 et <span class="math notranslate nohighlight">\(k\)</span> est une constante multiplicative appelée gain.
@@ -469,9 +470,9 @@ alors que si <span class="math notranslate nohighlight">\(a&lt;0\)</span> le sys
 <p>La fonction de transfert de ce système est :</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
-H(s) &amp;= \int_{-\infty}^{+-\infty} h(t) e^{-st} dt \\
-     &amp;= \int_{0}^{+-\infty} e^{-at} e^{-st} dt \\
-     &amp;= \left[ \frac{e^{-t(s+a)}}{-(s+a)} \right]_{0}^{+-\infty} \\
+H(s) &amp;= \int_{-\infty}^{+\infty} h(t) e^{-st} dt \\
+     &amp;= \int_{0}^{+\infty} e^{-at} e^{-st} dt \\
+     &amp;= \left[ \frac{e^{-t(s+a)}}{-(s+a)} \right]_{0}^{+\infty} \\
      &amp;= \frac{\lim_{t \to +\infty} e^{-t(s+a)} - 1}{-(s+a)}
 \end{split}\]</div>
 <p>Avant de déterminer la valeur de la limite de <span class="math notranslate nohighlight">\(e^{-t(s+a)}\)</span> en <span class="math notranslate nohighlight">\(+\infty\)</span>,
@@ -485,20 +486,20 @@ e^{-t(s+a)} = e^{-t(\sigma+j\omega+a)} = e^{-t(\sigma+a)} e^{-j\omega t}.
 (souvenez-vous que <a class="reference external" href="https://vincmazet.github.io/signal1/signaux-elementaires.html#exponentielle-complexe">l’expontielle complexe a une forme de tire-bouchon</a>).
 En ce qui concerne l’exponentielle réelle <span class="math notranslate nohighlight">\(e^{-t(\sigma+a)}\)</span>, trois cas sont possibles :</p>
 <ul class="simple">
-<li><p>si <span class="math notranslate nohighlight">\(s+a &gt; 0\)</span> alors <span class="math notranslate nohighlight">\(e^{-t(\sigma+a)}\)</span> est une exponentielle décroissante et tend vers 0,</p></li>
-<li><p>si <span class="math notranslate nohighlight">\(s+a = 0\)</span> alors <span class="math notranslate nohighlight">\(e^{-t(\sigma+a)}\)</span> est une constante égale à 1,</p></li>
-<li><p>si <span class="math notranslate nohighlight">\(s+a &lt; 0\)</span> alors <span class="math notranslate nohighlight">\(e^{-t(\sigma+a)}\)</span> est une exponentielle croissante et tend vers l’infini.</p></li>
+<li><p>si <span class="math notranslate nohighlight">\(\sigma+a &gt; 0\)</span> alors <span class="math notranslate nohighlight">\(e^{-t(\sigma+a)}\)</span> est une exponentielle décroissante et tend vers 0,</p></li>
+<li><p>si <span class="math notranslate nohighlight">\(\sigma+a = 0\)</span> alors <span class="math notranslate nohighlight">\(e^{-t(\sigma+a)}\)</span> est une constante égale à 1,</p></li>
+<li><p>si <span class="math notranslate nohighlight">\(\sigma+a &lt; 0\)</span> alors <span class="math notranslate nohighlight">\(e^{-t(\sigma+a)}\)</span> est une exponentielle croissante et tend vers l’infini.</p></li>
 </ul>
-<p>En combinant les limites des deux exponentielles, il advient que si et seulement si <span class="math notranslate nohighlight">\(s+a &gt; 0\)</span> alors <span class="math notranslate nohighlight">\(e^{-t(s+a)}\)</span> converge
+<p>En combinant les limites des deux exponentielles, il advient que si et seulement si <span class="math notranslate nohighlight">\(\sigma+a &gt; 0\)</span> alors <span class="math notranslate nohighlight">\(e^{-t(s+a)}\)</span> converge
 (vers zéro).
-On peut donc continuer le calcul de la fonction de transfert, uniquement dans le cs <span class="math notranslate nohighlight">\(s+a &gt; 0\)</span> :</p>
+On peut donc continuer le calcul de la fonction de transfert, uniquement dans le cas <span class="math notranslate nohighlight">\(\sigma+a &gt; 0\)</span> :</p>
 <div class="math notranslate nohighlight">
 \[
 H(s) = \frac{0 - 1}{-(s+a)} = \frac{1}{s+a}
 \]</div>
 <p>On a donc obtenu l’expression de la fonction de transfert du système étudié,
-qui n’est vraie que dans le cas où <span class="math notranslate nohighlight">\(s+a &gt; 0\)</span>.</p>
-<p>Cette condition (<span class="math notranslate nohighlight">\(s+a &gt; 0\)</span>, ou autrement <span class="math notranslate nohighlight">\(s&gt;-a\)</span>) définit la région de convergence du système.
+qui n’est vraie que dans le cas où <span class="math notranslate nohighlight">\(\sigma+a &gt; 0\)</span>.</p>
+<p>Cette condition (<span class="math notranslate nohighlight">\(\sigma+a &gt; 0\)</span>, ou autrement <span class="math notranslate nohighlight">\(\sigma&gt;-a\)</span>) définit la région de convergence du système.
 On peut donc la représenter sur le diagramme pôles–zéros (<a class="reference internal" href="#f-laplace-pz"><span class="std std-numref">Fig. 11</span></a>).</p>
 <div class="figure align-default" id="f-laplace-pz">
 <div class="cell_output docutils container">
