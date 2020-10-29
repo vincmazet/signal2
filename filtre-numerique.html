@@ -467,8 +467,8 @@ Les filtres RIF sont à phase linéaire si leur réponse impulsionnelle et symé
 <div class="math notranslate nohighlight">
 \[\begin{split}
 H_\text{idéal}(f) = \begin{cases}
-  1 &amp;\text{si} |f| \leq f_c, \\
-  0 &amp;\text{si} f_c &lt; |f| &lt; \frac{f_e}{2}.
+  1 &amp;\text{si}\, |f| \leq f_c, \\
+  0 &amp;\text{si}\, f_c &lt; |f| &lt; \frac{f_e}{2}.
 \end{cases}
 \end{split}\]</div>
 <p>Remarquez qu’on a ajouté la condition <span class="math notranslate nohighlight">\(|f| &lt; \frac{f_e}{2}\)</span> puisque le filtre étant numérique
@@ -486,11 +486,10 @@ Ce nouveau filtre a pour réponse impulsionnelle :</p>
 \[\begin{split}
 h =
 \begin{cases}
-2 f_c \mathrm{sinc}(2f_c (n-M)) &amp;\text{si $n \in \{0,\dots,M\}$} \\
-0                               &amp;\text{sinon}
+2 f_c \mathrm{sinc}(2f_c (n-N/2)) &amp;\text{si $n \in \{0,\dots,N\}$} \\
+0                               &amp;\text{sinon}.
 \end{cases}
 \end{split}\]</div>
-<p>où <span class="math notranslate nohighlight">\(M = \frac{N}{2}\)</span>.</p>
 <div class="figure align-default" id="f-num-fenetre-troncature">
 <div class="cell_output docutils container">
 <img alt="_images/filtre-numerique_5_0.png" src="_images/filtre-numerique_5_0.png" />
@@ -521,20 +520,20 @@ La troncature revient à multiplier la réponse impulsionnelle <span class="math
 (on parle de « fenêtrage rectangulaire ») :</p>
 <div class="math notranslate nohighlight">
 \[
-h[n] = h_\text{idéal}[n] * w[n].
+h[n] = h_\text{idéal}[n] \times w[n].
 \]</div>
 <p>Dans le domaine de Fourier, cela revient à convoluer la réponse fréquentielle <span class="math notranslate nohighlight">\(H_\text{idéal}\)</span>
 par la transformée de Fourier à temps discret de <span class="math notranslate nohighlight">\(w[n]\)</span> :</p>
 <div class="math notranslate nohighlight">
 \[
-H(f) = H_\text{idéal}(f) \times \mathcal{F}[w](f).
+H(f) = H_\text{idéal}(f) * \mathcal{F}[w](f),
 \]</div>
-<p>La transformée de Fourier à temps discret de <span class="math notranslate nohighlight">\(w[n]\)</span> a finalement pour expression :</p>
+<p>où la transformée de Fourier à temps discret de <span class="math notranslate nohighlight">\(w[n]\)</span> a pour expression :</p>
 <div class="math notranslate nohighlight">
 \[
-W(f) = e^{-j \pi f N} \frac{\sin(\pi f(N+1))}{\pi f}.
+W(f) = e^{-j \pi f N} \frac{\sin(\pi f(N+1))}{\sin(\pi f)}.
 \]</div>
-<p>Elle correspond à la multiplication d’une exponentielle avec un « noyau de Dirichlet » (cf. <a class="reference internal" href="#f-num-dirichlet"><span class="std std-numref">Fig. 16</span></a>).</p>
+<p>et correspond à la multiplication d’une exponentielle avec un « noyau de Dirichlet » (cf. <a class="reference internal" href="#f-num-dirichlet"><span class="std std-numref">Fig. 16</span></a>).</p>
 <div class="figure align-default" id="f-num-dirichlet">
 <div class="cell_output docutils container">
 <img alt="_images/filtre-numerique_7_0.png" src="_images/filtre-numerique_7_0.png" />
@@ -543,7 +542,7 @@ W(f) = e^{-j \pi f N} \frac{\sin(\pi f(N+1))}{\pi f}.
 </div>
 <p>Ainsi, si le lobe principal du noyau de Dirichlet s’élargit, la bande de transition du filtre va s’élargir également.
 Et lorsque les lobes secondaires augmentent,
-les oscillations dans les bandes passantes et atténuée du filtre vont également s’agrandir.</p>
+les oscillations dans les bandes passante et atténuée du filtre vont également s’agrandir.</p>
 <p>L’idéal est donc d’avoir un lobe principal étroit et des lobes secondaires faibles.
 Il faudrait donc que le noyau de Dirichlet tende vers une impulsion de Dirac,
 mais alors cela implique d’augmenter considérablement l’ordre du filtre <span class="math notranslate nohighlight">\(N\)</span>,
