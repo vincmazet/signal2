@@ -52,3 +52,16 @@
 
 * [Signal Processing Society](https://signalprocessingsociety.org/).
   Société savante, éditrice notamment de la revue Signal Processing Magazine.
+  
+* [Animations pédagogiques en traitement du signal](http://miv.u-strasbg.fr/mazet/animations/index.html)
+
+* P. Flandrin, [Le traitement du signal, au cœur de la science et de notre vie quotidienne](https://theconversation.com/le-traitement-du-signal-au-coeur-de-la-science-et-de-notre-vie-quotidienne-84156),
+  The Conversation, 2017.
+
+* B. Van Veen, [Vidéos de traitement numérique du signal](https://www.youtube.com/user/allsignalprocessing)
+
+* [Circuits à AO pour la réalisation de fonctions mathématiques](http://electronique.aop.free.fr/liste_aop.html)
+
+* [Relation entre le plan en s et le plan en z](https://www.youtube.com/watch?v=4PV6ikgBShw&feature=youtu.be&ab_channel=anassar)
+
+* [Outil de conception de filtres analogiques](https://tools.analog.com/en/filterwizard/)

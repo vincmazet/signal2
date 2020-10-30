@@ -1,0 +1,26 @@
+% Compilation avec latex
+% Le crop est effectué par standalone
+
+\documentclass{standalone}
+\usepackage{array}
+\usepackage{pstricks}
+
+\begin{document}
+
+\psset{linewidth=0.8pt,unit=0.5cm}
+
+\begin{pspicture}(0,-2)(8,5)
+  %     \psgrid[gridcolor=yellow,subgridcolor=yellow]
+  \psline(0,0)(1,0)
+  \psline(2,0)(3,0)(3.5,-0.5)(4,4)(4.5,-1)(5,0)(6,0)
+  \psline(7,0)(8,0)
+  \parabola(1,0)(1.5,0.5)
+  \parabola(6,0)(6.5,1)
+  \rput(1.5,-0.5){P}
+  \rput(3.5,-1.5){Q}
+  \rput(4.0,4.5){R}
+  \rput(4.5,-1.5){S}
+  \rput(6.5,-0.5){T}
+\end{pspicture}
+
+\end{document}

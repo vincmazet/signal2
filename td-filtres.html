@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 
 <html lang="fr">
@@ -7,16 +6,37 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TD Filtrage &#8212; Traitement du signal 2</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
-    <link href="_static/css/index.css" rel="stylesheet">
-    <link rel="stylesheet" href="_static/sphinx-book-theme.css" type="text/css" />
+    
+  <link rel="stylesheet" href="_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="_static/sphinx-book-theme.2d2078699c18a0efb88233928e1cf6ed.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="_static/css/jbvinc.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-dropdown.css" />
+    <link rel="stylesheet" type="text/css" href="_static/spanels-index--0afa1ebdab0bb23b98b56d34c23d9f57.css" />
+    <link rel="stylesheet" type="text/css" href="_static/spanels-variables--ffc7f74dcb1b9eecba2dbcbc22818714.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.3da636dd464baa7582d2.js">
+
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
@@ -25,9 +45,9 @@
     <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script src="_static/sphinx-book-theme.js"></script>
     <script src="_static/translations.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
@@ -39,11 +59,11 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Recherche" href="search.html" />
-    <link rel="next" title="TP Filtrage" href="tp-filtres.html" />
+    <link rel="next" title="TP Filtrage numérique" href="tp-filtres.html" />
     <link rel="prev" title="Filtres numériques" href="filtre-numerique.html" />
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="docsearch:language" content="en">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
 
 
 
@@ -67,7 +87,7 @@
 
 <form class="bd-search d-flex align-items-center" action="search.html" method="get">
   <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Rechercher dans ce livre ..." aria-label="Rechercher dans ce livre ..." autocomplete="off" >
 </form>
 
 <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
@@ -209,15 +229,15 @@
         
         <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
             data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            aria-expanded="true" aria-label="Basculer la navigation" aria-controls="site-navigation"
+            title="Basculer la navigation" data-toggle="tooltip" data-placement="left">
             <i class="fas fa-bars"></i>
             <i class="fas fa-arrow-left"></i>
             <i class="fas fa-arrow-up"></i>
         </button>
         
         <div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Téléchargez cette page"><i
             class="fas fa-download"></i></button>
 
     
@@ -226,10 +246,10 @@
         
         <!-- Download raw file -->
         <a class="dropdown-buttons" href="_sources/td-filtres.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                class="btn btn-secondary topbarbtn" title="Télécharger le fichier source" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Imprimer au format PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
     
@@ -239,7 +259,8 @@
 
         <!-- Full screen (wrap in <a> to have style consistency -->
         <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Mode plein écran"
+                title="Mode plein écran"><i
                     class="fas fa-expand"></i></button></a>
 
         <!-- Launch buttons -->
@@ -252,7 +273,7 @@
         
         
         <a class="colab-button" href="https://colab.research.google.com/github/vincmazet/signal2/blob/master/td-filtres.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
-                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                title="lancement Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
                     src="_static/images/logo_colab.png"
                     alt="Interact on Colab">Colab</button></a>
         
@@ -264,8 +285,9 @@
 
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
+        
         <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> Contents
+            <i class="fas fa-list"></i> Contenu
         </div>
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
@@ -292,6 +314,7 @@
 </ul>
 
         </nav>
+        
     </div>
 </div>
     <div id="main-content" class="row">
@@ -322,12 +345,12 @@ Représentez le gabarit correspondant.</p>
 <div class="figure align-default">
 <a class="reference internal image-reference" href="_images/filter-specs.png"><img alt="_images/filter-specs.png" src="_images/filter-specs.png" style="width: 250px;" /></a>
 </div>
+<p><strong>Exercice 5</strong></p>
 <div class="margin sidebar">
 <p class="sidebar-title"></p>
 <p>L”<a class="reference external" href="http://en.wikipedia.org/wiki/Magnetic_particle_imaging">imagerie des particules magnétiques</a>
 est une technique inventée par Gleich &amp; Weizenecker, chercheurs chez Philips, en 2001.</p>
 </div>
-<p><strong>Exercice 5</strong></p>
 <p>Kévin, un ancien étudiant en FIP,
 a effectué son projet de fin d’études sur l’imagerie des particules magnétiques.
 Le principe est de mesurer la réponse de particules super-paramagnétiques à un champ magnétique oscillant de fréquence 25 kHz.
@@ -376,19 +399,19 @@ H_2(s) = \frac{1}{b_1s + b_0}
 <p>Identifiez le type de filtre correspondant à la réponse fréquentielle ci-dessous.
 Précisez également la bande passante du filtre (les fréquences sont données en hertz).</p>
 <div class="figure align-default">
-<a class="reference internal image-reference" href="_images/fana-filtre1-gain.png"><img alt="_images/fana-filtre1-gain.png" src="_images/fana-filtre1-gain.png" style="width: 450px;" /></a>
+<a class="reference internal image-reference" href="_images/fana-filtre1-gain.png"><img alt="_images/fana-filtre1-gain.png" src="_images/fana-filtre1-gain.png" style="width: 400px;" /></a>
 </div>
 <div class="figure align-default">
-<a class="reference internal image-reference" href="_images/fana-filtre1-phase.png"><img alt="_images/fana-filtre1-phase.png" src="_images/fana-filtre1-phase.png" style="width: 450px;" /></a>
+<a class="reference internal image-reference" href="_images/fana-filtre1-phase.png"><img alt="_images/fana-filtre1-phase.png" src="_images/fana-filtre1-phase.png" style="width: 400px;" /></a>
 </div>
 <p><strong>Exercice 9</strong></p>
 <p>Identifiez le type de filtre correspondant à la réponse fréquentielle ci-dessous.
 Précisez également la bande passante du filtre (les fréquences sont données en hertz).</p>
 <div class="figure align-default">
-<a class="reference internal image-reference" href="_images/fana-filtre2-gain.png"><img alt="_images/fana-filtre2-gain.png" src="_images/fana-filtre2-gain.png" style="width: 450px;" /></a>
+<a class="reference internal image-reference" href="_images/fana-filtre2-gain.png"><img alt="_images/fana-filtre2-gain.png" src="_images/fana-filtre2-gain.png" style="width: 400px;" /></a>
 </div>
 <div class="figure align-default">
-<a class="reference internal image-reference" href="_images/fana-filtre2-phase.png"><img alt="_images/fana-filtre2-phase.png" src="_images/fana-filtre2-phase.png" style="width: 450px;" /></a>
+<a class="reference internal image-reference" href="_images/fana-filtre2-phase.png"><img alt="_images/fana-filtre2-phase.png" src="_images/fana-filtre2-phase.png" style="width: 400px;" /></a>
 </div>
 </div>
 <div class="section" id="filtres-numeriques">
@@ -425,7 +448,7 @@ Précisez également la bande passante du filtre (les fréquences sont données 
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="filtre-numerique.html" title="previous page">Filtres numériques</a>
-    <a class='right-next' id="next-link" href="tp-filtres.html" title="next page">TP Filtrage</a>
+    <a class='right-next' id="next-link" href="tp-filtres.html" title="next page">TP Filtrage numérique</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
@@ -447,7 +470,10 @@ Précisez également la bande passante du filtre (les fréquences sont données 
       </div>
     </div>
 
-    <script src="_static/js/index.js"></script>
+    
+  <script src="_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
     
   </body>
 </html>
