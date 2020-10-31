@@ -421,7 +421,47 @@ Précisez également la bande passante du filtre (les fréquences sont données 
 </div>
 <div class="section" id="filtres-numeriques">
 <h2>Filtres numériques<a class="headerlink" href="#filtres-numeriques" title="Lien permanent vers ce titre">¶</a></h2>
-<!-- * [Énoncé 2019-2020 (filtres numériques)](https://vincmazet.github.io/signal2/_static/files/fnum-td.pdf) --></div>
+<p><strong>Exercice 10</strong></p>
+<!-- Oppenheim 9.2, 9.3, 10.2, 10.4 -->
+<p>On considère un filtre numérique de réponse impulsionnelle :</p>
+<div class="math notranslate nohighlight">
+\[
+  h[n] = \left(\frac{1}{3}\right)^n \sin\left(\frac{\pi}{4}n\right) \, u[n]
+\]</div>
+<ul class="simple">
+<li><p>Calculez la transformée en Z de ce filtre.</p></li>
+<li><p>Représentez la région de convergence.</p></li>
+<li><p>Placez les pôles et zéros.</p></li>
+<li><p>Ce filtre est-il stable ?</p></li>
+</ul>
+<p><strong>Exercice 11</strong></p>
+<!-- Oppenheim 9.29, 9.30, 10.29, 10.30 -->
+<p>Représentez la forme directe 1 des fonctions de transfert ci-dessous.</p>
+<div class="math notranslate nohighlight">
+\[
+  H_1(z) = \frac{1}{\frac{1}{2}-4z^{-1}} \qquad\qquad
+  H_2(z) = \frac{1-2z^{-1}}{1-\frac{1}{4}z^{-1}}
+\]</div>
+<p><strong>Exercice 13</strong></p>
+<p>Déterminez les fonctions de transfert des formes directes ci-dessous.</p>
+<!-- % + réponse impulsionnelle ? -->
+<div class="figure align-default">
+<a class="reference internal image-reference" href="_images/sli2.png"><img alt="_images/sli2.png" src="_images/sli2.png" style="height: 250px;" /></a>
+</div>
+<div class="figure align-default">
+<a class="reference internal image-reference" href="_images/sli4.png"><img alt="_images/sli4.png" src="_images/sli4.png" style="height: 250px;" /></a>
+</div>
+<p><strong>Exercice 14</strong></p>
+<ul class="simple">
+<li><p>Représentez le gabarit d’un filtre numérique passe-bas de bande passante 20 Hz et de bande de transition 10 Hz.
+Les atténuations limites des bandes passante et atténuée sont respectivement de 0,1 dB et 40 dB.
+La fréquence d’échantillonnage est égale à 120 Hz.</p></li>
+<li><p>Un filtre synthétisé avec la méthode des fenêtres est-il RII ou RIF ?</p></li>
+<li><p>Que peut-on dire de sa stabilité ?</p></li>
+<li><p>Quelles fenêtres peuvent être utilisées pour obtenir un filtre vérifiant le gabarit ?</p></li>
+<li><p>Parmi celles-ci, quelle fenêtre donnera l’ordre le plus faible ? Calculez son ordre.</p></li>
+</ul>
+</div>
 </div>
 
     <script type="text/x-thebe-config">

@@ -1,0 +1,32 @@
+% Compilation avec latex
+% Le crop est effectué par standalone
+
+% Convertir en PNG pour l'utilisation avec Projo : convert -density 200 -negate sli4.pdf sli4.png
+
+\documentclass{standalone}
+\usepackage{pstricks, pst-node}
+\input{filterblocks}
+\begin{document}
+
+% Oppenheim, exemple 10.31
+\psset{linewidth=0.8pt}
+% \psgrid[gridcolor=yellow,subgriddiv=1]
+\begin{psmatrix}[colsep=3mm,rowsep=1mm,emnode=R]
+  % Blocs
+  $x[n]$\blockex &             &                              & \blockadd & \blockadd &                              &             & \blockex$y[n]$ \\
+                 & \blockdelay &                              &           &           &                              & \blockdelay &                \\
+                 &             & \blockfilter{$-\frac{7}{4}$} & \blockadd & \blockadd & \blockfilter{$-\frac{1}{4}$} &             &                \\
+                 & \blockdelay &                              &           &           &                              & \blockdelay &                \\
+                 &             & \blockfilter{$-\frac{1}{2}$} &           &           & \blockfilter{$\frac{1}{8}$}  &             &                \\
+  % Connections
+  \ncline{->}{1,1}{1,4} \ncline{->}{1,4}{1,5} \ncline{->}{1,5}{1,8}
+  \ncline{->}{3,2}{3,3}  \ncline{->}{3,3}{3,4} \ncline{->}{3,6}{3,5} \ncline{->}{3,7}{3,6}
+  \ncline{->}{5,2}{5,3}  \ncline{-}{5,4}{5,3} \ncline{-}{5,5}{5,6} \ncline{->}{5,7}{5,6}
+  \ncline{-}{4,2}{5,2} \ncline{->}{2,2}{4,2} \ncline{->}{1,2}{2,2}
+  \ncline{->}{3,4}{1,4} \ncline{->}{5,4}{3,4}
+  \ncline{->}{3,5}{1,5} \ncline{->}{5,5}{3,5}
+  \ncline{-}{4,7}{5,7} \ncline{->}{2,7}{4,7} \ncline{-}{1,7}{2,7}
+  %
+\end{psmatrix}
+
+\end{document}
