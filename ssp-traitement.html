@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Licence &#8212; Traitement du signal 2</title>
+    <title>Traitement des signaux bruités &#8212; Traitement du signal 2</title>
     
   <link rel="stylesheet" href="_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -59,7 +59,8 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Recherche" href="search.html" />
-    <link rel="prev" title="Références" href="biblio.html" />
+    <link rel="next" title="TD Traitement statistique du signal" href="td-ssp.html" />
+    <link rel="prev" title="Bruit dans les signaux" href="ssp-bruit.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -161,14 +162,14 @@
   Traitement statistique du signal
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="current nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="ssp-bruit.html">
    Bruit dans les signaux
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="ssp-traitement.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    Traitement des signaux bruités
   </a>
  </li>
@@ -188,7 +189,7 @@
   Annexes
  </span>
 </p>
-<ul class="current nav sidenav_l1">
+<ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference external" href="https://moodle3.unistra.fr/course/view.php?id=14006">
    Moodle
@@ -206,8 +207,8 @@
    Références
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="licence.html">
    Licence
   </a>
  </li>
@@ -249,9 +250,9 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/licence.md"><button type="button"
+        <a class="dropdown-buttons" href="_sources/ssp-traitement.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Télécharger le fichier source" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
+                data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Imprimer au format PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
@@ -269,6 +270,22 @@
 
         <!-- Launch buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/vincmazet/signal2/blob/master/ssp-traitement.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="lancement Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
     </div>
 
     <!-- Table of contents -->
@@ -281,17 +298,46 @@
         
               <div>
                 
-  <div class="section" id="licence">
-<h1>Licence<a class="headerlink" href="#licence" title="Lien permanent vers ce titre">¶</a></h1>
-<p><span xmlns:cc="http://creativecommons.org/ns#" property="cc:attributionName">Vincent Mazet</span>,
-« <span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Traitement du signal</span> »,
-Université de Strasbourg, 2020.
-Pour me contacter : <a href="mailto:vincent.mazet@unistra.fr">vincent.mazet&#64;unistra.fr</a>.</p>
-<ul class="simple">
-<li><p></a>Cette œuvre (à l’exception des codes Javascript) est mise à disposition selon les termes de la <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Licence Creative Commons Attribution - Pas d’Utilisation Commerciale 4.0 International</a>.</p></li>
-<li><p>Les codes Javascript sont sous licence <a href="https://cecill.info/licences/Licence_CeCILL-B_V1-fr.html">CeCILL-B</a>.</p></li>
-</ul>
-<p>Ce manuel est écrit avec <a href="https://jupyterbook.org">Jupyter Book</a>.</p>
+  <div class="section" id="traitement-des-signaux-bruites">
+<span id="c-ssp-traitement"></span><h1>Traitement des signaux bruités<a class="headerlink" href="#traitement-des-signaux-bruites" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Détection de signaux</p>
+<p>Détecté un signal égal est-il présent</p>
+<p>Détection de signaux périodique inconnu de période inconnue</p>
+<p>L’objectif est de déterminer si un signal observé YN correspond à un signal XN périodique ébruiter</p>
+<p>On ne connaît pas la période de X</p>
+<p>La détection est obtenue par autocorrélation</p>
+<p>Si x est présent alors</p>
+<p>On rappelle que là corrélation revient à mesurer la ressemblance de 2 signaux dont l’un est décalé de M échantillons point donc :</p>
+<p>Air XX égale autocorrélation de X périodique de même période que x ceux de ligne air x br BX égale Inter corrélation entre x et B nul car les signaux sont décorrélés ce point</p>
+<p>Air bébé autocorrélation du bruit nul sauf on aime égal 0 car échantillons indépendants donc décorer les</p>
+<p>Détection de signaux périodiques inconnu de période connue</p>
+<p>Ce cas est plus favorable que le précédent car on dispose d’une information supplémentaire</p>
+<p>On cherche à déterminer si le signal observé YN correspond au signal périodique XL (de période t ) brut et par un bruit blanc BN : sauts de lignes le principe de détection consiste à effectuer l intercorrélation du y avec un signal auxiliaire zn périodique et de période t</p>
+<p>Détection d’un motif</p>
+<p>Un motif est un signal déterministe connu et de durée fini saute ligne le signal observé y est modélisé comme la somme du motif x placé en carré d’un bruit B</p>
+<p>On peut déterminer l’instant cas où le motif apparaît en calculant l’Inter corrélation entre y et XCF cours 1A convolution par XN moins en moins n</p>
+<p>Cette technique est appelée filtrage adapté (matched filter) elle est la solution optimale pour maximiser le RSB dans le cadre d’un bruit additif. Application radar Télécom</p>
+<p>Les bruitages de signaux</p>
+<p>Débrutées différents détectés</p>
+<p>Des bruitages d’un signal unique</p>
+<p>On n’observe :</p>
+<p>Pour réduire le bruit dans le signal (réduire la puissance donc là variance du bruit) on peut remplacer chaque échantillon YN par la moyenne de l échantillon autour de n :</p>
+<p>Ou n un perd</p>
+<p>On peut montrer que cette technique peut s’écrire sous la forme d’une convolution : c’est donc un filtrage appelé filtre moyenne EUR point la réponse impulsionnelle du filtre et une porte de longueur M point là TF t’aider de cette réponse impulsionnelle et ainsi Nice cardinale filtre passe bas</p>
+<p>Les bruitages de plusieurs réalisation d’un même signal ceux de ligne dans le cas où on dispose de I mesure d’un même signal x :</p>
+<p>Et que le bruit et s’en est centré () et de variance Sigma bakaré () alors la moyenne des y qui permet d’augmenter le RSB</p>
+<p>La puissance du bruit est divisée par qui</p>
+<p>Approximation par moindres carrés</p>
+<p>Gosse 1795</p>
+<p>On dispose de données y brut est tel que</p>
+<p>Ou F est une fonction paramétrique (sinusoïde polynôme) connu</p>
+<p>FN est la valeur de F 1N</p>
+<p>Titre est un ensemble de paramètres inconnu tête à sous de ligne le bruit bébé et de moyenne nulle</p>
+<p>Exemple</p>
+<p>Polynôme de degré 2 sauts de ligne exponentielle</p>
+<p>L’objectif est de retrouver ta point il est logique de choseaisir téta comme le paramètre qui minimise la somme des différences au carré</p>
+<p>La détermination d’état lorsque effet linéaire en état et simple exemple parabole point mais c’est beaucoup plus compliqué lorsque F n’est pas linéaire (coefficient éteint dans le exponentielle) dans le cas où la fonction F est linéaire son état il existe une expression explicite de la solution FTK égal</p>
+<p>Il faut faire les calculs avec la représentation vectorielle</p>
 </div>
 
     <script type="text/x-thebe-config">
@@ -322,7 +368,8 @@ Pour me contacter : <a href="mailto:vincent.mazet@unistra.fr">vincent.mazet&#64;
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="biblio.html" title="previous page">Références</a>
+    <a class='left-prev' id="prev-link" href="ssp-bruit.html" title="previous page">Bruit dans les signaux</a>
+    <a class='right-next' id="next-link" href="td-ssp.html" title="next page">TD Traitement statistique du signal</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

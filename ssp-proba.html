@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Licence &#8212; Traitement du signal 2</title>
+    <title>Rappels de probabilité &#8212; Traitement du signal 2</title>
     
   <link rel="stylesheet" href="_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -59,7 +59,8 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Recherche" href="search.html" />
-    <link rel="prev" title="Références" href="biblio.html" />
+    <link rel="next" title="Bruit dans les signaux" href="ssp-bruit.html" />
+    <link rel="prev" title="TP Filtrage numérique" href="tp-filtres.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -161,7 +162,12 @@
   Traitement statistique du signal
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Rappels de probabilité
+  </a>
+ </li>
  <li class="toctree-l1">
   <a class="reference internal" href="ssp-bruit.html">
    Bruit dans les signaux
@@ -188,7 +194,7 @@
   Annexes
  </span>
 </p>
-<ul class="current nav sidenav_l1">
+<ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference external" href="https://moodle3.unistra.fr/course/view.php?id=14006">
    Moodle
@@ -206,8 +212,8 @@
    Références
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="licence.html">
    Licence
   </a>
  </li>
@@ -249,9 +255,9 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/licence.md"><button type="button"
+        <a class="dropdown-buttons" href="_sources/ssp-proba.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Télécharger le fichier source" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
+                data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Imprimer au format PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
@@ -269,6 +275,22 @@
 
         <!-- Launch buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/vincmazet/signal2/blob/master/ssp-proba.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="lancement Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
     </div>
 
     <!-- Table of contents -->
@@ -281,17 +303,8 @@
         
               <div>
                 
-  <div class="section" id="licence">
-<h1>Licence<a class="headerlink" href="#licence" title="Lien permanent vers ce titre">¶</a></h1>
-<p><span xmlns:cc="http://creativecommons.org/ns#" property="cc:attributionName">Vincent Mazet</span>,
-« <span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Traitement du signal</span> »,
-Université de Strasbourg, 2020.
-Pour me contacter : <a href="mailto:vincent.mazet@unistra.fr">vincent.mazet&#64;unistra.fr</a>.</p>
-<ul class="simple">
-<li><p></a>Cette œuvre (à l’exception des codes Javascript) est mise à disposition selon les termes de la <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Licence Creative Commons Attribution - Pas d’Utilisation Commerciale 4.0 International</a>.</p></li>
-<li><p>Les codes Javascript sont sous licence <a href="https://cecill.info/licences/Licence_CeCILL-B_V1-fr.html">CeCILL-B</a>.</p></li>
-</ul>
-<p>Ce manuel est écrit avec <a href="https://jupyterbook.org">Jupyter Book</a>.</p>
+  <div class="section" id="rappels-de-probabilite">
+<span id="c-ssp-proba"></span><h1>Rappels de probabilité<a class="headerlink" href="#rappels-de-probabilite" title="Lien permanent vers ce titre">¶</a></h1>
 </div>
 
     <script type="text/x-thebe-config">
@@ -322,7 +335,8 @@ Pour me contacter : <a href="mailto:vincent.mazet@unistra.fr">vincent.mazet&#64;
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="biblio.html" title="previous page">Références</a>
+    <a class='left-prev' id="prev-link" href="tp-filtres.html" title="previous page">TP Filtrage numérique</a>
+    <a class='right-next' id="next-link" href="ssp-bruit.html" title="next page">Bruit dans les signaux</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
