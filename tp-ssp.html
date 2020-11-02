@@ -174,6 +174,11 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="ssp-traitement.html#detection-de-signaux-periodiques-inconnus-de-periode-inconnue">
+   Détection de signaux périodiques inconnus de période inconnue
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="td-ssp.html">
    Travaux dirigés
   </a>
@@ -291,6 +296,30 @@
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
         
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contenu
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#detection-de-motif-par-filtrage-adapte">
+   Détection de motif par filtrage adapté
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#lissage-par-filtre-moyenneur">
+   Lissage par filtre moyenneur
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#approximation-et-extrapolation-par-moindres-carre">
+   Approximation et extrapolation par moindres carré
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
     </div>
 </div>
     <div id="main-content" class="row">
@@ -300,7 +329,76 @@
                 
   <div class="section" id="tp-traitement-statistique-du-signal">
 <span id="c-tp-ssp"></span><h1>TP Traitement statistique du signal<a class="headerlink" href="#tp-traitement-statistique-du-signal" title="Lien permanent vers ce titre">¶</a></h1>
-<!-- [Énoncé 2019-2020](https://vincmazet.github.io/signal2/_static/files/ssp-tp.pdf) --></div>
+<div class="section" id="detection-de-motif-par-filtrage-adapte">
+<h2>Détection de motif par filtrage adapté<a class="headerlink" href="#detection-de-motif-par-filtrage-adapte" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Le codage Manchester est une norme de transmission de signaux binaires,
+utilisée notamment dans certaines communications Ethernet.
+Les bits du signal binaire sont transmis les uns à la suite des autres ;
+un 1 logique est représenté par le motif <span class="math notranslate nohighlight">\(h\)</span> (<code class="xref std std-numref docutils literal notranslate"><span class="pre">F:ssp:manchester</span></code>),
+tandis qu’un 0 logique est représenté par <span class="math notranslate nohighlight">\(-h\)</span>.</p>
+<p>\includegraphics{manchester}
+\caption{Motif <span class="math notranslate nohighlight">\(h\)</span> utilisé dans le codage Manchester.}
+\label{F:ssp:manchester}</p>
+<ul class="simple">
+<li><p>Créez un vecteur contenant le motif <span class="math notranslate nohighlight">\(h\)</span> de durée <span class="math notranslate nohighlight">\(T=10^{-7}\)</span> s et échantillonné à <span class="math notranslate nohighlight">\(10^{9}\)</span> Hz.</p></li>
+<li><p>En concaténant plusieurs motifs, créez le signal correspondant à la séquence binaire 1,0,1,1.</p></li>
+<li><p>Ajoutez un bruit gaussien à ce signal de sorte à obtenir un RSB de 10 dB.
+Vérifiez notamment que le niveau de bruit évolue conformément à la valeur du RSB.</p></li>
+<li><p>Appliquez un filtre adapté pour retrouver la séquence binaire contenue dans le signal de la question précédente.
+Décrivez le signal obtenu.
+Comment retrouver la séquence binaire à partir de ce signal ?</p></li>
+<li><p>Évaluez la robustesse du filtrage adapté en fonction du niveau de bruit :
+comment se comporte cette méthode lorsque le RSB évolue ?</p></li>
+<li><p>Appliquez le filtre adapté sur le signal manchester.dat pour décoder la séquence binaire correspondante
+(la durée <span class="math notranslate nohighlight">\(T\)</span> du motif et la fréquence d’échantillonnage restant les mêmes que dans les questions précédentes).
+Vous pouvez déterminer visuellement les bits de la séquence (sans programmation, donc)
+et retrouver le message correspondant sachant que la norme ASCII a été utilisée.</p></li>
+</ul>
+</div>
+<div class="section" id="lissage-par-filtre-moyenneur">
+<h2>Lissage par filtre moyenneur<a class="headerlink" href="#lissage-par-filtre-moyenneur" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Le fichier temperatures.dat regroupe l’ensemble des températures moyennes à la surface de la Terre
+pour chaque année depuis 1880</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<p>Source~: NASA/GISS, <a class="reference external" href="https://climate.nasa.gov/vital-signs/global-temperature/">climate.nasa.gov/vital-signs/global-temperature</a>.</p>
+</div>
+<p>Les températures sont données par rapport à la moyenne des températures relevées sur la période de référence 1951–1980.
+Ces données illustrent la hausse de températures mondiales.</p>
+<ul class="simple">
+<li><p>Chargez le fichier temperatures.dat et affichez les données.</p></li>
+<li><p>Appliquez un filtre moyenneur sur les données pour obtenir une courbe plus lisse.
+Choisissez le filtre de sorte à obtenir des températures lissées sur une fenêtre de 5 ans,
+qui est le choix traditionnel pour ces données.</p></li>
+</ul>
+</div>
+<div class="section" id="approximation-et-extrapolation-par-moindres-carre">
+<h2>Approximation et extrapolation par moindres carré<a class="headerlink" href="#approximation-et-extrapolation-par-moindres-carre" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Le premier objectif de l’exercice est de représenter le polynôme <span class="math notranslate nohighlight">\(f(x) = 1 - 2x + 5x^2 - 2x^3\)</span> sur <span class="math notranslate nohighlight">\([0,2]\)</span>
+en utilisant la formulation matricielle <span class="math notranslate nohighlight">\(y = H\theta\)</span>,
+où <span class="math notranslate nohighlight">\(y\)</span> est le vecteur des valeurs du polynôme, <span class="math notranslate nohighlight">\(H\)</span> est la matrice des abscisses
+et <span class="math notranslate nohighlight">\(\theta\)</span> est le vecteur des coefficients du polynôme.</p>
+<ul>
+<li><p>Donnez les tailles de <span class="math notranslate nohighlight">\(y\)</span>, <span class="math notranslate nohighlight">\(H\)</span> et <span class="math notranslate nohighlight">\(\theta\)</span>.</p></li>
+<li><p>Donnez les éléments du vecteur <span class="math notranslate nohighlight">\(\theta\)</span>.</p></li>
+<li><p>Créez la matrice <span class="math notranslate nohighlight">\(H\)</span>.</p></li>
+<li><p>Vérifiez que le polynôme <span class="math notranslate nohighlight">\(y\)</span> correspond au résultat de la <code class="xref std std-numref docutils literal notranslate"><span class="pre">F:ssp:polynome</span></code>.</p>
+<p>\includegraphics{polynome-ssp}
+\caption{Polynôme <span class="math notranslate nohighlight">\(f(x) = 1 - 2x + 5x^2 - 2x^3\)</span>}
+\label{F:ssp:polynome}</p>
+</li>
+</ul>
+<p>Le second objectif de l’exercice est d’effectuer une approximation de l’évolution des températures par une parabole.</p>
+<ul class="simple">
+<li><p>Calculez l’approximation des températures (temperatures.dat) entre 1900 et 2018 par une parabole.
+Affichez le résultat sur la courbe des températures pour vérifier
+la bonne adéquation de l’approximation par rapport aux données.</p></li>
+<li><p>En définissant une nouvelle matrice <span class="math notranslate nohighlight">\(H\)</span>,
+extrapolez l’évolution des températures pour connaître, selon ce modèle,
+la hausse des températures attendue l’année de votre 70<sup>e</sup> anniversaire…</p></li>
+</ul>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {

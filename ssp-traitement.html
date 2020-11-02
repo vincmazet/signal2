@@ -291,6 +291,59 @@
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
         
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contenu
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#detection-de-signaux">
+   Détection de signaux
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#detection-de-signaux-periodiques-inconnus-de-periode-inconnue">
+     Détection de signaux périodiques inconnus de période inconnue
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#detection-de-signaux-periodiques-inconnus-de-periode-connue">
+     Détection de signaux périodiques inconnus de période connue
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#detection-d-un-motif">
+     Détection d’un motif
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#debruitage-de-signaux">
+   Débruitage de signaux
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#debruitage-d-un-signal-unique">
+     Débruitage d’un signal unique
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#debruitage-de-plusieurs-realisations-d-un-meme-signal">
+     Débruitage de plusieurs réalisations d’un même signal
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#approximation-par-moindres-carres">
+   Approximation par moindres carrés
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
     </div>
 </div>
     <div id="main-content" class="row">
@@ -300,44 +353,117 @@
                 
   <div class="section" id="traitement-des-signaux-bruites">
 <span id="c-ssp-traitement"></span><h1>Traitement des signaux bruités<a class="headerlink" href="#traitement-des-signaux-bruites" title="Lien permanent vers ce titre">¶</a></h1>
-<p>Détection de signaux</p>
-<p>Détecté un signal égal est-il présent</p>
-<p>Détection de signaux périodique inconnu de période inconnue</p>
-<p>L’objectif est de déterminer si un signal observé YN correspond à un signal XN périodique ébruiter</p>
-<p>On ne connaît pas la période de X</p>
-<p>La détection est obtenue par autocorrélation</p>
-<p>Si x est présent alors</p>
-<p>On rappelle que là corrélation revient à mesurer la ressemblance de 2 signaux dont l’un est décalé de M échantillons point donc :</p>
-<p>Air XX égale autocorrélation de X périodique de même période que x ceux de ligne air x br BX égale Inter corrélation entre x et B nul car les signaux sont décorrélés ce point</p>
-<p>Air bébé autocorrélation du bruit nul sauf on aime égal 0 car échantillons indépendants donc décorer les</p>
-<p>Détection de signaux périodiques inconnu de période connue</p>
-<p>Ce cas est plus favorable que le précédent car on dispose d’une information supplémentaire</p>
-<p>On cherche à déterminer si le signal observé YN correspond au signal périodique XL (de période t ) brut et par un bruit blanc BN : sauts de lignes le principe de détection consiste à effectuer l intercorrélation du y avec un signal auxiliaire zn périodique et de période t</p>
-<p>Détection d’un motif</p>
-<p>Un motif est un signal déterministe connu et de durée fini saute ligne le signal observé y est modélisé comme la somme du motif x placé en carré d’un bruit B</p>
-<p>On peut déterminer l’instant cas où le motif apparaît en calculant l’Inter corrélation entre y et XCF cours 1A convolution par XN moins en moins n</p>
-<p>Cette technique est appelée filtrage adapté (matched filter) elle est la solution optimale pour maximiser le RSB dans le cadre d’un bruit additif. Application radar Télécom</p>
-<p>Les bruitages de signaux</p>
-<p>Débrutées différents détectés</p>
-<p>Des bruitages d’un signal unique</p>
-<p>On n’observe :</p>
-<p>Pour réduire le bruit dans le signal (réduire la puissance donc là variance du bruit) on peut remplacer chaque échantillon YN par la moyenne de l échantillon autour de n :</p>
-<p>Ou n un perd</p>
-<p>On peut montrer que cette technique peut s’écrire sous la forme d’une convolution : c’est donc un filtrage appelé filtre moyenne EUR point la réponse impulsionnelle du filtre et une porte de longueur M point là TF t’aider de cette réponse impulsionnelle et ainsi Nice cardinale filtre passe bas</p>
-<p>Les bruitages de plusieurs réalisation d’un même signal ceux de ligne dans le cas où on dispose de I mesure d’un même signal x :</p>
-<p>Et que le bruit et s’en est centré () et de variance Sigma bakaré () alors la moyenne des y qui permet d’augmenter le RSB</p>
-<p>La puissance du bruit est divisée par qui</p>
-<p>Approximation par moindres carrés</p>
-<p>Gosse 1795</p>
-<p>On dispose de données y brut est tel que</p>
-<p>Ou F est une fonction paramétrique (sinusoïde polynôme) connu</p>
-<p>FN est la valeur de F 1N</p>
-<p>Titre est un ensemble de paramètres inconnu tête à sous de ligne le bruit bébé et de moyenne nulle</p>
-<p>Exemple</p>
-<p>Polynôme de degré 2 sauts de ligne exponentielle</p>
-<p>L’objectif est de retrouver ta point il est logique de choseaisir téta comme le paramètre qui minimise la somme des différences au carré</p>
-<p>La détermination d’état lorsque effet linéaire en état et simple exemple parabole point mais c’est beaucoup plus compliqué lorsque F n’est pas linéaire (coefficient éteint dans le exponentielle) dans le cas où la fonction F est linéaire son état il existe une expression explicite de la solution FTK égal</p>
-<p>Il faut faire les calculs avec la représentation vectorielle</p>
+<div class="section" id="detection-de-signaux">
+<h2>Détection de signaux<a class="headerlink" href="#detection-de-signaux" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Lorsque l’on parle de « détecter un signal », cela signifie répondre à la question : « le signal est-il présent dans le signal observé <span class="math notranslate nohighlight">\(y\)</span> ? ».
+Dans cette section, on suppose toujours que le bruit est blanc, gaussien et additif :
+par conséquent, le signal observé <span class="math notranslate nohighlight">\(y\)</span> est la somme du signal recherché <span class="math notranslate nohighlight">\(x\)</span> et d’un bruit <span class="math notranslate nohighlight">\(b\)</span>.
+Différentes techniques de détection existent, en fonction des connaissances que l’on a sur le signal recherché <span class="math notranslate nohighlight">\(x\)</span>.</p>
+<div class="section" id="detection-de-signaux-periodiques-inconnus-de-periode-inconnue">
+<h3>Détection de signaux périodiques inconnus de période inconnue<a class="headerlink" href="#detection-de-signaux-periodiques-inconnus-de-periode-inconnue" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Dans le cas où l’on cherche dans l’observation un signal <span class="math notranslate nohighlight">\(x\)</span> périodique, mais qu’on ne connait ni sa période ni sa forme,
+alors l’autocorrélation de <span class="math notranslate nohighlight">\(y\)</span> permet de déterminer si le signal est présent et quelle est sa période.
+On rappelle que l’autocorrélation revient à mesurer la ressemblance d’un signal avec une version plus ou moins décalée de lui-même.</p>
+<p>Ainsi, l’autocorrélation de l’observation <span class="math notranslate nohighlight">\(y = x + b\)</span> est :</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+R_y[m] &amp;= \sum_{n=-\infty}^{+\infty} y[n+m] y[n] \\
+       &amp;= \sum_{n=-\infty}^{+\infty} (x[n+m]+b[n+m]) (x[n]+b[n]) \\
+       &amp;= R_{x}[m] + R_{xb}[m] + R_{bx}[m] + R_{b}[m]
+\end{split}\]</div>
+<p>où :</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(R_{x}\)</span> est l’autocorrélation de <span class="math notranslate nohighlight">\(x\)</span>, et est périodique de même période que <span class="math notranslate nohighlight">\(x\)</span> ;</p></li>
+<li><p><span class="math notranslate nohighlight">\(R_{xb}\)</span> et <span class="math notranslate nohighlight">\(R_{bx}\)</span> sont les intercorrélations entre <span class="math notranslate nohighlight">\(x\)</span> et <span class="math notranslate nohighlight">\(b\)</span> ; elles sont nulles puisque les deux signaux sont décorrélés ;</p></li>
+<li><p><span class="math notranslate nohighlight">\(R_{b}\)</span> est l’autocorrélation du bruit <span class="math notranslate nohighlight">\(b\)</span> et elle est nulle puisque le bruit est blanc (ses échantillons sont décorrélés).</p></li>
+</ul>
+<p>Finalement, l’autocorrélation <span class="math notranslate nohighlight">\(R_y\)</span> est égale à l’autocorrélation de <span class="math notranslate nohighlight">\(x\)</span>.
+Si <span class="math notranslate nohighlight">\(x\)</span> est bien présent dans l’observation, alors <span class="math notranslate nohighlight">\(R_y\)</span> est périodique et sa période est égale à la période de <span class="math notranslate nohighlight">\(x\)</span>.</p>
+<p><strong>figure</strong></p>
+</div>
+<div class="section" id="detection-de-signaux-periodiques-inconnus-de-periode-connue">
+<h3>Détection de signaux périodiques inconnus de période connue<a class="headerlink" href="#detection-de-signaux-periodiques-inconnus-de-periode-connue" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Ce cas est plus favorable que le précédent car on dispose d’une information supplémentaire.
+On cherche à déterminer si l’observation <span class="math notranslate nohighlight">\(y\)</span> correspond au signal périodique <span class="math notranslate nohighlight">\(x\)</span> (de période <span class="math notranslate nohighlight">\(T\)</span>) bruité par un bruit blanc <span class="math notranslate nohighlight">\(b\)</span>.
+Le principe de détection consiste à effectuer l’intercorrélation de <span class="math notranslate nohighlight">\(y\)</span> avec un signal auxiliaire <span class="math notranslate nohighlight">\(z\)</span> périodique et de période <span class="math notranslate nohighlight">\(T\)</span>
+(par exemple une simple sinusoïde).</p>
+<p>En effet, l’intercorrélation de  <span class="math notranslate nohighlight">\(y\)</span> et <span class="math notranslate nohighlight">\(z\)</span> est égale à :</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+R_{yz}[m] &amp;= \sum_{n=-\infty}^{+\infty} y[n+m] z[n] \\
+       &amp;= \sum_{n=-\infty}^{+\infty} (x[n+m]+b[n+m]) z[n] \\
+       &amp;= R_{xz}[m] + R_{bz}[m].
+\end{split}\]</div>
+<p><span class="math notranslate nohighlight">\(R_{xz}\)</span> est périodique puisque <span class="math notranslate nohighlight">\(x\)</span> et <span class="math notranslate nohighlight">\(z\)</span> sont de même période,
+alors que <span class="math notranslate nohighlight">\(R_{bz}\)</span> est nulle puisque <span class="math notranslate nohighlight">\(b\)</span> et <span class="math notranslate nohighlight">\(z\)</span> sont décorrélés.
+Ainsi, <span class="math notranslate nohighlight">\(R_{yz}\)</span> sera périodique de période <span class="math notranslate nohighlight">\(T\)</span> si le signal <span class="math notranslate nohighlight">\(x\)</span> est présent.</p>
+<p><strong>figure</strong></p>
+</div>
+<div class="section" id="detection-d-un-motif">
+<h3>Détection d’un motif<a class="headerlink" href="#detection-d-un-motif" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Un « motif » est un signal déterministe connu et de durée finie.
+La technique suivante permet de déterminer si le motif est présent dans l’observation <span class="math notranslate nohighlight">\(y\)</span>,
+et si oui à obtenir son instant d’apparition.
+L’observation est donc modélisée :</p>
+<div class="math notranslate nohighlight">
+\[
+y[n] = x[n-k] + b[n]
+\]</div>
+<p>où <span class="math notranslate nohighlight">\(k\)</span> est l’instant d’apparition du motif <span class="math notranslate nohighlight">\(x\)</span>.</p>
+<p>On peut déterminer l’instant <span class="math notranslate nohighlight">\(k\)</span> où le motif apparaît en calculant l’intercorrélation entre <span class="math notranslate nohighlight">\(y\)</span> et <span class="math notranslate nohighlight">\(X\)</span>.</p>
+<p>Comme l’intercorrélation entre <span class="math notranslate nohighlight">\(y\)</span> et <span class="math notranslate nohighlight">\(x\)</span> est équivalente à la convolution entre <span class="math notranslate nohighlight">\(y\)</span> et le motif <span class="math notranslate nohighlight">\(x\)</span> retourné dans le temps (<span class="math notranslate nohighlight">\(x[-n]\)</span>),
+cette technique est un filtrage, qu’on appelle « filtrage adapté » (<em>matched filter</em>).
+On peut montrer qu’elle est la solution optimale pour maximiser le RSB dans le cadre d’un bruit additif.
+Elle est notamment utilisé dans des applications radar ou en communications numériques.</p>
+<p><strong>figure</strong></p>
+</div>
+</div>
+<div class="section" id="debruitage-de-signaux">
+<h2>Débruitage de signaux<a class="headerlink" href="#debruitage-de-signaux" title="Lien permanent vers ce titre">¶</a></h2>
+<!-- Débrutées différents détectés  -->
+<div class="section" id="debruitage-d-un-signal-unique">
+<h3>Débruitage d’un signal unique<a class="headerlink" href="#debruitage-d-un-signal-unique" title="Lien permanent vers ce titre">¶</a></h3>
+<!-- On n'observe : 
+
+Pour réduire le bruit dans le signal (réduire la puissance donc là variance du bruit) on peut remplacer chaque échantillon YN par la moyenne de l échantillon autour de n : 
+
+Ou n un perd 
+
+On peut montrer que cette technique peut s'écrire sous la forme d'une convolution : c'est donc un filtrage appelé filtre moyenne EUR point la réponse impulsionnelle du filtre et une porte de longueur M point là TF t'aider de cette réponse impulsionnelle et ainsi Nice cardinale filtre passe bas 
+ -->
+</div>
+<div class="section" id="debruitage-de-plusieurs-realisations-d-un-meme-signal">
+<h3>Débruitage de plusieurs réalisations d’un même signal<a class="headerlink" href="#debruitage-de-plusieurs-realisations-d-un-meme-signal" title="Lien permanent vers ce titre">¶</a></h3>
+<!-- ceux de ligne dans le cas où on dispose de I mesure d'un même signal x : 
+
+Et que le bruit et s'en est centré () et de variance Sigma bakaré () alors la moyenne des y qui permet d'augmenter le RSB 
+
+La puissance du bruit est divisée par qui 
+ --></div>
+</div>
+<div class="section" id="approximation-par-moindres-carres">
+<h2>Approximation par moindres carrés<a class="headerlink" href="#approximation-par-moindres-carres" title="Lien permanent vers ce titre">¶</a></h2>
+<!-- Gosse 1795 
+
+On dispose de données y brut est tel que 
+
+Ou F est une fonction paramétrique (sinusoïde polynôme) connu 
+
+FN est la valeur de F 1N 
+
+Titre est un ensemble de paramètres inconnu tête à sous de ligne le bruit bébé et de moyenne nulle 
+
+Exemple 
+
+Polynôme de degré 2 sauts de ligne exponentielle 
+
+L'objectif est de retrouver ta point il est logique de choseaisir téta comme le paramètre qui minimise la somme des différences au carré 
+
+La détermination d'état lorsque effet linéaire en état et simple exemple parabole point mais c'est beaucoup plus compliqué lorsque F n'est pas linéaire (coefficient éteint dans le exponentielle) dans le cas où la fonction F est linéaire son état il existe une expression explicite de la solution FTK égal 
+
+Il faut faire les calculs avec la représentation vectorielle 
+
+  --></div>
 </div>
 
     <script type="text/x-thebe-config">

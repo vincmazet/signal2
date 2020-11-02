@@ -300,7 +300,58 @@
                 
   <div class="section" id="td-traitement-statistique-du-signal">
 <span id="c-td-ssp"></span><h1>TD Traitement statistique du signal<a class="headerlink" href="#td-traitement-statistique-du-signal" title="Lien permanent vers ce titre">¶</a></h1>
-<!-- [Énoncé 2019-2020](https://vincmazet.github.io/signal2/_static/files/ssp-td.pdf) --></div>
+<!-- [Énoncé 2019-2020](https://vincmazet.github.io/signal2/_static/files/ssp-td.pdf) --><p><strong>Exercice 1</strong></p>
+<p>Calculez l’espérance et l’écart-type d’une variable aléatoire distribuée suivant une loi uniforme <span class="math notranslate nohighlight">\(\mathcal{U}[0,\ 1]\)</span>.</p>
+<p><strong>Exercice 2</strong></p>
+<p>Calculez une estimation de l’espérance et de l’écart-type de la série de <span class="math notranslate nohighlight">\(N=10\)</span> échantillons ci-dessous :</p>
+<div class="math notranslate nohighlight">
+\[
+  x = [ 0,81,\ 0,90,\ 0,12,\ 0,91,\ 0,63,\ 0,09,\ 0,27,\ 0,54,\ 0,95,\ 0,96 ].
+\]</div>
+<p><strong>Exercice 3</strong></p>
+<p>Un signal <span class="math notranslate nohighlight">\(x\)</span> est bruité par un bruit blanc gaussien additif.</p>
+<ul class="simple">
+<li><p>Quel est le lien entre la puissance du bruit et son écart-type ?</p></li>
+<li><p>Exprimez l’écart-type du bruit en fonction du RSB et des échantillons du signal <span class="math notranslate nohighlight">\(x\)</span>.</p></li>
+</ul>
+<!-- **Exercice 4**
+
+On rappelle que le filtre adapté correspond à l'intercorrélation $R_{yx}$
+entre un signal observé $y$ et le motif recherché $x$.
+\begin{questions}
+  \item Donnez la définition de l'intercorrélation $R_{yx}$.
+  \item En effectuant un changement de variable dans cette dernière expression,
+  montrez que l'intercorrélation $R_{yx}$ s'écrit comme la convolution de $y$ avec un signal $h$ à déterminer.
+\end{questions}
+Cette dernière question montre que le filtre adapté s'exprime également comme une convolution~:
+c'est donc bien un filtre dont la réponse impulsionnelle est $h$.
+ -->
+<!-- \exo{}
+
+Montrez que la définition du filtre moyenneur peut s'écrire comme une convolution entre le signal observé $y$
+et une porte $h$.
+ -->
+<!-- % \exo{}
+%
+% Si le temps le permet, faire un exo pour démontrer que le RSB augmente par moyennage de plusieurs signaux.
+% Faire au préalable un exo "théorique" sur la linéarité de l'espérance, la valeur de l'espérance jointe de deux VA indépendantes ... -->
+<!-- \exo{}
+
+% \begin{questions}
+%   \item Déterminez le polynôme de degré~0 (une constante, donc\dots) qui approxime au mieux
+%   les données d'abscisses $n=(0,\ 1)$ et d'ordonnées $y=(2,\ 3)^T$.
+%   \item Déterminez le polynôme de degré~1 (une droite affine) qui approxime au mieux
+%   les données d'abscisses $n=(0,\ 1,\ 2)$ et d'ordonnées $y=(2,\ 4,\ 4)^T$.
+% \end{questions}
+
+Déterminez les polynômes de degré~$d$ qui approximent au mieux les données d'abscisses $n$ et d'ordonnées $y$ dans les deux cas suivants~:
+\begin{questions}
+  \item $d=0$ \quad $n=(0,\ 1)^T$ \quad $y=(2,\ 3)^T$.
+  \item $d=1$ \quad $n=(0,\ 1,\ 2)^T$ \quad $y=(2,\ 4,\ 4)^T$.
+\end{questions}
+On rappelle que l'inverse d'une matrice $2\times2$ $\begin{pmatrix} a & b \\ c & d \end{pmatrix}$
+est égale à $\displaystyle\frac{1}{ad-bc} \begin{pmatrix} d & -b \\ -c & a \end{pmatrix}$.
+ --></div>
 
     <script type="text/x-thebe-config">
     {
