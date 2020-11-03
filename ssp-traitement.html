@@ -319,6 +319,11 @@
    </li>
   </ul>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#approximation-par-moindres-carres">
+   Approximation par moindres carrés
+  </a>
+ </li>
 </ul>
 
         </nav>
@@ -495,6 +500,87 @@ Le premier graphe ci-dessous représente 50 réalisations superposées (en gris)
 l’une d’elle est en bleu pour être visible.</span><a class="headerlink" href="#f-ssp-moyennage" title="Lien permanent vers cette image">¶</a></p>
 </div>
 </div>
+</div>
+<div class="section" id="approximation-par-moindres-carres">
+<h2>Approximation par moindres carrés<a class="headerlink" href="#approximation-par-moindres-carres" title="Lien permanent vers ce titre">¶</a></h2>
+<!-- Gauss 1795 -->
+<p>On dispose de données <span class="math notranslate nohighlight">\(y\)</span> qui correspondent à un signal <span class="math notranslate nohighlight">\(x=f(\theta)\)</span> bruité :</p>
+<div class="math notranslate nohighlight">
+\[
+y[n] = f_{\theta}[n] + b[n]
+\]</div>
+<p>où :</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(f_{\theta}\)</span> est une fonction paramétrique (sinusoïde, polynôme, etc.) connue,</p></li>
+<li><p><span class="math notranslate nohighlight">\(\theta\)</span> est un ensemble de paramètres <span class="math notranslate nohighlight">\(\theta=(\theta_1, \theta_2, \dots)\)</span> inconnus,</p></li>
+<li><p><span class="math notranslate nohighlight">\(f_{\theta}[n]\)</span> est la valeur de la fonction <span class="math notranslate nohighlight">\(f\)</span> paramétrée par <span class="math notranslate nohighlight">\(\theta\)</span> en <span class="math notranslate nohighlight">\(n\)</span>,</p></li>
+<li><p><span class="math notranslate nohighlight">\(b\)</span> est un bruit de moyenne nulle.</p></li>
+</ul>
+<p>Par exemple, si <span class="math notranslate nohighlight">\(f\)</span> est un polynôme d’ordre 2, alors <span class="math notranslate nohighlight">\(f_{\theta}[n] = \theta_1 + \theta_2 n + \theta_3 n^2\)</span>.
+Si <span class="math notranslate nohighlight">\(f\)</span> est une exponentielle, alors <span class="math notranslate nohighlight">\(f_{\theta}[n] = \theta_1 \exp(\theta_2 n)\)</span>.</p>
+<p>L’objectif est de retrouver <span class="math notranslate nohighlight">\(\theta\)</span> à partir de <span class="math notranslate nohighlight">\(y\)</span>.
+Il est logique de choisir <span class="math notranslate nohighlight">\(\theta\)</span> comme la paramètre qui minimise les différences entre <span class="math notranslate nohighlight">\(y\)</span> et <span class="math notranslate nohighlight">\(f_{\theta}\)</span>.
+Mathématiquement, il faut donc minimiser</p>
+<div class="math notranslate nohighlight">
+\[
+\sum_{n=1}^N \left(y[n] - f_{\theta}[n]\right)^2.
+\]</div>
+<p>La parenthèse, qui exprime la différence entre <span class="math notranslate nohighlight">\(y\)</span> et <span class="math notranslate nohighlight">\(f_{\theta}\)</span> en chaque échantillon <span class="math notranslate nohighlight">\(n\)</span>,
+est mise au carré car les calculs sont plus simples à effectuer qu’avec une valeur absolue.
+On cherche donc à minimiser les différences au carrés, d’où le nom de la méthode.</p>
+<p>Cette différence, qui dépend de <span class="math notranslate nohighlight">\(\theta\)</span> est notée comme la fonction</p>
+<div class="math notranslate nohighlight">
+\[
+\mathcal{J}(\theta) = \sum_{n=1}^N \left(y[n] - f_{\theta}[n]\right)^2.
+\]</div>
+<p>Remarquez que <span class="math notranslate nohighlight">\(\mathcal{J}(\theta)\)</span> revient à la norme au carré de <span class="math notranslate nohighlight">\(y - f_{\theta}\)</span> !</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<p>Si <span class="math notranslate nohighlight">\(f\)</span> n’est pas linéaire, alors il faut utiliser une méthode de moindres carrés non linéaires.</p>
+</div>
+<p>Nous nous concentrons dans cette section sur les fonctions <span class="math notranslate nohighlight">\(f\)</span> linéaires en <span class="math notranslate nohighlight">\(\theta\)</span>
+(par exemple si <span class="math notranslate nohighlight">\(f\)</span> est un polynôme), car trouver les valeurs de <span class="math notranslate nohighlight">\(\theta\)</span> qui minimisent <span class="math notranslate nohighlight">\(\mathcal{J}\)</span> est simple
+et aboutit à une expression explicite de <span class="math notranslate nohighlight">\(\theta\)</span>.
+On peut donc écrire <span class="math notranslate nohighlight">\(f\)</span> sous la forme :</p>
+<div class="math notranslate nohighlight">
+\[
+\forall n, \quad f_{\theta}[n] = \theta_1 h_{1n} + \theta_1 h_{2n} + \dots + \theta_M h_{Mn}.
+\]</div>
+<p>Dans la suite, les calculs sont effectués avec la représentation vectorielle.
+On a donc :</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+y = \begin{bmatrix} y_1 \\ \vdots \\ y_N \end{bmatrix}
+\qquad\text{et}\qquad
+f_\theta = H\theta
+         = \begin{bmatrix} h_{11} &amp; \dots &amp; h_{1M} \\ \vdots &amp; &amp; \vdots \\ h_{N1} &amp; \dots &amp; h_{NM} \end{bmatrix}
+           \begin{bmatrix} \theta_1 \\ \vdots \\ \theta_M \end{bmatrix}.
+\end{split}\]</div>
+<p>Avec ces notations, <span class="math notranslate nohighlight">\(\mathcal{J}(\theta)\)</span> s’écrit :</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathcal{J}(\theta)
+&amp;= \|y-H\theta\|^2 \\
+&amp;= (y-H\theta)^T(y-H\theta) \\
+&amp;= y^Ty - y^TH\theta - \theta^TH^Ty + \theta^TH^TH\theta
+\end{split}\]</div>
+<p>Trouver la valeur de <span class="math notranslate nohighlight">\(\theta\)</span> qui minimise <span class="math notranslate nohighlight">\(\mathcal{J}(\theta)\)</span>
+revient à trouver la valeur qui annule la dérivée de <span class="math notranslate nohighlight">\(\mathcal{J}(\theta)\)</span> :</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial \mathcal{J}(\theta)}{\partial \theta} = - 2H^Ty + 2H^TH\theta
+\]</div>
+<p>Et donc :</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial \mathcal{J}(\theta)}{\partial \theta} = 0
+\qquad\Leftrightarrow\qquad
+2H^Ty = 2H^TH\theta
+\qquad\Leftrightarrow\qquad
+\theta = (H^TH)^{-1} H^Ty.
+\]</div>
+<p>Cette dernière équation définit donc la valeur de <span class="math notranslate nohighlight">\(\theta\)</span> qui minimise l’erreur des moindres carrés,
+c’est donc la valeur de <span class="math notranslate nohighlight">\(\theta\)</span> qui permet d’avoir une fonction <span class="math notranslate nohighlight">\(f_{\theta}\)</span> qui approxime au mieux les données <span class="math notranslate nohighlight">\(y\)</span>.</p>
 </div>
 </div>
 
