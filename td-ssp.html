@@ -270,22 +270,6 @@
 
         <!-- Launch buttons -->
 
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        
-        
-        <a class="colab-button" href="https://colab.research.google.com/github/vincmazet/signal2/blob/master/td-ssp.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
-                title="lancement Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
-                    src="_static/images/logo_colab.png"
-                    alt="Interact on Colab">Colab</button></a>
-        
-        
-    </div>
-</div>
-
     </div>
 
     <!-- Table of contents -->
@@ -332,9 +316,14 @@ Montrez que la définition du filtre moyenneur peut s'écrire comme une convolut
 et une porte $h$.
  -->
 <!-- % \exo{}
-%
-% Si le temps le permet, faire un exo pour démontrer que le RSB augmente par moyennage de plusieurs signaux.
-% Faire au préalable un exo "théorique" sur la linéarité de l'espérance, la valeur de l'espérance jointe de deux VA indépendantes ... -->
+Si le temps le permet, faire un exo pour démontrer que le RSB augmente par moyennage de plusieurs signaux.
+Faire au préalable un exo "théorique" sur la linéarité de l'espérance, la valeur de l'espérance jointe de deux VA indépendantes 
+(je ne le fais pas en cours)... 
+
+
+En effet, on peut montrer que l'espérance des $y_i$ est nulle et sa variance est égale à $\sigma^2/I$.
+Ainsi, la puissance du bruit est divisée par $I$, ce qui permet d'augmenter le RSB :
+-->
 <!-- \exo{}
 
 % \begin{questions}

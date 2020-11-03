@@ -48,7 +48,7 @@ span.pre {
 /* Hack pour faire disparaître les boutons GitHub et Download */
 
 div.dropdown-buttons-trigger {
-    display: none;
+    /*display: none;*/
 }
 
 
