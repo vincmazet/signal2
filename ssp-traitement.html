@@ -270,22 +270,6 @@
 
         <!-- Launch buttons -->
 
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        
-        
-        <a class="colab-button" href="https://colab.research.google.com/github/vincmazet/signal2/blob/master/ssp-traitement.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
-                title="lancement Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
-                    src="_static/images/logo_colab.png"
-                    alt="Interact on Colab">Colab</button></a>
-        
-        
-    </div>
-</div>
-
     </div>
 
     <!-- Table of contents -->
@@ -335,11 +319,6 @@
    </li>
   </ul>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#approximation-par-moindres-carres">
-   Approximation par moindres carrés
-  </a>
- </li>
 </ul>
 
         </nav>
@@ -364,7 +343,7 @@ Différentes techniques de détection existent, en fonction des connaissances qu
 <p>Dans le cas où l’on cherche dans l’observation un signal <span class="math notranslate nohighlight">\(x\)</span> périodique, mais qu’on ne connait ni sa période ni sa forme,
 alors l’autocorrélation de <span class="math notranslate nohighlight">\(y\)</span> permet de déterminer si le signal est présent et quelle est sa période.
 On rappelle que l’autocorrélation revient à mesurer la ressemblance d’un signal avec une version plus ou moins décalée de lui-même.</p>
-<p>Ainsi, l’autocorrélation de l’observation <span class="math notranslate nohighlight">\(y = x + b\)</span> est :</p>
+<p>L’autocorrélation de l’observation <span class="math notranslate nohighlight">\(y = x + b\)</span> est :</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 R_y[m] &amp;= \sum_{n=-\infty}^{+\infty} y[n+m] y[n] \\
@@ -373,13 +352,20 @@ R_y[m] &amp;= \sum_{n=-\infty}^{+\infty} y[n+m] y[n] \\
 \end{split}\]</div>
 <p>où :</p>
 <ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(R_{x}\)</span> est l’autocorrélation de <span class="math notranslate nohighlight">\(x\)</span>, et est périodique de même période que <span class="math notranslate nohighlight">\(x\)</span> ;</p></li>
+<li><p><span class="math notranslate nohighlight">\(R_{x}\)</span> est l’autocorrélation de <span class="math notranslate nohighlight">\(x\)</span>, elle est périodique de même période que <span class="math notranslate nohighlight">\(x\)</span> ;</p></li>
 <li><p><span class="math notranslate nohighlight">\(R_{xb}\)</span> et <span class="math notranslate nohighlight">\(R_{bx}\)</span> sont les intercorrélations entre <span class="math notranslate nohighlight">\(x\)</span> et <span class="math notranslate nohighlight">\(b\)</span> ; elles sont nulles puisque les deux signaux sont décorrélés ;</p></li>
-<li><p><span class="math notranslate nohighlight">\(R_{b}\)</span> est l’autocorrélation du bruit <span class="math notranslate nohighlight">\(b\)</span> et elle est nulle puisque le bruit est blanc (ses échantillons sont décorrélés).</p></li>
+<li><p><span class="math notranslate nohighlight">\(R_{b}\)</span> est l’autocorrélation du bruit <span class="math notranslate nohighlight">\(b\)</span> et elle est nulle (sauf en zéro) puisque le bruit est blanc (ses échantillons sont décorrélés).</p></li>
 </ul>
-<p>Finalement, l’autocorrélation <span class="math notranslate nohighlight">\(R_y\)</span> est égale à l’autocorrélation de <span class="math notranslate nohighlight">\(x\)</span>.
+<p>Finalement, l’autocorrélation <span class="math notranslate nohighlight">\(R_y\)</span> est égale à l’autocorrélation de <span class="math notranslate nohighlight">\(x\)</span> (sauf en zéro).
 Si <span class="math notranslate nohighlight">\(x\)</span> est bien présent dans l’observation, alors <span class="math notranslate nohighlight">\(R_y\)</span> est périodique et sa période est égale à la période de <span class="math notranslate nohighlight">\(x\)</span>.</p>
-<p><strong>figure</strong></p>
+<div class="figure align-default" id="f-ssp-detection1">
+<div class="cell_output docutils container">
+<img alt="_images/ssp-traitement_4_0.png" src="_images/ssp-traitement_4_0.png" />
+</div>
+<p class="caption"><span class="caption-number">Fig. 24 </span><span class="caption-text">Le signal <span class="math notranslate nohighlight">\(y\)</span> est la somme du signal <span class="math notranslate nohighlight">\(x\)</span> (périodique, mais de forme et de période inconnues) et d’un bruit blanc <span class="math notranslate nohighlight">\(b\)</span>.
+L’autocorrélation <span class="math notranslate nohighlight">\(R_{y}\)</span> fait apparaître un motif périodique de période 50
+qui confirme la présence dans <span class="math notranslate nohighlight">\(y\)</span> d’un signal de même période.</span><a class="headerlink" href="#f-ssp-detection1" title="Lien permanent vers cette image">¶</a></p>
+</div>
 </div>
 <div class="section" id="detection-de-signaux-periodiques-inconnus-de-periode-connue">
 <h3>Détection de signaux périodiques inconnus de période connue<a class="headerlink" href="#detection-de-signaux-periodiques-inconnus-de-periode-connue" title="Lien permanent vers ce titre">¶</a></h3>
@@ -397,7 +383,15 @@ R_{yz}[m] &amp;= \sum_{n=-\infty}^{+\infty} y[n+m] z[n] \\
 <p><span class="math notranslate nohighlight">\(R_{xz}\)</span> est périodique puisque <span class="math notranslate nohighlight">\(x\)</span> et <span class="math notranslate nohighlight">\(z\)</span> sont de même période,
 alors que <span class="math notranslate nohighlight">\(R_{bz}\)</span> est nulle puisque <span class="math notranslate nohighlight">\(b\)</span> et <span class="math notranslate nohighlight">\(z\)</span> sont décorrélés.
 Ainsi, <span class="math notranslate nohighlight">\(R_{yz}\)</span> sera périodique de période <span class="math notranslate nohighlight">\(T\)</span> si le signal <span class="math notranslate nohighlight">\(x\)</span> est présent.</p>
-<p><strong>figure</strong></p>
+<div class="figure align-default" id="f-ssp-detection2">
+<div class="cell_output docutils container">
+<img alt="_images/ssp-traitement_5_0.png" src="_images/ssp-traitement_5_0.png" />
+</div>
+<p class="caption"><span class="caption-number">Fig. 25 </span><span class="caption-text">Le signal observé <span class="math notranslate nohighlight">\(y\)</span> est la somme du signal périodique <span class="math notranslate nohighlight">\(x\)</span> (de forme inconnue mais de période connue) et d’un bruit blanc <span class="math notranslate nohighlight">\(b\)</span>.
+Le signal auxiliaire <span class="math notranslate nohighlight">\(z\)</span> est ici une sinusoïde de même période que <span class="math notranslate nohighlight">\(x\)</span>.
+L’intercorrélation <span class="math notranslate nohighlight">\(R_{yz}\)</span> fait apparaître un motif périodique de période 50
+qui confirme la présence dans <span class="math notranslate nohighlight">\(y\)</span> d’un signal de même période.</span><a class="headerlink" href="#f-ssp-detection2" title="Lien permanent vers cette image">¶</a></p>
+</div>
 </div>
 <div class="section" id="detection-d-un-motif">
 <h3>Détection d’un motif<a class="headerlink" href="#detection-d-un-motif" title="Lien permanent vers ce titre">¶</a></h3>
@@ -415,55 +409,93 @@ y[n] = x[n-k] + b[n]
 cette technique est un filtrage, qu’on appelle « filtrage adapté » (<em>matched filter</em>).
 On peut montrer qu’elle est la solution optimale pour maximiser le RSB dans le cadre d’un bruit additif.
 Elle est notamment utilisé dans des applications radar ou en communications numériques.</p>
-<p><strong>figure</strong></p>
+<div class="figure align-default" id="f-ssp-filtre-adapte">
+<div class="cell_output docutils container">
+<img alt="_images/ssp-traitement_6_0.png" src="_images/ssp-traitement_6_0.png" />
+</div>
+<p class="caption"><span class="caption-number">Fig. 26 </span><span class="caption-text">Le motif <span class="math notranslate nohighlight">\(x\)</span> est une porte et le signal observé <span class="math notranslate nohighlight">\(y\)</span> correspond à <span class="math notranslate nohighlight">\(x\)</span> décalé de <span class="math notranslate nohighlight">\(k=50\)</span> échantillons
+et bruité par un bruit blanc gaussien de RSB 20 dB.
+Seules les corrélations de <span class="math notranslate nohighlight">\(x\)</span> avec <span class="math notranslate nohighlight">\(x\)</span> et <span class="math notranslate nohighlight">\(y\)</span> présentent un maximum clair,
+ce qui indique la présence du motif à cet instant.</span><a class="headerlink" href="#f-ssp-filtre-adapte" title="Lien permanent vers cette image">¶</a></p>
+</div>
 </div>
 </div>
 <div class="section" id="debruitage-de-signaux">
 <h2>Débruitage de signaux<a class="headerlink" href="#debruitage-de-signaux" title="Lien permanent vers ce titre">¶</a></h2>
-<!-- Débrutées différents détectés  -->
+<p>Débruiter un signal, c’est réduire le plus possible le bruit présent dans le signal.
+Sauf cas très particulier, il n’est pas possible d’éliminer complètement le bruit puisqu’il est inconnu.</p>
 <div class="section" id="debruitage-d-un-signal-unique">
 <h3>Débruitage d’un signal unique<a class="headerlink" href="#debruitage-d-un-signal-unique" title="Lien permanent vers ce titre">¶</a></h3>
-<!-- On n'observe : 
-
-Pour réduire le bruit dans le signal (réduire la puissance donc là variance du bruit) on peut remplacer chaque échantillon YN par la moyenne de l échantillon autour de n : 
-
-Ou n un perd 
-
-On peut montrer que cette technique peut s'écrire sous la forme d'une convolution : c'est donc un filtrage appelé filtre moyenne EUR point la réponse impulsionnelle du filtre et une porte de longueur M point là TF t'aider de cette réponse impulsionnelle et ainsi Nice cardinale filtre passe bas 
- -->
+<p>On observe un signal <span class="math notranslate nohighlight">\(x\)</span> bruité par un bruit blanc gaussien additif :</p>
+<div class="math notranslate nohighlight">
+\[
+\forall n, \quad y[n] = x[n] + b[n].
+\]</div>
+<p>Pour réduire le bruit dans le signal, on peut remplacer chaque échantillon <span class="math notranslate nohighlight">\(y[n]\)</span>
+par la moyenne des <span class="math notranslate nohighlight">\(M\)</span> échantillons autour de <span class="math notranslate nohighlight">\(n\)</span>.
+On obtient alors un nouveau signal <span class="math notranslate nohighlight">\(z\)</span> :</p>
+<div class="math notranslate nohighlight">
+\[
+\forall n, \quad z[n] = \frac{1}{M} \sum_{m=n-\frac{M-1}{2}}^{n+\frac{M-1}{2}} y[m]
+\]</div>
+<p>où <span class="math notranslate nohighlight">\(M\)</span> est impair.</p>
+<div class="example">
+<p>Si le signal observé est :</p>
+<div class="math notranslate nohighlight">
+\[
+y = [4,\, 9,\, 8,\, 7,\, 12,\, 5,\, 1,\, 0,\, 5,\, 4,\, 3,\, 2,\, 4]
+\]</div>
+<p>alors le calcul de la moyenne de <span class="math notranslate nohighlight">\(M=3\)</span> échantillons autour de chaque échantillons de <span class="math notranslate nohighlight">\(y\)</span> donne :</p>
+<div class="math notranslate nohighlight">
+\[
+z = [?,\, 7,\, 8,\, 9,\, 8,\, 6,\, 2,\, 2,\, 3,\, 4,\, 3,\, 3,\, ?]
+\]</div>
+<p>où les deux points d’interrogation correspondent à des échantillons qu’on ne peut pas calculer.</p>
+<p>La <a class="reference internal" href="#f-ssp-filtre-moyenneur-exemple"><span class="std std-numref">Fig. 27</span></a> représente ces deux signaux.</p>
+<div class="figure align-default" id="f-ssp-filtre-moyenneur-exemple">
+<div class="cell_output docutils container">
+<img alt="_images/ssp-traitement_8_1.png" src="_images/ssp-traitement_8_1.png" />
+</div>
+<p class="caption"><span class="caption-number">Fig. 27 </span><span class="caption-text">Signaux <span class="math notranslate nohighlight">\(y\)</span> (en bleu) et <span class="math notranslate nohighlight">\(z\)</span> (en orange).</span><a class="headerlink" href="#f-ssp-filtre-moyenneur-exemple" title="Lien permanent vers cette image">¶</a></p>
+</div>
+</div>
+<p>On peut montrer que cette technique peut s’écrire sous la forme d’une convolution :
+c’est donc un filtrage appelé « filtre moyenneur ».
+La réponse impulsionnelle de ce filtre et une porte de longueur <span class="math notranslate nohighlight">\(M\)</span>,
+dont la transformée de Fourier à temps discret est un sinus cardinal.
+Ainsi, le filtre moyenneur est un filtre passe-bas.
+Il atténue les fréquences élevées présentes dans le bruit.</p>
+<div class="figure align-default" id="f-ssp-filtre-moyenneur">
+<div class="cell_output docutils container">
+<img alt="_images/ssp-traitement_9_0.png" src="_images/ssp-traitement_9_0.png" />
+</div>
+<p class="caption"><span class="caption-number">Fig. 28 </span><span class="caption-text">Le signal observé <span class="math notranslate nohighlight">\(y\)</span> est la somme du signal d’intérêt <span class="math notranslate nohighlight">\(x\)</span> et d’un bruit.
+Le filtre moyenneur effectue une moyenne glissante pour remplacer chaque échantillon du signal observé
+par la moyenne des <span class="math notranslate nohighlight">\(M\)</span> échantillons voisins.
+Plus le nombre d’échantillons moyennés <span class="math notranslate nohighlight">\(M\)</span> est grand, plus le bruit sera atténué.
+Mais la forme du signal d’intérêt <span class="math notranslate nohighlight">\(x\)</span> sera lissée.</span><a class="headerlink" href="#f-ssp-filtre-moyenneur" title="Lien permanent vers cette image">¶</a></p>
+</div>
 </div>
 <div class="section" id="debruitage-de-plusieurs-realisations-d-un-meme-signal">
 <h3>Débruitage de plusieurs réalisations d’un même signal<a class="headerlink" href="#debruitage-de-plusieurs-realisations-d-un-meme-signal" title="Lien permanent vers ce titre">¶</a></h3>
-<!-- ceux de ligne dans le cas où on dispose de I mesure d'un même signal x : 
-
-Et que le bruit et s'en est centré () et de variance Sigma bakaré () alors la moyenne des y qui permet d'augmenter le RSB 
-
-La puissance du bruit est divisée par qui 
- --></div>
+<p>Dans le cas où l’on dispose de <span class="math notranslate nohighlight">\(I\)</span> mesures d’un même signal <span class="math notranslate nohighlight">\(x\)</span> :</p>
+<div class="math notranslate nohighlight">
+\[
+\forall i, n, \quad y_i[n] = x[n] + b_i[n]
+\]</div>
+<p>et que le bruit est centré (<span class="math notranslate nohighlight">\(\mathbb{E}[b_i]=0\)</span>), alors la moyenne des <span class="math notranslate nohighlight">\(y_i\)</span> permet d’augmenter le RSB
+d’un facteur <span class="math notranslate nohighlight">\(10\log(I)\)</span>.</p>
+<div class="figure align-default" id="f-ssp-moyennage">
+<div class="cell_output docutils container">
+<img alt="_images/ssp-traitement_10_0.png" src="_images/ssp-traitement_10_0.png" />
 </div>
-<div class="section" id="approximation-par-moindres-carres">
-<h2>Approximation par moindres carrés<a class="headerlink" href="#approximation-par-moindres-carres" title="Lien permanent vers ce titre">¶</a></h2>
-<!-- Gosse 1795 
-
-On dispose de données y brut est tel que 
-
-Ou F est une fonction paramétrique (sinusoïde polynôme) connu 
-
-FN est la valeur de F 1N 
-
-Titre est un ensemble de paramètres inconnu tête à sous de ligne le bruit bébé et de moyenne nulle 
-
-Exemple 
-
-Polynôme de degré 2 sauts de ligne exponentielle 
-
-L'objectif est de retrouver ta point il est logique de choseaisir téta comme le paramètre qui minimise la somme des différences au carré 
-
-La détermination d'état lorsque effet linéaire en état et simple exemple parabole point mais c'est beaucoup plus compliqué lorsque F n'est pas linéaire (coefficient éteint dans le exponentielle) dans le cas où la fonction F est linéaire son état il existe une expression explicite de la solution FTK égal 
-
-Il faut faire les calculs avec la représentation vectorielle 
-
-  --></div>
+<p class="caption"><span class="caption-number">Fig. 29 </span><span class="caption-text">Le moyennage de plusieurs réalisations <span class="math notranslate nohighlight">\(y_i\)</span> d’un même signal <span class="math notranslate nohighlight">\(x\)</span> permet de réduire le niveau de bruit (et donc le RSB).
+Plus il y a de signaux moyennés, meilleur sera le débruitage, ainsi que le montre le RSB.
+Le premier graphe ci-dessous représente 50 réalisations superposées (en gris),
+l’une d’elle est en bleu pour être visible.</span><a class="headerlink" href="#f-ssp-moyennage" title="Lien permanent vers cette image">¶</a></p>
+</div>
+</div>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
