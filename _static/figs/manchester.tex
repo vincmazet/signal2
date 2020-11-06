@@ -1,0 +1,25 @@
+% !TEX program = latex
+
+% Convertir en PNG pour l'utilisation avec Projo : convert -density 200 -negate sli3.pdf sli3.png
+
+\documentclass{standalone}
+\usepackage{pstricks, pst-plot}
+\begin{document}
+
+\psset{unit=4mm,linewidth=.3pt}
+\begin{pspicture}(-1.3,-4.1)(4.3,3.1)%
+  \psaxes[xlabelsep=12pt, ylabelsep=18pt, labels=none,
+    axesstyle=frame,
+    ticklinestyle=solid, tickcolor=lightgray,
+    xticksize=-3 3, yticksize=0 4,
+    ](0,0)(0,-3)(4,3)
+    \psframe[](0,-3)(4,3)
+    \psline(0,0)(4,0)
+    \psline[linewidth=1pt](0,0)(0,2)(2,2)(2,-2)(4,-2)(4,0)
+    \uput[180](0,2){$1$}
+    \uput[180](0,-2){$-1$}
+    \uput[270](0,-3){$0$}
+    \uput[270](4,-3){$T$}
+\end{pspicture}%
+
+\end{document}
