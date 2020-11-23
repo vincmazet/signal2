@@ -291,8 +291,8 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#approximation-et-extrapolation-par-moindres-carres">
-   Approximation et extrapolation par moindres carrés
+  <a class="reference internal nav-link" href="#approximation-par-moindres-carres">
+   Approximation par moindres carrés
   </a>
  </li>
 </ul>
@@ -323,27 +323,27 @@ tandis qu’un 0 logique est représenté par <span class="math notranslate nohi
 un canal de transmission où s’ajoute du bruit au signal émis,
 et enfin un récepteur dont l’objectif est de décoder le signal reçu.</p>
 <ul class="simple">
-<li><p>Créez un vecteur contenant le motif <span class="math notranslate nohighlight">\(h\)</span> de durée <span class="math notranslate nohighlight">\(T=10^{-7}\)</span> s et échantillonné à <span class="math notranslate nohighlight">\(10^{9}\)</span> Hz.
-<strong>utiliser t = np.arange(0, T, Te)</strong></p></li>
-<li><p>En concaténant plusieurs motifs, créez le signal correspondant à la séquence binaire <span class="math notranslate nohighlight">\(1\ 0\ 1\ 1\)</span>.
-<strong>np.concatenate et encore np.arange(0, 4*T, Te)</strong></p></li>
-<li><p>Ajoutez un bruit gaussien à ce signal de sorte à obtenir un RSB de 10 dB.
-Vérifiez notamment que le niveau de bruit évolue conformément à la valeur du RSB.
-<strong>np.linalg.norm(x) et np.random.normal + pour le sigma, cf TD</strong></p></li>
+<li><p>Créez un vecteur contenant le motif <span class="math notranslate nohighlight">\(h\)</span> de durée <span class="math notranslate nohighlight">\(T=10^{-7}\)</span> s et échantillonné à <span class="math notranslate nohighlight">\(10^{9}\)</span> Hz.</p></li>
+<li><p>En concaténant plusieurs motifs (par exemple avec <code class="docutils literal notranslate"><span class="pre">numpy.concatenate</span></code>),
+créez le signal correspondant à la séquence binaire <span class="math notranslate nohighlight">\(1\ 0\ 1\ 1\)</span>.
+Pensez à définir un nouveau vecteur de temps pour afficher le signal.</p></li>
+<li><p>Ajoutez un bruit gaussien (<code class="docutils literal notranslate"><span class="pre">numpy.random.normal</span></code>) à ce signal de sorte à obtenir un RSB de 10 dB
+(utilisez le résultat de l’exercice 3 du TD pour obtenir le lien entre le RSB et l’écart-type du bruit).
+La norme peut être calculée avec <code class="docutils literal notranslate"><span class="pre">np.linalg.norm</span></code>.
+Vérifiez notamment que le niveau de bruit évolue conformément à la valeur du RSB.</p></li>
 </ul>
 <p>On se place maintenant au niveau du récepteur :
 un filtre adapté est utilisé pour retrouver la séquence binaire à partir du signal bruité.</p>
 <ul class="simple">
 <li><p>On a vu en cours que le filtre adapté peut s’implémenter comme la convolution entre le signal bruité
 et une réponse impulsionnelle.
-Quelle est cette réponse impulsionnelle ?
-<strong>motif[::-1]</strong></p></li>
-<li><p>Appliquez un filtre adapté avec une convolution sur le signal bruité.
+Quelle est cette réponse impulsionnelle ?</p></li>
+<li><p>Appliquez le filtre adapté avec une convolution sur le signal bruité.
 Décrivez le signal obtenu.
 Comment retrouver la séquence binaire à partir de ce signal ?</p></li>
 <li><p>Évaluez la robustesse du filtrage adapté en fonction du niveau de bruit :
 comment se comporte cette méthode lorsque le RSB évolue ?</p></li>
-<li><p>Appliquez le filtre adapté sur le signal <a class="reference external" href="https://vincmazet.github.io/signal2/_static/files/manchester.dat">manchester.dat</a>
+<li><p>Appliquez le filtre adapté sur le signal <a class="reference external" href="https://vincmazet.github.io/signal2/_static/files/manchester.csv">manchester.csv</a>
 pour décoder la séquence binaire correspondante
 (la durée <span class="math notranslate nohighlight">\(T\)</span> du motif et la fréquence d’échantillonnage restant les mêmes que dans les questions précédentes).
 Vous pouvez déterminer visuellement les bits de la séquence (sans programmation, donc)
@@ -352,43 +352,46 @@ et retrouver le message correspondant sachant que la norme ASCII a été utilis�
 </div>
 <div class="section" id="lissage-par-filtre-moyenneur">
 <h2>Lissage par filtre moyenneur<a class="headerlink" href="#lissage-par-filtre-moyenneur" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Le fichier temperatures.dat regroupe l’ensemble des températures moyennes à la surface de la Terre
-pour chaque année depuis 1880.</p>
 <div class="margin sidebar">
 <p class="sidebar-title"></p>
-<p>Source~: NASA/GISS, <a class="reference external" href="https://climate.nasa.gov/vital-signs/global-temperature/">climate.nasa.gov/vital-signs/global-temperature</a>.</p>
+<p>Source : NASA/GISS, <a class="reference external" href="https://climate.nasa.gov/vital-signs/global-temperature/">climate.nasa.gov/vital-signs/global-temperature</a>.</p>
 </div>
-<p>Les températures sont données par rapport à la moyenne des températures relevées sur la période de référence 1951–1980.
+<p>Le fichier <a class="reference external" href="https://vincmazet.github.io/signal2/_static/files/temperatures.csv">temperatures.csv</a> regroupe l’ensemble des températures moyennes à la surface de la Terre
+pour chaque année depuis 1880.
+Les températures sont données par rapport à la moyenne des températures relevées sur la période de référence 1951–1980.
 Ces données illustrent la hausse de températures mondiales.</p>
 <ul class="simple">
-<li><p>Chargez le fichier temperatures.dat et affichez les données.</p></li>
+<li><p>Chargez le fichier <a class="reference external" href="https://vincmazet.github.io/signal2/_static/files/temperatures.csv">temperatures.csv</a> et affichez les données.</p></li>
 <li><p>Appliquez un filtre moyenneur sur les données pour obtenir une courbe plus lisse.
 Choisissez le filtre de sorte à obtenir des températures lissées sur une fenêtre de 5 ans,
 qui est le choix traditionnel pour ces données.</p></li>
 </ul>
 </div>
-<div class="section" id="approximation-et-extrapolation-par-moindres-carres">
-<h2>Approximation et extrapolation par moindres carrés<a class="headerlink" href="#approximation-et-extrapolation-par-moindres-carres" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="section" id="approximation-par-moindres-carres">
+<h2>Approximation par moindres carrés<a class="headerlink" href="#approximation-par-moindres-carres" title="Lien permanent vers ce titre">¶</a></h2>
 <!-- supprimer la 1re partie + ajouter des questions d'analyse et de compréhension -->
-<p>Le premier objectif de l’exercice est de représenter le polynôme <span class="math notranslate nohighlight">\(f(x) = 1 - 2x + 5x^2 - 2x^3\)</span> sur <span class="math notranslate nohighlight">\([0,2]\)</span>
-en utilisant la formulation matricielle <span class="math notranslate nohighlight">\(y = H\theta\)</span>,
-où <span class="math notranslate nohighlight">\(y\)</span> est le vecteur des valeurs du polynôme, <span class="math notranslate nohighlight">\(H\)</span> est la matrice des abscisses
-et <span class="math notranslate nohighlight">\(\theta\)</span> est le vecteur des coefficients du polynôme.</p>
+<p>À la place d’un filtre moyenneur, on souhaite effectuer une approximation de l’évolution des températures par une parabole.</p>
 <ul>
-<li><p>Donnez les tailles de <span class="math notranslate nohighlight">\(y\)</span>, <span class="math notranslate nohighlight">\(H\)</span> et <span class="math notranslate nohighlight">\(\theta\)</span>.</p></li>
-<li><p>Donnez les éléments du vecteur <span class="math notranslate nohighlight">\(\theta\)</span>.</p></li>
-<li><p>Créez la matrice <span class="math notranslate nohighlight">\(H\)</span>.</p></li>
-<li><p>Vérifiez que le polynôme <span class="math notranslate nohighlight">\(y\)</span> correspond au résultat de la <code class="xref std std-numref docutils literal notranslate"><span class="pre">F:ssp:polynome</span></code>.</p>
-<p>\includegraphics{polynome-ssp}
-\caption{Polynôme <span class="math notranslate nohighlight">\(f(x) = 1 - 2x + 5x^2 - 2x^3\)</span>}
-\label{F:ssp:polynome}</p>
+<li><p>Calculez l’approximation des températures
+(<a class="reference external" href="https://vincmazet.github.io/signal2/_static/files/temperatures.csv">temperatures.csv</a>) par une parabole.
+Pour cela :</p>
+<ul>
+<li><p>normalisez les abscisses entre 0 et 1 pour éviter les problème numériques ;</p></li>
+<li><p>la transposée est obtenue avec <code class="docutils literal notranslate"><span class="pre">numpy.transpose</span></code> ;</p></li>
+<li><p>la multiplication matricielle est obtenue avec <code class="docutils literal notranslate"><span class="pre">numpy.dot</span></code> ;</p></li>
+<li><p>l’inverse matricielle est obtenue avec <code class="docutils literal notranslate"><span class="pre">numpy.linalg.pinv</span></code> ;</p></li>
+<li><p>attention à la dimension des matrices et vecteurs (vérifiez bien chaque étape du calcul avec <code class="docutils literal notranslate"><span class="pre">shape</span></code> !) ;</p></li>
+<li><p>Pour générer la matrice <span class="math notranslate nohighlight">\(H\)</span> des coefficients et le vecteur des données <span class="math notranslate nohighlight">\(y\)</span>,
+vous pouvez vous inspirer du code suivant :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">temperatures</span><span class="p">]))</span>
+<span class="n">H</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span> <span class="n">x</span><span class="o">**</span><span class="mi">0</span><span class="p">,</span> <span class="n">x</span><span class="o">**</span><span class="mi">1</span><span class="p">,</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="p">]))</span>
+</pre></div>
+</div>
 </li>
 </ul>
-<p>Le second objectif de l’exercice est d’effectuer une approximation de l’évolution des températures par une parabole.</p>
-<ul class="simple">
-<li><p>Calculez l’approximation des températures (temperatures.dat) entre 1900 et 2018 par une parabole.
-Affichez le résultat sur la courbe des températures pour vérifier
-la bonne adéquation de l’approximation par rapport aux données.</p></li>
+<p>Affichez le résultat sur la courbe des températures pour vérifier
+la bonne adéquation de l’approximation par rapport aux données.</p>
+</li>
 <li><p>En définissant une nouvelle matrice <span class="math notranslate nohighlight">\(H\)</span>,
 extrapolez l’évolution des températures pour connaître, selon ce modèle,
 la hausse des températures attendue l’année de votre 70<sup>e</sup> anniversaire…</p></li>
