@@ -1,0 +1,530 @@
+
+<!DOCTYPE html>
+
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TP Filtrage numérique &#8212; Traitement du signal 2</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/jbvinc.css" />
+    <link rel="stylesheet" type="text/css" href="_static/.ipynb_checkpoints/jbvinc-checkpoint.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/translations.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Recherche" href="search.html" />
+    <link rel="next" title="Bruit dans les signaux" href="bruit.html" />
+    <link rel="prev" title="TD Filtrage" href="filtres-t.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      <h1 class="site-logo" id="site-title">Traitement du signal 2</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Rechercher dans ce livre ..." aria-label="Rechercher dans ce livre ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="index.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Révisions
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="rev-t.html">
+   Exercices théoriques
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="rev-p.html">
+   Exercices pratiques
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Filtrage
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="filtre-intro.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="laplace.html">
+   Transformée de Laplace
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="z.html">
+   Transformée en Z
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="filtres-analogiques.html">
+   Filtres analogiques
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="filtres-numeriques.html">
+   Filtres numériques
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="filtres-t.html">
+   Exercices théoriques
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Exercices pratiques
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Traitement statistique du signal
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="bruit.html">
+   Bruit dans les signaux
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ssp-traitement.html">
+   Traitement des signaux bruités
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ssp-t.html">
+   Exercices théoriques
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ssp-p.html">
+   Exercices pratiques
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Annexes
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference external" href="https://moodle.unistra.fr/course/view.php?id=5497">
+   Moodle
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="python.html">
+   Installer et utiliser Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="refs.html">
+   Références
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="licence.html">
+   Licence
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Basculer la navigation" aria-controls="site-navigation"
+                title="Basculer la navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Téléchargez cette page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/filtres-p.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Télécharger le fichier source" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Imprimer au format PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Mode plein écran"
+        title="Mode plein écran"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contenu
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#definition-du-gabarit">
+   Définition du gabarit
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#realisation-d-un-filtre-rii">
+   Réalisation d’un filtre RII
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#realisation-d-un-filtre-rif">
+   Réalisation d’un filtre RIF
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#comparaison-des-filtres-synthetises">
+   Comparaison des filtres synthétisés
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="tp-filtrage-numerique">
+<span id="c-tp-filtres"></span><h1>TP Filtrage numérique<a class="headerlink" href="#tp-filtrage-numerique" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Ce TP se déroule sur deux séances et a pour objectif de réaliser deux filtres
+pour supprimer la dérive basse fréquence d’un électrocardiogramme (ECG), qui est le tracé de l’activité électrique du cœur.</p>
+<div class="section" id="definition-du-gabarit">
+<h2>Définition du gabarit<a class="headerlink" href="#definition-du-gabarit" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Un ECG a été enregistré à une fréquence de 1 kHz et sauvegardé dans le fichier <a class="reference external" href="https://vincmazet.github.io/signal2/_static/files/ecg_lfn.csv">ecg_lfn.csv</a>.</p>
+<ul class="simple">
+<li><p>Le signal étant trop grand, il faut d’abord réduire sa taille. À quoi faut-il faire attention ?</p></li>
+<li><p>Ré-échantillonnez le signal à 100 Hz, puis affichez le signal obtenu.</p></li>
+<li><p>Tracez le spectre du signal en fonction de la fréquence (centrez l’axe des fréquences).</p></li>
+</ul>
+<p>Un ECG normal comporte plusieurs signaux caractéristiques appelés « ondes » (figure ci-dessous).
+Le signal enregistré contient dix ondes auxquelles s’ajoute une dérive basse fréquence à éliminer.</p>
+<div class="figure align-default" id="f-tp-filtres-ecg">
+<a class="reference internal image-reference" href="_static/figs/ecg.png"><img alt="_static/figs/ecg.png" src="_static/figs/ecg.png" style="height: 150px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 21 </span><span class="caption-text">Représentation schématique d’un ECG normal.</span><a class="headerlink" href="#f-tp-filtres-ecg" title="Lien permanent vers cette image">¶</a></p>
+</div>
+<ul class="simple">
+<li><p>Quel type de filtre (passe-bas, passe-haut, passe-bande ou coupe-bande) faut-il ?
+Donnez une valeur approximative de la (ou les) fréquence(s) de coupure.</p></li>
+<li><p>Proposez un gabarit pour le filtre en précisant les valeurs numériques des fréquences.
+L’ondulation dans la bande passante devra être comprise entre <span class="math notranslate nohighlight">\(-1\)</span> dB et <span class="math notranslate nohighlight">\(+1\)</span> dB
+et l’atténuation devra être supérieure à 60 dB.
+Si la largeur de la (ou des) bande(s) de transition est trop faible, cela peut conduire à des erreurs numériques :
+seule la synthèse lors des questions suivantes vous permettra de corriger cette valeur.</p></li>
+</ul>
+</div>
+<div class="section" id="realisation-d-un-filtre-rii">
+<h2>Réalisation d’un filtre RII<a class="headerlink" href="#realisation-d-un-filtre-rii" title="Lien permanent vers ce titre">¶</a></h2>
+<p>On rappelle qu’avec la transformation bilinéaire, un filtre RII est conçu à partir d’un filtre analogique
+obtenu à l’aide d’un gabarit analogique, lui-même construit à partir du gabarit numérique.</p>
+<ul class="simple">
+<li><p>Déterminez le gabarit du filtre analogique.</p></li>
+<li><p>Rappelez l’expression de la transformation bilinéaire permettant d’obtenir <span class="math notranslate nohighlight">\(H(z)\)</span> à partir de <span class="math notranslate nohighlight">\(H(s)\)</span>.</p></li>
+<li><p>Synthétisez le filtre analogique avec la fonction <code class="docutils literal notranslate"><span class="pre">scipy.signal.iirdesign</span></code>.
+Vérifiez que le filtre obtenu correspond bien au gabarit numérique en traçant sa réponse fréquentielle sur le gabarit
+(<code class="docutils literal notranslate"><span class="pre">scipy.signal.freqz</span></code>).</p></li>
+<li><p>En analysant le retard de groupe du filtre (<code class="docutils literal notranslate"><span class="pre">signal.group_delay</span></code>),
+indiquez quel est son effet sur le déphasage des fréquences.</p></li>
+<li><p>Affichez le diagramme pôle-zéro (<code class="docutils literal notranslate"><span class="pre">scipy.signal.tf2zpk</span></code>) : que pouvez-vous en conclure ?</p></li>
+</ul>
+</div>
+<div class="section" id="realisation-d-un-filtre-rif">
+<h2>Réalisation d’un filtre RIF<a class="headerlink" href="#realisation-d-un-filtre-rif" title="Lien permanent vers ce titre">¶</a></h2>
+<ul class="simple">
+<li><p>Donnez, en le justifiant, les types de fenêtres pouvant être utilisés pour la synthèse du filtre numérique.</p></li>
+<li><p>Calculez la longueur des fenêtres qui conviennent.
+On choisit de ne travailler qu’avec la fenêtre permettant d’avoir l’ordre du filtre le plus faible.</p></li>
+<li><p>Synthétisez le filtre RIF avec <code class="docutils literal notranslate"><span class="pre">scipy.signal.firwin</span></code>.</p></li>
+<li><p>Vérifiez que le filtre obtenu correspond bien au gabarit numérique en traçant sa réponse en fréquence sur le gabarit.</p></li>
+<li><p>De même que pour un filtre RII, analysez le retard de groupe du filtre puis le diagramme pôle-zéro.</p></li>
+</ul>
+</div>
+<div class="section" id="comparaison-des-filtres-synthetises">
+<h2>Comparaison des filtres synthétisés<a class="headerlink" href="#comparaison-des-filtres-synthetises" title="Lien permanent vers ce titre">¶</a></h2>
+<ul class="simple">
+<li><p>Comparez les deux filtres synthétisés, notamment sur :</p>
+<ul>
+<li><p>leur performance vis-à-vis du gabarit souhaité,</p></li>
+<li><p>leur phase et retard de groupe,</p></li>
+<li><p>leur stabilité,</p></li>
+<li><p>leur encombrement mémoire,</p></li>
+<li><p>leur robustesse par rapport à la précision de leur coefficients,</p></li>
+<li><p>etc.</p></li>
+</ul>
+</li>
+<li><p>Appliquez ces filtres sur l’ECG et discutez du résultat obtenu, en temporel comme en fréquentiel.</p></li>
+</ul>
+<!-- % Suite RIF
+%Toutefois, l'ordre obtenu à la question précédente n'est qu'une valeur approchée de l'ordre optimal et peut donc être trop faible ou inutilement trop grand.
+%C'est pourquoi il faut procéder par essais successifs afin de déterminer l'ordre minimal qui vérifie le gabarit numérique.
+% \begin{questions}
+%   \item En suivant les étapes ci-dessous, déterminez l'ordre optimal du filtre.
+%   \begin{itemize}
+% %     \item ..Calculer la réponse temporelle infinie du filtre à réponse en fréquence voulue (gabarit idéal) en utilisant la transformée de Fourier inverse.
+% %     \item ..tronquer la réponse temporelle trouvée pour obtenir un RIF en limitant le calcul à N valeurs réparties symétriquement autour de n = 0. Deux cas (N impair / N pair)
+% %     \item ..multiplier par les fenêtres d'apodisation choisies hN (n) = h(n) w(n)
+% %       Pour décaler pour obtenir une solution causale : on suppose simplement que le premie échantillon du vecteur hN correspond à n = 0
+%     \item Effectuez la synthèse du filtre RIF sous Matlab % fir1
+%       (le filtre obtenu n'est pas causal, mais il suffit de considérer que le zéro correspond au premier élément du vecteur et non à l'élément central).
+%     \item Vérifiez si le filtre obtenu vérifie le gabarit numérique en traçant sa réponse en fréquence sur le gabarit et
+%       en calculant également le module de la réponse en fréquence aux fréquences limites du gabarit. % freqz
+%   \end{itemize}
+%   \item Tracez le module de la réponse en fréquence du filtre optimal (en dB) et le gabarit superposé,
+%     et donnez les valeurs du module de la réponse en fréquence aux fréquences limites du gabarit. % freqz
+%     {\color{blue}il s'agit d'une vérif : reprendre texto les questions d'avant}
+%   \item Tracez le temps de propagation du meilleur filtre et discutez du résultat. % grpdelay
+%   \item Tracez sur une même figure les réponse fréquentielles
+%     \begin{itemize}
+%       \item du filtre idéal,
+%       \item du filtre optimal obtenu
+%       \item et du filtre (de même ordre que le filtre optimal) que vous auriez obtenu avec une fenêtre rectangulaire.
+%     \end{itemize}
+%     Comparez et commentez les résultats.
+%     {\color{blue}Dire ce qu'est le filtre idéal}
+%   \item Même question en comparant cette fois les réponses impulsionnelles de ces trois filtres.
+% \end{questions}
+
+% Synthèse de filtres RIF avec fir1 :
+% * Pour les fenêtres qui conviennent, donner les valeurs des paramètres à utiliser lors d'une première tentative de synthèse. Commenter.
+%   Déterminer la longueur N de la séquence à partir du gabarit réel. (formule empirique)
+% * Synthèse du filtre par la commande \texttt{fir1}
+% * Vérifier les spécifications obtenues en traçant le module de la réponse en fréquence du filtre (en dB) avec 1000 points
+%   et le gabarit superposé (ne pas hésiter à faire des zooms sur les régions critiques de la réponse en fréquence).
+%   Calculer également le module en dB de la réponse en fréquence  en $0$, $\Omega_{s_{-}}$, $\Omega_{p_{-}}$, $\Omega_{p_{+}}$, $\Omega_{s_{+}}$ et $\pi$.
+%   Utiliser la commande \texttt{freqz} pour calculer la réponse en fréquence lors de la vérification des performances.
+%   Déterminer par essais successifs le filtre d'ordre minimal qui satisfait aux spécifications pour les fenêtres sélectionnées.
+% * Au besoin changer les paramètres et recommencer. --><!-- 
+% Filtre à minimum de phase : si tous les zéros de H(z) sont à l'intérieur du cercle unité, alors le filtre est dit à minimum de phase.
+
+% Transformation bilinéaire sans FDATOOL :
+% * Donnez la formule de la distorsion de fréquence permettant de calculer les fréquences du gabarit analogique à partir des fréquences du gabarit numérique.
+%   Déterminez alors le gabarit du filtre analogique, puis tracez-le avec Matlab.
+% * Synthèse du filtre analogique (sans ellip, comme en 1A) :
+%   - Donnez le gabarit d'un filtre passe-bande en y faisant apparaître, en échelle logarithmique, l'atténuation et la constante d'atténuation.
+%   - On souhaite déterminer le prototype passe-bas normalisé.
+%     Calculez le taux d'ondulation en bande passante $\varepsilon$, l'atténuation $A$, la constante d'atténuation $\eta$, la sélectivité $k$,
+%     la pulsation centrale $\omega_0$ et la largeur de bande relative $B_0$ du gabarit.
+%   - Les gabarits du passe-bande et du passe-bas normalisé ayant la même sélectivité et la même constante d'atténuation,
+%     déterminez la valeur de la fréquence $\Omega_{s}$ du passe-bas normalisé si $\Omega_{p}=1$.
+%   - Donner la transformation exacte (avec valeurs numériques) à utiliser pour trouver le filtre passe-bande à partir du filtre passe-bas normalisé.
+%   - Dans cette section, nous proposons de concevoir le filtre passe-bande en utilisant un filtre elliptique (ou filtre de Cauer) car il est d'ordre minimum.
+%     Donnez la formule permettant de calculez l'ordre du filtre passe-bas normalisé et calculez-le.
+%     Vérifiez votre résultat à l'aide de la fonction \texttt{ellipord} (n'oubliez pas l'argument \texttt{'s'} pour obtenir un filtre analogique).
+%   - Calculez le gain, les pôles et les zéros du filtre passe-bas normalisé. % ellipap
+%     puis les coefficients de la fonction de transfert du filtre passe-bas normalisé (c'est-à-dire les coefficients du numérateur et du dénominateur). % zp2tf
+%   - Calculez la fonction de transfert du filtre passe-bande demandé à partir du filtre passe-bas normalisé (transformation passe-bas $\rightarrow$ passe-bande) (formule + Matlab).
+%   - Donnez les coefficients de H(s).
+%   - Vérifiez que la réponse en fréquence est correcte en la traçant sur le gabarit (\texttt{freqs}).
+% * Synthèse du filtre analogique (avec ellip) :
+%   - Donnez le gabarit d'un filtre passe-bande en y faisant apparaître, en échelle logarithmique, l'atténuation et la constante d'atténuation.
+%   - utilisez ellip pour calculer les coefficients de H(s).
+%   - Vérifiez que la réponse en fréquence est correcte en la traçant sur le gabarit (\texttt{freqs}).
+% * Rappelez la transformation bilinéaire permettant de calculer $H(z)$ à partir de $H(s)$.
+% * Sous Matlab, déterminez l'expression de $H(z)$. {\color{blue}bilinear ou cd2m~? + donnez les coefficients obtenus de $H(z)$}
+% * graphe pôle-zéro~? Que dire : stabilité, ...
+% * Vérifiez que le filtre obtenu correspond bien au gabarit numérique en traçant sa réponse en fréquence sur le gabarit. {\color{blue}freqz}
+% * Comparez les réponses indicielles des filtres analogique et numérique
+%   (la fonction \texttt{tf} renvoie la fonction de transfert, et la fonction \texttt{step} permet de tracer la réponse indicielle) y'a pas plus simple ?.
+%   Que constatez-vous à propos du filtre numérique obtenu~?
+
+
+% --------------------------------------------------------------------------------------------------------------------------------------------------- %
+%
+%   RII :                                                           RIF :
+%   Avantages                                                       Avantages
+%   - déphaseurs réalisables                                        - toujours stables
+%   - complexité faible p/r RIF                                     - phase linéaire possible
+%   Inconvénients                                                   Inconvénients
+%   - pas toujours stables                                          - complexité (proportionnelle à la longueur de la RI) plus grande qu'un RII
+%   - méthodes de synthèse plutôt restreintes aux pb, ph,           - charge de calcul supérieure aux RII
+%     pbande, cbande                                                Méthodes de synhèse
+%   Méthodes de synhèse                                             - fenêtres (la plus élémentaire) ; ttes les fenêtres ne se valent pas
+%   - à partir des filtres analogiques : invariance                   (coupent plus ou moins, sont plus ou moins compliquées)
+%     (de la RI ou autre), transformation bilinéaire                - moindres carrés
+%   - calcul direct des coefficients                                - valeurs propres
+%   - procédure itérative d'optimisation                            - méthode itérative (Chebychev, Remez)
+%   - Butterworth généralisée                                       - maximalement plats
+%                                                                   - filtres périodiques
+%
+% --------------------------------------------------------------------------------------------------------------------------------------------------- %
+
+% * comparaison RII/RIF (avantages, inconvénients, ...) -> but du TP : réécrire le tableau que j'ai trouvé sur Internet
+% * Analyser le temps de propagation pour un filtre RII : 1 signal = somme de deux sinusoïdes de fréquences différentes.
+%   Observer le décalage des deux fréquences après filtrage. Avantages ? (cf filtre déphaseur ?) Inconvénients ? (en audio ?)
+ --></div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="filtres-t.html" title="previous page">TD Filtrage</a>
+    <a class='right-next' id="next-link" href="bruit.html" title="next page">Bruit dans les signaux</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          Par Vincent Mazet (University of Strasbourg, France)<br/>
+        
+            &copy; droits d'auteur 2021-2022.<br/>
+          <div class="extra_footer">
+            Traitement du signal 2 &mdash; Vincent Mazet (Université de Strasbourg), 2021 &mdash; <a href='license.html'>CC BY-NC 4.0</a>.
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

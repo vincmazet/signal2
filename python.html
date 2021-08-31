@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 
 <html lang="fr">
@@ -7,17 +6,35 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Installer et utiliser Python &#8212; Traitement du signal 2</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
-    <link href="_static/css/index.css" rel="stylesheet">
-    <link rel="stylesheet" href="_static/sphinx-book-theme.css" type="text/css" />
+    
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/css/jbvinc.css" />
+    <link rel="stylesheet" type="text/css" href="_static/jbvinc.css" />
+    <link rel="stylesheet" type="text/css" href="_static/.ipynb_checkpoints/jbvinc-checkpoint.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
@@ -26,9 +43,9 @@
     <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script src="_static/sphinx-book-theme.js"></script>
     <script src="_static/translations.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
@@ -40,16 +57,16 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Recherche" href="search.html" />
-    <link rel="next" title="Références" href="biblio.html" />
-    <link rel="prev" title="TP Traitement statistique du signal" href="tp-ssp.html" />
-
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="docsearch:language" content="en">
-
-
-
+    <link rel="next" title="Références" href="refs.html" />
+    <link rel="prev" title="TP Traitement statistique du signal" href="ssp-p.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
     
 
     <div class="container-xl">
@@ -58,23 +75,20 @@
 <div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
     
         <div class="navbar-brand-box">
-<a class="navbar-brand text-wrap" href="index.html">
-  
-  
-  <h1 class="site-logo" id="site-title">Traitement du signal 2</h1>
-  
-</a>
-</div>
-
-<form class="bd-search d-flex align-items-center" action="search.html" method="get">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      <h1 class="site-logo" id="site-title">Traitement du signal 2</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
   <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form>
-
-<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-  <ul class="nav sidenav_l1">
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Rechercher dans ce livre ..." aria-label="Rechercher dans ce livre ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="intro.html">
+  <a class="reference internal" href="index.html">
    Introduction
   </a>
  </li>
@@ -84,15 +98,15 @@
   Révisions
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="td-rev.html">
-   Travaux dirigés
+  <a class="reference internal" href="rev-t.html">
+   Exercices théoriques
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="tp-rev.html">
-   Travaux pratiques
+  <a class="reference internal" href="rev-p.html">
+   Exercices pratiques
   </a>
  </li>
 </ul>
@@ -101,7 +115,7 @@
   Filtrage
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="filtre-intro.html">
    Introduction
@@ -118,23 +132,23 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="filtre-analogique.html">
+  <a class="reference internal" href="filtres-analogiques.html">
    Filtres analogiques
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="filtre-numerique.html">
+  <a class="reference internal" href="filtres-numeriques.html">
    Filtres numériques
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="td-filtres.html">
-   Travaux dirigés
+  <a class="reference internal" href="filtres-t.html">
+   Exercices théoriques
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="tp-filtres.html">
-   Travaux pratiques
+  <a class="reference internal" href="filtres-p.html">
+   Exercices pratiques
   </a>
  </li>
 </ul>
@@ -143,9 +157,9 @@
   Traitement statistique du signal
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="ssp-bruit.html">
+  <a class="reference internal" href="bruit.html">
    Bruit dans les signaux
   </a>
  </li>
@@ -155,13 +169,13 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="td-ssp.html">
-   Travaux dirigés
+  <a class="reference internal" href="ssp-t.html">
+   Exercices théoriques
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="tp-ssp.html">
-   Travaux pratiques
+  <a class="reference internal" href="ssp-p.html">
+   Exercices pratiques
   </a>
  </li>
 </ul>
@@ -170,12 +184,10 @@
   Annexes
  </span>
 </p>
-<ul class="current nav sidenav_l1">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference external" href="https://moodle3.unistra.fr/course/view.php?id=14006">
+  <a class="reference external" href="https://moodle.unistra.fr/course/view.php?id=5497">
    Moodle
-   <i class="fas fa-external-link-alt">
-   </i>
   </a>
  </li>
  <li class="toctree-l1 current active">
@@ -184,7 +196,7 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="biblio.html">
+  <a class="reference internal" href="refs.html">
    Références
   </a>
  </li>
@@ -195,9 +207,8 @@
  </li>
 </ul>
 
-</nav>
-
- <!-- To handle the deprecated key -->
+    </div>
+</nav> <!-- To handle the deprecated key -->
 
 </div>
 
@@ -208,57 +219,59 @@
           
 <main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
     
-    <div class="row topbar fixed-top container-xl">
-    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
-    </div>
-    <div class="col pl-2 topbar-main">
-        
-        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-            <i class="fas fa-bars"></i>
-            <i class="fas fa-arrow-left"></i>
-            <i class="fas fa-arrow-up"></i>
-        </button>
-        
-        <div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Basculer la navigation" aria-controls="site-navigation"
+                title="Basculer la navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Téléchargez cette page"><i
             class="fas fa-download"></i></button>
 
-    
     <div class="dropdown-buttons">
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
         <a class="dropdown-buttons" href="_sources/python.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                class="btn btn-secondary topbarbtn" title="Télécharger le fichier source" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Imprimer au format PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
-    
 </div>
-        <!-- Source interaction buttons -->
 
+            <!-- Source interaction buttons -->
 
-        <!-- Full screen (wrap in <a> to have style consistency -->
-        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
-                    class="fas fa-expand"></i></button></a>
+            <!-- Full screen (wrap in <a> to have style consistency -->
 
-        <!-- Launch buttons -->
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Mode plein écran"
+        title="Mode plein écran"><i
+            class="fas fa-expand"></i></button></a>
 
-    </div>
+            <!-- Launch buttons -->
 
-    <!-- Table of contents -->
-    <div class="d-none d-md-block col-md-2 bd-toc show">
-        <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> Contents
         </div>
-        <nav id="bd-toc-nav">
-            <ul class="nav section-nav flex-column">
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contenu
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#installation">
    Installation
@@ -279,11 +292,6 @@
      Cellules Markdown
     </a>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#jupyter-lab">
-     Jupyter Lab
-    </a>
-   </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -293,7 +301,8 @@
  </li>
 </ul>
 
-        </nav>
+            </nav>
+        </div>
     </div>
 </div>
     <div id="main-content" class="row">
@@ -303,29 +312,46 @@
                 
   <div class="section" id="installer-et-utiliser-python">
 <span id="c-python"></span><h1>Installer et utiliser Python<a class="headerlink" href="#installer-et-utiliser-python" title="Lien permanent vers ce titre">¶</a></h1>
-<p>Cette année, nous utiliserons Python plutôt que Matlab pour les TP. Contrairement à Matlab, Python est libre et gratuit donc plus facilement utilisable en cas de confinement. C’est également un langage moderne et de haut niveau qui est de plus en plus utilisé dans l’industrie et les disciplines scientifiques. Il est à peu près aussi puissant que Matlab pour ce qui est de la programmation scientifique. Enfin, <a class="reference external" href="https://vincmazet.github.io/signal2/_static/figs/matlab-python.png">le sondage de juin dernier</a> a montré une tendance de votre part pour basculer vers Python.</p>
-<p>Dans le cas où les TP ne peuvent se faire en présentiel sur les ordinateur de l’école, vous devrez coder sur vos ordinateurs personnels.
-Cette page décrit donc comment :</p>
+<p>Python est un langage moderne et de haut niveau qui est de plus en plus utilisé dans l’industrie et les disciplines scientifiques.
+Cette page décrit comment :</p>
 <ul class="simple">
-<li><p>installer Python à travers la distribution Anaconda</p></li>
+<li><p>installer Python et Jupyter avec la distribution Anaconda</p></li>
 <li><p>écrire des <em>notebooks</em> avec Jupyter Lab</p></li>
 <li><p>utiliser des modules additionnels et commencer à programmer</p></li>
 </ul>
+<p>Dans le cas où les TP ne peuvent se faire en présentiel sur les ordinateurs de l’école,
+vous devrez installer Python et Jupyter sur vos ordinateurs personnels pour les utiliser chez vous.</p>
 <div class="section" id="installation">
 <h2>Installation<a class="headerlink" href="#installation" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Anaconda est une distribution Python spécialisée dans la science des données et l’apprentissage machine.
+<p>Anaconda est une distribution Python spécialisée notamment dans la science des données et l’apprentissage machine.
 Pour un usage individuel, elle est gratuite et suffisante pour effectuer les TP de traitement du signal.
 <a class="reference external" href="https://www.anaconda.com/products/individual">Téléchargez</a> et installer Anaconda si Python n’est pas déjà présent sur votre ordinateur.
 Attention, choisissez la version 3 (ou supérieure) de Python !</p>
+<p>En plus de regrouper le cœur de Python et les modules scientifiques principaux,
+Anaconda propose un environnement de développement pour écrire des programmes appelé
+<a class="reference external" href="https://jupyterlab.readthedocs.io/en/latest/index.html">JupyterLab</a>.
+C’est un logiciel libre et très moderne pour écrire des notebooks.</p>
+<p>La <a class="reference internal" href="#f-python-jupyterlab"><span class="std std-numref">figure 35</span></a> montre l’interface de JupyterLab :
+elle est suffisamment intuitive pour se débrouiller sans aide, mais vous pouvez toujours consulter
+<a class="reference external" href="https://jupyterlab.readthedocs.io/en/latest/user/interface.html">cette page</a> pour en savoir plus.</p>
+<div class="figure align-default" id="f-python-jupyterlab">
+<img alt="https://jupyterlab.readthedocs.io/en/latest/_images/interface_jupyterlab.png" src="https://jupyterlab.readthedocs.io/en/latest/_images/interface_jupyterlab.png" />
+<p class="caption"><span class="caption-number">Fig. 35 </span><span class="caption-text">Jupyter Lab.</span><a class="headerlink" href="#f-python-jupyterlab" title="Lien permanent vers cette image">¶</a></p>
+</div>
+<p>Normalement, JupyterLab est inclus dans l’installation d’Anaconda.
+Mais si ce n’est pas le cas, vous trouverez les instructions pour installer Jupyter Lab <a class="reference external" href="https://jupyter.org/install.html">ici</a>.</p>
+<p>Pour ouvrir JupyterLab, tapez dans un terminal :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">jupyter</span> <span class="n">lab</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="notebooks-python">
 <span id="c-python-notebook"></span><h2>Notebooks Python<a class="headerlink" href="#notebooks-python" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Après avoir installé Anaconda, vous êtes prêt à écrire et exécuter des notebooks Python !
-Un <a class="reference external" href="https://jupyterlab.readthedocs.io/en/latest/user/notebook.html"><em>notebook</em></a> est un fichier contenant du code, mais également les résultats produits par ce code (comme des valeurs numériques ou des images) et du texte qui accompagnera le code.
+Un <a class="reference external" href="https://jupyterlab.readthedocs.io/en/latest/user/notebook.html">notebook</a> est un fichier contenant du code, mais également les résultats produits par ce code (comme des valeurs numériques ou des images) et du texte qui accompagnera le code.
 Un notebook est divisé en <em>cellules</em> qui peuvent être de deux tyes : « code » ou « markdown ».
-En appuyant sur <code class="docutils literal notranslate"><span class="pre">Ctrl + Entrée</span></code> dans une cellule, le code de celle-ci (et uniquement de celle-ci) est exécuté.</p>
-<p>Il faut un logiciel spécialisé pour afficher et utiliser un notebook, comme Jupyter Lab.
-Une description de ce logiciel est donné plus bas.</p>
+En appuyant sur <code class="docutils literal notranslate"><span class="pre">Ctrl + Entrée</span></code> dans une cellule, le code de celle-ci (et uniquement de celle-ci) est exécuté.
+Si à la place vous appuyez sur <code class="docutils literal notranslate"><span class="pre">Shift + Entrée</span></code>, alors le code de la cellule courante est exécuté et le curseur passe sur la cellule suivante.</p>
 <div class="section" id="cellules-de-code">
 <h3>Cellules de code<a class="headerlink" href="#cellules-de-code" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Les cellules contiennent par défaut du code Python (<em>input</em>) et le résultat (<em>output</em>).</p>
@@ -375,19 +401,6 @@ où :
 </ul>
 </div>
 <p>Vous trouverez le résumé de la syntaxe Markdown sur <a class="reference external" href="https://en.wikipedia.org/wiki/Markdown#Example">cette page</a>.</p>
-</div>
-<div class="section" id="jupyter-lab">
-<h3>Jupyter Lab<a class="headerlink" href="#jupyter-lab" title="Lien permanent vers ce titre">¶</a></h3>
-<p>Pour le développement de programme en Python dans un but scientifique, il est recommandé d’utiliser <a class="reference external" href="https://jupyterlab.readthedocs.io/en/latest/index.html">Jupyter Lab</a>.
-C’est un logiciel moderne et libre pour écrire de notebooks (cf. <a class="reference internal" href="#c-python-notebook"><span class="std std-ref">Notebooks Python</span></a>).</p>
-<p>La <a class="reference internal" href="#f-python-jupyterlab"><span class="std std-numref">figure 33</span></a> montre l’interface de Jupyter Lab :
-elle est suffisamment intuitive pour se débrouiller sans aide, mais vous pouvez toujours consulter <a class="reference external" href="https://jupyterlab.readthedocs.io/en/latest/user/interface.html">cette page</a> pour en savoir plus.</p>
-<div class="figure align-default" id="f-python-jupyterlab">
-<img alt="https://jupyterlab.readthedocs.io/en/latest/_images/interface_jupyterlab.png" src="https://jupyterlab.readthedocs.io/en/latest/_images/interface_jupyterlab.png" />
-<p class="caption"><span class="caption-number">Fig. 33 </span><span class="caption-text">Jupyter Lab.</span><a class="headerlink" href="#f-python-jupyterlab" title="Lien permanent vers cette image">¶</a></p>
-</div>
-<p>Normalement, Jupyter Lab est inclus dans l’installation d’Anaconda.
-Mais si ce n’est pas le cas, vous trouverez les instructions pour installer Jupyter Lab <a class="reference external" href="https://jupyter.org/install.html">ici</a>.</p>
 </div>
 </div>
 <div class="section" id="ecrire-un-programme-python">
@@ -465,25 +478,25 @@ En général, nous n’utiliserons que deux modules :</p>
 
               </div>
               
-        </div>
-    </div>
-    
-    
-    <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="tp-ssp.html" title="previous page">TP Traitement statistique du signal</a>
-    <a class='right-next' id="next-link" href="biblio.html" title="next page">Références</a>
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="ssp-p.html" title="previous page">TP Traitement statistique du signal</a>
+    <a class='right-next' id="next-link" href="refs.html" title="next page">Références</a>
 
+        </div>
+        
+        </div>
     </div>
     <footer class="footer mt-5 mt-md-0">
     <div class="container">
       <p>
         
-          By Vincent Mazet (Université de Strasbourg)<br/>
+          Par Vincent Mazet (University of Strasbourg, France)<br/>
         
-            &copy; Copyright 2020.<br/>
+            &copy; droits d'auteur 2021-2022.<br/>
           <div class="extra_footer">
-            Traitement du signal &mdash; Vincent Mazet (Université de Strasbourg), 2020 &mdash; <a href="licence.html">CC BY-NC 4.0</a>.
+            Traitement du signal 2 &mdash; Vincent Mazet (Université de Strasbourg), 2021 &mdash; <a href='license.html'>CC BY-NC 4.0</a>.
           </div>
       </p>
     </div>
@@ -493,8 +506,9 @@ En général, nous n’utiliserons que deux modules :</p>
 
       </div>
     </div>
+  
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
 
-    <script src="_static/js/index.js"></script>
-    
+  
   </body>
 </html>

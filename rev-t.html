@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Licence &#8212; Traitement du signal 2</title>
+    <title>Révisions : exercices théoriques &#8212; Traitement du signal 2</title>
     
   <link href="_static/css/theme.css" rel="stylesheet" />
   <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -57,7 +57,8 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Recherche" href="search.html" />
-    <link rel="prev" title="Références" href="refs.html" />
+    <link rel="next" title="Révisions : exercices pratiques" href="rev-p.html" />
+    <link rel="prev" title="Introduction" href="index.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -97,9 +98,9 @@
   Révisions
  </span>
 </p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="rev-t.html">
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    Exercices théoriques
   </a>
  </li>
@@ -183,7 +184,7 @@
   Annexes
  </span>
 </p>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference external" href="https://moodle.unistra.fr/course/view.php?id=5497">
    Moodle
@@ -199,8 +200,8 @@
    Références
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="licence.html">
    Licence
   </a>
  </li>
@@ -241,9 +242,9 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/licence.md"><button type="button"
+        <a class="dropdown-buttons" href="_sources/rev-t.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Télécharger le fichier source" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
+                data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Imprimer au format PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
@@ -266,6 +267,56 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contenu
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#signaux-elementaires">
+   Signaux élémentaires
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exercice-2">
+     Exercice 2
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exercice-3">
+     Exercice 3
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exercice-4">
+     Exercice 4
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exercice-5">
+     Exercice 5
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exercice-6">
+     Exercice 6
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#produit-de-convolution">
+   Produit de convolution
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#analyse-de-fourier">
+   Analyse de Fourier
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -274,18 +325,116 @@
         
               <div>
                 
-  <div class="section" id="licence">
-<h1>Licence<a class="headerlink" href="#licence" title="Lien permanent vers ce titre">¶</a></h1>
-<p><a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Licence Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a></p>
-<p><span xmlns:cc="http://creativecommons.org/ns#" property="cc:attributionName">Vincent Mazet</span>,
-« <span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Traitement du signal 2</span> »,
-Université de Strasbourg, 2021.</p>
+  <div class="section" id="revisions-exercices-theoriques">
+<h1>Révisions : exercices théoriques<a class="headerlink" href="#revisions-exercices-theoriques" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Cette première séance a pour but de reprendre les <a class="reference external" href="https://vincmazet.github.io/signal1/">notions étudiées en première année</a>
+et de se remettre dans le bain…</p>
+<div class="section" id="signaux-elementaires">
+<h2>Signaux élémentaires<a class="headerlink" href="#signaux-elementaires" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="section" id="exercice-2">
+<h3>Exercice 2<a class="headerlink" href="#exercice-2" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Donnez des exemples concrets de signaux échantillonnés, de signaux à temps continu,
+de signaux quantifiés, de signaux analogiques et de signaux numériques.</p>
+</div>
+<div class="section" id="exercice-3">
+<h3>Exercice 3<a class="headerlink" href="#exercice-3" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Qu’est-ce qu’un signal causal ?</p>
+</div>
+<div class="section" id="exercice-4">
+<h3>Exercice 4<a class="headerlink" href="#exercice-4" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Donnez la définition mathématique et représentez les signaux suivants :</p>
 <ul class="simple">
-<li><p></a>Cette œuvre (à l’exception des codes Javascript) est mise à disposition selon les termes de la <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Licence Creative Commons Attribution - Pas d’Utilisation Commerciale 4.0 International</a>.</p></li>
-<li><p>Les codes Javascript sont sous licence <a href="https://cecill.info/licences/Licence_CeCILL-B_V1-fr.html">CeCILL-B</a>.</p></li>
+<li><p>un échelon,</p></li>
+<li><p>une impulsion de Dirac,</p></li>
+<li><p>une impulsion discrète,</p></li>
+<li><p>une fonction de Heaviside,</p></li>
+<li><p>un peigne de Dirac.</p></li>
 </ul>
-<p>Ce manuel est écrit avec <a href="https://jupyterbook.org">Jupyter Book</a>.</p>
-<p>Courriel : <a href="mailto:vincent.mazet@unistra.fr">vincent.mazet&#64;unistra.fr</a>.</p>
+</div>
+<div class="section" id="exercice-5">
+<h3>Exercice 5<a class="headerlink" href="#exercice-5" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Représentez les signaux</p>
+<div class="math notranslate nohighlight">
+\[
+x(t) = 4\,\sin(3\pi t+\pi),
+\qquad
+y(t) = 2\,\delta(t-1) - \delta(t+1).
+\]</div>
+</div>
+<div class="section" id="exercice-6">
+<h3>Exercice 6<a class="headerlink" href="#exercice-6" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Donnez la définition du sinus cardinal.
+Parmi les signaux suivants, lequel pourrait correspondre à <span class="math notranslate nohighlight">\(\mathrm{sinc}(t)\)</span> ?</p>
+<div class="figure align-default" id="f-quatre-sinc">
+<img alt="_images/rev-sinc.svg" src="_images/rev-sinc.svg" /></div>
+</div>
+</div>
+<div class="section" id="produit-de-convolution">
+<h2>Produit de convolution<a class="headerlink" href="#produit-de-convolution" title="Lien permanent vers ce titre">¶</a></h2>
+<p><strong>Exercice 7</strong></p>
+<p>Calculez le produit de convolution <span class="math notranslate nohighlight">\((x*y)[n]\)</span> où (<span class="math notranslate nohighlight">\(a\in\mathbb{R}\)</span>) :</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+x[n] =
+\begin{cases}
+  +1 &amp;\text{pour } n=1, \\
+  -1 &amp;\text{pour } n=-1, \\
+  0  &amp;\text{ailleurs},
+\end{cases}
+\qquad\qquad
+y[n] =
+\begin{cases}
+  a &amp;\text{pour } |n| \leq 1, \\
+  0 &amp;\text{ailleurs}.
+\end{cases}
+\end{split}\]</div>
+<p><strong>Exercice 8</strong></p>
+<p>Représentez schématiquement les produits de convolution des signaux ci-dessous.</p>
+<ul class="simple">
+<li><p>A :</p></li>
+</ul>
+<div class="figure align-default">
+<img alt="_images/rev-conv-1.svg" src="_images/rev-conv-1.svg" /></div>
+<ul class="simple">
+<li><p>B :</p></li>
+</ul>
+<div class="figure align-default">
+<img alt="_images/rev-conv-2.svg" src="_images/rev-conv-2.svg" /></div>
+<ul class="simple">
+<li><p>C :</p></li>
+</ul>
+<div class="figure align-default">
+<img alt="_images/rev-conv-3.svg" src="_images/rev-conv-3.svg" /></div>
+<p><strong>Exercice 9</strong></p>
+<p>Simplifiez les expressions suivantes :</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\((x*d_0)(t)\;\)</span>   où : <span class="math notranslate nohighlight">\(\quad d_0(t) = \delta(t-\tau)\;\)</span> et <span class="math notranslate nohighlight">\(\;x(t)\)</span> est un signal quelconque</p></li>
+<li><p><span class="math notranslate nohighlight">\((d_1*d_2)(t)\;\)</span> où : <span class="math notranslate nohighlight">\(\quad d_1(t) = \delta(t+t_1)\;\)</span>  et <span class="math notranslate nohighlight">\(\;d_2(t) = \delta(t+t_2)\)</span>.</p></li>
+</ul>
+</div>
+<div class="section" id="analyse-de-fourier">
+<h2>Analyse de Fourier<a class="headerlink" href="#analyse-de-fourier" title="Lien permanent vers ce titre">¶</a></h2>
+<p><strong>Exercice 10</strong></p>
+<p>Calculez la transformée de Fourier du signal continu et apériodique</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+x(t) = A\,\mathrm{rect}(2t/T) =
+\begin{cases}
+  A &amp;\text{si } -\frac{T}{4} \leq t \leq \frac{T}{4}, \\
+  0 &amp;\text{sinon}.
+\end{cases}
+\end{split}\]</div>
+<p><strong>Exercice 11</strong></p>
+<p>Quel est, intuitivement, le spectre d’un signal temporel constant ?
+En déduire le spectre d’une impulsion de Dirac centrée en 0.
+Qu’en concluez-vous sur la composition fréquentielle d’une impulsion de Dirac ?</p>
+<p><strong>Exercice 12</strong></p>
+<p>La transformée de Fourier discrète est-elle périodique ? à support continu ? à valeurs réelles ?</p>
+<p><strong>Exercice 13</strong></p>
+<p>Représentez le spectre de <span class="math notranslate nohighlight">\(\cos(t)\)</span> sans calculer sa série de Fourier.</p>
+<p><strong>Exercice 14</strong></p>
+<p>Rappelez le théorème de l’échantillonnage (ou théorème de Nyquist-Shannon).</p>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -313,7 +462,8 @@ Université de Strasbourg, 2021.</p>
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="refs.html" title="previous page">Références</a>
+    <a class='left-prev' id="prev-link" href="index.html" title="previous page">Introduction</a>
+    <a class='right-next' id="next-link" href="rev-p.html" title="next page">Révisions : exercices pratiques</a>
 
         </div>
         
