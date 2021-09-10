@@ -343,9 +343,21 @@
 <h1>✎ Transformée de Fourier discrète<a class="headerlink" href="#transformee-de-fourier-discrete" title="Lien permanent vers ce titre">¶</a></h1>
 <p>Après avoir importé les modules nécessaires, le créneau est généré sur 100 échantillons.
 Attention, les 50 premiers échantillons (de 0 à 49) sont égaux à 1, les suivants (de 50 à 99) sont nuls !</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="mi">49</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="mi">50</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1 1 0 0
+</pre></div>
+</div>
+</div>
+</div>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../_images/tp13_4_0.png" src="../_images/tp13_4_0.png" />
+<img alt="../_images/tp13_5_0.png" src="../_images/tp13_5_0.png" />
 </div>
 </div>
 <div class="section" id="tfd-entre-0-et-n-1">
@@ -365,7 +377,7 @@ Pour la représenter, il faut donc définir les abscisses <span class="math notr
 <p>N’oubliez pas : la TFD est très souvent complexe, c’est pourquoi on la représente avec deux graphes : le module et l’argument.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../_images/tp13_11_0.png" src="../_images/tp13_11_0.png" />
+<img alt="../_images/tp13_12_0.png" src="../_images/tp13_12_0.png" />
 </div>
 </div>
 <p>Les impulsions bizarres qu’on observe sur la phase sont des erreurs numériques,
@@ -379,7 +391,7 @@ que l’on peut supprimer en forçant à 0 les échantillons de <span class="mat
 </div>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../_images/tp13_14_0.png" src="../_images/tp13_14_0.png" />
+<img alt="../_images/tp13_15_0.png" src="../_images/tp13_15_0.png" />
 </div>
 </div>
 <p>Le signal temporel étant un créneau, on peut l’interpréter comme un signal porte périodisé.
@@ -398,7 +410,7 @@ Par conséquent, le module de son spectre est bien la TFD d’une porte (un sinu
 </div>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../_images/tp13_19_0.png" src="../_images/tp13_19_0.png" />
+<img alt="../_images/tp13_20_0.png" src="../_images/tp13_20_0.png" />
 </div>
 </div>
 </div>
@@ -417,7 +429,7 @@ Seule l’abscisse est à redéfinir.</p>
 </div>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../_images/tp13_23_0.png" src="../_images/tp13_23_0.png" />
+<img alt="../_images/tp13_24_0.png" src="../_images/tp13_24_0.png" />
 </div>
 </div>
 <p>Si vous avez des difficultés pour reproduire ces résultats ou pour tout complément, <a class="reference external" href="mailto:vincent&#46;mazet&#37;&#52;&#48;unistra&#46;fr">envoyez-moi un mail</a> !</p>

@@ -318,7 +318,7 @@ Il est utile de définir au préalable un tableau contenant les abscisses.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Abscisses de -10 à 10 (penser à rajouter +1 à la limite de droite)</span>
-<span class="n">n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
 
 <span class="c1"># Signal x</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span> <span class="n">n</span><span class="o">==</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span> <span class="n">n</span><span class="o">==-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
@@ -348,13 +348,7 @@ Il est utile de définir au préalable un tableau contenant les abscisses.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/vincent/anaconda3/lib/python3.7/site-packages/ipykernel_launcher.py:4: UserWarning: In Matplotlib 3.3 individual lines on a stem plot will be added as a LineCollection instead of individual lines. This significantly improves the performance of a stem plot. To remove this warning and switch to the new behaviour, set the &quot;use_line_collection&quot; keyword argument to True.
-  after removing the cwd from sys.path.
-/home/vincent/anaconda3/lib/python3.7/site-packages/ipykernel_launcher.py:9: UserWarning: In Matplotlib 3.3 individual lines on a stem plot will be added as a LineCollection instead of individual lines. This significantly improves the performance of a stem plot. To remove this warning and switch to the new behaviour, set the &quot;use_line_collection&quot; keyword argument to True.
-  if __name__ == &#39;__main__&#39;:
-</pre></div>
-</div>
-<img alt="../_images/tp12_6_1.png" src="../_images/tp12_6_1.png" />
+<img alt="../_images/tp12_6_0.png" src="../_images/tp12_6_0.png" />
 </div>
 </div>
 <p>La convolution est obtenue avec <code class="docutils literal notranslate"><span class="pre">numpy.convolve</span></code>.
@@ -369,15 +363,7 @@ Attention à bien choisir la valeur du troisième paramètre (<code class="docut
 <p>Résultat :</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/vincent/anaconda3/lib/python3.7/site-packages/ipykernel_launcher.py:4: UserWarning: In Matplotlib 3.3 individual lines on a stem plot will be added as a LineCollection instead of individual lines. This significantly improves the performance of a stem plot. To remove this warning and switch to the new behaviour, set the &quot;use_line_collection&quot; keyword argument to True.
-  after removing the cwd from sys.path.
-/home/vincent/anaconda3/lib/python3.7/site-packages/ipykernel_launcher.py:8: UserWarning: In Matplotlib 3.3 individual lines on a stem plot will be added as a LineCollection instead of individual lines. This significantly improves the performance of a stem plot. To remove this warning and switch to the new behaviour, set the &quot;use_line_collection&quot; keyword argument to True.
-  
-/home/vincent/anaconda3/lib/python3.7/site-packages/ipykernel_launcher.py:12: UserWarning: In Matplotlib 3.3 individual lines on a stem plot will be added as a LineCollection instead of individual lines. This significantly improves the performance of a stem plot. To remove this warning and switch to the new behaviour, set the &quot;use_line_collection&quot; keyword argument to True.
-  if sys.path[0] == &#39;&#39;:
-</pre></div>
-</div>
-<img alt="../_images/tp12_10_1.png" src="../_images/tp12_10_1.png" />
+<img alt="../_images/tp12_10_0.png" src="../_images/tp12_10_0.png" />
 </div>
 </div>
 <p>Le résultat obtenu peut s’interpréter comme la somme des deux signaux ci-dessous,
@@ -385,13 +371,7 @@ chacun d’eux étant la convolution de <span class="math notranslate nohighligh
 l’impulsion en <span class="math notranslate nohighlight">\(-1\)</span> donne le signal orange et l’impulsion en <span class="math notranslate nohighlight">\(+1\)</span> donne le signal vert.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/vincent/anaconda3/lib/python3.7/site-packages/ipykernel_launcher.py:7: UserWarning: In Matplotlib 3.3 individual lines on a stem plot will be added as a LineCollection instead of individual lines. This significantly improves the performance of a stem plot. To remove this warning and switch to the new behaviour, set the &quot;use_line_collection&quot; keyword argument to True.
-  import sys
-/home/vincent/anaconda3/lib/python3.7/site-packages/ipykernel_launcher.py:8: UserWarning: In Matplotlib 3.3 individual lines on a stem plot will be added as a LineCollection instead of individual lines. This significantly improves the performance of a stem plot. To remove this warning and switch to the new behaviour, set the &quot;use_line_collection&quot; keyword argument to True.
-  
-</pre></div>
-</div>
-<img alt="../_images/tp12_12_1.png" src="../_images/tp12_12_1.png" />
+<img alt="../_images/tp12_12_0.png" src="../_images/tp12_12_0.png" />
 </div>
 </div>
 <p>Si vous avez des difficultés pour reproduire ces résultats ou pour tout complément, <a class="reference external" href="mailto:vincent&#46;mazet&#37;&#52;&#48;unistra&#46;fr">envoyez-moi un mail</a> !</p>
