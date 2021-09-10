@@ -104,10 +104,37 @@
    Exercices théoriques
   </a>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="rev-p.html">
    Exercices sur machine
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="tp/tp11.html">
+     ✎ Représentation d’un signal
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="tp/tp12.html">
+     ✎ Produit de convolution
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="tp/tp13.html">
+     ✎ Transformée de Fourier discrète
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="tp/tp14.html">
+     ✎ Analyse spectrale d’un signal audio
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 <p class="caption">
@@ -326,13 +353,6 @@
      Exercice 7
     </a>
    </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#filtres-analogiques">
-   Filtres analogiques
-  </a>
-  <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#exercice-8">
      Exercice 8
@@ -343,18 +363,18 @@
      Exercice 9
     </a>
    </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#filtres-numeriques">
-   Filtres numériques
-  </a>
-  <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#exercice-10">
      Exercice 10
     </a>
    </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#filtres-analogiques">
+   Filtres analogiques
+  </a>
+  <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#exercice-11">
      Exercice 11
@@ -365,9 +385,31 @@
      Exercice 12
     </a>
    </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#filtres-numeriques">
+   Filtres numériques
+  </a>
+  <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#exercice-13">
      Exercice 13
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exercice-14">
+     Exercice 14
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exercice-15">
+     Exercice 15
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exercice-16">
+     Exercice 16
     </a>
    </li>
   </ul>
@@ -442,11 +484,15 @@ Le filtre doit répondre à des critères supplémentaires :</p>
 <div class="section" id="exercice-6">
 <h3>Exercice 6<a class="headerlink" href="#exercice-6" title="Lien permanent vers ce titre">¶</a></h3>
 <!-- Oppenheim 9.2, 9.3, 10.2, 10.4 -->
-<p>On considère un filtre analogique de réponse impulsionnelle :</p>
+<!-- Oppenheim 9.4 -->
+<p>On considère les deux filtres analogiques de réponses impulsionnelles :</p>
 <div class="math notranslate nohighlight">
 \[
-h(t) = (3e^{-2t} - 2e^{-t} )\, u(t)
+h_1(t) = (3e^{-2t} - 2e^{-t} )\, u(t),
+\qquad
+h_2(t) = e^{-t} \cos(3t) \, u(t).
 \]</div>
+<p>Pour chacun d’eux :</p>
 <ul class="simple">
 <li><p>Calculez la transformée de Laplace de ce filtre.</p></li>
 <li><p>Représentez la région de convergence.</p></li>
@@ -456,6 +502,44 @@ h(t) = (3e^{-2t} - 2e^{-t} )\, u(t)
 </div>
 <div class="section" id="exercice-7">
 <h3>Exercice 7<a class="headerlink" href="#exercice-7" title="Lien permanent vers ce titre">¶</a></h3>
+<!-- Oppenheim 10.3 + 10.4 -->
+<p>On considère les deux filtres numériques de réponses impulsionnelles :</p>
+<div class="math notranslate nohighlight">
+\[
+h_1[n] = 7 \left(\frac{1}{3}\right)^n \, u[n],
+\qquad
+h_2[n] = 2^n \sin\left(\frac{\pi}{4}n\right) \, u[n].
+\]</div>
+<p>Pour chacun d’eux :</p>
+<ul class="simple">
+<li><p>Calculez la transformée en Z de ce filtre.</p></li>
+<li><p>Représentez la région de convergence.</p></li>
+<li><p>Placez les pôles et zéros.</p></li>
+<li><p>Ce filtre est-il stable ?</p></li>
+</ul>
+</div>
+<div class="section" id="exercice-8">
+<h3>Exercice 8<a class="headerlink" href="#exercice-8" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Calculez les transformées de Laplace inverse de :</p>
+<div class="math notranslate nohighlight">
+\[
+H_1(s) = \frac{1}{(s+1)(s+2)},
+\qquad
+H_2(s) = \frac{s-3}{s^2+2}.
+\]</div>
+</div>
+<div class="section" id="exercice-9">
+<h3>Exercice 9<a class="headerlink" href="#exercice-9" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Calculez les transformées en Z inverse de :</p>
+<div class="math notranslate nohighlight">
+\[
+H_1(z) = \frac{1}{1-2z^{-1}},
+\qquad
+H_2(z) = \frac{4z}{(z-2)^2}.
+\]</div>
+</div>
+<div class="section" id="exercice-10">
+<h3>Exercice 10<a class="headerlink" href="#exercice-10" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Deux filtres <span class="math notranslate nohighlight">\(H_1(s)\)</span> et <span class="math notranslate nohighlight">\(H_2(s)\)</span> sont mis en série.
 Leurs fonctions de transfert sont :</p>
 <div class="math notranslate nohighlight">
@@ -473,8 +557,8 @@ H_2(s) = \frac{1}{b_1s + b_0}
 </div>
 <div class="section" id="filtres-analogiques">
 <h2>Filtres analogiques<a class="headerlink" href="#filtres-analogiques" title="Lien permanent vers ce titre">¶</a></h2>
-<div class="section" id="exercice-8">
-<h3>Exercice 8<a class="headerlink" href="#exercice-8" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="section" id="exercice-11">
+<h3>Exercice 11<a class="headerlink" href="#exercice-11" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Identifiez le type de filtre correspondant à la réponse fréquentielle ci-dessous.
 Précisez également la bande passante du filtre (les fréquences sont données en hertz).</p>
 <div class="figure align-default">
@@ -484,8 +568,8 @@ Précisez également la bande passante du filtre (les fréquences sont données 
 <a class="reference internal image-reference" href="_static/figs/fana-filtre1-phase.png"><img alt="_static/figs/fana-filtre1-phase.png" src="_static/figs/fana-filtre1-phase.png" style="width: 400px;" /></a>
 </div>
 </div>
-<div class="section" id="exercice-9">
-<h3>Exercice 9<a class="headerlink" href="#exercice-9" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="section" id="exercice-12">
+<h3>Exercice 12<a class="headerlink" href="#exercice-12" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Identifiez le type de filtre correspondant à la réponse fréquentielle ci-dessous.
 Précisez également la bande passante du filtre (les fréquences sont données en hertz).</p>
 <div class="figure align-default">
@@ -498,8 +582,8 @@ Précisez également la bande passante du filtre (les fréquences sont données 
 </div>
 <div class="section" id="filtres-numeriques">
 <h2>Filtres numériques<a class="headerlink" href="#filtres-numeriques" title="Lien permanent vers ce titre">¶</a></h2>
-<div class="section" id="exercice-10">
-<h3>Exercice 10<a class="headerlink" href="#exercice-10" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="section" id="exercice-13">
+<h3>Exercice 13<a class="headerlink" href="#exercice-13" title="Lien permanent vers ce titre">¶</a></h3>
 <!-- Oppenheim 9.2, 9.3, 10.2, 10.4 -->
 <p>On considère un filtre numérique de réponse impulsionnelle :</p>
 <div class="math notranslate nohighlight">
@@ -513,8 +597,8 @@ Précisez également la bande passante du filtre (les fréquences sont données 
 <li><p>Ce filtre est-il stable ?</p></li>
 </ul>
 </div>
-<div class="section" id="exercice-11">
-<h3>Exercice 11<a class="headerlink" href="#exercice-11" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="section" id="exercice-14">
+<h3>Exercice 14<a class="headerlink" href="#exercice-14" title="Lien permanent vers ce titre">¶</a></h3>
 <!-- Oppenheim 9.29, 9.30, 10.29, 10.30 -->
 <p>Représentez la forme directe 1 des fonctions de transfert ci-dessous.</p>
 <div class="math notranslate nohighlight">
@@ -523,8 +607,8 @@ Précisez également la bande passante du filtre (les fréquences sont données 
   H_2(z) = \frac{1-2z^{-1}}{1-\frac{1}{4}z^{-1}}
 \]</div>
 </div>
-<div class="section" id="exercice-12">
-<h3>Exercice 12<a class="headerlink" href="#exercice-12" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="section" id="exercice-15">
+<h3>Exercice 15<a class="headerlink" href="#exercice-15" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Déterminez les fonctions de transfert des formes directes ci-dessous.</p>
 <!-- % + réponse impulsionnelle ? -->
 <div class="figure align-default">
@@ -534,8 +618,8 @@ Précisez également la bande passante du filtre (les fréquences sont données 
 <a class="reference internal image-reference" href="_static/figs/sli4.png"><img alt="_static/figs/sli4.png" src="_static/figs/sli4.png" style="height: 250px;" /></a>
 </div>
 </div>
-<div class="section" id="exercice-13">
-<h3>Exercice 13<a class="headerlink" href="#exercice-13" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="section" id="exercice-16">
+<h3>Exercice 16<a class="headerlink" href="#exercice-16" title="Lien permanent vers ce titre">¶</a></h3>
 <ul class="simple">
 <li><p>Représentez le gabarit d’un filtre numérique passe-bas de bande passante 20 Hz et de bande de transition 10 Hz.
 Les atténuations limites des bandes passante et atténuée sont respectivement de 0,1 dB et 40 dB.

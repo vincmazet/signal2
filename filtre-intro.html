@@ -58,7 +58,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Recherche" href="search.html" />
     <link rel="next" title="Transformée de Laplace" href="laplace.html" />
-    <link rel="prev" title="Révisions : exercices sur machine" href="rev-p.html" />
+    <link rel="prev" title="✎ Analyse spectrale d’un signal audio" href="tp/tp14.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -104,10 +104,37 @@
    Exercices théoriques
   </a>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="rev-p.html">
    Exercices sur machine
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="tp/tp11.html">
+     ✎ Représentation d’un signal
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="tp/tp12.html">
+     ✎ Produit de convolution
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="tp/tp13.html">
+     ✎ Transformée de Fourier discrète
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="tp/tp14.html">
+     ✎ Analyse spectrale d’un signal audio
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 <p class="caption">
@@ -433,11 +460,12 @@ alors sa sortie est la somme pondérée des réponses du système à <span class
 \mathcal{S}(\alpha x + \beta y) = \alpha \mathcal{S}(x) + \beta \mathcal{S}(y).
 \]</div>
 <div class="example">
-<p>Un élastique a, dans des conditions d’utilisation normale, un comportement linéaire :
-plus on le tend (<span class="math notranslate nohighlight">\(\alpha\)</span> augmente), plus il s’agrandit (et cela, de manière proportionnelle à <span class="math notranslate nohighlight">\(\alpha\)</span>).
-Cependant, si la tension est trop forte, alors il casse et ne s’agrandit plus de manière proportionnelle à <span class="math notranslate nohighlight">\(\alpha\)</span>.
-Dans ce cas, on ne peut plus le considérer comme étant linéaire.</p>
+Un élastique a, dans des conditions d'utilisation normale, un comportement linéaire :
+plus on le tend ($\alpha$ augmente), plus il s'agrandit (et cela, de manière proportionnelle à $\alpha$).
+Cependant, si la tension est trop forte, alors il casse et ne s'agrandit plus de manière proportionnelle à $\alpha$.
+Dans ce cas, on ne peut plus le considérer comme étant linéaire.
 </div>
+<!-- Trouver d'autres exemples parlants -->
 </div>
 <div class="section" id="systeme-invariant">
 <h3>Système invariant<a class="headerlink" href="#systeme-invariant" title="Lien permanent vers ce titre">¶</a></h3>
@@ -451,12 +479,13 @@ y[n] = \mathcal{S}(x[n])
 y[n-n_0] = \mathcal{S}(x[n-n_0])
 \]</div>
 <div class="example">
-<p>Un circuit électrique peut être considéré comme un système invariant,
+Un circuit électrique peut être considéré comme un système invariant,
 car normalement les caractéristiques de ses composants ne varient pas dans le temps.
-Ce n’est pas le cas lorsqu’on observe un circuit sur un temps très long (les composants changent en vieillissant),
+Ce n'est pas le cas lorsqu'on observe un circuit sur un temps très long (les composants changent en vieillissant),
 dans des conditions qui évoluent (la température peut avoir un impact sur la résistance des composants)
-ou si l’un des composants est modifié (potentiomètre par exemple).</p>
+ou si l'un des composants est modifié (potentiomètre par exemple).
 </div>
+<!-- Trouver d'autres exemples parlants -->
 </div>
 <div class="section" id="systeme-lineaire-invariant">
 <h3>Système linéaire invariant<a class="headerlink" href="#systeme-lineaire-invariant" title="Lien permanent vers ce titre">¶</a></h3>
@@ -799,7 +828,7 @@ on ajoute des filtres appelés « égaliseurs de phase » qui n’agissent que s
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="rev-p.html" title="previous page">Révisions : exercices sur machine</a>
+    <a class='left-prev' id="prev-link" href="tp/tp14.html" title="previous page">✎ Analyse spectrale d’un signal audio</a>
     <a class='right-next' id="next-link" href="laplace.html" title="next page">Transformée de Laplace</a>
 
         </div>

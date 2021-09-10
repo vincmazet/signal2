@@ -104,10 +104,37 @@
    Exercices théoriques
   </a>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="rev-p.html">
    Exercices sur machine
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="tp/tp11.html">
+     ✎ Représentation d’un signal
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="tp/tp12.html">
+     ✎ Produit de convolution
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="tp/tp13.html">
+     ✎ Transformée de Fourier discrète
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="tp/tp14.html">
+     ✎ Analyse spectrale d’un signal audio
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 <p class="caption">
@@ -349,6 +376,7 @@
                 
   <div class="section" id="filtres-numeriques">
 <span id="c-filtre-numerique"></span><h1>Filtres numériques<a class="headerlink" href="#filtres-numeriques" title="Lien permanent vers ce titre">¶</a></h1>
+<!-- filtres réjecteurs : utiles pour enlever une fréquence (type 50 Hz), et faciles à programmer -->
 <p>Les filtres numériques sont très courants et utilisés dans de nombreux domaines :
 télécommunications, traitement de la parole, Hi-Fi, radar et sonar, asservissement, vidéo, photos, modem, etc.</p>
 <p>S’ils sont à ce point répandus, c’est en raison de leurs nombreux avantages par rapport aux filtres analogiques :</p>
