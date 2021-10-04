@@ -334,6 +334,11 @@
      Méthode des fenêtres
     </a>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#autres-methodes-de-synthese">
+     Autres méthodes de synthèse
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -376,7 +381,6 @@
                 
   <div class="section" id="filtres-numeriques">
 <span id="c-filtre-numerique"></span><h1>Filtres numériques<a class="headerlink" href="#filtres-numeriques" title="Lien permanent vers ce titre">¶</a></h1>
-<!-- filtres réjecteurs : utiles pour enlever une fréquence (type 50 Hz), et faciles à programmer -->
 <p>Les filtres numériques sont très courants et utilisés dans de nombreux domaines :
 télécommunications, traitement de la parole, Hi-Fi, radar et sonar, asservissement, vidéo, photos, modem, etc.</p>
 <p>S’ils sont à ce point répandus, c’est en raison de leurs nombreux avantages par rapport aux filtres analogiques :</p>
@@ -416,7 +420,7 @@ b_n &amp;\text{si}\, n \in \{0,\dots,N\}, \\
 0   &amp;\text{sinon}.
 \end{cases}
 \end{split}\]</div>
-<p>Sa réponse impulsionnelle est bien finie car elle possède <span class="math notranslate nohighlight">\(N+1\)</span> coefficients non nuls :
+<p>Sa réponse impulsionnelle est finie car elle possède <span class="math notranslate nohighlight">\(N+1\)</span> coefficients non nuls :
 on dit que le filtre est de longueur <span class="math notranslate nohighlight">\(N+1\)</span>, ou d’ordre <span class="math notranslate nohighlight">\(N\)</span>.</p>
 </div>
 <div class="section" id="fonction-de-transfert">
@@ -452,19 +456,20 @@ Y(z) = \sum_{n=0}^{N} b_n z^{-n} X(z)
 <p>dont la transformée en z inverse est, grâce à la propriété de linéarité :</p>
 <div class="margin sidebar">
 <p class="sidebar-title"></p>
-<p>Remarquez qu’on retrouve avec cette formule la formule du produit de convolution !</p>
+<p>Remarquez qu’on retombe avec cette formule sur le produit de convolution !</p>
 </div>
 <div class="math notranslate nohighlight">
-\[
-y[n] = \sum_{k=0}^{N} b_k x[n-k].
-\]</div>
+\[\begin{split}
+y[n] &amp;= \sum_{k=0}^{N} b_k x[n-k] \\
+     &amp;= b_0 x[n] + b_1 x[n-1] + b_2 x[n-2] + \dots + b_N x[n-N].
+\end{split}\]</div>
 <p>La sortie <span class="math notranslate nohighlight">\(y[n]\)</span> est donc la somme de <span class="math notranslate nohighlight">\(N+1\)</span> échantillons d’entrée pondérés par les coefficients <span class="math notranslate nohighlight">\(b_k\)</span>
 et retardés de <span class="math notranslate nohighlight">\(k\)</span> échantillons.
 On peut donc adopter la représentation suivante, où le bloc <span class="math notranslate nohighlight">\(z^{-1}\)</span> indique un retard :</p>
 <div class="figure align-default">
-<a class="reference internal image-reference" href="_static/figs/filtre-rif.png"><img alt="_static/figs/filtre-rif.png" src="_static/figs/filtre-rif.png" style="height: 350px;" /></a>
+<a class="reference internal image-reference" href="_images/filtre-rif.svg"><img alt="_images/filtre-rif.svg" height="350px" src="_images/filtre-rif.svg" /></a>
 </div>
-<p>Contrairement aux schémas-blocs des filtres RIF que l’on verra plus loin,
+<p>Contrairement aux schémas-blocs des filtres RII que l’on verra plus loin,
 il n’y a pas de boucle de retour pour les filtres RIF : on dit qu’ils sont non récursifs.
 Par conséquent, la sortie ne peut pas être réinjectée indéfiniment dans le filtre,
 empêchant toute instabilité.</p>
@@ -472,21 +477,17 @@ empêchant toute instabilité.</p>
 <div class="section" id="linearite-de-la-phase">
 <h3>Linéarité de la phase<a class="headerlink" href="#linearite-de-la-phase" title="Lien permanent vers ce titre">¶</a></h3>
 <p>La linéarité de la phase est souvent un critère souhaité.
-Les filtres RIF sont à phase linéaire si leur réponse impulsionnelle et symétrique
+Les filtres RIF sont à phase linéaire si leur réponse impulsionnelle est symétrique
 (attention, symétrique ne veut pas dire paire ici !) ou antisymétrique, c’est-à-dire :</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \forall n\in\{0,\dots,N\}\quad
-h[n] = h[N-1-n]  &amp;\quad\text{pour un filtre symétrique,} \\
-h[n] = -h[N-1-n] &amp;\quad\text{pour un filtre antisymétrique.}
+&amp;h[n] = h[N-1-n]  &amp;\quad\text{pour un filtre symétrique,} \\
+&amp;h[n] = -h[N-1-n] &amp;\quad\text{pour un filtre antisymétrique.}
 \end{split}\]</div>
 <p>La <a class="reference internal" href="#f-num-ri"><span class="std std-numref">Fig. 15</span></a> illustre ces propriétés.</p>
-<!-- Démo : Rabiner p. 77 ou Proakis p. 621 -->
 <div class="figure align-default" id="f-num-ri">
-<div class="cell_output docutils container">
-<img alt="_images/filtres-numeriques_4_0.png" src="_images/filtres-numeriques_4_0.png" />
-</div>
-<p class="caption"><span class="caption-number">Fig. 15 </span><span class="caption-text">Exemples de réponses impulsionnelles symétriques (types I et II) et antisymétriques (types III et IV).</span><a class="headerlink" href="#f-num-ri" title="Lien permanent vers cette image">¶</a></p>
+<img alt="_images/rif-types.svg" src="_images/rif-types.svg" /><p class="caption"><span class="caption-number">Fig. 15 </span><span class="caption-text">Exemples de réponses impulsionnelles symétriques (types I et II) et antisymétriques (types III et IV).</span><a class="headerlink" href="#f-num-ri" title="Lien permanent vers cette image">¶</a></p>
 </div>
 <p>Notons que les filtres de type II, III et IV ne sont pas adaptés pour synthétiser des filtres passe-haut.</p>
 </div>
@@ -494,17 +495,18 @@ h[n] = -h[N-1-n] &amp;\quad\text{pour un filtre antisymétrique.}
 <h3>Une méthode toute simple pour synthétiser un RIF<a class="headerlink" href="#une-methode-toute-simple-pour-synthetiser-un-rif" title="Lien permanent vers ce titre">¶</a></h3>
 <!-- [Méthode des fenêtres](https://vincmazet.github.io/signal2/_static/files/rif.pdf) -->
 <p>Une idée toute simple pour obtenir un filtre RIF est de tronquer la réponse impulsionnelle d’un filtre idéal.</p>
-<p>Prenons l’exemple d’un filtre passe-bas, et considérons la réponse fréquentielle du filtre idéal, telle qu’on l’a vue dans la section <a class="reference internal" href="filtre-intro.html#s-filtre-intro-pbas"><span class="std std-ref">Filtre passe bas</span></a> (pour simplifier l’exposé, on prend <span class="math notranslate nohighlight">\(K=1\)</span> et <span class="math notranslate nohighlight">\(a=0\)</span>) :</p>
+<p>Prenons l’exemple d’un filtre passe-bas, tel qu’on l’a vu dans la section <a class="reference internal" href="filtre-intro.html#s-filtre-intro-pbas"><span class="std std-ref">Filtre passe bas</span></a>.
+Sa réponse fréquentielle est (pour simplifier l’exposé, on prend <span class="math notranslate nohighlight">\(K=1\)</span> et <span class="math notranslate nohighlight">\(a=0\)</span>) :</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 H_\text{idéal}(f) = \begin{cases}
   1 &amp;\text{si}\, |f| \leq f_c, \\
-  0 &amp;\text{si}\, f_c &lt; |f| &lt; \frac{f_e}{2}.
+  0 &amp;\text{si}\, f_c &lt; |f| &lt; f_e/2.
 \end{cases}
 \end{split}\]</div>
-<p>Remarquez qu’on a ajouté la condition <span class="math notranslate nohighlight">\(|f| &lt; \frac{f_e}{2}\)</span> puisque le filtre étant numérique
+<p>Remarquez qu’on a ajouté la condition <span class="math notranslate nohighlight">\(|f| &lt; f_e/2\)</span> puisque le filtre étant numérique
 et d’après le théorème de l’échantillonnage, il n’y a pas de fréquence au delà de la fréquence de Nyquist.</p>
-<p>La transformée de Fourier à temps discret inverse de <span class="math notranslate nohighlight">\(H(f)\)</span> est un sinus cardinal :</p>
+<p>La transformée de Fourier à temps discret inverse de <span class="math notranslate nohighlight">\(H_\text{idéal}(f)\)</span> est un sinus cardinal :</p>
 <div class="math notranslate nohighlight">
 \[
 h_\text{idéal}[n] = 2 f_c \mathrm{sinc}(2f_c n).
@@ -522,29 +524,25 @@ h =
 \end{cases}
 \end{split}\]</div>
 <div class="figure align-default" id="f-num-fenetre-troncature">
-<div class="cell_output docutils container">
-<img alt="_images/filtres-numeriques_5_0.png" src="_images/filtres-numeriques_5_0.png" />
+<a class="reference internal image-reference" href="_images/fenetre-troncature.svg"><img alt="_images/fenetre-troncature.svg" src="_images/fenetre-troncature.svg" width="700px" /></a>
+<p class="caption"><span class="caption-number">Fig. 16 </span><span class="caption-text">Troncature et décalage de la réponse impulsionnelle idéale.
+Vous noterez que ce filtre est de type I.</span><a class="headerlink" href="#f-num-fenetre-troncature" title="Lien permanent vers cette image">¶</a></p>
 </div>
-<p class="caption"><span class="caption-number">Fig. 16 </span><span class="caption-text">Troncature et décalage de la réponse impulsionnelle idéale.</span><a class="headerlink" href="#f-num-fenetre-troncature" title="Lien permanent vers cette image">¶</a></p>
-</div>
-<p>Vous noterez que ce filtre est de type I.</p>
 <p>Enfin, la transformée de Fourier à temps discret de <span class="math notranslate nohighlight">\(h\)</span> nous permet d’obtenir la réponse fréquentielle du filtre.
 Son expression est assez complexe et nous ne la détaillons pas ici.
 La figure <a class="reference internal" href="#f-num-rif-rf"><span class="std std-numref">Fig. 17</span></a> représente le gain de ce filtre RIF construit à partir de la troncature d’un filtre idéal.</p>
 <div class="figure align-default" id="f-num-rif-rf">
-<div class="cell_output docutils container">
-<img alt="_images/filtres-numeriques_6_0.png" src="_images/filtres-numeriques_6_0.png" />
-</div>
+<a class="reference internal image-reference" href="_images/rif-rf.svg"><img alt="_images/rif-rf.svg" src="_images/rif-rf.svg" width="700px" /></a>
 <p class="caption"><span class="caption-number">Fig. 17 </span><span class="caption-text">Réponse fréquentielle du filtre tronqué et décalé.</span><a class="headerlink" href="#f-num-rif-rf" title="Lien permanent vers cette image">¶</a></p>
 </div>
-<p>On observe plusieurs chose sur cette figure :</p>
+<p>On observe plusieurs choses sur cette figure :</p>
 <ul class="simple">
-<li><p>la bande de transition n’est pas nulle,</p></li>
-<li><p>il y a des oscillations en bande passante et en bande atténuée.</p></li>
+<li><p>il y a des oscillations en bande passante et en bande atténuée,</p></li>
+<li><p>la bande de transition n’est pas nulle.</p></li>
 </ul>
-<p>Les oscillations sont d’ailleurs de plus en plus grande lorsqu’on s’approche de la bande de transition :
+<p>Les oscillations sont d’ailleurs de plus en plus grandes lorsqu’on s’approche de la bande de transition :
 c’est le phénomène de Gibbs.
-Par ailleurs, on remarque que les oscillations ne s’atténuent pas lorsque <span class="math notranslate nohighlight">\(N\)</span> augmente,
+Il s’avère que ces oscillations ne s’atténuent pas lorsque <span class="math notranslate nohighlight">\(N\)</span> augmente,
 alors que pourtant le filtre RIF se rapproche de plus en plus du filtre idéal !</p>
 <p>L’interprétation que l’on peut faire de ces observations est la suivante.
 La troncature revient à multiplier la réponse impulsionnelle <span class="math notranslate nohighlight">\(h_\text{idéal}\)</span> par une porte <span class="math notranslate nohighlight">\(w[n]\)</span>
@@ -554,39 +552,34 @@ La troncature revient à multiplier la réponse impulsionnelle <span class="math
 h[n] = h_\text{idéal}[n] \times w[n].
 \]</div>
 <p>Dans le domaine de Fourier, cela revient à convoluer la réponse fréquentielle <span class="math notranslate nohighlight">\(H_\text{idéal}\)</span>
-par la transformée de Fourier à temps discret de <span class="math notranslate nohighlight">\(w[n]\)</span> :</p>
+par <span class="math notranslate nohighlight">\(W(f)\)</span> qui est la transformée de Fourier à temps discret de <span class="math notranslate nohighlight">\(w[n]\)</span> :</p>
 <div class="math notranslate nohighlight">
 \[
-H(f) = H_\text{idéal}(f) * \mathcal{F}[w](f),
+H(f) = H_\text{idéal}(f) * W(f),
 \]</div>
-<p>où la transformée de Fourier à temps discret de <span class="math notranslate nohighlight">\(w[n]\)</span> a pour expression :</p>
+<p>où :</p>
 <div class="math notranslate nohighlight">
 \[
 W(f) = e^{-j \pi f N} \frac{\sin(\pi f(N+1))}{\sin(\pi f)}.
 \]</div>
-<p>et correspond à la multiplication d’une exponentielle avec un « noyau de Dirichlet » (cf. <a class="reference internal" href="#f-num-dirichlet"><span class="std std-numref">Fig. 18</span></a>).</p>
+<p><span class="math notranslate nohighlight">\(W(f)\)</span> est la multiplication d’une exponentielle avec un « noyau de Dirichlet » (cf. <a class="reference internal" href="#f-num-dirichlet"><span class="std std-numref">Fig. 18</span></a>).</p>
 <div class="figure align-default" id="f-num-dirichlet">
-<div class="cell_output docutils container">
-<img alt="_images/filtres-numeriques_7_0.png" src="_images/filtres-numeriques_7_0.png" />
+<a class="reference internal image-reference" href="_images/dirichlet.svg"><img alt="_images/dirichlet.svg" src="_images/dirichlet.svg" width="700px" /></a>
+<p class="caption"><span class="caption-number">Fig. 18 </span><span class="caption-text">Noyau de Dirichlet.</span><a class="headerlink" href="#f-num-dirichlet" title="Lien permanent vers cette image">¶</a></p>
 </div>
-<p class="caption"><span class="caption-number">Fig. 18 </span><span class="caption-text">Noyau de Dirichlet, pour deux valeurs de <span class="math notranslate nohighlight">\(N\)</span>.</span><a class="headerlink" href="#f-num-dirichlet" title="Lien permanent vers cette image">¶</a></p>
-</div>
-<p>Ainsi, si le lobe principal du noyau de Dirichlet s’élargit, la bande de transition du filtre va s’élargir également.
-Et lorsque les lobes secondaires augmentent,
-les oscillations dans les bandes passante et atténuée du filtre vont également s’agrandir.</p>
-<p>L’idéal est donc d’avoir un lobe principal étroit et des lobes secondaires faibles.
-Il faudrait donc que le noyau de Dirichlet tende vers une impulsion de Dirac,
-mais alors cela implique d’augmenter considérablement l’ordre du filtre <span class="math notranslate nohighlight">\(N\)</span>,
+<p>On observe que lorsque <span class="math notranslate nohighlight">\(N\)</span> augmente, le lobe principal du noyau de Dirichlet se rétrécit,
+et donc la bande de transition du filtre également.
+Obtenir des bandes de transition très faibles oblige donc à augmenter considérablement l’ordre du filtre <span class="math notranslate nohighlight">\(N\)</span>,
 résultant alors dans un filtre à réponse impulsionnelle pas tant finie que ça…</p>
+</div>
+<div class="section" id="methode-des-fenetres">
+<h3>Méthode des fenêtres<a class="headerlink" href="#methode-des-fenetres" title="Lien permanent vers ce titre">¶</a></h3>
 <div class="margin sidebar">
 <p class="sidebar-title"></p>
 <p>Et oui, en traitement du signal, la porte est un genre de fenêtre !</p>
 </div>
-</div>
-<div class="section" id="methode-des-fenetres">
-<h3>Méthode des fenêtres<a class="headerlink" href="#methode-des-fenetres" title="Lien permanent vers ce titre">¶</a></h3>
-<p>La méthode des fenêtres consiste donc à effectuer la troncature de la réponse impulsionnelle d’un filtre idéal,
-où la fenêtre n’est pas forcément une porte.</p>
+<p>La méthode des fenêtres reprend l’idée précédente (troncature de la réponse impulsionnelle d’un filtre idéal)
+mais la fenêtre n’est pas forcément une porte.</p>
 <p>Le tableau ci-dessous donne les propriétés des réponses fréquentielles obtenues pour plusieurs fenêtres
 (la fréquence réduite est la fréquence divisée par <span class="math notranslate nohighlight">\(f_e\)</span>).</p>
 <table class="colwidths-auto table">
@@ -613,35 +606,37 @@ où la fenêtre n’est pas forcément une porte.</p>
 <td><p><span class="math notranslate nohighlight">\(0,002\)</span></p></td>
 <td class="text-align:right"><p><span class="math notranslate nohighlight">\(74\)</span></p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:left"><p>Kaiser (<span class="math notranslate nohighlight">\(\beta=4,538\)</span>)</p></td>
+<tr class="row-odd"><td class="text-align:left"><p>Kaiser <span class="math notranslate nohighlight">\(\beta=4,538\)</span></p></td>
 <td><p><span class="math notranslate nohighlight">\(2,93/N\)</span></p></td>
 <td><p><span class="math notranslate nohighlight">\(0,0274\)</span></p></td>
 <td class="text-align:right"><p><span class="math notranslate nohighlight">\(50\)</span></p></td>
 </tr>
-<tr class="row-even"><td class="text-align:left"><p>Kaiser (<span class="math notranslate nohighlight">\(\beta=6,764\)</span>)</p></td>
+<tr class="row-even"><td class="text-align:left"><p>Kaiser <span class="math notranslate nohighlight">\(\beta=6,764\)</span></p></td>
 <td><p><span class="math notranslate nohighlight">\(4,32/N\)</span></p></td>
 <td><p><span class="math notranslate nohighlight">\(0,00275\)</span></p></td>
 <td class="text-align:right"><p><span class="math notranslate nohighlight">\(70\)</span></p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:left"><p>Kaiser (<span class="math notranslate nohighlight">\(\beta=8,960\)</span>)</p></td>
+<tr class="row-odd"><td class="text-align:left"><p>Kaiser <span class="math notranslate nohighlight">\(\beta=8,960\)</span></p></td>
 <td><p><span class="math notranslate nohighlight">\(5,71/N\)</span></p></td>
 <td><p><span class="math notranslate nohighlight">\(0,000275\)</span></p></td>
 <td class="text-align:right"><p><span class="math notranslate nohighlight">\(90\)</span></p></td>
 </tr>
 </tbody>
 </table>
-<div class="figure align-default" id="f-filtre-intro-fenetre">
-<a class="reference internal image-reference" href="_static/figs/filtre-fenetres.png"><img alt="_static/figs/filtre-fenetres.png" src="_static/figs/filtre-fenetres.png" style="width: 500px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 19 </span><span class="caption-text">Définition des différents éléments de la réponse fréquentielle.</span><a class="headerlink" href="#f-filtre-intro-fenetre" title="Lien permanent vers cette image">¶</a></p>
+<!-- Figure : Définition des différents éléments de la réponse fréquentielle ? Mais redondante avec ce qu'on a déjà vu -->
+<!-- https://github.com/scipy/scipy/blob/v1.7.1/scipy/signal/fir_filter_design.py#L48-L83 kaiser_beta(a) -->
 </div>
-<!-- ### Méthode de Remez
-
-La méthode des fenêtres est sous-optimale et donne des ordres de filtres surévalués,
-tandis que la méthode de Remez est optimale et fournit le filtre d'ordre minimal satisfaisant le gabarit.
-
+<div class="section" id="autres-methodes-de-synthese">
+<h3>Autres méthodes de synthèse<a class="headerlink" href="#autres-methodes-de-synthese" title="Lien permanent vers ce titre">¶</a></h3>
+<p>La méthode des fenêtres peut donner des ordres de filtres surévalués.
+D’autres méthodes de synthèse existe, comme par exemple la méthode de Parks-McClelland
+qui ajuste les coefficients de manière itérative pour que l’écart au filtre idéal soit inférieure à une valeur limite.
+La méthode est accessible avec la fonction <code class="docutils literal notranslate"><span class="pre">scipy.signal.remez</span></code> (car elle est une variation de l’algorithme de Remez).</p>
+<!--
 http://eeweb.poly.edu/iselesni/EL713/remez/remez.pdf
 https://en.wikipedia.org/wiki/Parks%E2%80%93McClellan_filter_design_algorithm
-http://www.ieee.org.ar/downloads/antoniou-nov03.pdf --></div>
+http://www.ieee.org.ar/downloads/antoniou-nov03.pdf -->
+<!-- Equiripple FIR filters ? least-squares error minimization ? --></div>
 </div>
 <div class="section" id="filtres-rii">
 <h2>Filtres RII<a class="headerlink" href="#filtres-rii" title="Lien permanent vers ce titre">¶</a></h2>
@@ -695,7 +690,7 @@ et de <span class="math notranslate nohighlight">\(N\)</span> échantillons de l
 le tout multiplié par <span class="math notranslate nohighlight">\(\frac{1}{a_0}\)</span>.
 On peut donc représenter graphiquement cette équation (rappel : le bloc <span class="math notranslate nohighlight">\(z^{-1}\)</span> indique un retard) :</p>
 <div class="figure align-default">
-<a class="reference internal image-reference" href="_static/figs/filtre-rii.png"><img alt="_static/figs/filtre-rii.png" src="_static/figs/filtre-rii.png" style="height: 350px;" /></a>
+<a class="reference internal image-reference" href="_images/filtre-rii.svg"><img alt="_images/filtre-rii.svg" height="400px" src="_images/filtre-rii.svg" /></a>
 </div>
 <p>Remarquez qu’à l’inverse des filtres RIF, les filtres RII possèdent une boucle de retour (partie récursive).
 À cause de cette boucle, les filtres RII peuvent être instables :
@@ -705,49 +700,51 @@ le signal étant indéfiniment réinjecté dans le filtre, la sortie peut être 
 <h3>Transformation bilinéaire<a class="headerlink" href="#transformation-bilineaire" title="Lien permanent vers ce titre">¶</a></h3>
 <p>La transformation bilinéaire est la méthode la plus simple pour concevoir un filtre RII.
 Elle s’applique sur un filtre analogique pour le transformer en filtre numérique.
-De ce fait, l’application de la transformation bilinéaire suit les étapes suivantes :</p>
-<ol class="simple">
-<li><p>À partir du gabarit numérique, une transformation sur les fréquences permet d’obtenir un gabarit analogique.</p></li>
-<li><p>Un filtre analogique est conçu à partir de ce gabarit analogique.</p></li>
-<li><p>Une transformation sur la fonction de transfert du filtre analogique
-permet d’obtenir la fonction de transfert du filtre numérique.</p></li>
+De ce fait, l’application de la transformation bilinéaire suit les étapes ci-dessous,
+en partant d’un gabarit numérique.</p>
+<ol>
+<li><p>Les fréquences <span class="math notranslate nohighlight">\(f_n\)</span> du gabarit numérique sont remplacées par de nouvelles valeurs <span class="math notranslate nohighlight">\(f_a\)</span> qui définissent un gabarit analogique.
+La transformation de fréquence est :</p>
+<div class="math notranslate nohighlight">
+\[
+   f_a = \frac{f_e}{\pi} \tan\left(\pi\frac{f_n}{f_e}\right).
+   \]</div>
+<p>où <span class="math notranslate nohighlight">\(f_e\)</span> est la fréquence d’échantillonnage.</p>
+</li>
+<li><p>Un <a class="reference internal" href="filtres-analogiques.html#c-filtre-analogique"><span class="std std-ref">filtre analogique</span></a> est conçu à partir de ce gabarit analogique :
+on dispose alors de la fonction de transfert <span class="math notranslate nohighlight">\(H_a(s)\)</span> de ce filtre analogique.</p></li>
+<li><p>Enfin, la fonction de transfert numérique <span class="math notranslate nohighlight">\(H_n(z)\)</span> s’obtient à partir de la la fonction de transfert analogique <span class="math notranslate nohighlight">\(H_a(s)\)</span>
+grâce à la relation suivante :</p>
+<div class="math notranslate nohighlight">
+\[
+   H_n(z) = H_a\left(2f_e \left(\frac{1-z^{-1}}{1+z^{-1}}\right)\right).
+   \]</div>
+</li>
 </ol>
-<p>Plus formellement, le passage du domaine analogique au domaine numérique
-transforme l’axe des imaginaires du plan en <span class="math notranslate nohighlight">\(s\)</span> en le cercle unité du plan en <span class="math notranslate nohighlight">\(z\)</span> (cf. <a class="reference internal" href="#f-num-tbilin"><span class="std std-numref">Fig. 20</span></a>).
-Ainsi, la stabilité est conservée puisque les pôles à partie réelle négative du plan en <span class="math notranslate nohighlight">\(s\)</span>
-se retrouvent dans le cercle unité du plan en <span class="math notranslate nohighlight">\(z\)</span>.</p>
-<div class="figure align-default" id="f-num-tbilin">
-<a class="reference internal image-reference" href="_static/figs/tbilin.png"><img alt="_static/figs/tbilin.png" src="_static/figs/tbilin.png" style="height: 200px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 20 </span><span class="caption-text">Transformée bilinéaire.</span><a class="headerlink" href="#f-num-tbilin" title="Lien permanent vers cette image">¶</a></p>
-</div>
-<p>La transformation bilinéaire est reliée aux équations suivantes :</p>
+<p>Cette méthode se base sur la transformation bilinéaire qui effectue le passage du domaine analogique au domaine numérique
+en transformant l’axe des imaginaires du plan en <span class="math notranslate nohighlight">\(s\)</span> en le cercle unité du plan en <span class="math notranslate nohighlight">\(z\)</span> :</p>
 <div class="math notranslate nohighlight">
 \[
 s = \frac{2}{T_e} \left(\frac{1-z^{-1}}{1+z^{-1}}\right)
 \qquad\Leftrightarrow\qquad
 z = \frac{1+T_e/2s}{1-T_e/2s}.
 \]</div>
-<p>où <span class="math notranslate nohighlight">\(T_e\)</span> est la période d’échantillonnage.
-Donc, la fonction de transfert numérique <span class="math notranslate nohighlight">\(H_n(z)\)</span> s’obtient à partir de la la fonction de transfert analogique <span class="math notranslate nohighlight">\(H_a(s)\)</span>
-grâce à la relation suivante :</p>
-<div class="math notranslate nohighlight">
-\[
-H_n(z) = H_a\left(\frac{2}{T_e} \left(\frac{1-z^{-1}}{1+z^{-1}}\right)\right).
-\]</div>
-<p>Par ailleurs, on montre que la transformation à appliquer sur l’axe des fréquences du gabarit numérique est :</p>
-<div class="math notranslate nohighlight">
-\[
-f_a = \frac{1}{\pi T_e} \tan\left(\pi\frac{f_n}{f_e}\right).
-\]</div>
-<p>où <span class="math notranslate nohighlight">\(f_a\)</span> et <span class="math notranslate nohighlight">\(f_n\)</span> sont respectivement les fréquences des gabarits analogique et numérique,
-et <span class="math notranslate nohighlight">\(f_n/f_e\)</span> est la fréquence réduite (avec <span class="math notranslate nohighlight">\(f_e=1/T_e\)</span>).</p>
+<p>La <a class="reference internal" href="#f-num-tbilin"><span class="std std-numref">Fig. 19</span></a> illustre cette transformation, ainsi que ces deux vidéos :
+<a href="https://www.youtube.com/watch?v=4PV6ikgBShw"><i class="fab fa-youtube"></i></a> et
+<a href="https://www.youtube.com/watch?v=acQecd6dmxw"><i class="fab fa-youtube"></i></a>.</p>
+<div class="figure align-default" id="f-num-tbilin">
+<a class="reference internal image-reference" href="_images/tbilineaire.svg"><img alt="_images/tbilineaire.svg" src="_images/tbilineaire.svg" width="500px" /></a>
+<p class="caption"><span class="caption-number">Fig. 19 </span><span class="caption-text">Transformée bilinéaire.</span><a class="headerlink" href="#f-num-tbilin" title="Lien permanent vers cette image">¶</a></p>
+</div>
+<p>Ainsi, la stabilité du filtre analogique est conservée pour le filtre numérique
+puisque les pôles à partie réelle négative du plan en <span class="math notranslate nohighlight">\(s\)</span> se retrouvent dans le cercle unité du plan en <span class="math notranslate nohighlight">\(z\)</span>.</p>
 <!-- Lorsque l'ordre des filtres augmente (c'est-à-dire lorsque le nombre de coefficients augmentent) le filtre peut devenir instable à cause de la quantification des coefficients point. Une solution consiste à remplacer le filtre par une série de filtres d'ordre faible (un ou 2) 
 
 Filtres, bi-quad, biquadratique 
 
 SOS s order section 
- -->
-</div>
+-->
+<!-- autres méthodes de conception de filtres RII : design direct (approximer par une réponse fréquentielle linéaire par morceaux ; Yulewalk), Butterworth généralisé (plus de zéros ; maxflat), modèle paramétrique ? (cf Matlpab : lpc, prony, invfreqs) --></div>
 </div>
 </div>
 

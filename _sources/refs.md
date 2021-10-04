@@ -29,6 +29,12 @@
   EPFL Press, 2008.
   Cote : 621.382 2 PRA.
   [Téléchargeable librement](https://www.sp4comm.org/download.html).
+  
+* [Zumbahlen 2007]
+  H. Zumbahlen.
+  _Basic Linear Design_.
+  Analog Devices, 2007.
+  [Téléchargeable librement](https://www.analog.com/en/education/education-library/linear-circuit-design-handbook.html).
 
 * [Wikipedia]
   Wikipedia : commencez par l'article [Traitement du signal](https://fr.wikipedia.org/wiki/Traitement_du_signal)
