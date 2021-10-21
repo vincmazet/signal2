@@ -101,12 +101,12 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="rev-t.html">
-   Exercices théoriques
+   ✎ Exercices théoriques
   </a>
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="rev-p.html">
-   Exercices sur machine
+   ✎ Exercices sur machine
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
@@ -116,22 +116,22 @@
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="tp/tp11.html">
-     ✎ Représentation d’un signal
+     ✐ Représentation d’un signal
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="tp/tp12.html">
-     ✎ Produit de convolution
+     ✐ Produit de convolution
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="tp/tp13.html">
-     ✎ Transformée de Fourier discrète
+     ✐ Transformée de Fourier discrète
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="tp/tp14.html">
-     ✎ Analyse spectrale d’un signal audio
+     ✐ Analyse spectrale d’un signal audio
     </a>
    </li>
   </ul>
@@ -170,12 +170,12 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="filtres-t.html">
-   Exercices théoriques
+   ✎ Exercices théoriques
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="filtres-p.html">
-   Exercices sur machine
+   ✎ Exercices sur machine
   </a>
  </li>
 </ul>
@@ -192,17 +192,17 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="ssp-traitement.html">
-   Traitement des signaux bruités
+   TP : traitement des signaux bruités
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="ssp-t.html">
-   Exercices théoriques
+   ✎ Exercices théoriques
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="ssp-p.html">
-   Exercices sur machine
+   ✎ Exercices sur machine
   </a>
  </li>
 </ul>
@@ -353,6 +353,9 @@ Désormais, des programmes déterminent directement les coefficients du filtre a
 </div>
 <div class="section" id="reponses-standards">
 <h2>Réponses standards<a class="headerlink" href="#reponses-standards" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Outre la définition du gabarit, il reste à choisir la famille du filtre à synthétiser.
+Les cinq principales familles sont détaillées ci-après,
+à noter qu’il existe deux types de filtre de Tchebychev (Chebyshev en anglais) : le type I et le type II.</p>
 <div class="margin sidebar">
 <p class="sidebar-title"></p>
 <p>La fréquence « de coin » (<em>critical frequency</em> ou <em>edge frequency</em>)
@@ -360,27 +363,24 @@ est une fréquence particulière du gabarit, qui définit le filtre.
 Ce peut être la fréquence de coupure à <span class="math notranslate nohighlight">\(-3\)</span> dB, ou la fréquence de la bande passante,
 ou la fréquence de la bande atténuée.</p>
 </div>
-<p>Outre la définition du gabarit, il reste à choisir la famille du filtre à synthétiser.
-Les cinq principales familles sont détaillées ci-après,
-à noter qu’il existe deux types de filtre de Tchebychev (Chebyshev en anglais) : le type I et le type II.</p>
 <p>Une comparaison de ces familles en termes de réponse fréquentielle, réponse impulsionnelle et retard de groupe
 est effectuée ci-dessous sur la base d’un filtre passe-bas d’ordre 3, de fréquence « de coin » 1 Hz,
 d’ondulation en bande passante 3 dB et d’atténuation en bande atténuée 30 dB.</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="c5e2bdbe-69cb-40e4-9b7e-fb7f229d81ba" name="9c853160-bf8b-47c9-960e-07b6896cd620" type="radio">
-</input><label class="tabbed-label" for="c5e2bdbe-69cb-40e4-9b7e-fb7f229d81ba">
+<input checked="checked" id="d3c7795e-cc58-48f5-9b68-0f7fb6512e2c" name="92ca64b2-f035-4ecd-9ecd-ddc8d041f131" type="radio">
+</input><label class="tabbed-label" for="d3c7795e-cc58-48f5-9b68-0f7fb6512e2c">
 Gain</label><div class="tabbed-content docutils">
 <img alt="_images/fana-gain.svg" src="_images/fana-gain.svg" /></div>
-<input id="3292c2e6-623e-4d0a-8318-02dbbd2244af" name="9c853160-bf8b-47c9-960e-07b6896cd620" type="radio">
-</input><label class="tabbed-label" for="3292c2e6-623e-4d0a-8318-02dbbd2244af">
+<input id="9cdf3c1a-1f8a-4c90-adb9-bb565b503bb5" name="92ca64b2-f035-4ecd-9ecd-ddc8d041f131" type="radio">
+</input><label class="tabbed-label" for="9cdf3c1a-1f8a-4c90-adb9-bb565b503bb5">
 Phase</label><div class="tabbed-content docutils">
 <img alt="_images/fana-phase.svg" src="_images/fana-phase.svg" /></div>
-<input id="b0b4b523-2e07-4045-8738-32c41e9885d2" name="9c853160-bf8b-47c9-960e-07b6896cd620" type="radio">
-</input><label class="tabbed-label" for="b0b4b523-2e07-4045-8738-32c41e9885d2">
+<input id="1673f7a3-19ae-431f-8998-2e256da623aa" name="92ca64b2-f035-4ecd-9ecd-ddc8d041f131" type="radio">
+</input><label class="tabbed-label" for="1673f7a3-19ae-431f-8998-2e256da623aa">
 Réponse impulsionnelle</label><div class="tabbed-content docutils">
 <img alt="_images/fana-impulse.svg" src="_images/fana-impulse.svg" /></div>
-<input id="de18aad1-5251-4267-a86e-df5324a215b7" name="9c853160-bf8b-47c9-960e-07b6896cd620" type="radio">
-</input><label class="tabbed-label" for="de18aad1-5251-4267-a86e-df5324a215b7">
+<input id="981261d3-1696-443a-a3d7-42dd6d3f9618" name="92ca64b2-f035-4ecd-9ecd-ddc8d041f131" type="radio">
+</input><label class="tabbed-label" for="981261d3-1696-443a-a3d7-42dd6d3f9618">
 Retard de groupe</label><div class="tabbed-content docutils">
 <img alt="_images/fana-gd.svg" src="_images/fana-gd.svg" /></div>
 </div>

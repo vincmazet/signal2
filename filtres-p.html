@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TP Filtrage numérique &#8212; Traitement du signal 2</title>
+    <title>TP : filtrage numérique &#8212; Traitement du signal 2</title>
     
   <link href="_static/css/theme.css" rel="stylesheet" />
   <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -58,7 +58,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Recherche" href="search.html" />
     <link rel="next" title="Bruit dans les signaux" href="bruit.html" />
-    <link rel="prev" title="TD Filtrage" href="filtres-t.html" />
+    <link rel="prev" title="Exercices : filtrage" href="filtres-t.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -101,12 +101,12 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="rev-t.html">
-   Exercices théoriques
+   ✎ Exercices théoriques
   </a>
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="rev-p.html">
-   Exercices sur machine
+   ✎ Exercices sur machine
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
@@ -116,22 +116,22 @@
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="tp/tp11.html">
-     ✎ Représentation d’un signal
+     ✐ Représentation d’un signal
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="tp/tp12.html">
-     ✎ Produit de convolution
+     ✐ Produit de convolution
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="tp/tp13.html">
-     ✎ Transformée de Fourier discrète
+     ✐ Transformée de Fourier discrète
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="tp/tp14.html">
-     ✎ Analyse spectrale d’un signal audio
+     ✐ Analyse spectrale d’un signal audio
     </a>
    </li>
   </ul>
@@ -170,12 +170,12 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="filtres-t.html">
-   Exercices théoriques
+   ✎ Exercices théoriques
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Exercices sur machine
+   ✎ Exercices sur machine
   </a>
  </li>
 </ul>
@@ -192,17 +192,17 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="ssp-traitement.html">
-   Traitement des signaux bruités
+   TP : traitement des signaux bruités
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="ssp-t.html">
-   Exercices théoriques
+   ✎ Exercices théoriques
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="ssp-p.html">
-   Exercices sur machine
+   ✎ Exercices sur machine
   </a>
  </li>
 </ul>
@@ -300,18 +300,23 @@
             <nav id="bd-toc-nav">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#affichage-de-l-ecg-mesure">
+   Affichage de l’ECG mesuré
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#definition-du-gabarit">
    Définition du gabarit
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#realisation-d-un-filtre-rii">
-   Réalisation d’un filtre RII
+  <a class="reference internal nav-link" href="#realisation-d-un-filtre-rif">
+   Réalisation d’un filtre RIF
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#realisation-d-un-filtre-rif">
-   Réalisation d’un filtre RIF
+  <a class="reference internal nav-link" href="#realisation-d-un-filtre-rii">
+   Réalisation d’un filtre RII
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -331,34 +336,76 @@
               <div>
                 
   <div class="section" id="tp-filtrage-numerique">
-<span id="c-tp-filtres"></span><h1>TP Filtrage numérique<a class="headerlink" href="#tp-filtrage-numerique" title="Lien permanent vers ce titre">¶</a></h1>
-<blockquote>
-<div><p>Cette année, j’ai commencé par les RIF plutôt que les RII. Pourquoi pas en effet. Vérifier que je fais bien les RII et RIF dans l’ordre.</p>
-</div></blockquote>
-<p>Ce TP se déroule sur deux séances et a pour objectif de réaliser deux filtres
-pour supprimer la dérive basse fréquence d’un électrocardiogramme (ECG), qui est le tracé de l’activité électrique du cœur.</p>
+<span id="c-tp-filtres"></span><h1>TP : filtrage numérique<a class="headerlink" href="#tp-filtrage-numerique" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Un électrocardiogramme (ECG) est le tracé de l’activité électrique du cœur.
+Il comporte plusieurs signaux caractéristiques appelés « ondes »,
+qui dans le cas d’un ECG normal peuvent être schématisées ainsi :</p>
+<div class="figure align-default" id="f-tp-filtres-ecg">
+<a class="reference internal image-reference" href="_images/ecg.svg"><img alt="_images/ecg.svg" height="200px" src="_images/ecg.svg" /></a>
+</div>
+<p>Il est fréquent qu’en plus de ces ondes, le signal présente également une variation basse fréquence du signal.
+Cette variation est principalement due aux mouvements du patient, mais elle perturbe l’analyse du médecin.
+L’objectif de ce TP, qui se déroule sur deux séances, est de réaliser deux filtres pour supprimer cette variation basse fréquence.</p>
+<div class="section" id="affichage-de-l-ecg-mesure">
+<h2>Affichage de l’ECG mesuré<a class="headerlink" href="#affichage-de-l-ecg-mesure" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Un ECG contenant dix ondes et une variation basse fréquence a été enregistré à une fréquence de 1 kHz et sauvegardé dans le fichier
+<a href="../_static/files/ecg_lfn.csv">ecg_lfn.csv</a>.</p>
+<ul class="simple">
+<li><p>Utilisez <code class="docutils literal notranslate"><span class="pre">numpy.loadtxt</span></code> pour charger le signal.</p></li>
+</ul>
+<p>Le signal étant trop grand, il est préférable de le sous-échantillonner pour que les traitements soient plus rapides.</p>
+<ul class="simple">
+<li><p>À quoi faut-il faire attention avant de le sous-échantillonner ?</p></li>
+<li><p>Sous-échantillonnez le signal à 100 Hz, puis affichez le signal obtenu.</p></li>
+<li><p>Tracez le spectre du signal.</p></li>
+</ul>
+</div>
 <div class="section" id="definition-du-gabarit">
 <h2>Définition du gabarit<a class="headerlink" href="#definition-du-gabarit" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Un ECG a été enregistré à une fréquence de 1 kHz et sauvegardé dans le fichier <a class="reference external" href="https://vincmazet.github.io/signal2/_static/files/ecg_lfn.csv">ecg_lfn.csv</a>.</p>
 <ul class="simple">
-<li><p>Le signal étant trop grand, il faut d’abord réduire sa taille. À quoi faut-il faire attention ?</p></li>
-<li><p>Ré-échantillonnez le signal à 100 Hz, puis affichez le signal obtenu.</p></li>
-<li><p>Tracez le spectre du signal en fonction de la fréquence (centrez l’axe des fréquences).</p></li>
-</ul>
-<p>Un ECG normal comporte plusieurs signaux caractéristiques appelés « ondes » (figure ci-dessous).
-Le signal enregistré contient dix ondes auxquelles s’ajoute une dérive basse fréquence à éliminer.</p>
-<div class="figure align-default" id="f-tp-filtres-ecg">
-<a class="reference internal image-reference" href="_static/figs/ecg.png"><img alt="_static/figs/ecg.png" src="_static/figs/ecg.png" style="height: 150px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 20 </span><span class="caption-text">Représentation schématique d’un ECG normal.</span><a class="headerlink" href="#f-tp-filtres-ecg" title="Lien permanent vers cette image">¶</a></p>
-</div>
-<ul class="simple">
-<li><p>Quel type de filtre (passe-bas, passe-haut, passe-bande ou coupe-bande) faut-il ?
+<li><p>Quel type de filtre (passe-bas, passe-haut, passe-bande ou coupe-bande) faut-il choisir pour supprimer la variation ?
 Donnez une valeur approximative de la (ou les) fréquence(s) de coupure.</p></li>
 <li><p>Proposez un gabarit pour le filtre en précisant les valeurs numériques des fréquences.
 L’ondulation dans la bande passante devra être comprise entre <span class="math notranslate nohighlight">\(-1\)</span> dB et <span class="math notranslate nohighlight">\(+1\)</span> dB
 et l’atténuation devra être supérieure à 60 dB.
 Si la largeur de la (ou des) bande(s) de transition est trop faible, cela peut conduire à des erreurs numériques :
 seule la synthèse lors des questions suivantes vous permettra de corriger cette valeur.</p></li>
+<li><p>Représentez ce gabarit avec Python.
+Pour représenter une ligne brisée, vous pouvez vous inspirer de l’exemple suivant :</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Abscisses des 4 points de la ligne brisée</span>
+<span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">]</span>
+
+<span class="c1"># Ordonnés des 4 points de la ligne brisée</span>
+<span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">]</span>
+
+<span class="c1"># Affichage</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;*&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/filtres-p_5_0.png" src="_images/filtres-p_5_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="realisation-d-un-filtre-rif">
+<h2>Réalisation d’un filtre RIF<a class="headerlink" href="#realisation-d-un-filtre-rif" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Le premier filtre appliqué sur l’ECG sera un filtre RIF synthétisé avec la méthode des fenêtres.</p>
+<ul class="simple">
+<li><p>Donnez, en le justifiant, les fenêtres pouvant être utilisés pour la synthèse du filtre numérique.</p></li>
+<li><p>Calculez la longueur des fenêtres qui conviennent.
+On choisit de ne travailler qu’avec la fenêtre permettant d’avoir l’ordre du filtre le plus faible.</p></li>
+<li><p>Synthétisez le filtre RIF avec <code class="docutils literal notranslate"><span class="pre">scipy.signal.firwin</span></code>.</p></li>
+<li><p>Vérifiez que le filtre obtenu correspond bien au gabarit numérique en traçant sa réponse en fréquence sur le gabarit
+(<code class="docutils literal notranslate"><span class="pre">scipy.signal.freqz</span></code>).</p></li>
+<li><p>En analysant le retard de groupe du filtre (<code class="docutils literal notranslate"><span class="pre">signal.group_delay</span></code>),
+indiquez quel est son effet sur le déphasage des fréquences.</p></li>
+<li><p>Affichez le diagramme pôle-zéro (<code class="docutils literal notranslate"><span class="pre">scipy.signal.tf2zpk</span></code>) : que pouvez-vous en conclure ?</p></li>
 </ul>
 </div>
 <div class="section" id="realisation-d-un-filtre-rii">
@@ -368,28 +415,15 @@ obtenu à l’aide d’un gabarit analogique, lui-même construit à partir du g
 <ul class="simple">
 <li><p>Déterminez le gabarit du filtre analogique.</p></li>
 <li><p>Rappelez l’expression de la transformation bilinéaire permettant d’obtenir <span class="math notranslate nohighlight">\(H(z)\)</span> à partir de <span class="math notranslate nohighlight">\(H(s)\)</span>.</p></li>
-<li><p>Synthétisez le filtre analogique avec la fonction <code class="docutils literal notranslate"><span class="pre">scipy.signal.iirdesign</span></code>.
-Vérifiez que le filtre obtenu correspond bien au gabarit numérique en traçant sa réponse fréquentielle sur le gabarit
-(<code class="docutils literal notranslate"><span class="pre">scipy.signal.freqz</span></code>).</p></li>
-<li><p>En analysant le retard de groupe du filtre (<code class="docutils literal notranslate"><span class="pre">signal.group_delay</span></code>),
-indiquez quel est son effet sur le déphasage des fréquences.</p></li>
-<li><p>Affichez le diagramme pôle-zéro (<code class="docutils literal notranslate"><span class="pre">scipy.signal.tf2zpk</span></code>) : que pouvez-vous en conclure ?</p></li>
-</ul>
-</div>
-<div class="section" id="realisation-d-un-filtre-rif">
-<h2>Réalisation d’un filtre RIF<a class="headerlink" href="#realisation-d-un-filtre-rif" title="Lien permanent vers ce titre">¶</a></h2>
-<ul class="simple">
-<li><p>Donnez, en le justifiant, les types de fenêtres pouvant être utilisés pour la synthèse du filtre numérique.</p></li>
-<li><p>Calculez la longueur des fenêtres qui conviennent.
-On choisit de ne travailler qu’avec la fenêtre permettant d’avoir l’ordre du filtre le plus faible.</p></li>
-<li><p>Synthétisez le filtre RIF avec <code class="docutils literal notranslate"><span class="pre">scipy.signal.firwin</span></code>.</p></li>
-<li><p>Vérifiez que le filtre obtenu correspond bien au gabarit numérique en traçant sa réponse en fréquence sur le gabarit.</p></li>
-<li><p>De même que pour un filtre RII, analysez le retard de groupe du filtre puis le diagramme pôle-zéro.</p></li>
+<li><p>Synthétisez le filtre numérique avec la fonction <code class="docutils literal notranslate"><span class="pre">scipy.signal.iirdesign</span></code>.</p></li>
+<li><p>Vérifiez que le filtre obtenu correspond bien au gabarit numérique en traçant sa réponse fréquentielle sur le gabarit.</p></li>
+<li><p>De même que pour un filtre RIF, analysez le retard de groupe du filtre puis le diagramme pôle-zéro.</p></li>
 </ul>
 </div>
 <div class="section" id="comparaison-des-filtres-synthetises">
 <h2>Comparaison des filtres synthétisés<a class="headerlink" href="#comparaison-des-filtres-synthetises" title="Lien permanent vers ce titre">¶</a></h2>
 <ul class="simple">
+<li><p>Appliquez ces filtres sur l’ECG (<code class="docutils literal notranslate"><span class="pre">scipy.signal.lfilter</span></code>) et discutez du résultat obtenu, en temporel comme en fréquentiel.</p></li>
 <li><p>Comparez les deux filtres synthétisés, notamment sur :</p>
 <ul>
 <li><p>leur performance vis-à-vis du gabarit souhaité,</p></li>
@@ -400,106 +434,8 @@ On choisit de ne travailler qu’avec la fenêtre permettant d’avoir l’ordre
 <li><p>etc.</p></li>
 </ul>
 </li>
-<li><p>Appliquez ces filtres sur l’ECG et discutez du résultat obtenu, en temporel comme en fréquentiel.</p></li>
 </ul>
-<!-- % Suite RIF
-%Toutefois, l'ordre obtenu à la question précédente n'est qu'une valeur approchée de l'ordre optimal et peut donc être trop faible ou inutilement trop grand.
-%C'est pourquoi il faut procéder par essais successifs afin de déterminer l'ordre minimal qui vérifie le gabarit numérique.
-% \begin{questions}
-%   \item En suivant les étapes ci-dessous, déterminez l'ordre optimal du filtre.
-%   \begin{itemize}
-% %     \item ..Calculer la réponse temporelle infinie du filtre à réponse en fréquence voulue (gabarit idéal) en utilisant la transformée de Fourier inverse.
-% %     \item ..tronquer la réponse temporelle trouvée pour obtenir un RIF en limitant le calcul à N valeurs réparties symétriquement autour de n = 0. Deux cas (N impair / N pair)
-% %     \item ..multiplier par les fenêtres d'apodisation choisies hN (n) = h(n) w(n)
-% %       Pour décaler pour obtenir une solution causale : on suppose simplement que le premie échantillon du vecteur hN correspond à n = 0
-%     \item Effectuez la synthèse du filtre RIF sous Matlab % fir1
-%       (le filtre obtenu n'est pas causal, mais il suffit de considérer que le zéro correspond au premier élément du vecteur et non à l'élément central).
-%     \item Vérifiez si le filtre obtenu vérifie le gabarit numérique en traçant sa réponse en fréquence sur le gabarit et
-%       en calculant également le module de la réponse en fréquence aux fréquences limites du gabarit. % freqz
-%   \end{itemize}
-%   \item Tracez le module de la réponse en fréquence du filtre optimal (en dB) et le gabarit superposé,
-%     et donnez les valeurs du module de la réponse en fréquence aux fréquences limites du gabarit. % freqz
-%     {\color{blue}il s'agit d'une vérif : reprendre texto les questions d'avant}
-%   \item Tracez le temps de propagation du meilleur filtre et discutez du résultat. % grpdelay
-%   \item Tracez sur une même figure les réponse fréquentielles
-%     \begin{itemize}
-%       \item du filtre idéal,
-%       \item du filtre optimal obtenu
-%       \item et du filtre (de même ordre que le filtre optimal) que vous auriez obtenu avec une fenêtre rectangulaire.
-%     \end{itemize}
-%     Comparez et commentez les résultats.
-%     {\color{blue}Dire ce qu'est le filtre idéal}
-%   \item Même question en comparant cette fois les réponses impulsionnelles de ces trois filtres.
-% \end{questions}
-
-% Synthèse de filtres RIF avec fir1 :
-% * Pour les fenêtres qui conviennent, donner les valeurs des paramètres à utiliser lors d'une première tentative de synthèse. Commenter.
-%   Déterminer la longueur N de la séquence à partir du gabarit réel. (formule empirique)
-% * Synthèse du filtre par la commande \texttt{fir1}
-% * Vérifier les spécifications obtenues en traçant le module de la réponse en fréquence du filtre (en dB) avec 1000 points
-%   et le gabarit superposé (ne pas hésiter à faire des zooms sur les régions critiques de la réponse en fréquence).
-%   Calculer également le module en dB de la réponse en fréquence  en $0$, $\Omega_{s_{-}}$, $\Omega_{p_{-}}$, $\Omega_{p_{+}}$, $\Omega_{s_{+}}$ et $\pi$.
-%   Utiliser la commande \texttt{freqz} pour calculer la réponse en fréquence lors de la vérification des performances.
-%   Déterminer par essais successifs le filtre d'ordre minimal qui satisfait aux spécifications pour les fenêtres sélectionnées.
-% * Au besoin changer les paramètres et recommencer. --><!-- 
-% Filtre à minimum de phase : si tous les zéros de H(z) sont à l'intérieur du cercle unité, alors le filtre est dit à minimum de phase.
-
-% Transformation bilinéaire sans FDATOOL :
-% * Donnez la formule de la distorsion de fréquence permettant de calculer les fréquences du gabarit analogique à partir des fréquences du gabarit numérique.
-%   Déterminez alors le gabarit du filtre analogique, puis tracez-le avec Matlab.
-% * Synthèse du filtre analogique (sans ellip, comme en 1A) :
-%   - Donnez le gabarit d'un filtre passe-bande en y faisant apparaître, en échelle logarithmique, l'atténuation et la constante d'atténuation.
-%   - On souhaite déterminer le prototype passe-bas normalisé.
-%     Calculez le taux d'ondulation en bande passante $\varepsilon$, l'atténuation $A$, la constante d'atténuation $\eta$, la sélectivité $k$,
-%     la pulsation centrale $\omega_0$ et la largeur de bande relative $B_0$ du gabarit.
-%   - Les gabarits du passe-bande et du passe-bas normalisé ayant la même sélectivité et la même constante d'atténuation,
-%     déterminez la valeur de la fréquence $\Omega_{s}$ du passe-bas normalisé si $\Omega_{p}=1$.
-%   - Donner la transformation exacte (avec valeurs numériques) à utiliser pour trouver le filtre passe-bande à partir du filtre passe-bas normalisé.
-%   - Dans cette section, nous proposons de concevoir le filtre passe-bande en utilisant un filtre elliptique (ou filtre de Cauer) car il est d'ordre minimum.
-%     Donnez la formule permettant de calculez l'ordre du filtre passe-bas normalisé et calculez-le.
-%     Vérifiez votre résultat à l'aide de la fonction \texttt{ellipord} (n'oubliez pas l'argument \texttt{'s'} pour obtenir un filtre analogique).
-%   - Calculez le gain, les pôles et les zéros du filtre passe-bas normalisé. % ellipap
-%     puis les coefficients de la fonction de transfert du filtre passe-bas normalisé (c'est-à-dire les coefficients du numérateur et du dénominateur). % zp2tf
-%   - Calculez la fonction de transfert du filtre passe-bande demandé à partir du filtre passe-bas normalisé (transformation passe-bas $\rightarrow$ passe-bande) (formule + Matlab).
-%   - Donnez les coefficients de H(s).
-%   - Vérifiez que la réponse en fréquence est correcte en la traçant sur le gabarit (\texttt{freqs}).
-% * Synthèse du filtre analogique (avec ellip) :
-%   - Donnez le gabarit d'un filtre passe-bande en y faisant apparaître, en échelle logarithmique, l'atténuation et la constante d'atténuation.
-%   - utilisez ellip pour calculer les coefficients de H(s).
-%   - Vérifiez que la réponse en fréquence est correcte en la traçant sur le gabarit (\texttt{freqs}).
-% * Rappelez la transformation bilinéaire permettant de calculer $H(z)$ à partir de $H(s)$.
-% * Sous Matlab, déterminez l'expression de $H(z)$. {\color{blue}bilinear ou cd2m~? + donnez les coefficients obtenus de $H(z)$}
-% * graphe pôle-zéro~? Que dire : stabilité, ...
-% * Vérifiez que le filtre obtenu correspond bien au gabarit numérique en traçant sa réponse en fréquence sur le gabarit. {\color{blue}freqz}
-% * Comparez les réponses indicielles des filtres analogique et numérique
-%   (la fonction \texttt{tf} renvoie la fonction de transfert, et la fonction \texttt{step} permet de tracer la réponse indicielle) y'a pas plus simple ?.
-%   Que constatez-vous à propos du filtre numérique obtenu~?
-
-
-% --------------------------------------------------------------------------------------------------------------------------------------------------- %
-%
-%   RII :                                                           RIF :
-%   Avantages                                                       Avantages
-%   - déphaseurs réalisables                                        - toujours stables
-%   - complexité faible p/r RIF                                     - phase linéaire possible
-%   Inconvénients                                                   Inconvénients
-%   - pas toujours stables                                          - complexité (proportionnelle à la longueur de la RI) plus grande qu'un RII
-%   - méthodes de synthèse plutôt restreintes aux pb, ph,           - charge de calcul supérieure aux RII
-%     pbande, cbande                                                Méthodes de synhèse
-%   Méthodes de synhèse                                             - fenêtres (la plus élémentaire) ; ttes les fenêtres ne se valent pas
-%   - à partir des filtres analogiques : invariance                   (coupent plus ou moins, sont plus ou moins compliquées)
-%     (de la RI ou autre), transformation bilinéaire                - moindres carrés
-%   - calcul direct des coefficients                                - valeurs propres
-%   - procédure itérative d'optimisation                            - méthode itérative (Chebychev, Remez)
-%   - Butterworth généralisée                                       - maximalement plats
-%                                                                   - filtres périodiques
-%
-% --------------------------------------------------------------------------------------------------------------------------------------------------- %
-
-% * comparaison RII/RIF (avantages, inconvénients, ...) -> but du TP : réécrire le tableau que j'ai trouvé sur Internet
-% * Analyser le temps de propagation pour un filtre RII : 1 signal = somme de deux sinusoïdes de fréquences différentes.
-%   Observer le décalage des deux fréquences après filtrage. Avantages ? (cf filtre déphaseur ?) Inconvénients ? (en audio ?)
- --></div>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -527,7 +463,7 @@ On choisit de ne travailler qu’avec la fenêtre permettant d’avoir l’ordre
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="filtres-t.html" title="previous page">TD Filtrage</a>
+    <a class='left-prev' id="prev-link" href="filtres-t.html" title="previous page">Exercices : filtrage</a>
     <a class='right-next' id="next-link" href="bruit.html" title="next page">Bruit dans les signaux</a>
 
         </div>
