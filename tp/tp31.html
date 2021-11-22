@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>✐ Représentation d’un signal &#8212; Traitement du signal 2</title>
+    <title>Détection de motifs par filtrage adapté &#8212; Traitement du signal 2</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -57,8 +57,6 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Recherche" href="../search.html" />
-    <link rel="next" title="✐ Produit de convolution" href="tp12.html" />
-    <link rel="prev" title="TP : révisions" href="../rev-p.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -98,24 +96,24 @@
   Révisions
  </span>
 </p>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../rev-t.html">
    ✎ Exercices théoriques
   </a>
  </li>
- <li class="toctree-l1 current active has-children">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../rev-p.html">
    ✎ Exercices sur machine
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul class="current">
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="tp11.html">
      ✐ Représentation d’un signal
     </a>
    </li>
@@ -281,7 +279,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/tp/tp11.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/tp/tp31.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Télécharger le fichier source" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -306,6 +304,39 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contenu
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#emetteur">
+   Émetteur
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#canal-de-transmission">
+   Canal de transmission
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#recepteur">
+   Récepteur
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#robustesse-par-rapport-au-bruit">
+   Robustesse par rapport au bruit
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#decodage-du-signal-manchester-csv">
+   Décodage du signal manchester.csv
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -314,71 +345,115 @@
         
               <div>
                 
-  <div class="section" id="representation-d-un-signal">
-<h1>✐ Représentation d’un signal<a class="headerlink" href="#representation-d-un-signal" title="Lien permanent vers ce titre">¶</a></h1>
-<p>Cet exercice est fortement fondé sur le code de la section
-<a class="reference external" href="https://vincmazet.github.io/signal2/python.html#ecrire-un-programme-python">Écrire un programme Python</a>.</p>
-<p>Par convention, les modules sont importés en début de notebook. Ils sont également renommé (<code class="docutils literal notranslate"><span class="pre">numpy</span></code> en <code class="docutils literal notranslate"><span class="pre">np</span></code> par exemple) pour raccourcir le code lorsqu’il seront utilisés.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-</pre></div>
+  <div class="section" id="detection-de-motifs-par-filtrage-adapte">
+<h1>Détection de motifs par filtrage adapté<a class="headerlink" href="#detection-de-motifs-par-filtrage-adapte" title="Lien permanent vers ce titre">¶</a></h1>
+<div class="cell tag_remove-input docutils container">
 </div>
-</div>
-</div>
-<p>Les valeurs des paramètres sont à mettre à jour en fonction des données de l’énoncé.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="mi">2</span>
-<span class="n">a</span> <span class="o">=</span> <span class="mf">0.5</span>
-<span class="n">phi</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="n">f</span> <span class="o">=</span> <span class="mi">2</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Le pas de temps est choisi par essai-erreur pour obtenir une jolie courbe.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Le signal est une sinusoïde amortie.
-J’utilise deux variables intermédiaires pour la créer.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sinusoïde</span>
-<span class="n">sinus</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">f</span><span class="o">*</span><span class="n">t</span> <span class="o">+</span> <span class="n">phi</span><span class="p">)</span>
-
-<span class="c1"># Exponentielle décroissante</span>
-<span class="n">expo</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">a</span><span class="o">*</span><span class="n">t</span><span class="p">)</span>
-
-<span class="c1"># Le signal est égal à A × sinus × expo</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">A</span><span class="o">*</span><span class="n">sinus</span><span class="o">*</span><span class="n">expo</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Affichage !</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;$t$&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;$x(t)$&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Sinusoïde amortie&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
+<div class="section" id="emetteur">
+<h2>Émetteur<a class="headerlink" href="#emetteur" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../_images/tp11_10_0.png" src="../_images/tp11_10_0.png" />
+<img alt="../_images/tp31_3_0.png" src="../_images/tp31_3_0.png" />
 </div>
 </div>
-<p>Si vous avez des difficultés pour reproduire ces résultats ou pour tout complément, <a class="reference external" href="mailto:vincent&#46;mazet&#37;&#52;&#48;unistra&#46;fr">envoyez-moi un mail</a> !</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="../_images/tp31_4_0.png" src="../_images/tp31_4_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="canal-de-transmission">
+<h2>Canal de transmission<a class="headerlink" href="#canal-de-transmission" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Bruit gaussien (RSB = 10 dB)</span>
+
+<span class="n">snr</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">Px</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="n">N</span>
+<span class="n">sig</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">Px</span> <span class="o">*</span> <span class="mi">10</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="n">snr</span><span class="o">/</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">sig</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">b</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="../_images/tp31_7_0.png" src="../_images/tp31_7_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="recepteur">
+<h2>Récepteur<a class="headerlink" href="#recepteur" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Réponse impulsionnelle du filtre adapté</span>
+
+<span class="n">h</span> <span class="o">=</span> <span class="n">motif</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="../_images/tp31_10_0.png" src="../_images/tp31_10_0.png" />
+</div>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="../_images/tp31_11_0.png" src="../_images/tp31_11_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="robustesse-par-rapport-au-bruit">
+<h2>Robustesse par rapport au bruit<a class="headerlink" href="#robustesse-par-rapport-au-bruit" title="Lien permanent vers ce titre">¶</a></h2>
+<p>L’exemple ci-dessus est reproduit pour différents RSB.</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="../_images/tp31_13_0.png" src="../_images/tp31_13_0.png" />
+</div>
+</div>
+<p>On peut approfondir l’étude en testant un grand nombre de RSB,
+et pour chacun d’eux calculer le nombre d’erreurs de transmission,
+c’est-à-dire le nombre de bits différents entre la séquence binaire émise et la séquence binaire identifiée par le récepteur.</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="../_images/tp31_15_0.png" src="../_images/tp31_15_0.png" />
+</div>
+</div>
+<ul class="simple">
+<li><p>Comme on pouvait s’y attendre, le nombre d’erreur diminue lorsque le RSB augmente.</p></li>
+<li><p>On remarque par ailleurs que si le RSB est supérieur à <span class="math notranslate nohighlight">\(-10\)</span> dB, il n’y a aucune erreur détectée,
+ce qui montre que le filtre adapté est une méthode très robuste au bruit !</p></li>
+<li><p>Il y a une stagnation du pourcentage d’erreurs à environ 50 % pour un RSB inférieur à <span class="math notranslate nohighlight">\(-40\)</span> dB :
+dans ces conditions, le bruit est tellement fort que le filtre adapté se comporte comme un générateur aléatoire indépendant du message émis.</p></li>
+</ul>
+</div>
+<div class="section" id="decodage-du-signal-manchester-csv">
+<h2>Décodage du signal manchester.csv<a class="headerlink" href="#decodage-du-signal-manchester-csv" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="../_images/tp31_19_0.png" src="../_images/tp31_19_0.png" />
+</div>
+</div>
+<p>La séquence décodée est :</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1 0 0 0 0 1 0 1 0 1 0 0 1 0 1 0 0 0 0 0 1 1 0 1 0 1 1 0 1 0 0 1 1 1 1]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ce qui, en regroupant les bits 7 par 7 (code ASCII) permet d’obtenir le message :</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BRAVO
+</pre></div>
+</div>
+</div>
+</div>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -406,8 +481,6 @@ J’utilise deux variables intermédiaires pour la créer.</p>
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="../rev-p.html" title="previous page">TP : révisions</a>
-    <a class='right-next' id="next-link" href="tp12.html" title="next page">✐ Produit de convolution</a>
 
         </div>
         

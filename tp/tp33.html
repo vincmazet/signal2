@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>✐ Représentation d’un signal &#8212; Traitement du signal 2</title>
+    <title>Approximation et extrapolation par moindres carrés &#8212; Traitement du signal 2</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -57,8 +57,6 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Recherche" href="../search.html" />
-    <link rel="next" title="✐ Produit de convolution" href="tp12.html" />
-    <link rel="prev" title="TP : révisions" href="../rev-p.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -98,24 +96,24 @@
   Révisions
  </span>
 </p>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../rev-t.html">
    ✎ Exercices théoriques
   </a>
  </li>
- <li class="toctree-l1 current active has-children">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../rev-p.html">
    ✎ Exercices sur machine
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul class="current">
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="tp11.html">
      ✐ Représentation d’un signal
     </a>
    </li>
@@ -281,7 +279,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/tp/tp11.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/tp/tp33.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Télécharger le fichier source" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -306,6 +304,24 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contenu
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#approximation-par-moindres-carres">
+   Approximation par moindres carrés
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#extrapolation">
+   Extrapolation
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -314,71 +330,75 @@
         
               <div>
                 
-  <div class="section" id="representation-d-un-signal">
-<h1>✐ Représentation d’un signal<a class="headerlink" href="#representation-d-un-signal" title="Lien permanent vers ce titre">¶</a></h1>
-<p>Cet exercice est fortement fondé sur le code de la section
-<a class="reference external" href="https://vincmazet.github.io/signal2/python.html#ecrire-un-programme-python">Écrire un programme Python</a>.</p>
-<p>Par convention, les modules sont importés en début de notebook. Ils sont également renommé (<code class="docutils literal notranslate"><span class="pre">numpy</span></code> en <code class="docutils literal notranslate"><span class="pre">np</span></code> par exemple) pour raccourcir le code lorsqu’il seront utilisés.</p>
+  <div class="section" id="approximation-et-extrapolation-par-moindres-carres">
+<h1>Approximation et extrapolation par moindres carrés<a class="headerlink" href="#approximation-et-extrapolation-par-moindres-carres" title="Lien permanent vers ce titre">¶</a></h1>
+<div class="cell tag_remove-input docutils container">
+</div>
+<div class="cell tag_remove-input docutils container">
+</div>
+<div class="section" id="approximation-par-moindres-carres">
+<h2>Approximation par moindres carrés<a class="headerlink" href="#approximation-par-moindres-carres" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="math notranslate nohighlight">
+\[
+\theta = (H^TH)^{-1} H^Ty
+\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Les valeurs des paramètres sont à mettre à jour en fonction des données de l’énoncé.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="mi">2</span>
-<span class="n">a</span> <span class="o">=</span> <span class="mf">0.5</span>
-<span class="n">phi</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="n">f</span> <span class="o">=</span> <span class="mi">2</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Le pas de temps est choisi par essai-erreur pour obtenir une jolie courbe.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Le signal est une sinusoïde amortie.
-J’utilise deux variables intermédiaires pour la créer.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sinusoïde</span>
-<span class="n">sinus</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">f</span><span class="o">*</span><span class="n">t</span> <span class="o">+</span> <span class="n">phi</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Normalisation des abscisses entre 0 et 1</span>
+<span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="n">year</span><span class="o">-</span><span class="mi">1880</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2020</span><span class="o">-</span><span class="mi">1880</span><span class="p">)</span>
 
-<span class="c1"># Exponentielle décroissante</span>
-<span class="n">expo</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">a</span><span class="o">*</span><span class="n">t</span><span class="p">)</span>
+<span class="c1"># Données sous forme de vecteur colonne</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">temp</span><span class="p">]))</span>
 
-<span class="c1"># Le signal est égal à A × sinus × expo</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">A</span><span class="o">*</span><span class="n">sinus</span><span class="o">*</span><span class="n">expo</span>
+<span class="c1"># Matrice H</span>
+<span class="n">H</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span> <span class="n">x</span><span class="o">**</span><span class="mi">0</span><span class="p">,</span> <span class="n">x</span><span class="o">**</span><span class="mi">1</span><span class="p">,</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="p">]))</span>
+
+<span class="c1"># Estimation des paramètres θ</span>
+<span class="n">HT</span>     <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">H</span><span class="p">)</span>
+<span class="n">HTH</span>    <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">HT</span><span class="p">,</span> <span class="n">H</span><span class="p">)</span>
+<span class="n">HTHinv</span> <span class="o">=</span> <span class="n">linalg</span><span class="o">.</span><span class="n">pinv</span><span class="p">(</span><span class="n">HTH</span><span class="p">)</span>
+<span class="n">HTy</span>    <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">HT</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">theta</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">HTHinv</span><span class="p">,</span> <span class="n">HTy</span><span class="p">)</span>
+
+<span class="c1"># Calcul du polynôme</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">H</span><span class="p">,</span><span class="n">theta</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>Affichage !</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;$t$&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;$x(t)$&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Sinusoïde amortie&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
+<div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../_images/tp11_10_0.png" src="../_images/tp11_10_0.png" />
+<img alt="../_images/tp33_5_0.png" src="../_images/tp33_5_0.png" />
 </div>
 </div>
-<p>Si vous avez des difficultés pour reproduire ces résultats ou pour tout complément, <a class="reference external" href="mailto:vincent&#46;mazet&#37;&#52;&#48;unistra&#46;fr">envoyez-moi un mail</a> !</p>
+</div>
+<div class="section" id="extrapolation">
+<h2>Extrapolation<a class="headerlink" href="#extrapolation" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Pour extrapoler la courbe (c’est-à-dire calculer ses valeurs au délà des données),
+il suffit de calculer le polynôme sur une autre plage des abscisses,
+donc en redéfinissant <span class="math notranslate nohighlight">\(H\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">year2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1880</span><span class="p">,</span><span class="mi">2070</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="n">year2</span><span class="o">-</span><span class="mi">1880</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">2020</span><span class="o">-</span><span class="mi">1880</span><span class="p">)</span>
+<span class="n">H</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span> <span class="n">x</span><span class="o">**</span><span class="mi">0</span><span class="p">,</span> <span class="n">x</span><span class="o">**</span><span class="mi">1</span><span class="p">,</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="p">]))</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">H</span><span class="p">,</span><span class="n">theta</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="../_images/tp33_8_0.png" src="../_images/tp33_8_0.png" />
+</div>
+</div>
+<p>Si vous avez le moral accroché, vous pouvez connaître les conséquences issues de cette extrapolation sur l’article Wikipedia <a class="reference external" href="https://fr.wikipedia.org/wiki/R%C3%A9chauffement_climatique">Réchauffement climatique</a>… 😱</p>
+<p>Données :</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://data.giss.nasa.gov/gistemp/graphs_v4/">https://data.giss.nasa.gov/gistemp/graphs_v4/</a></p></li>
+<li><p><a class="reference external" href="https://climate.nasa.gov/vital-signs/global-temperature/">https://climate.nasa.gov/vital-signs/global-temperature/</a></p></li>
+</ul>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -406,8 +426,6 @@ J’utilise deux variables intermédiaires pour la créer.</p>
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="../rev-p.html" title="previous page">TP : révisions</a>
-    <a class='right-next' id="next-link" href="tp12.html" title="next page">✐ Produit de convolution</a>
 
         </div>
         

@@ -281,9 +281,9 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/ssp-p.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="_sources/ssp-p.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Télécharger le fichier source" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
+                data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Imprimer au format PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
@@ -312,8 +312,8 @@
             <nav id="bd-toc-nav">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#detection-de-motif-par-filtrage-adapte">
-   Détection de motif par filtrage adapté
+  <a class="reference internal nav-link" href="#detection-de-motifs-par-filtrage-adapte">
+   Détection de motifs par filtrage adapté
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -339,20 +339,21 @@
                 
   <div class="section" id="tp-traitement-statistique-du-signal">
 <span id="c-tp-ssp"></span><h1>TP Traitement statistique du signal<a class="headerlink" href="#tp-traitement-statistique-du-signal" title="Lien permanent vers ce titre">¶</a></h1>
-<blockquote>
-<div><p>EQM</p>
-</div></blockquote>
-<div class="section" id="detection-de-motif-par-filtrage-adapte">
-<h2>Détection de motif par filtrage adapté<a class="headerlink" href="#detection-de-motif-par-filtrage-adapte" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="section" id="detection-de-motifs-par-filtrage-adapte">
+<h2>Détection de motifs par filtrage adapté<a class="headerlink" href="#detection-de-motifs-par-filtrage-adapte" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Le codage Manchester est une norme de transmission de signaux binaires,
 utilisée notamment dans certaines communications Ethernet.
-Les bits du signal binaire sont transmis les uns à la suite des autres ;
-un 1 logique est représenté par le motif <span class="math notranslate nohighlight">\(h\)</span> (<a class="reference internal" href="#f-ssp-manchester"><span class="std std-numref">Fig. 33</span></a>),
-tandis qu’un 0 logique est représenté par <span class="math notranslate nohighlight">\(-h\)</span>.</p>
-<div class="figure align-default" id="f-ssp-manchester">
-<a class="reference internal image-reference" href="_static/figs/manchester.png"><img alt="_static/figs/manchester.png" src="_static/figs/manchester.png" style="height: 150px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 33 </span><span class="caption-text">Motif <span class="math notranslate nohighlight">\(h\)</span> utilisé dans le codage Manchester.</span><a class="headerlink" href="#f-ssp-manchester" title="Lien permanent vers cette image">¶</a></p>
-</div>
+Les bits du signal binaire sont transmis les uns à la suite des autres.
+un 1 logique est représenté par le motif <span class="math notranslate nohighlight">\(h\)</span>,
+tandis qu’un 0 logique est représenté par <span class="math notranslate nohighlight">\(-h\)</span> où</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+h(t) =
+\begin{cases}
+1  &amp;\text{ si } t \in [0,T/2[, \\
+-1 &amp;\text{ si } t \in [T/2,T[,
+\end{cases}
+\end{split}\]</div>
 <p>Dans cet exercice, nous reproduisons la chaîne de communication avec un émetteur qui crée un message binaire codé en Manchester,
 un canal de transmission où s’ajoute du bruit au signal émis,
 et enfin un récepteur dont l’objectif est de décoder le signal reçu.</p>
@@ -377,7 +378,7 @@ Décrivez le signal obtenu.
 Comment retrouver la séquence binaire à partir de ce signal ?</p></li>
 <li><p>Évaluez la robustesse du filtrage adapté en fonction du niveau de bruit :
 comment se comporte cette méthode lorsque le RSB évolue ?</p></li>
-<li><p>Appliquez le filtre adapté sur le signal <a class="reference external" href="https://vincmazet.github.io/signal2/_static/files/manchester.csv">manchester.csv</a>
+<li><p>Appliquez le filtre adapté sur le signal <a href="_static/files/manchester.csv">manchester.csv</a>
 pour décoder la séquence binaire correspondante
 (la durée <span class="math notranslate nohighlight">\(T\)</span> du motif et la fréquence d’échantillonnage restant les mêmes que dans les questions précédentes).
 Vous pouvez déterminer visuellement les bits de la séquence (sans programmation, donc)
@@ -390,12 +391,12 @@ et retrouver le message correspondant sachant que la norme ASCII a été utilis�
 <p class="sidebar-title"></p>
 <p>Source : NASA/GISS, <a class="reference external" href="https://climate.nasa.gov/vital-signs/global-temperature/">climate.nasa.gov/vital-signs/global-temperature</a>.</p>
 </div>
-<p>Le fichier <a class="reference external" href="https://vincmazet.github.io/signal2/_static/files/temperatures.csv">temperatures.csv</a> regroupe l’ensemble des températures moyennes à la surface de la Terre
+<p>Le fichier <a href="_static/files/temperatures.csv">temperatures.csv</a> regroupe l’ensemble des températures moyennes à la surface de la Terre
 pour chaque année depuis 1880.
 Les températures sont données par rapport à la moyenne des températures relevées sur la période de référence 1951–1980.
 Ces données illustrent la hausse de températures mondiales.</p>
 <ul class="simple">
-<li><p>Chargez le fichier <a class="reference external" href="https://vincmazet.github.io/signal2/_static/files/temperatures.csv">temperatures.csv</a> et affichez les données.</p></li>
+<li><p>Chargez le fichier <a href="_static/files/temperatures.csv">temperatures.csv</a> et affichez les données.</p></li>
 <li><p>Appliquez un filtre moyenneur sur les données pour obtenir une courbe plus lisse.
 Choisissez le filtre de sorte à obtenir des températures lissées sur une fenêtre de 5 ans,
 qui est le choix traditionnel pour ces données.</p></li>
@@ -403,11 +404,11 @@ qui est le choix traditionnel pour ces données.</p></li>
 </div>
 <div class="section" id="approximation-par-moindres-carres">
 <h2>Approximation par moindres carrés<a class="headerlink" href="#approximation-par-moindres-carres" title="Lien permanent vers ce titre">¶</a></h2>
-<!-- supprimer la 1re partie + ajouter des questions d'analyse et de compréhension -->
+<!-- supprimer la 1re partie + ajouter des questions d'analyse et de compréhension ? -->
 <p>À la place d’un filtre moyenneur, on souhaite effectuer une approximation de l’évolution des températures par une parabole.</p>
 <ul>
 <li><p>Calculez l’approximation des températures
-(<a class="reference external" href="https://vincmazet.github.io/signal2/_static/files/temperatures.csv">temperatures.csv</a>) par une parabole.
+(<a href="_static/files/temperatures.csv">temperatures.csv</a> ) par une parabole.
 Pour cela :</p>
 <ul>
 <li><p>normalisez les abscisses entre 0 et 1 pour éviter les problème numériques ;</p></li>
