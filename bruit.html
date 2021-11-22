@@ -57,8 +57,8 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Recherche" href="search.html" />
-    <link rel="next" title="TP : traitement des signaux bruités" href="ssp-traitement.html" />
-    <link rel="prev" title="TP : filtrage numérique" href="filtres-p.html" />
+    <link rel="next" title="Traitement des signaux bruités" href="traitement-bruit.html" />
+    <link rel="prev" title="Filtrage numérique" href="tp/tp2.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -173,10 +173,22 @@
    ✎ Exercices théoriques
   </a>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="filtres-p.html">
    ✎ Exercices sur machine
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="tp/tp2.html">
+     Filtrage numérique
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 <p class="caption">
@@ -191,8 +203,8 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="ssp-traitement.html">
-   TP : traitement des signaux bruités
+  <a class="reference internal" href="traitement-bruit.html">
+   Traitement des signaux bruités
   </a>
  </li>
  <li class="toctree-l1">
@@ -269,9 +281,9 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/bruit.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="_sources/bruit.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Télécharger le fichier source" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
+                data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Imprimer au format PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
@@ -392,11 +404,9 @@ Nous allons donc commencer par quelques rappels de probabilités.</p>
 <h2>Rappels de probabilité<a class="headerlink" href="#rappels-de-probabilite" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Une <em>variable aléatoire</em> est une variable mathématique dont la valeur n’est pas fixée.
 Les valeurs possibles de cette variable aléatoire n’ont pas forcément la même probabilité d’apparaître :
-la distribution des probabilité d’apparition des valeurs est appelée <em>densité de probabilité</em>,
-et elle est souvent notée <span class="math notranslate nohighlight">\(p\)</span>.</p>
-<p>Dans ce cours, nous nous concentrons sur les signaux bruités.
-Chaque échantillon du bruit est une variable aléatoire à laquelle est associée une densité de probabilité.
-Il existe trois modèles de densité de probabilité pour le bruit.</p>
+la distribution des probabilités d’apparition des valeurs est appelée <em>densité de probabilité</em>
+et elle est souvent notée <span class="math notranslate nohighlight">\(p\)</span>.
+Les densités de probabilité les plus courantes en traitement statistique du signal sont listées ci-dessous.</p>
 <div class="section" id="densite-de-probabilite-gaussienne">
 <h3>Densité de probabilité gaussienne<a class="headerlink" href="#densite-de-probabilite-gaussienne" title="Lien permanent vers ce titre">¶</a></h3>
 <p>La densité de probabilité gaussienne, ou loi normale, est la bien connue « courbe en cloche ».
@@ -406,6 +416,7 @@ En notant <span class="math notranslate nohighlight">\(x\)</span> la variable al
 p(x) = \frac{1}{\sqrt{2\pi\sigma^2}} \exp\left(-\frac{(x-\mu^2)}{2\sigma^2}\right),
 \]</div>
 <p>et dépend de deux paramètres : la moyenne <span class="math notranslate nohighlight">\(\mu\)</span> et l’écart-type <span class="math notranslate nohighlight">\(\sigma\)</span>.
+La moyenne représente la valeur moyenne que prend un échantillon, l’écart-type est l’écart moyen d’un échantillon par rapport à <span class="math notranslate nohighlight">\(\mu\)</span>.
 Ainsi, la variable aléatoire peut prendre n’importe quelle valeur sur <span class="math notranslate nohighlight">\(\mathbb{R}\)</span>,
 les valeurs proches de zéro étant plus probables que les valeurs éloignées de zéro.</p>
 <p>On note aussi :</p>
@@ -414,17 +425,14 @@ les valeurs proches de zéro étant plus probables que les valeurs éloignées d
 x \sim \mathcal{N}(\mu;\sigma).
 \]</div>
 <div class="figure align-default" id="f-ssp-normale">
-<div class="cell_output docutils container">
-<img alt="_images/bruit_4_0.png" src="_images/bruit_4_0.png" />
-</div>
-<p class="caption"><span class="caption-number">Fig. 21 </span><span class="caption-text">Densités de probabilité gaussiennes et 500 réalisations
+<img alt="_images/loi-normale.svg" src="_images/loi-normale.svg" /><p class="caption"><span class="caption-number">Fig. 21 </span><span class="caption-text">Densités de probabilité gaussiennes et 500 réalisations
 (à gauche : <span class="math notranslate nohighlight">\(\mathcal{N}(0;1)\)</span>, à droite : <span class="math notranslate nohighlight">\(\mathcal{N}(1;0,3)\)</span>).</span><a class="headerlink" href="#f-ssp-normale" title="Lien permanent vers cette image">¶</a></p>
 </div>
 </div>
 <div class="section" id="densite-de-probabilite-uniforme">
 <h3>Densité de probabilité uniforme<a class="headerlink" href="#densite-de-probabilite-uniforme" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Une variable aléatoire <span class="math notranslate nohighlight">\(x\)</span> distribuée suivant la densité de probabilité uniforme
-peut prendre n’importe quelle valeur sur un intervalle donné, et aucune valeur de cette intervalle n’est privilégiée par rapport à une autre.
+peut prendre n’importe quelle valeur sur un intervalle <span class="math notranslate nohighlight">\([a,b]\)</span>, et aucune valeur de cet intervalle n’est privilégiée par rapport à une autre.
 Elle a pour expression :</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -440,10 +448,7 @@ p(x) =
 x \sim \mathcal{U}[a;b].
 \]</div>
 <div class="figure align-default" id="f-ssp-uniforme">
-<div class="cell_output docutils container">
-<img alt="_images/bruit_4_1.png" src="_images/bruit_4_1.png" />
-</div>
-<p class="caption"><span class="caption-number">Fig. 22 </span><span class="caption-text">Densités de probabilité uniformes et 500 réalisations
+<img alt="_images/loi-uniforme.svg" src="_images/loi-uniforme.svg" /><p class="caption"><span class="caption-number">Fig. 22 </span><span class="caption-text">Densités de probabilité uniformes et 500 réalisations
 (à gauche : <span class="math notranslate nohighlight">\(\mathcal{U}[0;1]\)</span>, à droite : <span class="math notranslate nohighlight">\(\mathcal{U}[-2;2]\)</span>).</span><a class="headerlink" href="#f-ssp-uniforme" title="Lien permanent vers cette image">¶</a></p>
 </div>
 </div>
@@ -454,18 +459,16 @@ modélise un processus de comptage (par exemple un nombre de photons sur les pix
 Elle a pour expression :</p>
 <div class="math notranslate nohighlight">
 \[
-p(x) = \frac{\lambda^x}{x!} e^{-\lambda}.
+p(x) = \frac{\lambda^x}{x!} e^{-\lambda}
 \]</div>
+<p>où <span class="math notranslate nohighlight">\(\lambda\)</span> est l’unique paramètre, il correspond à la fois à la moyenne et la variance (c’est-à-dire le carré de l’écart-type).</p>
 <p>On note aussi :</p>
 <div class="math notranslate nohighlight">
 \[
 x \sim \mathcal{P}(\lambda).
 \]</div>
 <div class="figure align-default" id="f-ssp-poisson">
-<div class="cell_output docutils container">
-<img alt="_images/bruit_4_2.png" src="_images/bruit_4_2.png" />
-</div>
-<p class="caption"><span class="caption-number">Fig. 23 </span><span class="caption-text">Loi de Poisson et 500 réalisations
+<img alt="_images/loi-poisson.svg" src="_images/loi-poisson.svg" /><p class="caption"><span class="caption-number">Fig. 23 </span><span class="caption-text">Loi de Poisson et 500 réalisations
 (à gauche : <span class="math notranslate nohighlight">\(\mathcal{P}(1)\)</span>, à droite : <span class="math notranslate nohighlight">\(\mathcal{P}(5)\)</span>).</span><a class="headerlink" href="#f-ssp-poisson" title="Lien permanent vers cette image">¶</a></p>
 </div>
 </div>
@@ -571,9 +574,7 @@ P_b = \frac{1}{N} \sum_n |b[n]|^2.
 \]</div>
 <p>Notez que dans le cas d’un bruit blanc, la puissance du bruit <span class="math notranslate nohighlight">\(P_b\)</span> est égale à la variance du bruit.</p>
 <div class="figure align-default" id="f-ssp-rsb">
-<div class="cell_output docutils container">
-<img alt="_images/bruit_6_0.png" src="_images/bruit_6_0.png" />
-</div>
+<a class="reference internal image-reference" href="_images/rsb.svg"><img alt="_images/rsb.svg" src="_images/rsb.svg" width="600px" /></a>
 <p class="caption"><span class="caption-number">Fig. 24 </span><span class="caption-text">Exemples d’une même sinusoïde bruitée à différents RSB.</span><a class="headerlink" href="#f-ssp-rsb" title="Lien permanent vers cette image">¶</a></p>
 </div>
 </div>
@@ -605,8 +606,8 @@ P_b = \frac{1}{N} \sum_n |b[n]|^2.
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="filtres-p.html" title="previous page">TP : filtrage numérique</a>
-    <a class='right-next' id="next-link" href="ssp-traitement.html" title="next page">TP : traitement des signaux bruités</a>
+    <a class='left-prev' id="prev-link" href="tp/tp2.html" title="previous page">Filtrage numérique</a>
+    <a class='right-next' id="next-link" href="traitement-bruit.html" title="next page">Traitement des signaux bruités</a>
 
         </div>
         

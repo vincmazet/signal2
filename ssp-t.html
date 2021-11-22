@@ -58,7 +58,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Recherche" href="search.html" />
     <link rel="next" title="TP Traitement statistique du signal" href="ssp-p.html" />
-    <link rel="prev" title="TP : traitement des signaux bruités" href="ssp-traitement.html" />
+    <link rel="prev" title="Traitement des signaux bruités" href="traitement-bruit.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -173,10 +173,22 @@
    ✎ Exercices théoriques
   </a>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="filtres-p.html">
    ✎ Exercices sur machine
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="tp/tp2.html">
+     ✐ Filtrage numérique
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 <p class="caption">
@@ -191,8 +203,8 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="ssp-traitement.html">
-   TP : traitement des signaux bruités
+  <a class="reference internal" href="traitement-bruit.html">
+   Traitement des signaux bruités
   </a>
  </li>
  <li class="toctree-l1 current active">
@@ -269,9 +281,9 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/ssp-t.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="_sources/ssp-t.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Télécharger le fichier source" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
+                data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Imprimer au format PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
@@ -304,13 +316,13 @@
                 
   <div class="section" id="exercices-traitement-statistique-du-signal">
 <span id="c-td-ssp"></span><h1>Exercices : Traitement statistique du signal<a class="headerlink" href="#exercices-traitement-statistique-du-signal" title="Lien permanent vers ce titre">¶</a></h1>
-<!-- [Énoncé 2019-2020](https://vincmazet.github.io/signal2/_static/files/ssp-td.pdf) --><p><strong>Exercice 1</strong></p>
-<p>Calculez l’espérance et l’écart-type d’une variable aléatoire distribuée suivant une loi uniforme <span class="math notranslate nohighlight">\(\mathcal{U}[0,\ 1]\)</span>.</p>
+<p><strong>Exercice 1</strong></p>
+<p>Calculez l’espérance et l’écart-type d’une variable aléatoire distribuée suivant une loi uniforme <span class="math notranslate nohighlight">\(\ \mathcal{U}[0;1]\)</span>.</p>
 <p><strong>Exercice 2</strong></p>
-<p>Calculez une estimation de l’espérance et de l’écart-type de la série de <span class="math notranslate nohighlight">\(N=10\)</span> échantillons ci-dessous :</p>
+<p>Calculez une estimation de l’espérance et de l’écart-type de la série de <span class="math notranslate nohighlight">\(N=4\)</span> échantillons ci-dessous :</p>
 <div class="math notranslate nohighlight">
 \[
-  x = [ 0,81,\ 0,90,\ 0,12,\ 0,91,\ 0,63,\ 0,09,\ 0,27,\ 0,54,\ 0,95,\ 0,96 ].
+  x = [ 0,81,\ 0,90,\ 0,12,\ 0,91 ].
 \]</div>
 <p><strong>Exercice 3</strong></p>
 <p>Un signal <span class="math notranslate nohighlight">\(x\)</span> est bruité par un bruit blanc gaussien additif.</p>
@@ -318,6 +330,7 @@
 <li><p>Quel est le lien entre la puissance du bruit et son écart-type ?</p></li>
 <li><p>Exprimez l’écart-type du bruit en fonction du RSB et des échantillons du signal <span class="math notranslate nohighlight">\(x\)</span>.</p></li>
 </ul>
+<!-- Le calcul en TD du RSB est compliqué (notions de variances, espérance, covariance, indépendance...) -->
 <p><strong>Exercice 4</strong></p>
 <p>On rappelle que le filtre adapté correspond à l’intercorrélation <span class="math notranslate nohighlight">\(R_{yx}\)</span>
 entre un signal observé <span class="math notranslate nohighlight">\(y\)</span> et le motif recherché <span class="math notranslate nohighlight">\(x\)</span>.</p>
@@ -382,7 +395,7 @@ est égale à <span class="math notranslate nohighlight">\(\displaystyle\frac{1}
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="ssp-traitement.html" title="previous page">TP : traitement des signaux bruités</a>
+    <a class='left-prev' id="prev-link" href="traitement-bruit.html" title="previous page">Traitement des signaux bruités</a>
     <a class='right-next' id="next-link" href="ssp-p.html" title="next page">TP Traitement statistique du signal</a>
 
         </div>

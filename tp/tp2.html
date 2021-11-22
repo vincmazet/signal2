@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Filtrage numérique &#8212; Traitement du signal 2</title>
+    <title>✐ Filtrage numérique &#8212; Traitement du signal 2</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -57,6 +57,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="next" title="Bruit dans les signaux" href="../bruit.html" />
+    <link rel="prev" title="TP : filtrage numérique" href="../filtres-p.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -140,7 +142,7 @@
   Filtrage
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../filtre-intro.html">
    Introduction
@@ -171,10 +173,22 @@
    ✎ Exercices théoriques
   </a>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="../filtres-p.html">
    ✎ Exercices sur machine
   </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     ✐ Filtrage numérique
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 <p class="caption">
@@ -189,8 +203,8 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../ssp-traitement.html">
-   TP : traitement des signaux bruités
+  <a class="reference internal" href="../traitement-bruit.html">
+   Traitement des signaux bruités
   </a>
  </li>
  <li class="toctree-l1">
@@ -298,11 +312,6 @@
             <nav id="bd-toc-nav">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#commentaires-pour-les-intervenants">
-   📌 Commentaires pour les intervenants
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#affichage-de-lecg-mesure">
    Affichage de l’ECG mesuré
   </a>
@@ -320,11 +329,6 @@
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#realisation-d-un-filtre-rii-avec-la-transformation-bilineaire">
    Réalisation d’un filtre RII avec la transformation bilinéaire
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#realisation-du-filtre-rif-avec-la-methode-de-parks-mcclellan-lien-avec-le-projet-2020-2021">
-   Réalisation du filtre RIF avec la méthode de Parks-McClellan (lien avec le projet 2020-2021)
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -349,53 +353,14 @@
               <div>
                 
   <div class="section" id="filtrage-numerique">
-<h1>Filtrage numérique<a class="headerlink" href="#filtrage-numerique" title="Lien permanent vers ce titre">¶</a></h1>
-<hr>
-<div class="section" id="commentaires-pour-les-intervenants">
-<h2>📌 Commentaires pour les intervenants<a class="headerlink" href="#commentaires-pour-les-intervenants" title="Lien permanent vers ce titre">¶</a></h2>
-<ul class="simple">
-<li><p>Les étudiants metttent du temps à faire ce TP…
-Donc : faire de nombreux points, mises en communs, interactions, évaluations, etc.
-Aussi : leur demander pourquoi c’est si long (en chronométrant le temps mis pour chaque question ?</p></li>
-<li><p>Laissez les étudiants chercher d’eux même comment sous-échantillonner un signal,
-et quelle précautions prendre (appliquer un filtre anti-repliement).
-Au bout d’un moment, poser la question et les aiguiller vers <code class="docutils literal notranslate"><span class="pre">scipy.signal.decimate</span></code>.</p></li>
-<li><p>Donner éventuellement les fonction pour afficher le gain (<code class="docutils literal notranslate"><span class="pre">numpy.log10</span></code> et <code class="docutils literal notranslate"><span class="pre">abs</span></code>) et la phase (<code class="docutils literal notranslate"><span class="pre">numpy.angle</span></code>).</p></li>
-<li><p>Avec le RIF (<code class="docutils literal notranslate"><span class="pre">firwin</span></code>) il faut préciser la fréquence de coupure (<code class="docutils literal notranslate"><span class="pre">cutoff</span></code>).
-Mais on dirait qu’elle passe à 6 dB (et non 3 dB).
-Elle ne semble pas non plus correspondre =&gt; à éclaircir.</p></li>
-</ul>
-<hr><p>Les fonctions de filtrage sont dans <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/signal.html"><code class="docutils literal notranslate"><span class="pre">scipy.signal</span></code></a>.</p>
-</div>
+<h1>✐ Filtrage numérique<a class="headerlink" href="#filtrage-numerique" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Les fonctions de filtrage sont dans <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/signal.html"><code class="docutils literal notranslate"><span class="pre">scipy.signal</span></code></a>.</p>
 <div class="section" id="affichage-de-lecg-mesure">
 <h2>Affichage de l’ECG mesuré<a class="headerlink" href="#affichage-de-lecg-mesure" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Connaissant le nombre de points dans le signal (<code class="docutils literal notranslate"><span class="pre">numpy.shape</span></code>) et la fréquence d’échantillonnage, il est facile de générer le vecteur des échantillons.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Chargement du signal</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s2">&quot;../_static/ecg_lfn.csv&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-
-<span class="c1"># Abscisses</span>
-<span class="n">fe</span> <span class="o">=</span> <span class="mi">1000</span>
-<span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="n">n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
-<span class="n">t</span> <span class="o">=</span> <span class="n">n</span><span class="o">/</span><span class="n">fe</span>
-
-<span class="c1"># Affichage</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;t (s)&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;ECG&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
+<div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(9519,)
-</pre></div>
-</div>
-<img alt="../_images/tp2_7_1.png" src="../_images/tp2_7_1.png" />
+<img alt="../_images/tp2_7_0.png" src="../_images/tp2_7_0.png" />
 </div>
 </div>
 <p>Attention : avant de sous-échantillonner, il convient d’appliquer un filtre anti-repliement !
@@ -514,15 +479,6 @@ détermination du gabarit analogique, synthèse du filtre analogique, et enfin t
 </div>
 </div>
 </div>
-<div class="section" id="realisation-du-filtre-rif-avec-la-methode-de-parks-mcclellan-lien-avec-le-projet-2020-2021">
-<h2>Réalisation du filtre RIF avec la méthode de Parks-McClellan (lien avec le projet 2020-2021)<a class="headerlink" href="#realisation-du-filtre-rif-avec-la-methode-de-parks-mcclellan-lien-avec-le-projet-2020-2021" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Il est paumé Parks-McLellan avec cette bande de transition très faible et très à gauche dans les fréquences…</p>
-<div class="cell tag_remove-input docutils container">
-<div class="cell_output docutils container">
-<img alt="../_images/tp2_30_0.png" src="../_images/tp2_30_0.png" />
-</div>
-</div>
-</div>
 <div class="section" id="application">
 <h2>Application<a class="headerlink" href="#application" title="Lien permanent vers ce titre">¶</a></h2>
 <div class="cell tag_remove-input docutils container">
@@ -568,6 +524,8 @@ détermination du gabarit analogique, synthèse du filtre analogique, et enfin t
         
         <div class='prev-next-bottom'>
             
+    <a class='left-prev' id="prev-link" href="../filtres-p.html" title="previous page">TP : filtrage numérique</a>
+    <a class='right-next' id="next-link" href="../bruit.html" title="next page">Bruit dans les signaux</a>
 
         </div>
         
