@@ -4,7 +4,7 @@
 
 **Exercice 1**
 
-Calculez l'espérance et l'écart-type d'une variable aléatoire distribuée suivant une loi uniforme $\ \mathcal{U}[0;1]$.
+Calculez l'espérance et l'écart-type d'une variable aléatoire distribuée suivant une loi uniforme $\ \mathcal{U}[0\ ; 1]$.
 
 
 **Exercice 2**
@@ -12,13 +12,13 @@ Calculez l'espérance et l'écart-type d'une variable aléatoire distribuée sui
 Calculez une estimation de l'espérance et de l'écart-type de la série de $N=4$ échantillons ci-dessous :
 
 $$
-  x = [ 0,81,\ 0,90,\ 0,12,\ 0,91 ].
+  x = \begin{bmatrix} 0,\!81 & 0,\!90 & 0,\!12 & 0,\!91 \end{bmatrix}.
 $$
 
 
 **Exercice 3**
 
-Un signal $x$ est bruité par un bruit blanc gaussien additif.
+Un signal à temps discret $x$ est bruité par un bruit blanc gaussien additif.
 * Quel est le lien entre la puissance du bruit et son écart-type ?
 * Exprimez l'écart-type du bruit en fonction du RSB et des échantillons du signal $x$.
 
@@ -47,10 +47,10 @@ et une porte $h$.
 
 **Exercice 6**
 
-On dispose de plusieurs mesures $y_i$ d'un même signal $x$ :
+On dispose de $I$ mesures $y_i$ d'un même signal $x$ :
 
 $$
-\forall i\in\{1,\dots,N\}, \forall n, \quad y_i[n]=x[n]+b_i[n]
+\forall i\in\{1,\dots,I\}, \forall n, \quad y_i[n]=x[n]+b_i[n]
 $$
 
 où les bruits $b_i$ sont supposés blancs gaussiens additifs.

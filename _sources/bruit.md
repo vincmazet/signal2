@@ -47,12 +47,12 @@ $$
 et dépend de deux paramètres : la moyenne $\mu$ et l'écart-type $\sigma$.
 La moyenne représente la valeur moyenne que prend un échantillon, l'écart-type est l'écart moyen d'un échantillon par rapport à $\mu$.
 Ainsi, la variable aléatoire peut prendre n'importe quelle valeur sur $\mathbb{R}$,
-les valeurs proches de zéro étant plus probables que les valeurs éloignées de zéro.
+les valeurs proches de $\mu$ étant plus probables que les valeurs éloignées de $\mu$.
 
 On note aussi :
 
 $$
-x \sim \mathcal{N}(\mu;\sigma).
+x \sim \mathcal{N}(\mu\ ;\sigma).
 $$
 
 ```{figure} figs/loi-normale.svg
@@ -60,7 +60,7 @@ $$
 name: F:ssp:normale
 ---
 Densités de probabilité gaussiennes et 500 réalisations
-(à gauche : $\mathcal{N}(0;1)$, à droite : $\mathcal{N}(1;0,3)$).
+(à gauche : $\mathcal{N}(0\ ;1)$, à droite : $\mathcal{N}(1\ ;0,3)$).
 ```
 
 
@@ -81,7 +81,7 @@ $$
 On note aussi :
 
 $$
-x \sim \mathcal{U}[a;b].
+x \sim \mathcal{U}[a\ ;b].
 $$
 
 
@@ -90,7 +90,7 @@ $$
 name: F:ssp:uniforme
 ---
 Densités de probabilité uniformes et 500 réalisations
-(à gauche : $\mathcal{U}[0;1]$, à droite : $\mathcal{U}[-2;2]$).
+(à gauche : $\mathcal{U}[0\ ;1]$, à droite : $\mathcal{U}[-2\ ;2]$).
 ```
 
 
