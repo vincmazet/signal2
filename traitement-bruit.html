@@ -464,7 +464,7 @@ L’observation est donc modélisée :</p>
 y[n] = x[n-k] + b[n]
 \]</div>
 <p>où <span class="math notranslate nohighlight">\(k\)</span> est l’instant d’apparition du motif <span class="math notranslate nohighlight">\(x\)</span>.</p>
-<p>On peut déterminer l’instant <span class="math notranslate nohighlight">\(k\)</span> où le motif apparaît en calculant l’intercorrélation entre <span class="math notranslate nohighlight">\(y\)</span> et <span class="math notranslate nohighlight">\(X\)</span>.</p>
+<p>On peut déterminer l’instant <span class="math notranslate nohighlight">\(k\)</span> où le motif apparaît en calculant l’intercorrélation entre <span class="math notranslate nohighlight">\(y\)</span> et <span class="math notranslate nohighlight">\(x\)</span>.</p>
 <p>Comme l’intercorrélation entre <span class="math notranslate nohighlight">\(y\)</span> et <span class="math notranslate nohighlight">\(x\)</span> est équivalente à la convolution entre <span class="math notranslate nohighlight">\(y\)</span> et le motif <span class="math notranslate nohighlight">\(x\)</span> retourné dans le temps (<span class="math notranslate nohighlight">\(x[-n]\)</span>),
 cette technique est un filtrage, qu’on appelle « filtrage adapté » (<em>matched filter</em>).
 On peut montrer qu’elle est la solution optimale pour maximiser le RSB dans le cadre d’un bruit additif.

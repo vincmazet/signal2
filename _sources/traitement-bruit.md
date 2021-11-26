@@ -94,7 +94,7 @@ $$
 
 où $k$ est l'instant d'apparition du motif $x$.
 
-On peut déterminer l'instant $k$ où le motif apparaît en calculant l'intercorrélation entre $y$ et $X$.
+On peut déterminer l'instant $k$ où le motif apparaît en calculant l'intercorrélation entre $y$ et $x$.
 
 Comme l'intercorrélation entre $y$ et $x$ est équivalente à la convolution entre $y$ et le motif $x$ retourné dans le temps ($x[-n]$),
 cette technique est un filtrage, qu'on appelle « filtrage adapté » (_matched filter_).
