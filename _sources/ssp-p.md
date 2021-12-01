@@ -81,16 +81,19 @@ Ces données illustrent la hausse de températures mondiales.
 * Calculez l'approximation des températures
   (<a href="_static/files/temperatures.csv">temperatures.csv</a> ) par une parabole.
   Pour cela :
-  - normalisez les abscisses entre 0 et 1 pour éviter les problème numériques ;
+  - normalisez les abscisses entre 0 et 1 pour éviter les problèmes numériques ;
   - la transposée est obtenue avec `numpy.transpose` ;
   - la multiplication matricielle est obtenue avec `numpy.dot` ;
   - l'inverse matricielle est obtenue avec `numpy.linalg.pinv` ;
   - attention à la dimension des matrices et vecteurs (vérifiez bien chaque étape du calcul avec `shape` !) ;
   - Pour générer la matrice $H$ des coefficients et le vecteur des données $y$,
     vous pouvez vous inspirer du code suivant :
-    ```
+<!--     ```
     y = np.transpose(np.array([temperatures]))
-    H = np.transpose(np.array([ x**0, x**1, x**2 ]))
+    H = np.transpose(np.array([ n**0, n**1, n**2 ]))
+    ``` -->
+    ```
+    H = np.transpose( np.array([ n**0, n**1, n**2 ]) )
     ```
   
   Affichez le résultat sur la courbe des températures pour vérifier

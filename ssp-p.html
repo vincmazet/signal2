@@ -57,7 +57,7 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Recherche" href="search.html" />
-    <link rel="next" title="Installer et utiliser Python" href="python.html" />
+    <link rel="next" title="✐ Détection de motifs par filtrage adapté" href="tp/tp31.html" />
     <link rel="prev" title="Exercices : Traitement statistique du signal" href="ssp-t.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -212,10 +212,32 @@
    ✎ Exercices théoriques
   </a>
  </li>
- <li class="toctree-l1 current active">
+ <li class="toctree-l1 current active has-children">
   <a class="current reference internal" href="#">
    ✎ Exercices sur machine
   </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="tp/tp31.html">
+     ✐ Détection de motifs par filtrage adapté
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="tp/tp32.html">
+     ✐ Lissage par filtre moyenneur
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="tp/tp33.html">
+     ✐ Approximation et extrapolation par moindres carrés
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 <p class="caption">
@@ -406,31 +428,39 @@ qui est le choix traditionnel pour ces données.</p></li>
 <h2>Approximation par moindres carrés<a class="headerlink" href="#approximation-par-moindres-carres" title="Lien permanent vers ce titre">¶</a></h2>
 <!-- supprimer la 1re partie + ajouter des questions d'analyse et de compréhension ? -->
 <p>À la place d’un filtre moyenneur, on souhaite effectuer une approximation de l’évolution des températures par une parabole.</p>
-<ul>
+<ul class="simple">
 <li><p>Calculez l’approximation des températures
 (<a href="_static/files/temperatures.csv">temperatures.csv</a> ) par une parabole.
 Pour cela :</p>
 <ul>
-<li><p>normalisez les abscisses entre 0 et 1 pour éviter les problème numériques ;</p></li>
+<li><p>normalisez les abscisses entre 0 et 1 pour éviter les problèmes numériques ;</p></li>
 <li><p>la transposée est obtenue avec <code class="docutils literal notranslate"><span class="pre">numpy.transpose</span></code> ;</p></li>
 <li><p>la multiplication matricielle est obtenue avec <code class="docutils literal notranslate"><span class="pre">numpy.dot</span></code> ;</p></li>
 <li><p>l’inverse matricielle est obtenue avec <code class="docutils literal notranslate"><span class="pre">numpy.linalg.pinv</span></code> ;</p></li>
 <li><p>attention à la dimension des matrices et vecteurs (vérifiez bien chaque étape du calcul avec <code class="docutils literal notranslate"><span class="pre">shape</span></code> !) ;</p></li>
 <li><p>Pour générer la matrice <span class="math notranslate nohighlight">\(H\)</span> des coefficients et le vecteur des données <span class="math notranslate nohighlight">\(y\)</span>,
-vous pouvez vous inspirer du code suivant :</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">temperatures</span><span class="p">]))</span>
-<span class="n">H</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span> <span class="n">x</span><span class="o">**</span><span class="mi">0</span><span class="p">,</span> <span class="n">x</span><span class="o">**</span><span class="mi">1</span><span class="p">,</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="p">]))</span>
-</pre></div>
-</div>
+vous pouvez vous inspirer du code suivant :</p></li>
+</ul>
 </li>
 </ul>
+<!--     ```
+    y = np.transpose(np.array([temperatures]))
+    H = np.transpose(np.array([ n**0, n**1, n**2 ]))
+    ``` -->
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>```
+H = np.transpose( np.array([ n**0, n**1, n**2 ]) )
+```
+</pre></div>
+</div>
 <p>Affichez le résultat sur la courbe des températures pour vérifier
 la bonne adéquation de l’approximation par rapport aux données.</p>
-</li>
+<ul class="simple">
 <li><p>En définissant une nouvelle matrice <span class="math notranslate nohighlight">\(H\)</span>,
 extrapolez l’évolution des températures pour connaître, selon ce modèle,
 la hausse des températures attendue l’année de votre 70<sup>e</sup> anniversaire…</p></li>
 </ul>
+</div>
+<div class="toctree-wrapper compound">
 </div>
 </div>
 
@@ -460,7 +490,7 @@ la hausse des températures attendue l’année de votre 70<sup>e</sup> annivers
         <div class='prev-next-bottom'>
             
     <a class='left-prev' id="prev-link" href="ssp-t.html" title="previous page">Exercices : Traitement statistique du signal</a>
-    <a class='right-next' id="next-link" href="python.html" title="next page">Installer et utiliser Python</a>
+    <a class='right-next' id="next-link" href="tp/tp31.html" title="next page">✐ Détection de motifs par filtrage adapté</a>
 
         </div>
         

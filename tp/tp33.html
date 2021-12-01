@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Approximation et extrapolation par moindres carrés &#8212; Traitement du signal 2</title>
+    <title>✐ Approximation et extrapolation par moindres carrés &#8212; Traitement du signal 2</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -57,6 +57,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="next" title="Installer et utiliser Python" href="../python.html" />
+    <link rel="prev" title="✐ Lissage par filtre moyenneur" href="tp32.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -194,7 +196,7 @@
   Traitement statistique du signal
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../bruit.html">
    Bruit dans les signaux
@@ -210,10 +212,32 @@
    ✎ Exercices théoriques
   </a>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="../ssp-p.html">
    ✎ Exercices sur machine
   </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="tp31.html">
+     ✐ Détection de motifs par filtrage adapté
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="tp32.html">
+     ✐ Lissage par filtre moyenneur
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     ✐ Approximation et extrapolation par moindres carrés
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 <p class="caption">
@@ -331,7 +355,7 @@
               <div>
                 
   <div class="section" id="approximation-et-extrapolation-par-moindres-carres">
-<h1>Approximation et extrapolation par moindres carrés<a class="headerlink" href="#approximation-et-extrapolation-par-moindres-carres" title="Lien permanent vers ce titre">¶</a></h1>
+<h1>✐ Approximation et extrapolation par moindres carrés<a class="headerlink" href="#approximation-et-extrapolation-par-moindres-carres" title="Lien permanent vers ce titre">¶</a></h1>
 <div class="cell tag_remove-input docutils container">
 </div>
 <div class="cell tag_remove-input docutils container">
@@ -348,7 +372,7 @@
 <span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="n">year</span><span class="o">-</span><span class="mi">1880</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2020</span><span class="o">-</span><span class="mi">1880</span><span class="p">)</span>
 
 <span class="c1"># Données sous forme de vecteur colonne</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">temp</span><span class="p">]))</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span> <span class="c1"># plus clair que y = np.transpose(np.array([temp]))</span>
 
 <span class="c1"># Matrice H</span>
 <span class="n">H</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span> <span class="n">x</span><span class="o">**</span><span class="mi">0</span><span class="p">,</span> <span class="n">x</span><span class="o">**</span><span class="mi">1</span><span class="p">,</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="p">]))</span>
@@ -360,7 +384,7 @@
 <span class="n">HTy</span>    <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">HT</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 <span class="n">theta</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">HTHinv</span><span class="p">,</span> <span class="n">HTy</span><span class="p">)</span>
 
-<span class="c1"># Calcul du polynôme</span>
+<span class="c1"># Calcul du polynôme z</span>
 <span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">H</span><span class="p">,</span><span class="n">theta</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -426,6 +450,8 @@ donc en redéfinissant <span class="math notranslate nohighlight">\(H\)</span>.<
         
         <div class='prev-next-bottom'>
             
+    <a class='left-prev' id="prev-link" href="tp32.html" title="previous page">✐ Lissage par filtre moyenneur</a>
+    <a class='right-next' id="next-link" href="../python.html" title="next page">Installer et utiliser Python</a>
 
         </div>
         
