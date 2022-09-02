@@ -4,11 +4,13 @@
 <html lang="fr">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Traitement des signaux bruités &#8212; Traitement du signal 2</title>
     
-  <link href="_static/css/theme.css" rel="stylesheet" />
-  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,52 +20,67 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
-    <link rel="stylesheet" href="_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="_static/jbvinc.css" />
     <link rel="stylesheet" type="text/css" href="_static/.ipynb_checkpoints/jbvinc-checkpoint.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/language_data.js"></script>
-    <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
     <script src="_static/translations.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
-    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Recherche" href="search.html" />
     <link rel="next" title="Exercices : Traitement statistique du signal" href="ssp-t.html" />
     <link rel="prev" title="Bruit dans les signaux" href="bruit.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="fr">
+    
+
+    <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -72,10 +89,12 @@
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="index.html">
+      
       
       
       <h1 class="site-logo" id="site-title">Traitement du signal 2</h1>
@@ -83,17 +102,18 @@
     </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
   <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Rechercher dans ce livre ..." aria-label="Rechercher dans ce livre ..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="index.html">
-   Introduction
-  </a>
- </li>
-</ul>
-<p class="caption">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="index.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Révisions
  </span>
@@ -104,40 +124,13 @@
    ✎ Exercices théoriques
   </a>
  </li>
- <li class="toctree-l1 has-children">
+ <li class="toctree-l1">
   <a class="reference internal" href="rev-p.html">
    ✎ Exercices sur machine
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="tp/tp11.html">
-     ✐ Représentation d’un signal
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="tp/tp12.html">
-     ✐ Produit de convolution
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="tp/tp13.html">
-     ✐ Transformée de Fourier discrète
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="tp/tp14.html">
-     ✐ Analyse spectrale d’un signal audio
-    </a>
-   </li>
-  </ul>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Filtrage
  </span>
@@ -173,25 +166,13 @@
    ✎ Exercices théoriques
   </a>
  </li>
- <li class="toctree-l1 has-children">
+ <li class="toctree-l1">
   <a class="reference internal" href="filtres-p.html">
    ✎ Exercices sur machine
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-  <label for="toctree-checkbox-2">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="tp/tp2.html">
-     ✐ Filtrage numérique
-    </a>
-   </li>
-  </ul>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Traitement statistique du signal
  </span>
@@ -212,35 +193,13 @@
    ✎ Exercices théoriques
   </a>
  </li>
- <li class="toctree-l1 has-children">
+ <li class="toctree-l1">
   <a class="reference internal" href="ssp-p.html">
    ✎ Exercices sur machine
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
-  <label for="toctree-checkbox-3">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="tp/tp31.html">
-     ✐ Détection de motifs par filtrage adapté
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="tp/tp32.html">
-     ✐ Lissage par filtre moyenneur
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="tp/tp33.html">
-     ✐ Approximation et extrapolation par moindres carrés
-    </a>
-   </li>
-  </ul>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Annexes
  </span>
@@ -269,8 +228,13 @@
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
 </div>
 
 
@@ -278,61 +242,117 @@
 
 
           
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
     
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
-            
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Basculer la navigation" aria-controls="site-navigation"
-                title="Basculer la navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Téléchargez cette page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
+    <div class="header-article row sticky-top noprint">
         
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/traitement-bruit.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Télécharger le fichier source" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Imprimer au format PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/traitement-bruit.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
     </div>
 </div>
 
-            <!-- Source interaction buttons -->
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Mode plein écran"
-        title="Mode plein écran"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contenu
-            </div>
-            <nav id="bd-toc-nav">
-                <ul class="visible nav section-nav flex-column">
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#detection-de-signaux">
    Détection de signaux
@@ -401,17 +421,101 @@
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Traitement des signaux bruités</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#detection-de-signaux">
+   Détection de signaux
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#detection-de-signaux-periodiques-inconnus-de-periode-inconnue">
+     Détection de signaux périodiques inconnus de période inconnue
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#detection-de-signaux-periodiques-inconnus-de-periode-connue">
+     Détection de signaux périodiques inconnus de période connue
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#detection-d-un-motif">
+     Détection d’un motif
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#debruitage-de-signaux">
+   Débruitage de signaux
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#debruitage-d-un-signal-unique">
+     Débruitage d’un signal unique
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#debruitage-de-plusieurs-realisations-d-un-meme-signal">
+     Débruitage de plusieurs réalisations d’un même signal
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#approximation-par-moindres-carres">
+   Approximation par moindres carrés
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#problematique">
+     Problématique
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ecriture-matricielle">
+     Écriture matricielle
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#minimisation-du-critere-des-moindres-carres">
+     Minimisation du critère des moindres carrés
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#illustration">
+     Illustration
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="section" id="traitement-des-signaux-bruites">
-<span id="c-ssp-traitement"></span><h1>Traitement des signaux bruités<a class="headerlink" href="#traitement-des-signaux-bruites" title="Lien permanent vers ce titre">¶</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="traitement-des-signaux-bruites">
+<span id="c-ssp-traitement"></span><h1>Traitement des signaux bruités<a class="headerlink" href="#traitement-des-signaux-bruites" title="Lien permanent vers ce titre">#</a></h1>
 <p>Nous présentons différentes techniques de traitement de signaux bruités.
 Ces techniques sont regroupées en trois parties :</p>
 <ul class="simple">
@@ -421,12 +525,12 @@ Ces techniques sont regroupées en trois parties :</p>
 </ul>
 <p>Sauf indication contraire, nous supposons que le bruit est blanc, gaussien et additif :
 par conséquent, le signal observé <span class="math notranslate nohighlight">\(y\)</span> est la somme d’un signal non bruité <span class="math notranslate nohighlight">\(x\)</span> et d’un bruit <span class="math notranslate nohighlight">\(b\)</span>.</p>
-<div class="section" id="detection-de-signaux">
-<h2>Détection de signaux<a class="headerlink" href="#detection-de-signaux" title="Lien permanent vers ce titre">¶</a></h2>
+<section id="detection-de-signaux">
+<h2>Détection de signaux<a class="headerlink" href="#detection-de-signaux" title="Lien permanent vers ce titre">#</a></h2>
 <p>Lorsque l’on parle de « détecter un signal », cela signifie répondre à la question : « le signal <span class="math notranslate nohighlight">\(x\)</span> est-il présent dans le signal observé <span class="math notranslate nohighlight">\(y\)</span> ? ».
 Différentes techniques de détection existent, en fonction des connaissances que l’on a sur le signal recherché <span class="math notranslate nohighlight">\(x\)</span>.</p>
-<div class="section" id="detection-de-signaux-periodiques-inconnus-de-periode-inconnue">
-<h3>Détection de signaux périodiques inconnus de période inconnue<a class="headerlink" href="#detection-de-signaux-periodiques-inconnus-de-periode-inconnue" title="Lien permanent vers ce titre">¶</a></h3>
+<section id="detection-de-signaux-periodiques-inconnus-de-periode-inconnue">
+<h3>Détection de signaux périodiques inconnus de période inconnue<a class="headerlink" href="#detection-de-signaux-periodiques-inconnus-de-periode-inconnue" title="Lien permanent vers ce titre">#</a></h3>
 <p>Dans le cas où l’on cherche dans l’observation un signal <span class="math notranslate nohighlight">\(x\)</span> périodique, mais qu’on ne connait ni sa période ni sa forme,
 alors l’autocorrélation de <span class="math notranslate nohighlight">\(y\)</span> permet de déterminer si le signal <span class="math notranslate nohighlight">\(x\)</span> est présent et quelle est sa période.
 On rappelle que l”<a class="reference external" href="https://vincmazet.github.io/signal1/xcorr/intercorrelation.html#autocorrelation">autocorrélation</a>
@@ -446,14 +550,16 @@ R_y[m] &amp;= \sum_{n=-\infty}^{+\infty} y[n+m] y[n] \\
 </ul>
 <p>Finalement, l’autocorrélation <span class="math notranslate nohighlight">\(R_y\)</span> est égale à l’autocorrélation de <span class="math notranslate nohighlight">\(x\)</span> (sauf en zéro).
 Si <span class="math notranslate nohighlight">\(x\)</span> est bien présent dans l’observation, alors <span class="math notranslate nohighlight">\(R_y\)</span> est périodique et sa période est égale à la période de <span class="math notranslate nohighlight">\(x\)</span>.</p>
-<div class="figure align-default" id="f-ssp-detection1">
-<img alt="_images/detection1.svg" src="_images/detection1.svg" /><p class="caption"><span class="caption-number">Fig. 25 </span><span class="caption-text">Le signal <span class="math notranslate nohighlight">\(y\)</span> est la somme du signal <span class="math notranslate nohighlight">\(x\)</span> (périodique, mais de forme et de période inconnues) et d’un bruit blanc <span class="math notranslate nohighlight">\(b\)</span>.
+<figure class="align-default" id="f-ssp-detection1">
+<img alt="_images/detection1.svg" src="_images/detection1.svg" /><figcaption>
+<p><span class="caption-number">Fig. 23 </span><span class="caption-text">Le signal <span class="math notranslate nohighlight">\(y\)</span> est la somme du signal <span class="math notranslate nohighlight">\(x\)</span> (périodique, mais de forme et de période inconnues) et d’un bruit blanc <span class="math notranslate nohighlight">\(b\)</span>.
 L’autocorrélation <span class="math notranslate nohighlight">\(R_{y}\)</span> fait apparaître un motif périodique de période 50
-qui confirme la présence dans <span class="math notranslate nohighlight">\(y\)</span> d’un signal de même période.</span><a class="headerlink" href="#f-ssp-detection1" title="Lien permanent vers cette image">¶</a></p>
-</div>
-</div>
-<div class="section" id="detection-de-signaux-periodiques-inconnus-de-periode-connue">
-<h3>Détection de signaux périodiques inconnus de période connue<a class="headerlink" href="#detection-de-signaux-periodiques-inconnus-de-periode-connue" title="Lien permanent vers ce titre">¶</a></h3>
+qui confirme la présence dans <span class="math notranslate nohighlight">\(y\)</span> d’un signal de même période.</span><a class="headerlink" href="#f-ssp-detection1" title="Lien permanent vers cette image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="detection-de-signaux-periodiques-inconnus-de-periode-connue">
+<h3>Détection de signaux périodiques inconnus de période connue<a class="headerlink" href="#detection-de-signaux-periodiques-inconnus-de-periode-connue" title="Lien permanent vers ce titre">#</a></h3>
 <p>Ce cas est plus favorable que le précédent car on dispose d’une information supplémentaire.
 On cherche à déterminer si l’observation <span class="math notranslate nohighlight">\(y\)</span> correspond au signal périodique <span class="math notranslate nohighlight">\(x\)</span> (de période <span class="math notranslate nohighlight">\(T\)</span>) bruité par un bruit blanc <span class="math notranslate nohighlight">\(b\)</span>.
 Le principe de détection consiste à effectuer l’intercorrélation de <span class="math notranslate nohighlight">\(y\)</span> avec un signal auxiliaire <span class="math notranslate nohighlight">\(z\)</span> périodique et de période <span class="math notranslate nohighlight">\(T\)</span>
@@ -468,15 +574,17 @@ R_{yz}[m] &amp;= \sum_{n=-\infty}^{+\infty} y[n+m] z[n] \\
 <p><span class="math notranslate nohighlight">\(R_{xz}\)</span> est périodique puisque <span class="math notranslate nohighlight">\(x\)</span> et <span class="math notranslate nohighlight">\(z\)</span> sont de même période,
 alors que <span class="math notranslate nohighlight">\(R_{bz}\)</span> est nulle puisque <span class="math notranslate nohighlight">\(b\)</span> et <span class="math notranslate nohighlight">\(z\)</span> sont décorrélés.
 Ainsi, <span class="math notranslate nohighlight">\(R_{yz}\)</span> sera périodique de période <span class="math notranslate nohighlight">\(T\)</span> si le signal <span class="math notranslate nohighlight">\(x\)</span> est présent.</p>
-<div class="figure align-default" id="f-ssp-detection2">
-<img alt="_images/detection2.svg" src="_images/detection2.svg" /><p class="caption"><span class="caption-number">Fig. 26 </span><span class="caption-text">Le signal observé <span class="math notranslate nohighlight">\(y\)</span> est la somme du signal périodique <span class="math notranslate nohighlight">\(x\)</span> (de forme inconnue mais de période connue) et d’un bruit blanc <span class="math notranslate nohighlight">\(b\)</span>.
+<figure class="align-default" id="f-ssp-detection2">
+<img alt="_images/detection2.svg" src="_images/detection2.svg" /><figcaption>
+<p><span class="caption-number">Fig. 24 </span><span class="caption-text">Le signal observé <span class="math notranslate nohighlight">\(y\)</span> est la somme du signal périodique <span class="math notranslate nohighlight">\(x\)</span> (de forme inconnue mais de période connue) et d’un bruit blanc <span class="math notranslate nohighlight">\(b\)</span>.
 Le signal auxiliaire <span class="math notranslate nohighlight">\(z\)</span> est ici une sinusoïde de même période que <span class="math notranslate nohighlight">\(x\)</span>.
 L’intercorrélation <span class="math notranslate nohighlight">\(R_{yz}\)</span> fait apparaître un motif périodique de période 50
-qui confirme la présence dans <span class="math notranslate nohighlight">\(y\)</span> d’un signal de même période.</span><a class="headerlink" href="#f-ssp-detection2" title="Lien permanent vers cette image">¶</a></p>
-</div>
-</div>
-<div class="section" id="detection-d-un-motif">
-<h3>Détection d’un motif<a class="headerlink" href="#detection-d-un-motif" title="Lien permanent vers ce titre">¶</a></h3>
+qui confirme la présence dans <span class="math notranslate nohighlight">\(y\)</span> d’un signal de même période.</span><a class="headerlink" href="#f-ssp-detection2" title="Lien permanent vers cette image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="detection-d-un-motif">
+<h3>Détection d’un motif<a class="headerlink" href="#detection-d-un-motif" title="Lien permanent vers ce titre">#</a></h3>
 <p>Un « motif » est un signal déterministe connu et de durée finie.
 La technique suivante permet de déterminer si le motif est présent dans l’observation <span class="math notranslate nohighlight">\(y\)</span>,
 et si oui à obtenir son instant d’apparition.
@@ -491,20 +599,22 @@ y[n] = x[n-k] + b[n]
 cette technique est un filtrage, qu’on appelle « filtrage adapté » (<em>matched filter</em>).
 On peut montrer qu’elle est la solution optimale pour maximiser le RSB dans le cadre d’un bruit additif.
 Elle est notamment utilisé dans des applications radar ou en communications numériques.</p>
-<div class="figure align-default" id="f-ssp-filtre-adapte">
-<img alt="_images/filtre-adapte.svg" src="_images/filtre-adapte.svg" /><p class="caption"><span class="caption-number">Fig. 27 </span><span class="caption-text">Le motif <span class="math notranslate nohighlight">\(x\)</span> est une porte et le signal observé <span class="math notranslate nohighlight">\(y\)</span> correspond à <span class="math notranslate nohighlight">\(x\)</span> décalé de <span class="math notranslate nohighlight">\(k=60\)</span> échantillons
+<figure class="align-default" id="f-ssp-filtre-adapte">
+<img alt="_images/filtre-adapte.svg" src="_images/filtre-adapte.svg" /><figcaption>
+<p><span class="caption-number">Fig. 25 </span><span class="caption-text">Le motif <span class="math notranslate nohighlight">\(x\)</span> est une porte et le signal observé <span class="math notranslate nohighlight">\(y\)</span> correspond à <span class="math notranslate nohighlight">\(x\)</span> décalé de <span class="math notranslate nohighlight">\(k=60\)</span> échantillons
 et bruité par un bruit blanc gaussien de RSB 20 dB.
 Seules les corrélations de <span class="math notranslate nohighlight">\(x\)</span> avec <span class="math notranslate nohighlight">\(x\)</span> et <span class="math notranslate nohighlight">\(y\)</span> présentent un maximum clair,
-ce qui indique la présence du motif à cet instant.</span><a class="headerlink" href="#f-ssp-filtre-adapte" title="Lien permanent vers cette image">¶</a></p>
-</div>
-</div>
-</div>
-<div class="section" id="debruitage-de-signaux">
-<h2>Débruitage de signaux<a class="headerlink" href="#debruitage-de-signaux" title="Lien permanent vers ce titre">¶</a></h2>
+ce qui indique la présence du motif à cet instant.</span><a class="headerlink" href="#f-ssp-filtre-adapte" title="Lien permanent vers cette image">#</a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="debruitage-de-signaux">
+<h2>Débruitage de signaux<a class="headerlink" href="#debruitage-de-signaux" title="Lien permanent vers ce titre">#</a></h2>
 <p>Débruiter un signal, c’est réduire le plus possible le bruit présent dans le signal.
 Sauf cas très particulier, il n’est pas possible d’éliminer complètement le bruit puisqu’il est inconnu.</p>
-<div class="section" id="debruitage-d-un-signal-unique">
-<h3>Débruitage d’un signal unique<a class="headerlink" href="#debruitage-d-un-signal-unique" title="Lien permanent vers ce titre">¶</a></h3>
+<section id="debruitage-d-un-signal-unique">
+<h3>Débruitage d’un signal unique<a class="headerlink" href="#debruitage-d-un-signal-unique" title="Lien permanent vers ce titre">#</a></h3>
 <p>On observe un signal <span class="math notranslate nohighlight">\(x\)</span> bruité par un bruit blanc gaussien additif :</p>
 <div class="math notranslate nohighlight">
 \[
@@ -530,11 +640,13 @@ y = [4,\, 9,\, 8,\, 7,\, 12,\, 5,\, 1,\, 0,\, 5,\, 4,\, 3,\, 2,\, 4]
 z = [?,\, 7,\, 8,\, 9,\, 8,\, 6,\, 2,\, 2,\, 3,\, 4,\, 3,\, 3,\, ?]
 \]</div>
 <p>où les deux points d’interrogation correspondent à des échantillons qu’on ne peut pas calculer.</p>
-<p>La <a class="reference internal" href="#f-ssp-filtre-moyenneur-exemple"><span class="std std-numref">Fig. 28</span></a> représente ces deux signaux.</p>
-<div class="figure align-default" id="f-ssp-filtre-moyenneur-exemple">
+<p>La <a class="reference internal" href="#f-ssp-filtre-moyenneur-exemple"><span class="std std-numref">Fig. 26</span></a> représente ces deux signaux.</p>
+<figure class="align-default" id="f-ssp-filtre-moyenneur-exemple">
 <a class="reference internal image-reference" href="_images/filtre-moyenneur-exemple.svg"><img alt="_images/filtre-moyenneur-exemple.svg" src="_images/filtre-moyenneur-exemple.svg" width="600px" /></a>
-<p class="caption"><span class="caption-number">Fig. 28 </span><span class="caption-text">Signaux <span class="math notranslate nohighlight">\(y\)</span> (en bleu) et <span class="math notranslate nohighlight">\(z\)</span> (en orange).</span><a class="headerlink" href="#f-ssp-filtre-moyenneur-exemple" title="Lien permanent vers cette image">¶</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 26 </span><span class="caption-text">Signaux <span class="math notranslate nohighlight">\(y\)</span> (en bleu) et <span class="math notranslate nohighlight">\(z\)</span> (en orange).</span><a class="headerlink" href="#f-ssp-filtre-moyenneur-exemple" title="Lien permanent vers cette image">#</a></p>
+</figcaption>
+</figure>
 </div>
 <p>On peut montrer que cette technique peut s’écrire sous la forme d’une convolution :
 c’est donc un filtrage appelé « filtre moyenneur ».
@@ -544,18 +656,20 @@ Ainsi, le filtre moyenneur est un filtre passe-bas.
 Il atténue les fréquences élevées présentes dans le bruit.</p>
 <p>Le filtre moyenneur effectue une moyenne glissante pour remplacer chaque échantillon du signal observé
 par la moyenne des <span class="math notranslate nohighlight">\(M\)</span> échantillons voisins.
-Comme on l’observe sur la <a class="reference internal" href="#f-ssp-filtre-moyenneur"><span class="std std-numref">Fig. 29</span></a>,
+Comme on l’observe sur la <a class="reference internal" href="#f-ssp-filtre-moyenneur"><span class="std std-numref">Fig. 27</span></a>,
 plus le nombre d’échantillons moyennés <span class="math notranslate nohighlight">\(M\)</span> est grand, plus le bruit sera atténué.
 Mais la forme du signal d’intérêt <span class="math notranslate nohighlight">\(x\)</span> sera lissée.</p>
-<div class="figure align-default" id="f-ssp-filtre-moyenneur">
-<img alt="_images/filtre-moyenneur.svg" src="_images/filtre-moyenneur.svg" /><p class="caption"><span class="caption-number">Fig. 29 </span><span class="caption-text">Application d’un filtre moyenneur sur le signal observé <span class="math notranslate nohighlight">\(y\)</span> (qui est la somme du signal d’intérêt <span class="math notranslate nohighlight">\(x\)</span> et d’un bruit).</span><a class="headerlink" href="#f-ssp-filtre-moyenneur" title="Lien permanent vers cette image">¶</a></p>
-</div>
+<figure class="align-default" id="f-ssp-filtre-moyenneur">
+<img alt="_images/filtre-moyenneur.svg" src="_images/filtre-moyenneur.svg" /><figcaption>
+<p><span class="caption-number">Fig. 27 </span><span class="caption-text">Application d’un filtre moyenneur sur le signal observé <span class="math notranslate nohighlight">\(y\)</span> (qui est la somme du signal d’intérêt <span class="math notranslate nohighlight">\(x\)</span> et d’un bruit).</span><a class="headerlink" href="#f-ssp-filtre-moyenneur" title="Lien permanent vers cette image">#</a></p>
+</figcaption>
+</figure>
 <p>Le filtre moyenneur est une très bonne première approche pour débruiter un signal.
 Elle reste néanmoins limitée (parce qu’elle a tendance à lisser le signal lui-même),
 et il faut parfois recourir à des techniques plus évoluées.</p>
-</div>
-<div class="section" id="debruitage-de-plusieurs-realisations-d-un-meme-signal">
-<h3>Débruitage de plusieurs réalisations d’un même signal<a class="headerlink" href="#debruitage-de-plusieurs-realisations-d-un-meme-signal" title="Lien permanent vers ce titre">¶</a></h3>
+</section>
+<section id="debruitage-de-plusieurs-realisations-d-un-meme-signal">
+<h3>Débruitage de plusieurs réalisations d’un même signal<a class="headerlink" href="#debruitage-de-plusieurs-realisations-d-un-meme-signal" title="Lien permanent vers ce titre">#</a></h3>
 <p>Dans le cas où l’on dispose de <span class="math notranslate nohighlight">\(I\)</span> mesures d’un même signal <span class="math notranslate nohighlight">\(x\)</span> :</p>
 <div class="math notranslate nohighlight">
 \[
@@ -563,22 +677,24 @@ et il faut parfois recourir à des techniques plus évoluées.</p>
 \]</div>
 <p>et que le bruit est centré (<span class="math notranslate nohighlight">\(\mathbb{E}[b_i]=0\)</span>), alors la moyenne des <span class="math notranslate nohighlight">\(y_i\)</span> permet d’augmenter le RSB d’un facteur <span class="math notranslate nohighlight">\(10\log(I)\)</span>.
 Aussi, plus il y a de signaux moyennés, meilleur sera le débruitage.</p>
-<div class="figure align-default" id="f-ssp-moyennage">
-<img alt="_images/moyennage.svg" src="_images/moyennage.svg" /><p class="caption"><span class="caption-number">Fig. 30 </span><span class="caption-text">Moyennage de plusieurs réalisations <span class="math notranslate nohighlight">\(y_i\)</span> d’un même signal <span class="math notranslate nohighlight">\(x\)</span>.
+<figure class="align-default" id="f-ssp-moyennage">
+<img alt="_images/moyennage.svg" src="_images/moyennage.svg" /><figcaption>
+<p><span class="caption-number">Fig. 28 </span><span class="caption-text">Moyennage de plusieurs réalisations <span class="math notranslate nohighlight">\(y_i\)</span> d’un même signal <span class="math notranslate nohighlight">\(x\)</span>.
 Le premier graphe ci-dessous représente 50 réalisations superposées (en gris),
-l’une d’elle est en bleu pour être visible.</span><a class="headerlink" href="#f-ssp-moyennage" title="Lien permanent vers cette image">¶</a></p>
-</div>
+l’une d’elle est en bleu pour être visible.</span><a class="headerlink" href="#f-ssp-moyennage" title="Lien permanent vers cette image">#</a></p>
+</figcaption>
+</figure>
 <p>En photographie, le moyennage de plusieurs images d’une même scène permet de réduire le bruit présent dans la photographie.
 En astronomie par exemple, il n’est pas rare de produire des images qui sont le moyennage de plusieurs dizaines d’observations,
 elle-même acquises avec un temps de pose très long (plusieurs dizaines de minutes).</p>
-</div>
-</div>
-<div class="section" id="approximation-par-moindres-carres">
-<h2>Approximation par moindres carrés<a class="headerlink" href="#approximation-par-moindres-carres" title="Lien permanent vers ce titre">¶</a></h2>
+</section>
+</section>
+<section id="approximation-par-moindres-carres">
+<h2>Approximation par moindres carrés<a class="headerlink" href="#approximation-par-moindres-carres" title="Lien permanent vers ce titre">#</a></h2>
 <p>La méthode des moindres carrés (<em>least squares method</em>) a été proposée par Gauss et Legendre à la fin du XVII<sup>e</sup> siècle.
 Dans le cadre de l’approximation, elle permet de décrire un signal bruité par un modèle mathématique.</p>
-<div class="section" id="problematique">
-<h3>Problématique<a class="headerlink" href="#problematique" title="Lien permanent vers ce titre">¶</a></h3>
+<section id="problematique">
+<h3>Problématique<a class="headerlink" href="#problematique" title="Lien permanent vers ce titre">#</a></h3>
 <p>On considère donc le cas où les observations <span class="math notranslate nohighlight">\(y\)</span> sont la somme d’un signal <span class="math notranslate nohighlight">\(x=f_{\theta}\)</span> bruité :</p>
 <div class="math notranslate nohighlight">
 \[
@@ -591,10 +707,10 @@ Dans le cadre de l’approximation, elle permet de décrire un signal bruité pa
 <li><p><span class="math notranslate nohighlight">\(f_{\theta}[n]\)</span> est la valeur de la fonction <span class="math notranslate nohighlight">\(f_{\theta}\)</span> en <span class="math notranslate nohighlight">\(n\)</span>,</p></li>
 <li><p><span class="math notranslate nohighlight">\(b\)</span> est un bruit de moyenne nulle.</p></li>
 </ul>
-<div class="margin sidebar">
+<aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <p>Si <span class="math notranslate nohighlight">\(f\)</span> n’est pas linéaire, alors il faut utiliser une méthode de moindres carrés non linéaires.</p>
-</div>
+</aside>
 <p>De manière générale, <span class="math notranslate nohighlight">\(f\)</span> peut être n’importe quelle fonction paramétrée,
 comme un polynôme d’ordre 2 (<span class="math notranslate nohighlight">\(f_{\theta}[n] = \theta_0 + \theta_1 n + \theta_2 n^2\)</span>)
 ou une exponentielle (<span class="math notranslate nohighlight">\(f_{\theta}[n] = \theta_0 \exp(\theta_1 n)\)</span>).
@@ -604,9 +720,9 @@ c’est-à-dire que <span class="math notranslate nohighlight">\(f\)</span> est 
 \[
 \forall n, \quad f_{\theta}[n] = \theta_0 + \theta_1 n + \theta_2 n^2 + \dots + \theta_M n^M.
 \]</div>
-</div>
-<div class="section" id="ecriture-matricielle">
-<h3>Écriture matricielle<a class="headerlink" href="#ecriture-matricielle" title="Lien permanent vers ce titre">¶</a></h3>
+</section>
+<section id="ecriture-matricielle">
+<h3>Écriture matricielle<a class="headerlink" href="#ecriture-matricielle" title="Lien permanent vers ce titre">#</a></h3>
 <p>Dans la suite, les calculs sont effectués avec la représentation vectorielle.
 Les abscisses des échantillons sont regroupés dans le vecteur <span class="math notranslate nohighlight">\(n = \begin{bmatrix} n_1 &amp; \dots &amp; n_N \end{bmatrix}^T\)</span>.
 Puisque d’après l’équation précédente :</p>
@@ -618,10 +734,10 @@ f_{\theta}[n_1] = \theta_0 + \theta_1 n_1 + \theta_2 n_1^2 + \dots + \theta_M n_
 f_{\theta}[n_N] = \theta_0 + \theta_1 n_N + \theta_2 n_N^2 + \dots + \theta_M n_N^M
 \end{cases}
 \end{split}\]</div>
-<div class="margin sidebar">
+<aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <p>Pour identifier les variables maricielles, on a l’habitude de les écrire en gras.</p>
-</div>
+</aside>
 <p>alors l’équation du modèle s’écrit simplement sous forme matricielle :</p>
 <div class="math notranslate nohighlight">
 \[
@@ -638,9 +754,9 @@ f_{\theta}[n_N] = \theta_0 + \theta_1 n_N + \theta_2 n_N^2 + \dots + \theta_M n_
 \qquad\text{et}\qquad
 \boldsymbol{b} = \begin{bmatrix} b_1 \\ \vdots \\ b_N \end{bmatrix}
 \end{split}\]</div>
-</div>
-<div class="section" id="minimisation-du-critere-des-moindres-carres">
-<h3>Minimisation du critère des moindres carrés<a class="headerlink" href="#minimisation-du-critere-des-moindres-carres" title="Lien permanent vers ce titre">¶</a></h3>
+</section>
+<section id="minimisation-du-critere-des-moindres-carres">
+<h3>Minimisation du critère des moindres carrés<a class="headerlink" href="#minimisation-du-critere-des-moindres-carres" title="Lien permanent vers ce titre">#</a></h3>
 <p>L’objectif est de retrouver <span class="math notranslate nohighlight">\(\theta\)</span> à partir de <span class="math notranslate nohighlight">\(y\)</span>.
 Il est logique de choisir <span class="math notranslate nohighlight">\(\theta\)</span> comme le paramètre qui minimise les différences entre <span class="math notranslate nohighlight">\(y\)</span> et <span class="math notranslate nohighlight">\(f_\theta\)</span>.
 Mathématiquement, il faut donc minimiser</p>
@@ -679,25 +795,29 @@ et on peut montrer que :</p>
 \]</div>
 <p>Cette dernière équation définit donc la valeur de <span class="math notranslate nohighlight">\(\theta\)</span> qui minimise l’erreur des moindres carrés,
 c’est donc la valeur de <span class="math notranslate nohighlight">\(\theta\)</span> qui permet d’avoir une fonction <span class="math notranslate nohighlight">\(f_{\theta}\)</span> qui approxime au mieux les données <span class="math notranslate nohighlight">\(y\)</span>.</p>
-</div>
-<div class="section" id="illustration">
-<h3>Illustration<a class="headerlink" href="#illustration" title="Lien permanent vers ce titre">¶</a></h3>
-<p>Sur l’exemple de la <a class="reference internal" href="#f-ssp-moindres-carres"><span class="std std-numref">Fig. 31</span></a>, l’observation <span class="math notranslate nohighlight">\(y\)</span> est une version bruitée d’un polynôme <span class="math notranslate nohighlight">\(x\)</span>.
+</section>
+<section id="illustration">
+<h3>Illustration<a class="headerlink" href="#illustration" title="Lien permanent vers ce titre">#</a></h3>
+<p>Sur l’exemple de la <a class="reference internal" href="#f-ssp-moindres-carres"><span class="std std-numref">Fig. 29</span></a>, l’observation <span class="math notranslate nohighlight">\(y\)</span> est une version bruitée d’un polynôme <span class="math notranslate nohighlight">\(x\)</span>.
 L’approximation par moindres carrés est plus appréciable que celle obtenue avec le filtre moyenneur
 car on bénéficie ici du fait que le signal inconnu est un polynôme.</p>
-<div class="figure align-default" id="f-ssp-moindres-carres">
-<img alt="_images/moindres-carres.svg" src="_images/moindres-carres.svg" /><p class="caption"><span class="caption-number">Fig. 31 </span><span class="caption-text">Les données <span class="math notranslate nohighlight">\(y\)</span> sont approximées par un polynôme d’ordre 3 avec la méthode des moindres carrés.
-Le résultat est comparé avec un filtre moyenneur de taille 20, qui donne une estimation moins « propre ».</span><a class="headerlink" href="#f-ssp-moindres-carres" title="Lien permanent vers cette image">¶</a></p>
-</div>
+<figure class="align-default" id="f-ssp-moindres-carres">
+<img alt="_images/moindres-carres.svg" src="_images/moindres-carres.svg" /><figcaption>
+<p><span class="caption-number">Fig. 29 </span><span class="caption-text">Les données <span class="math notranslate nohighlight">\(y\)</span> sont approximées par un polynôme d’ordre 3 avec la méthode des moindres carrés.
+Le résultat est comparé avec un filtre moyenneur de taille 20, qui donne une estimation moins « propre ».</span><a class="headerlink" href="#f-ssp-moindres-carres" title="Lien permanent vers cette image">#</a></p>
+</figcaption>
+</figure>
 <p>La solution obtenue est issue de calcul <span class="math notranslate nohighlight">\(\boldsymbol{\theta} = (\boldsymbol{H}^T\boldsymbol{H})^{-1} \boldsymbol{H}^T\boldsymbol{y}\)</span>.
-La figure <a class="reference internal" href="#f-ssp-moindres-carres-differences"><span class="std std-numref">Fig. 32</span></a> représente en orange les différences entre l’observation et l’estimation.
+La figure <a class="reference internal" href="#f-ssp-moindres-carres-differences"><span class="std std-numref">Fig. 30</span></a> représente en orange les différences entre l’observation et l’estimation.
 C’est la somme de ces différences qui est minimisée par la méthode des moindres carrés.</p>
-<div class="figure align-default" id="f-ssp-moindres-carres-differences">
-<img alt="_images/moindres-carres-differences.svg" src="_images/moindres-carres-differences.svg" /><p class="caption"><span class="caption-number">Fig. 32 </span><span class="caption-text">Mise en évidence des erreurs à minimiser.</span><a class="headerlink" href="#f-ssp-moindres-carres-differences" title="Lien permanent vers cette image">¶</a></p>
-</div>
-</div>
-</div>
-</div>
+<figure class="align-default" id="f-ssp-moindres-carres-differences">
+<img alt="_images/moindres-carres-differences.svg" src="_images/moindres-carres-differences.svg" /><figcaption>
+<p><span class="caption-number">Fig. 30 </span><span class="caption-text">Mise en évidence des erreurs à minimiser.</span><a class="headerlink" href="#f-ssp-moindres-carres-differences" title="Lien permanent vers cette image">#</a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -721,37 +841,51 @@ C’est la somme de ces différences qui est minimisée par la méthode des moin
 
               </div>
               
-        
-        <div class='prev-next-bottom'>
-            
-    <a class='left-prev' id="prev-link" href="bruit.html" title="previous page">Bruit dans les signaux</a>
-    <a class='right-next' id="next-link" href="ssp-t.html" title="next page">Exercices : Traitement statistique du signal</a>
-
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="bruit.html" title="précédent page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">précédent</p>
+            <p class="prev-next-title">Bruit dans les signaux</p>
         </div>
-        
+    </a>
+    <a class='right-next' id="next-link" href="ssp-t.html" title="suivant page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">suivant</p>
+        <p class="prev-next-title">Exercices : Traitement statistique du signal</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
         </div>
     </div>
-    <footer class="footer mt-5 mt-md-0">
-    <div class="container">
-      <p>
-        
-          Par Vincent Mazet (University of Strasbourg, France)<br/>
-        
-            &copy; droits d'auteur 2021-2022.<br/>
-          <div class="extra_footer">
-            Traitement du signal 2 &mdash; Vincent Mazet (Université de Strasbourg), 2021 &mdash; <a href='licence.html'>CC BY-NC 4.0</a>.
-          </div>
-      </p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Vincent Mazet (Université de Strasbourg, France)<br/>
+  
+      &copy; Copyright 2022-2023.<br/>
+    <div class="extra_footer">
+      Traitement du signal 2 &mdash; Vincent Mazet (Université de Strasbourg), 2020-2023 &mdash; <a href='licence.html'>CC BY-NC 4.0</a>.
     </div>
-  </footer>
-</main>
+</p>
+        </footer>
+    </div>
+    
+</div>
 
 
       </div>
     </div>
   
-  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
 
-  
+
   </body>
 </html>

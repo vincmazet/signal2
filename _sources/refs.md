@@ -41,6 +41,12 @@
   puis continuez à explorer !
   N'hésitez pas également à lire la [version en anglais](https://en.wikipedia.org/wiki/Signal_processing),
   souvent plus complète.
+  
+* [Animations pédagogiques en traitement du signal](https://vincmazet.github.io/spetsi/)
+
+* [Circuits à AO pour la réalisation de fonctions mathématiques](http://electronique.aop.free.fr/liste_aop.html)
+
+* [Outil de conception de filtres analogiques](https://tools.analog.com/en/filterwizard/)
 
 
 ## Culture générale
@@ -61,16 +67,13 @@
 
 * [Signal Processing Society](https://signalprocessingsociety.org/).
   Société savante, éditrice notamment de la revue Signal Processing Magazine.
-  
-* [Animations pédagogiques en traitement du signal](https://vincmazet.github.io/spetsi/)
 
 * P. Flandrin, [Le traitement du signal, au cœur de la science et de notre vie quotidienne](https://theconversation.com/le-traitement-du-signal-au-coeur-de-la-science-et-de-notre-vie-quotidienne-84156),
   The Conversation, 2017.
 
 * B. Van Veen, [Vidéos de traitement numérique du signal](https://www.youtube.com/user/allsignalprocessing)
 
-* [Circuits à AO pour la réalisation de fonctions mathématiques](http://electronique.aop.free.fr/liste_aop.html)
 
-* [Relation entre le plan en s et le plan en z](https://www.youtube.com/watch?v=4PV6ikgBShw&feature=youtu.be&ab_channel=anassar)
+## Vidéos
 
-* [Outil de conception de filtres analogiques](https://tools.analog.com/en/filterwizard/)
+<iframe width="360" height="202" src="https://www.youtube.com/embed/4PV6ikgBShw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

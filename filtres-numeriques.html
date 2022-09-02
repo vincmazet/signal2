@@ -4,11 +4,13 @@
 <html lang="fr">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Filtres numériques &#8212; Traitement du signal 2</title>
     
-  <link href="_static/css/theme.css" rel="stylesheet" />
-  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,52 +20,67 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
-    <link rel="stylesheet" href="_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="_static/jbvinc.css" />
     <link rel="stylesheet" type="text/css" href="_static/.ipynb_checkpoints/jbvinc-checkpoint.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/language_data.js"></script>
-    <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
     <script src="_static/translations.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
-    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Recherche" href="search.html" />
     <link rel="next" title="Exercices : filtrage" href="filtres-t.html" />
     <link rel="prev" title="Filtres analogiques" href="filtres-analogiques.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="fr">
+    
+
+    <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -72,10 +89,12 @@
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="index.html">
+      
       
       
       <h1 class="site-logo" id="site-title">Traitement du signal 2</h1>
@@ -83,17 +102,18 @@
     </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
   <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Rechercher dans ce livre ..." aria-label="Rechercher dans ce livre ..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="index.html">
-   Introduction
-  </a>
- </li>
-</ul>
-<p class="caption">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="index.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Révisions
  </span>
@@ -104,40 +124,13 @@
    ✎ Exercices théoriques
   </a>
  </li>
- <li class="toctree-l1 has-children">
+ <li class="toctree-l1">
   <a class="reference internal" href="rev-p.html">
    ✎ Exercices sur machine
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="tp/tp11.html">
-     ✐ Représentation d’un signal
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="tp/tp12.html">
-     ✐ Produit de convolution
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="tp/tp13.html">
-     ✐ Transformée de Fourier discrète
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="tp/tp14.html">
-     ✐ Analyse spectrale d’un signal audio
-    </a>
-   </li>
-  </ul>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Filtrage
  </span>
@@ -173,25 +166,13 @@
    ✎ Exercices théoriques
   </a>
  </li>
- <li class="toctree-l1 has-children">
+ <li class="toctree-l1">
   <a class="reference internal" href="filtres-p.html">
    ✎ Exercices sur machine
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-  <label for="toctree-checkbox-2">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="tp/tp2.html">
-     ✐ Filtrage numérique
-    </a>
-   </li>
-  </ul>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Traitement statistique du signal
  </span>
@@ -212,35 +193,13 @@
    ✎ Exercices théoriques
   </a>
  </li>
- <li class="toctree-l1 has-children">
+ <li class="toctree-l1">
   <a class="reference internal" href="ssp-p.html">
    ✎ Exercices sur machine
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
-  <label for="toctree-checkbox-3">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="tp/tp31.html">
-     ✐ Détection de motifs par filtrage adapté
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="tp/tp32.html">
-     ✐ Lissage par filtre moyenneur
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="tp/tp33.html">
-     ✐ Approximation et extrapolation par moindres carrés
-    </a>
-   </li>
-  </ul>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Annexes
  </span>
@@ -269,8 +228,13 @@
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
 </div>
 
 
@@ -278,61 +242,128 @@
 
 
           
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
     
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
-            
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Basculer la navigation" aria-controls="site-navigation"
-                title="Basculer la navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Téléchargez cette page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
+    <div class="header-article row sticky-top noprint">
         
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/filtres-numeriques.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Télécharger le fichier source" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Imprimer au format PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/filtres-numeriques.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
     </div>
 </div>
 
-            <!-- Source interaction buttons -->
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Mode plein écran"
-        title="Mode plein écran"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contenu
-            </div>
-            <nav id="bd-toc-nav">
-                <ul class="visible nav section-nav flex-column">
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#filtres-rif">
    Filtres RIF
@@ -404,17 +435,104 @@
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Filtres numériques</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#filtres-rif">
+   Filtres RIF
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#reponse-impulsionnelle">
+     Réponse impulsionnelle
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fonction-de-transfert">
+     Fonction de transfert
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#schema-bloc">
+     Schéma bloc
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#linearite-de-la-phase">
+     Linéarité de la phase
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#une-methode-toute-simple-pour-synthetiser-un-rif">
+     Une méthode toute simple pour synthétiser un RIF
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#methode-des-fenetres">
+     Méthode des fenêtres
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#autres-methodes-de-synthese">
+     Autres méthodes de synthèse
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#filtres-rii">
+   Filtres RII
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Réponse impulsionnelle
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Fonction de transfert
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     Schéma bloc
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#transformation-bilineaire">
+     Transformation bilinéaire
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="section" id="filtres-numeriques">
-<span id="c-filtre-numerique"></span><h1>Filtres numériques<a class="headerlink" href="#filtres-numeriques" title="Lien permanent vers ce titre">¶</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="filtres-numeriques">
+<span id="c-filtre-numerique"></span><h1>Filtres numériques<a class="headerlink" href="#filtres-numeriques" title="Lien permanent vers ce titre">#</a></h1>
 <p>Les filtres numériques sont très courants et utilisés dans de nombreux domaines :
 télécommunications, traitement de la parole, Hi-Fi, radar et sonar, asservissement, vidéo, photos, modem, etc.</p>
 <p>S’ils sont à ce point répandus, c’est en raison de leurs nombreux avantages par rapport aux filtres analogiques :</p>
@@ -441,10 +559,10 @@ Ces deux types de filtres sont présentés ci-après, ainsi que deux méthodes d
 <li><p>la méthode des fenêtres pour les filtres RIF,</p></li>
 <li><p>la transformation bilinéaire pour les filtres RII.</p></li>
 </ul>
-<div class="section" id="filtres-rif">
-<h2>Filtres RIF<a class="headerlink" href="#filtres-rif" title="Lien permanent vers ce titre">¶</a></h2>
-<div class="section" id="reponse-impulsionnelle">
-<h3>Réponse impulsionnelle<a class="headerlink" href="#reponse-impulsionnelle" title="Lien permanent vers ce titre">¶</a></h3>
+<section id="filtres-rif">
+<h2>Filtres RIF<a class="headerlink" href="#filtres-rif" title="Lien permanent vers ce titre">#</a></h2>
+<section id="reponse-impulsionnelle">
+<h3>Réponse impulsionnelle<a class="headerlink" href="#reponse-impulsionnelle" title="Lien permanent vers ce titre">#</a></h3>
 <p>Un filtre RIF a pour réponse impulsionnelle :</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -456,9 +574,9 @@ b_n &amp;\text{si}\, n \in \{0,\dots,N\}, \\
 \end{split}\]</div>
 <p>Sa réponse impulsionnelle est finie car elle possède <span class="math notranslate nohighlight">\(N+1\)</span> coefficients non nuls :
 on dit que le filtre est de longueur <span class="math notranslate nohighlight">\(N+1\)</span>, ou d’ordre <span class="math notranslate nohighlight">\(N\)</span>.</p>
-</div>
-<div class="section" id="fonction-de-transfert">
-<h3>Fonction de transfert<a class="headerlink" href="#fonction-de-transfert" title="Lien permanent vers ce titre">¶</a></h3>
+</section>
+<section id="fonction-de-transfert">
+<h3>Fonction de transfert<a class="headerlink" href="#fonction-de-transfert" title="Lien permanent vers ce titre">#</a></h3>
 <p>La transformée en Z de <span class="math notranslate nohighlight">\(h\)</span> donne la fonction de transfert :</p>
 <div class="math notranslate nohighlight">
 \[
@@ -469,9 +587,9 @@ autrement dit, son dénominateur est égal à 1.
 L’absence de pôle est une particularité des filtres RIF,
 et comme ils ne risquent pas d’avoir de pôles à l’extérieur du cercle unité, ils sont toujours stables !
 Les filtres RIF sont parfois appelés filtres à moyenne mobile ou MA (<em>moving average</em>).</p>
-</div>
-<div class="section" id="schema-bloc">
-<h3>Schéma bloc<a class="headerlink" href="#schema-bloc" title="Lien permanent vers ce titre">¶</a></h3>
+</section>
+<section id="schema-bloc">
+<h3>Schéma bloc<a class="headerlink" href="#schema-bloc" title="Lien permanent vers ce titre">#</a></h3>
 <p>Les filtres numériques sont souvent représentés sous forme d’un schéma bloc,
 qui illustre graphiquement les relations entre l’entrée et la sortie du filtre.
 Pour cela, il convient d’exprimer la sortie en fonction de l’entrée.
@@ -488,10 +606,10 @@ H(z) = \frac{Y(z)}{X(z)},
 Y(z) = \sum_{n=0}^{N} b_n z^{-n} X(z)
 \]</div>
 <p>dont la transformée en z inverse est, grâce à la propriété de linéarité :</p>
-<div class="margin sidebar">
+<aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <p>Remarquez qu’on retombe avec cette formule sur le produit de convolution !</p>
-</div>
+</aside>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 y[n] &amp;= \sum_{k=0}^{N} b_k x[n-k] \\
@@ -500,16 +618,16 @@ y[n] &amp;= \sum_{k=0}^{N} b_k x[n-k] \\
 <p>La sortie <span class="math notranslate nohighlight">\(y[n]\)</span> est donc la somme de <span class="math notranslate nohighlight">\(N+1\)</span> échantillons d’entrée pondérés par les coefficients <span class="math notranslate nohighlight">\(b_k\)</span>
 et retardés de <span class="math notranslate nohighlight">\(k\)</span> échantillons.
 On peut donc adopter la représentation suivante, où le bloc <span class="math notranslate nohighlight">\(z^{-1}\)</span> indique un retard :</p>
-<div class="figure align-default">
+<figure class="align-default">
 <a class="reference internal image-reference" href="_images/filtre-rif.svg"><img alt="_images/filtre-rif.svg" height="350px" src="_images/filtre-rif.svg" /></a>
-</div>
+</figure>
 <p>Contrairement aux schémas-blocs des filtres RII que l’on verra plus loin,
 il n’y a pas de boucle de retour pour les filtres RIF : on dit qu’ils sont non récursifs.
 Par conséquent, la sortie ne peut pas être réinjectée indéfiniment dans le filtre,
 empêchant toute instabilité.</p>
-</div>
-<div class="section" id="linearite-de-la-phase">
-<h3>Linéarité de la phase<a class="headerlink" href="#linearite-de-la-phase" title="Lien permanent vers ce titre">¶</a></h3>
+</section>
+<section id="linearite-de-la-phase">
+<h3>Linéarité de la phase<a class="headerlink" href="#linearite-de-la-phase" title="Lien permanent vers ce titre">#</a></h3>
 <p>La linéarité de la phase est souvent un critère souhaité.
 Les filtres RIF sont à phase linéaire si leur réponse impulsionnelle est symétrique
 (attention, symétrique ne veut pas dire paire ici !) ou antisymétrique, c’est-à-dire :</p>
@@ -519,14 +637,16 @@ Les filtres RIF sont à phase linéaire si leur réponse impulsionnelle est sym�
 &amp;h[n] = h[N-1-n]  &amp;\quad\text{pour un filtre symétrique,} \\
 &amp;h[n] = -h[N-1-n] &amp;\quad\text{pour un filtre antisymétrique.}
 \end{split}\]</div>
-<p>La <a class="reference internal" href="#f-num-ri"><span class="std std-numref">Fig. 15</span></a> illustre ces propriétés.</p>
-<div class="figure align-default" id="f-num-ri">
-<img alt="_images/rif-types.svg" src="_images/rif-types.svg" /><p class="caption"><span class="caption-number">Fig. 15 </span><span class="caption-text">Exemples de réponses impulsionnelles symétriques (types I et II) et antisymétriques (types III et IV).</span><a class="headerlink" href="#f-num-ri" title="Lien permanent vers cette image">¶</a></p>
-</div>
+<p>La <a class="reference internal" href="#f-num-ri"><span class="std std-numref">Fig. 14</span></a> illustre ces propriétés.</p>
+<figure class="align-default" id="f-num-ri">
+<img alt="_images/rif-types.svg" src="_images/rif-types.svg" /><figcaption>
+<p><span class="caption-number">Fig. 14 </span><span class="caption-text">Exemples de réponses impulsionnelles symétriques (types I et II) et antisymétriques (types III et IV).</span><a class="headerlink" href="#f-num-ri" title="Lien permanent vers cette image">#</a></p>
+</figcaption>
+</figure>
 <p>Notons que les filtres de type II, III et IV ne sont pas adaptés pour synthétiser des filtres passe-haut.</p>
-</div>
-<div class="section" id="une-methode-toute-simple-pour-synthetiser-un-rif">
-<h3>Une méthode toute simple pour synthétiser un RIF<a class="headerlink" href="#une-methode-toute-simple-pour-synthetiser-un-rif" title="Lien permanent vers ce titre">¶</a></h3>
+</section>
+<section id="une-methode-toute-simple-pour-synthetiser-un-rif">
+<h3>Une méthode toute simple pour synthétiser un RIF<a class="headerlink" href="#une-methode-toute-simple-pour-synthetiser-un-rif" title="Lien permanent vers ce titre">#</a></h3>
 <!-- [Méthode des fenêtres](https://vincmazet.github.io/signal2/_static/files/rif.pdf) -->
 <p>Une idée toute simple pour obtenir un filtre RIF est de tronquer la réponse impulsionnelle d’un filtre idéal.</p>
 <p>Prenons l’exemple d’un filtre passe-bas, tel qu’on l’a vu dans la section <a class="reference internal" href="filtre-intro.html#s-filtre-intro-pbas"><span class="std std-ref">Filtre passe bas</span></a>.
@@ -557,18 +677,22 @@ h =
 0                               &amp;\text{sinon}.
 \end{cases}
 \end{split}\]</div>
-<div class="figure align-default" id="f-num-fenetre-troncature">
+<figure class="align-default" id="f-num-fenetre-troncature">
 <a class="reference internal image-reference" href="_images/fenetre-troncature.svg"><img alt="_images/fenetre-troncature.svg" src="_images/fenetre-troncature.svg" width="700px" /></a>
-<p class="caption"><span class="caption-number">Fig. 16 </span><span class="caption-text">Troncature et décalage de la réponse impulsionnelle idéale.
-Vous noterez que ce filtre est de type I.</span><a class="headerlink" href="#f-num-fenetre-troncature" title="Lien permanent vers cette image">¶</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 15 </span><span class="caption-text">Troncature et décalage de la réponse impulsionnelle idéale.
+Vous noterez que ce filtre est de type I.</span><a class="headerlink" href="#f-num-fenetre-troncature" title="Lien permanent vers cette image">#</a></p>
+</figcaption>
+</figure>
 <p>Enfin, la transformée de Fourier à temps discret de <span class="math notranslate nohighlight">\(h\)</span> nous permet d’obtenir la réponse fréquentielle du filtre.
 Son expression est assez complexe et nous ne la détaillons pas ici.
-La figure <a class="reference internal" href="#f-num-rif-rf"><span class="std std-numref">Fig. 17</span></a> représente le gain de ce filtre RIF construit à partir de la troncature d’un filtre idéal.</p>
-<div class="figure align-default" id="f-num-rif-rf">
+La figure <a class="reference internal" href="#f-num-rif-rf"><span class="std std-numref">Fig. 16</span></a> représente le gain de ce filtre RIF construit à partir de la troncature d’un filtre idéal.</p>
+<figure class="align-default" id="f-num-rif-rf">
 <a class="reference internal image-reference" href="_images/rif-rf.svg"><img alt="_images/rif-rf.svg" src="_images/rif-rf.svg" width="700px" /></a>
-<p class="caption"><span class="caption-number">Fig. 17 </span><span class="caption-text">Réponse fréquentielle du filtre tronqué et décalé.</span><a class="headerlink" href="#f-num-rif-rf" title="Lien permanent vers cette image">¶</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 16 </span><span class="caption-text">Réponse fréquentielle du filtre tronqué et décalé.</span><a class="headerlink" href="#f-num-rif-rf" title="Lien permanent vers cette image">#</a></p>
+</figcaption>
+</figure>
 <p>On observe plusieurs choses sur cette figure :</p>
 <ul class="simple">
 <li><p>il y a des oscillations en bande passante et en bande atténuée,</p></li>
@@ -596,22 +720,24 @@ H(f) = H_\text{idéal}(f) * W(f),
 \[
 W(f) = e^{-j \pi f N} \frac{\sin(\pi f(N+1))}{\sin(\pi f)}.
 \]</div>
-<p><span class="math notranslate nohighlight">\(W(f)\)</span> est la multiplication d’une exponentielle avec un « noyau de Dirichlet » (cf. <a class="reference internal" href="#f-num-dirichlet"><span class="std std-numref">Fig. 18</span></a>).</p>
-<div class="figure align-default" id="f-num-dirichlet">
+<p><span class="math notranslate nohighlight">\(W(f)\)</span> est la multiplication d’une exponentielle avec un « noyau de Dirichlet » (cf. <a class="reference internal" href="#f-num-dirichlet"><span class="std std-numref">Fig. 17</span></a>).</p>
+<figure class="align-default" id="f-num-dirichlet">
 <a class="reference internal image-reference" href="_images/dirichlet.svg"><img alt="_images/dirichlet.svg" src="_images/dirichlet.svg" width="700px" /></a>
-<p class="caption"><span class="caption-number">Fig. 18 </span><span class="caption-text">Noyau de Dirichlet.</span><a class="headerlink" href="#f-num-dirichlet" title="Lien permanent vers cette image">¶</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 17 </span><span class="caption-text">Noyau de Dirichlet.</span><a class="headerlink" href="#f-num-dirichlet" title="Lien permanent vers cette image">#</a></p>
+</figcaption>
+</figure>
 <p>On observe que lorsque <span class="math notranslate nohighlight">\(N\)</span> augmente, le lobe principal du noyau de Dirichlet se rétrécit,
 et donc la bande de transition du filtre également.
 Obtenir des bandes de transition très faibles oblige donc à augmenter considérablement l’ordre du filtre <span class="math notranslate nohighlight">\(N\)</span>,
 résultant alors dans un filtre à réponse impulsionnelle pas tant finie que ça…</p>
-</div>
-<div class="section" id="methode-des-fenetres">
-<span id="s-methode-des-fenetres"></span><h3>Méthode des fenêtres<a class="headerlink" href="#methode-des-fenetres" title="Lien permanent vers ce titre">¶</a></h3>
-<div class="margin sidebar">
+</section>
+<section id="methode-des-fenetres">
+<span id="s-methode-des-fenetres"></span><h3>Méthode des fenêtres<a class="headerlink" href="#methode-des-fenetres" title="Lien permanent vers ce titre">#</a></h3>
+<aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <p>Et oui, en traitement du signal, la porte est un genre de fenêtre !</p>
-</div>
+</aside>
 <p>La méthode des fenêtres reprend l’idée précédente (troncature de la réponse impulsionnelle d’un filtre idéal)
 mais la fenêtre n’est pas forcément une porte.</p>
 <p>Le tableau ci-dessous donne les propriétés des réponses fréquentielles obtenues pour plusieurs fenêtres
@@ -659,9 +785,9 @@ mais la fenêtre n’est pas forcément une porte.</p>
 </table>
 <!-- Figure : Définition des différents éléments de la réponse fréquentielle ? Mais redondante avec ce qu'on a déjà vu -->
 <!-- https://github.com/scipy/scipy/blob/v1.7.1/scipy/signal/fir_filter_design.py#L48-L83 kaiser_beta(a) -->
-</div>
-<div class="section" id="autres-methodes-de-synthese">
-<h3>Autres méthodes de synthèse<a class="headerlink" href="#autres-methodes-de-synthese" title="Lien permanent vers ce titre">¶</a></h3>
+</section>
+<section id="autres-methodes-de-synthese">
+<h3>Autres méthodes de synthèse<a class="headerlink" href="#autres-methodes-de-synthese" title="Lien permanent vers ce titre">#</a></h3>
 <p>La méthode des fenêtres peut donner des ordres de filtres surévalués.
 D’autres méthodes de synthèse existe, comme par exemple la méthode de Parks-McClelland
 qui ajuste les coefficients de manière itérative pour que l’écart au filtre idéal soit inférieure à une valeur limite.
@@ -670,12 +796,12 @@ La méthode est accessible avec la fonction <code class="docutils literal notran
 http://eeweb.poly.edu/iselesni/EL713/remez/remez.pdf
 https://en.wikipedia.org/wiki/Parks%E2%80%93McClellan_filter_design_algorithm
 http://www.ieee.org.ar/downloads/antoniou-nov03.pdf -->
-<!-- Equiripple FIR filters ? least-squares error minimization ? --></div>
-</div>
-<div class="section" id="filtres-rii">
-<h2>Filtres RII<a class="headerlink" href="#filtres-rii" title="Lien permanent vers ce titre">¶</a></h2>
-<div class="section" id="id1">
-<h3>Réponse impulsionnelle<a class="headerlink" href="#id1" title="Lien permanent vers ce titre">¶</a></h3>
+<!-- Equiripple FIR filters ? least-squares error minimization ? --></section>
+</section>
+<section id="filtres-rii">
+<h2>Filtres RII<a class="headerlink" href="#filtres-rii" title="Lien permanent vers ce titre">#</a></h2>
+<section id="id1">
+<h3>Réponse impulsionnelle<a class="headerlink" href="#id1" title="Lien permanent vers ce titre">#</a></h3>
 <p>Un filtre RII a une réponse impulsionnelle qui ne s’annule jamais au délà d’un certain échantillon :</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -685,9 +811,9 @@ c_n &amp;\text{si}\, n \geq 0, \\
 0   &amp;\text{sinon}.
 \end{cases}
 \end{split}\]</div>
-</div>
-<div class="section" id="id2">
-<h3>Fonction de transfert<a class="headerlink" href="#id2" title="Lien permanent vers ce titre">¶</a></h3>
+</section>
+<section id="id2">
+<h3>Fonction de transfert<a class="headerlink" href="#id2" title="Lien permanent vers ce titre">#</a></h3>
 <p>La fonction de transfert d’un filtre RII est de la forme:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -698,9 +824,9 @@ H(z) = \frac{ \sum_{m=0}^M b_m z^{-m} }{ \sum_{n=0}^N a_n z^{-n} }.
 <li><p>un numérateur correspondant à un filtre MA (on l’a vu plus haut),</p></li>
 <li><p>et un dénominateur correspondant à un filtre appelé AR (<em>autoregressive</em>).</p></li>
 </ul>
-</div>
-<div class="section" id="id3">
-<h3>Schéma bloc<a class="headerlink" href="#id3" title="Lien permanent vers ce titre">¶</a></h3>
+</section>
+<section id="id3">
+<h3>Schéma bloc<a class="headerlink" href="#id3" title="Lien permanent vers ce titre">#</a></h3>
 <p>Comme pour les filtres RIF, il est possible de représenter les filtres RII sous forme d’un schéma bloc.
 À partir de la fonction de transfert, on peut écrire la sortie en fonction de l’entrée :</p>
 <div class="math notranslate nohighlight">
@@ -723,15 +849,15 @@ y[n] = \frac{1}{a_0} \left( \sum_{l=0}^M b_l x[n-l] - \sum_{k=1}^N a_k y[n-k] \r
 et de <span class="math notranslate nohighlight">\(N\)</span> échantillons de la sortie pondérés et retardés,
 le tout multiplié par <span class="math notranslate nohighlight">\(\frac{1}{a_0}\)</span>.
 On peut donc représenter graphiquement cette équation (rappel : le bloc <span class="math notranslate nohighlight">\(z^{-1}\)</span> indique un retard) :</p>
-<div class="figure align-default">
+<figure class="align-default">
 <a class="reference internal image-reference" href="_images/filtre-rii.svg"><img alt="_images/filtre-rii.svg" height="400px" src="_images/filtre-rii.svg" /></a>
-</div>
+</figure>
 <p>Remarquez qu’à l’inverse des filtres RIF, les filtres RII possèdent une boucle de retour (partie récursive).
 À cause de cette boucle, les filtres RII peuvent être instables :
 le signal étant indéfiniment réinjecté dans le filtre, la sortie peut être de plus en plus grande.</p>
-</div>
-<div class="section" id="transformation-bilineaire">
-<h3>Transformation bilinéaire<a class="headerlink" href="#transformation-bilineaire" title="Lien permanent vers ce titre">¶</a></h3>
+</section>
+<section id="transformation-bilineaire">
+<h3>Transformation bilinéaire<a class="headerlink" href="#transformation-bilineaire" title="Lien permanent vers ce titre">#</a></h3>
 <p>La transformation bilinéaire est la méthode la plus simple pour concevoir un filtre RII.
 Elle s’applique sur un filtre analogique pour le transformer en filtre numérique.
 De ce fait, l’application de la transformation bilinéaire suit les étapes ci-dessous,
@@ -763,13 +889,15 @@ s = \frac{2}{T_e} \left(\frac{1-z^{-1}}{1+z^{-1}}\right)
 \qquad\Leftrightarrow\qquad
 z = \frac{1+T_e/2s}{1-T_e/2s}.
 \]</div>
-<p>La <a class="reference internal" href="#f-num-tbilin"><span class="std std-numref">Fig. 19</span></a> illustre cette transformation, ainsi que ces deux vidéos :
+<p>La <a class="reference internal" href="#f-num-tbilin"><span class="std std-numref">Fig. 18</span></a> illustre cette transformation, ainsi que ces deux vidéos :
 <a href="https://www.youtube.com/watch?v=4PV6ikgBShw"><i class="fab fa-youtube"></i></a> et
 <a href="https://www.youtube.com/watch?v=acQecd6dmxw"><i class="fab fa-youtube"></i></a>.</p>
-<div class="figure align-default" id="f-num-tbilin">
+<figure class="align-default" id="f-num-tbilin">
 <a class="reference internal image-reference" href="_images/tbilineaire.svg"><img alt="_images/tbilineaire.svg" src="_images/tbilineaire.svg" width="500px" /></a>
-<p class="caption"><span class="caption-number">Fig. 19 </span><span class="caption-text">Transformée bilinéaire.</span><a class="headerlink" href="#f-num-tbilin" title="Lien permanent vers cette image">¶</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 18 </span><span class="caption-text">Transformée bilinéaire.</span><a class="headerlink" href="#f-num-tbilin" title="Lien permanent vers cette image">#</a></p>
+</figcaption>
+</figure>
 <p>Ainsi, la stabilité du filtre analogique est conservée pour le filtre numérique
 puisque les pôles à partie réelle négative du plan en <span class="math notranslate nohighlight">\(s\)</span> se retrouvent dans le cercle unité du plan en <span class="math notranslate nohighlight">\(z\)</span>.</p>
 <!-- Lorsque l'ordre des filtres augmente (c'est-à-dire lorsque le nombre de coefficients augmentent) le filtre peut devenir instable à cause de la quantification des coefficients point. Une solution consiste à remplacer le filtre par une série de filtres d'ordre faible (un ou 2) 
@@ -778,9 +906,9 @@ Filtres, bi-quad, biquadratique
 
 SOS s order section 
 -->
-<!-- autres méthodes de conception de filtres RII : design direct (approximer par une réponse fréquentielle linéaire par morceaux ; Yulewalk), Butterworth généralisé (plus de zéros ; maxflat), modèle paramétrique ? (cf Matlpab : lpc, prony, invfreqs) --></div>
-</div>
-</div>
+<!-- autres méthodes de conception de filtres RII : design direct (approximer par une réponse fréquentielle linéaire par morceaux ; Yulewalk), Butterworth généralisé (plus de zéros ; maxflat), modèle paramétrique ? (cf Matlpab : lpc, prony, invfreqs) --></section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -804,37 +932,51 @@ SOS s order section
 
               </div>
               
-        
-        <div class='prev-next-bottom'>
-            
-    <a class='left-prev' id="prev-link" href="filtres-analogiques.html" title="previous page">Filtres analogiques</a>
-    <a class='right-next' id="next-link" href="filtres-t.html" title="next page">Exercices : filtrage</a>
-
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="filtres-analogiques.html" title="précédent page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">précédent</p>
+            <p class="prev-next-title">Filtres analogiques</p>
         </div>
-        
+    </a>
+    <a class='right-next' id="next-link" href="filtres-t.html" title="suivant page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">suivant</p>
+        <p class="prev-next-title">Exercices : filtrage</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
         </div>
     </div>
-    <footer class="footer mt-5 mt-md-0">
-    <div class="container">
-      <p>
-        
-          Par Vincent Mazet (University of Strasbourg, France)<br/>
-        
-            &copy; droits d'auteur 2021-2022.<br/>
-          <div class="extra_footer">
-            Traitement du signal 2 &mdash; Vincent Mazet (Université de Strasbourg), 2021 &mdash; <a href='licence.html'>CC BY-NC 4.0</a>.
-          </div>
-      </p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Vincent Mazet (Université de Strasbourg, France)<br/>
+  
+      &copy; Copyright 2022-2023.<br/>
+    <div class="extra_footer">
+      Traitement du signal 2 &mdash; Vincent Mazet (Université de Strasbourg), 2020-2023 &mdash; <a href='licence.html'>CC BY-NC 4.0</a>.
     </div>
-  </footer>
-</main>
+</p>
+        </footer>
+    </div>
+    
+</div>
 
 
       </div>
     </div>
   
-  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
 
-  
+
   </body>
 </html>

@@ -3,7 +3,7 @@
 
 /* Style général */
 
-@import url('fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=auto');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=auto');
 
 body {
   font-family: "Source Sans Pro";
@@ -32,25 +32,27 @@ span.pre {
   line-height: 1.3077
 }
 
+#site-navigation {
+    font-size: 1.05rem;
+    line-height: 1.5;
+}
+
 /* Taille des légendes */
 
 main.bd-content #main-content div.figure span {
   font-size: 1.1rem;
 }
 
+/* Hack pour faire disparaître le bouton "launch" */
+
+.menu-dropdown.menu-dropdown-launch-buttons {
+    display: none;
+}
+
 /* Hack pour faire disparaître le footer (et mettre le mien à la place) */
 
 .footer p {
     display: none;
-}
-
-/* Style pour l'impression */
-
-@media print {
-  body {
-    font-family: Times;
-    margin: 2cm
-  }
 }
 
 /* Tableaux */

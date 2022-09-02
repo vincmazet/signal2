@@ -4,11 +4,13 @@
 <html lang="fr">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Introduction &#8212; Traitement du signal 2</title>
     
-  <link href="_static/css/theme.css" rel="stylesheet" />
-  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,52 +20,67 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
-    <link rel="stylesheet" href="_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="_static/jbvinc.css" />
     <link rel="stylesheet" type="text/css" href="_static/.ipynb_checkpoints/jbvinc-checkpoint.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/language_data.js"></script>
-    <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
     <script src="_static/translations.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
-    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Recherche" href="search.html" />
     <link rel="next" title="Transformée de Laplace" href="laplace.html" />
-    <link rel="prev" title="✐ Analyse spectrale d’un signal audio" href="tp/tp14.html" />
+    <link rel="prev" title="TP : révisions" href="rev-p.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="fr">
+    
+
+    <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -72,10 +89,12 @@
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="index.html">
+      
       
       
       <h1 class="site-logo" id="site-title">Traitement du signal 2</h1>
@@ -83,17 +102,18 @@
     </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
   <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Rechercher dans ce livre ..." aria-label="Rechercher dans ce livre ..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="index.html">
-   Introduction
-  </a>
- </li>
-</ul>
-<p class="caption">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="index.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Révisions
  </span>
@@ -104,40 +124,13 @@
    ✎ Exercices théoriques
   </a>
  </li>
- <li class="toctree-l1 has-children">
+ <li class="toctree-l1">
   <a class="reference internal" href="rev-p.html">
    ✎ Exercices sur machine
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="tp/tp11.html">
-     ✐ Représentation d’un signal
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="tp/tp12.html">
-     ✐ Produit de convolution
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="tp/tp13.html">
-     ✐ Transformée de Fourier discrète
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="tp/tp14.html">
-     ✐ Analyse spectrale d’un signal audio
-    </a>
-   </li>
-  </ul>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Filtrage
  </span>
@@ -173,25 +166,13 @@
    ✎ Exercices théoriques
   </a>
  </li>
- <li class="toctree-l1 has-children">
+ <li class="toctree-l1">
   <a class="reference internal" href="filtres-p.html">
    ✎ Exercices sur machine
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-  <label for="toctree-checkbox-2">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="tp/tp2.html">
-     ✐ Filtrage numérique
-    </a>
-   </li>
-  </ul>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Traitement statistique du signal
  </span>
@@ -212,35 +193,13 @@
    ✎ Exercices théoriques
   </a>
  </li>
- <li class="toctree-l1 has-children">
+ <li class="toctree-l1">
   <a class="reference internal" href="ssp-p.html">
    ✎ Exercices sur machine
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
-  <label for="toctree-checkbox-3">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="tp/tp31.html">
-     ✐ Détection de motifs par filtrage adapté
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="tp/tp32.html">
-     ✐ Lissage par filtre moyenneur
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="tp/tp33.html">
-     ✐ Approximation et extrapolation par moindres carrés
-    </a>
-   </li>
-  </ul>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Annexes
  </span>
@@ -269,8 +228,13 @@
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
 </div>
 
 
@@ -278,61 +242,128 @@
 
 
           
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
     
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
-            
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Basculer la navigation" aria-controls="site-navigation"
-                title="Basculer la navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Téléchargez cette page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
+    <div class="header-article row sticky-top noprint">
         
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/filtre-intro.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Télécharger le fichier source" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Imprimer au format PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/filtre-intro.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
     </div>
 </div>
 
-            <!-- Source interaction buttons -->
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Mode plein écran"
-        title="Mode plein écran"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contenu
-            </div>
-            <nav id="bd-toc-nav">
-                <ul class="visible nav section-nav flex-column">
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#vocabulaire">
    Vocabulaire
@@ -441,22 +472,146 @@
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Introduction</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vocabulaire">
+   Vocabulaire
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#systeme-lineaire">
+     Système linéaire
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#systeme-invariant">
+     Système invariant
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#systeme-lineaire-invariant">
+     Système linéaire invariant
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#systeme-stable">
+     Système stable
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#reponse-impulsionnelle">
+     Réponse impulsionnelle
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#reponse-frequentielle">
+     Réponse fréquentielle
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#gain">
+     Gain
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#phase">
+     Phase
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#retard-de-groupe">
+     Retard de groupe
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#filtres-ideaux">
+   Filtres idéaux
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#filtre-passe-bas">
+     Filtre passe bas
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#filtre-passe-haut">
+     Filtre passe-haut
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#filtre-passe-bande">
+     Filtre passe-bande
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#filtre-coupe-bande">
+     Filtre coupe-bande
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#filtre-passe-tout">
+     Filtre passe-tout
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#filtres-realisables">
+   Filtres réalisables
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#gabarit-d-un-filtre">
+     Gabarit d’un filtre
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#frequence-de-coupure">
+     Fréquence de coupure
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#conception-d-un-filtre">
+     Conception d’un filtre
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="section" id="introduction">
-<span id="c-filtre-intro"></span><h1>Introduction<a class="headerlink" href="#introduction" title="Lien permanent vers ce titre">¶</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="introduction">
+<span id="c-filtre-intro"></span><h1>Introduction<a class="headerlink" href="#introduction" title="Lien permanent vers ce titre">#</a></h1>
 <p>Un filtre est un <em>système</em>, c’est-à-dire un processus qui transforme un signal d’entrée <span class="math notranslate nohighlight">\(x\)</span> en un signal de sortie <span class="math notranslate nohighlight">\(y\)</span>.
 On utilise souvent une représentation en schéma-bloc dans ce contexte.</p>
-<div class="figure align-default">
+<figure class="align-default">
 <a class="reference internal image-reference" href="_images/fil-systeme1.svg"><img alt="_images/fil-systeme1.svg" src="_images/fil-systeme1.svg" width="350px" /></a>
-</div>
+</figure>
 <div class="math notranslate nohighlight">
 \[
 y = \mathcal{S}(x)
@@ -467,9 +622,9 @@ Ces filtres permettent de modifier un signal d’entrée en atténuant ou en amp
 <p>Une <a class="reference external" href="https://fr.wikipedia.org/wiki/%C3%89galiseur">égaliseur</a>
 est un appareil qui permet d’augmenter ou de réduire les basses et les aigus d’un signal sonore.
 Il s’agit donc d’un filtre qui va amplifier ou atténuer les fréquences du signal.</p>
-<div class="figure align-default">
+<figure class="align-default">
 <a class="reference internal image-reference" href="https://images.unsplash.com/photo-1500702790369-fe461685b3c8"><img alt="https://images.unsplash.com/photo-1500702790369-fe461685b3c8" src="https://images.unsplash.com/photo-1500702790369-fe461685b3c8" style="width: 350px;" /></a>
-</div>
+</figure>
 </div>
 <div class="example">
 <p>Un filtre anti-repliement, que l’on utilise en amont d’un convertisseur analogique–numérique,
@@ -478,15 +633,15 @@ supprime les hautes fréquences afin d’éviter les problèmes de repliement sp
 <!-- Pendant longtemps, le rôle du filtrage à surtout constitué dans l'élimination des bruits et parasites présents dans les mesures.
 Sa mise en œuvre a été du ressort des électroniciens.
 Avec l'avènement de l'automatique et des calculateurs numériques,
-le filtrage est devenu une théorie à part entière du traitement du signal. --><div class="section" id="vocabulaire">
-<h2>Vocabulaire<a class="headerlink" href="#vocabulaire" title="Lien permanent vers ce titre">¶</a></h2>
+le filtrage est devenu une théorie à part entière du traitement du signal. --><section id="vocabulaire">
+<h2>Vocabulaire<a class="headerlink" href="#vocabulaire" title="Lien permanent vers ce titre">#</a></h2>
 <p>Cette section définit plusieurs termes spécifiques propres aux filtres et aux systèmes linéaires invariants.
 Tout d’abord, nous expliquons ce qu’est un système linéaire invariant,
 puis nous introduisons la notion de stabilité d’un système,
 et enfin nous listons ce qui caractérise un filtre,
 en particulier sa réponse impulsionnelle et sa réponse fréquentielle.</p>
-<div class="section" id="systeme-lineaire">
-<h3>Système linéaire<a class="headerlink" href="#systeme-lineaire" title="Lien permanent vers ce titre">¶</a></h3>
+<section id="systeme-lineaire">
+<h3>Système linéaire<a class="headerlink" href="#systeme-lineaire" title="Lien permanent vers ce titre">#</a></h3>
 <p>Un système <span class="math notranslate nohighlight">\(\mathcal{S}\)</span> est linéaire si, lorsque son entrée est la somme pondérée de deux signaux <span class="math notranslate nohighlight">\(x\)</span> et <span class="math notranslate nohighlight">\(y\)</span>,
 alors sa sortie est la somme pondérée des réponses du système à <span class="math notranslate nohighlight">\(x\)</span> et <span class="math notranslate nohighlight">\(y\)</span> :</p>
 <div class="math notranslate nohighlight">
@@ -501,9 +656,9 @@ Cependant, si la tension est trop forte, alors il casse et ne s'agrandit plus de
 Dans ce cas, on ne peut plus le considérer comme étant linéaire.
 </div>
 <!-- Trouver d'autres exemples parlants -->
-</div>
-<div class="section" id="systeme-invariant">
-<h3>Système invariant<a class="headerlink" href="#systeme-invariant" title="Lien permanent vers ce titre">¶</a></h3>
+</section>
+<section id="systeme-invariant">
+<h3>Système invariant<a class="headerlink" href="#systeme-invariant" title="Lien permanent vers ce titre">#</a></h3>
 <p>Un système est invariant dans le temps si son comportement et ses caractéristiques n’évoluent pas.
 Aussi, si <span class="math notranslate nohighlight">\(y\)</span> est la sortie du sytème à une entrée <span class="math notranslate nohighlight">\(x\)</span>,
 ce sera toujours le cas quel que soit l’instant <span class="math notranslate nohighlight">\(n_0\)</span> auquel apparaît <span class="math notranslate nohighlight">\(x\)</span> :</p>
@@ -521,9 +676,9 @@ dans des conditions qui évoluent (la température peut avoir un impact sur la r
 ou si l'un des composants est modifié (potentiomètre par exemple).
 </div>
 <!-- Trouver d'autres exemples parlants -->
-</div>
-<div class="section" id="systeme-lineaire-invariant">
-<h3>Système linéaire invariant<a class="headerlink" href="#systeme-lineaire-invariant" title="Lien permanent vers ce titre">¶</a></h3>
+</section>
+<section id="systeme-lineaire-invariant">
+<h3>Système linéaire invariant<a class="headerlink" href="#systeme-lineaire-invariant" title="Lien permanent vers ce titre">#</a></h3>
 <p>Les systèmes à la fois linéaires et invariants jouent un rôle important en traitement du signal.
 On parle de systèmes linéaires invariant (<em>linear-time invariant system</em> ou <em>LTI system</em>).
 En effet, la linéarité et l’invariance ont un rôle fondamental pour trois raisons :</p>
@@ -534,9 +689,9 @@ En effet, la linéarité et l’invariance ont un rôle fondamental pour trois r
 avec la <a class="reference internal" href="#s-filtres-ri"><span class="std std-ref">réponse impulsionnelle</span></a> du système
 (ce qui n’est pas le cas pour d’autres systèmes n’ayant pas ces deux propriétés).</p></li>
 </ul>
-</div>
-<div class="section" id="systeme-stable">
-<h3>Système stable<a class="headerlink" href="#systeme-stable" title="Lien permanent vers ce titre">¶</a></h3>
+</section>
+<section id="systeme-stable">
+<h3>Système stable<a class="headerlink" href="#systeme-stable" title="Lien permanent vers ce titre">#</a></h3>
 <p>Un système est stable si une petite modification de son entrée ne fait pas diverger sa sortie,
 c’est-à-dire qu’elle revient à son état initial où ne s’en éloigne pas indéfiniment
 (elle atteint toujours une valeur limite).
@@ -551,23 +706,23 @@ il oscillera autour de son point d’équilibre (la sortie du système étant sa
 n’est pas un système stable :
 un petit déséquilibre de sa position intiale le fait tendre vers une position d’équilibre différente de la position initiale.</p>
 </div>
-</div>
-<div class="section" id="reponse-impulsionnelle">
-<span id="s-filtres-ri"></span><h3>Réponse impulsionnelle<a class="headerlink" href="#reponse-impulsionnelle" title="Lien permanent vers ce titre">¶</a></h3>
+</section>
+<section id="reponse-impulsionnelle">
+<span id="s-filtres-ri"></span><h3>Réponse impulsionnelle<a class="headerlink" href="#reponse-impulsionnelle" title="Lien permanent vers ce titre">#</a></h3>
 <p>Un filtre est caractérisé par sa réponse impulsionnelle (<em>impulse response</em>) <span class="math notranslate nohighlight">\(h\)</span>.
 Elle correspond à la sortie du filtre lorsque l’entrée est une impulsion <span class="math notranslate nohighlight">\(\delta\)</span>.</p>
-<div class="figure align-default">
+<figure class="align-default">
 <a class="reference internal image-reference" href="_images/fil-systeme2.svg"><img alt="_images/fil-systeme2.svg" src="_images/fil-systeme2.svg" width="350px" /></a>
-</div>
+</figure>
 <p>On montre que pour n’importe quelle entrée <span class="math notranslate nohighlight">\(x\)</span>, la sortie du filtre est la convolution entre <span class="math notranslate nohighlight">\(x\)</span> et <span class="math notranslate nohighlight">\(h\)</span> :</p>
 <div class="math notranslate nohighlight">
 \[
   y = h * x.
 \]</div>
 <p>Si l’entrée est une impulsion, la sortie correspond bien à la réponse impulsionnelle <span class="math notranslate nohighlight">\(h\)</span> puisque <span class="math notranslate nohighlight">\(y=h*x = h*\delta=h\)</span>.</p>
-</div>
-<div class="section" id="reponse-frequentielle">
-<h3>Réponse fréquentielle<a class="headerlink" href="#reponse-frequentielle" title="Lien permanent vers ce titre">¶</a></h3>
+</section>
+<section id="reponse-frequentielle">
+<h3>Réponse fréquentielle<a class="headerlink" href="#reponse-frequentielle" title="Lien permanent vers ce titre">#</a></h3>
 <p>La réponse fréquentielle (<em>frequency response</em>) est la transformée de Fourier de la réponse impulsionnelle.
 Elle représente les modifications apportées au signal d’entrée en fonction de la fréquence.</p>
 <p>Comme la sortie <span class="math notranslate nohighlight">\(y\)</span> du filtre est la convolution de l’entrée <span class="math notranslate nohighlight">\(x\)</span> avec la réponse impulsionnelle <span class="math notranslate nohighlight">\(h\)</span>,
@@ -581,9 +736,9 @@ avec la réponse fréquentielle <span class="math notranslate nohighlight">\(H\)
 \]</div>
 <p>Très souvent, la réponse fréquentielle est complexe (puisqu’elle est issue du calcul d’une transformée de Fourier).
 Pour simplifier son analyse on étudiera plutôt son gain, sa phase et son retard de groupe.</p>
-</div>
-<div class="section" id="gain">
-<h3>Gain<a class="headerlink" href="#gain" title="Lien permanent vers ce titre">¶</a></h3>
+</section>
+<section id="gain">
+<h3>Gain<a class="headerlink" href="#gain" title="Lien permanent vers ce titre">#</a></h3>
 <p>Le gain (<em>magnitude</em>) <span class="math notranslate nohighlight">\(G\)</span> d’un filtre est le module de sa réponse fréquentielle <span class="math notranslate nohighlight">\(H\)</span> :</p>
 <div class="math notranslate nohighlight">
 \[
@@ -594,30 +749,30 @@ Pour simplifier son analyse on étudiera plutôt son gain, sa phase et son retar
 \[
   G_\mathrm{dB}(f) = 20\,\log_{10} \left|H(f)\right|.
 \]</div>
-</div>
-<div class="section" id="phase">
-<h3>Phase<a class="headerlink" href="#phase" title="Lien permanent vers ce titre">¶</a></h3>
+</section>
+<section id="phase">
+<h3>Phase<a class="headerlink" href="#phase" title="Lien permanent vers ce titre">#</a></h3>
 <p>La phase (<em>phase</em>) <span class="math notranslate nohighlight">\(\varphi\)</span> d’un filtre est l’argument de la réponse fréquentielle :</p>
 <div class="math notranslate nohighlight">
 \[
   \varphi(f) = \mathrm{Arg} \left(H(f)\right)
 \]</div>
 <p>où <span class="math notranslate nohighlight">\(\mathrm{Arg}\)</span> est l’argument d’un nombre complexe.</p>
-</div>
-<div class="section" id="retard-de-groupe">
-<h3>Retard de groupe<a class="headerlink" href="#retard-de-groupe" title="Lien permanent vers ce titre">¶</a></h3>
+</section>
+<section id="retard-de-groupe">
+<h3>Retard de groupe<a class="headerlink" href="#retard-de-groupe" title="Lien permanent vers ce titre">#</a></h3>
 <p>Une autre représentation importante est le retard de groupe (<em>group delay</em>) <span class="math notranslate nohighlight">\(\tau\)</span> défini comme la dérivée de la phase :</p>
 <div class="math notranslate nohighlight">
 \[
   \tau(f) = - \frac{1}{2\pi} \frac{d \varphi(f)}{df}.
 \]</div>
 <p>Une phase linéaire implique donc un retard de groupe constant.</p>
-</div>
-</div>
-<div class="section" id="filtres-ideaux">
-<span id="s-filtre-intro-ideaux"></span><h2>Filtres idéaux<a class="headerlink" href="#filtres-ideaux" title="Lien permanent vers ce titre">¶</a></h2>
-<div class="section" id="filtre-passe-bas">
-<span id="s-filtre-intro-pbas"></span><h3>Filtre passe bas<a class="headerlink" href="#filtre-passe-bas" title="Lien permanent vers ce titre">¶</a></h3>
+</section>
+</section>
+<section id="filtres-ideaux">
+<span id="s-filtre-intro-ideaux"></span><h2>Filtres idéaux<a class="headerlink" href="#filtres-ideaux" title="Lien permanent vers ce titre">#</a></h2>
+<section id="filtre-passe-bas">
+<span id="s-filtre-intro-pbas"></span><h3>Filtre passe bas<a class="headerlink" href="#filtre-passe-bas" title="Lien permanent vers ce titre">#</a></h3>
 <p>Un filtre passe-bas (<em>low-pass filter</em>) laisse passer les fréquences faibles et arrête les fréquences hautes.
 Sa réponse fréquentielle s’écrit sous la forme :</p>
 <div class="math notranslate nohighlight">
@@ -636,14 +791,16 @@ G(f) = |H(f)| = \begin{cases}
   0 &amp;\text{si}\; |f| &gt; f_c.
 \end{cases}
 \end{split}\]</div>
-<p>Le gain du filtre passe-bas idéal est représenté <a class="reference internal" href="#f-filtre-intro-pbas-ideal"><span class="std std-numref">Fig. 2</span></a> :
+<p>Le gain du filtre passe-bas idéal est représenté <a class="reference internal" href="#f-filtre-intro-pbas-ideal"><span class="std std-numref">Fig. 1</span></a> :
 le gain dans les hautes fréquences est nul, donc le filtre passe-bas supprimera toute fréquence supérieure à <span class="math notranslate nohighlight">\(f_c\)</span>.
 Cette bande de fréquence est appelée « bande atténuée »,
 et la bande de fréquence pour laquelle le gain n’est pas nul est la « bande passante ».</p>
-<div class="figure align-default" id="f-filtre-intro-pbas-ideal">
+<figure class="align-default" id="f-filtre-intro-pbas-ideal">
 <a class="reference internal image-reference" href="_images/ideallowpass.svg"><img alt="_images/ideallowpass.svg" src="_images/ideallowpass.svg" width="300px" /></a>
-<p class="caption"><span class="caption-number">Fig. 2 </span><span class="caption-text">Gain d’un filtre passe-bas idéal.</span><a class="headerlink" href="#f-filtre-intro-pbas-ideal" title="Lien permanent vers cette image">¶</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 1 </span><span class="caption-text">Gain d’un filtre passe-bas idéal.</span><a class="headerlink" href="#f-filtre-intro-pbas-ideal" title="Lien permanent vers cette image">#</a></p>
+</figcaption>
+</figure>
 <p>Intéressons-nous à la réponse impulsionnelle de ce filtre,
 en nous plaçant dans le domaine analogique.
 Par définition, la réponse impulsionnelle <span class="math notranslate nohighlight">\(h(t)\)</span> du filtre passe-bas idéal
@@ -653,13 +810,13 @@ Le calcul donne :</p>
 \[
 h(t) = 2 K f_c \mathrm{sinc}(2 f_c (t-a))
 \]</div>
-<details class="sphinx-bs dropdown card mb-3">
-<summary class="summary-title card-header">
-Démonstration<div class="summary-down docutils">
-<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
-<div class="summary-up docutils">
-<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
-</summary><div class="summary-content card-body docutils">
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Démonstration<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
 <div class="math notranslate nohighlight">
 \[\begin{split}
 h(t) &amp;= \mathcal{F}^{-1}\left[H(f)\right](t) \\
@@ -672,28 +829,30 @@ h(t) &amp;= \mathcal{F}^{-1}\left[H(f)\right](t) \\
      &amp;= 2 K f_c \mathrm{sinc}(2 f_c (t-a))
 \end{split}\]</div>
 </div>
-</details><p>La réponse impulsionnelle de l’équation précédente est représentée <a class="reference internal" href="#f-filtre-intro-ri-pbas"><span class="std std-numref">Fig. 3</span></a>.</p>
-<div class="figure align-default" id="f-filtre-intro-ri-pbas">
-<img alt="_images/ri-pbas.svg" src="_images/ri-pbas.svg" /><p class="caption"><span class="caption-number">Fig. 3 </span><span class="caption-text">Réponse impulsionnelle du filtre passe-bas idéal (ici : <span class="math notranslate nohighlight">\(K\)</span> = 0,9, <span class="math notranslate nohighlight">\(f_c\)</span> = 0,5, <span class="math notranslate nohighlight">\(a\)</span> = 0,7).</span><a class="headerlink" href="#f-filtre-intro-ri-pbas" title="Lien permanent vers cette image">¶</a></p>
-</div>
+</details><p>La réponse impulsionnelle de l’équation précédente est représentée <a class="reference internal" href="#f-filtre-intro-ri-pbas"><span class="std std-numref">Fig. 2</span></a>.</p>
+<figure class="align-default" id="f-filtre-intro-ri-pbas">
+<img alt="_images/ri-pbas.svg" src="_images/ri-pbas.svg" /><figcaption>
+<p><span class="caption-number">Fig. 2 </span><span class="caption-text">Réponse impulsionnelle du filtre passe-bas idéal (ici : <span class="math notranslate nohighlight">\(K\)</span> = 0,9, <span class="math notranslate nohighlight">\(f_c\)</span> = 0,5, <span class="math notranslate nohighlight">\(a\)</span> = 0,7).</span><a class="headerlink" href="#f-filtre-intro-ri-pbas" title="Lien permanent vers cette image">#</a></p>
+</figcaption>
+</figure>
 <p> </p>
-<div class="margin sidebar">
+<aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <p>En fait, il existe tout de même une manière de réaliser un filtre idéal en effectuant l’opération dans le domaine de Fourier.
 Cela implique toutefois que le filtrage se fasse sur le signal en entier :
 ce n’est donc possible que sur un signal enregistré, mais pas en temps réel.</p>
-</div>
+</aside>
 <p>On observe que la réponse impulsionnelle est infinie, et donc non causale (elle n’est pas nulle pour <span class="math notranslate nohighlight">\(t&lt;0\)</span>).
 Qu’est-ce que cela implique ?
 Et bien ce filtre n’est pas réalisable !
 En effet, pour pouvoir implémenter un tel filtre (et donc effectuer convenablement la convolution),
 il aurait déjà fallu commencer le filtrage il y a très très longtemps, et le filtrage se poursuivra jusqu’à la fin des temps ! 😵
 Bref, un filtre passe-bas idéal n’est pas réalisable pour une application en temps réel.</p>
-</div>
-<div class="section" id="filtre-passe-haut">
-<h3>Filtre passe-haut<a class="headerlink" href="#filtre-passe-haut" title="Lien permanent vers ce titre">¶</a></h3>
+</section>
+<section id="filtre-passe-haut">
+<h3>Filtre passe-haut<a class="headerlink" href="#filtre-passe-haut" title="Lien permanent vers ce titre">#</a></h3>
 <p>Un filtre passe-haut (<em>high-pass filter</em>) laisse passer les fréquences hautes et arrête les fréquences faibles.
-Sa réponse fréquentielle s’écrit sous la forme suivante et son gain est représenté <a class="reference internal" href="#f-filtre-intro-phaut-ideal"><span class="std std-numref">Fig. 4</span></a>.
+Sa réponse fréquentielle s’écrit sous la forme suivante et son gain est représenté <a class="reference internal" href="#f-filtre-intro-phaut-ideal"><span class="std std-numref">Fig. 3</span></a>.
 Comme pour le filtre passe-bas idéal, il n’est pas réalisable.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -702,16 +861,18 @@ H(f) = \begin{cases}
   0                 &amp;\text{si} |f| &lt; f_c.
 \end{cases}
 \end{split}\]</div>
-<div class="figure align-default" id="f-filtre-intro-phaut-ideal">
+<figure class="align-default" id="f-filtre-intro-phaut-ideal">
 <a class="reference internal image-reference" href="_images/idealhighpass.svg"><img alt="_images/idealhighpass.svg" src="_images/idealhighpass.svg" width="300px" /></a>
-<p class="caption"><span class="caption-number">Fig. 4 </span><span class="caption-text">Gain d’un filtre passe-haut idéal.</span><a class="headerlink" href="#f-filtre-intro-phaut-ideal" title="Lien permanent vers cette image">¶</a></p>
-</div>
-</div>
-<div class="section" id="filtre-passe-bande">
-<h3>Filtre passe-bande<a class="headerlink" href="#filtre-passe-bande" title="Lien permanent vers ce titre">¶</a></h3>
+<figcaption>
+<p><span class="caption-number">Fig. 3 </span><span class="caption-text">Gain d’un filtre passe-haut idéal.</span><a class="headerlink" href="#f-filtre-intro-phaut-ideal" title="Lien permanent vers cette image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="filtre-passe-bande">
+<h3>Filtre passe-bande<a class="headerlink" href="#filtre-passe-bande" title="Lien permanent vers ce titre">#</a></h3>
 <p>Un filtre passe-bande (<em>band-pass filter</em>) laisse passer les fréquences moyennes,
 entre deux fréquences de coupure <span class="math notranslate nohighlight">\(f_{c-}\)</span> et <span class="math notranslate nohighlight">\(f_{c+}\)</span>.
-Sa réponse fréquentielle s’écrit sous la forme suivante et son gain est représenté <a class="reference internal" href="#f-filtre-intro-pbande-ideal"><span class="std std-numref">Fig. 5</span></a>.
+Sa réponse fréquentielle s’écrit sous la forme suivante et son gain est représenté <a class="reference internal" href="#f-filtre-intro-pbande-ideal"><span class="std std-numref">Fig. 4</span></a>.
 Il n’est pas réalisable.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -720,16 +881,18 @@ H(f) = \begin{cases}
   0                 &amp;\text{sinon}.
 \end{cases}
 \end{split}\]</div>
-<div class="figure align-default" id="f-filtre-intro-pbande-ideal">
+<figure class="align-default" id="f-filtre-intro-pbande-ideal">
 <a class="reference internal image-reference" href="_images/idealbandpass.svg"><img alt="_images/idealbandpass.svg" src="_images/idealbandpass.svg" width="300px" /></a>
-<p class="caption"><span class="caption-number">Fig. 5 </span><span class="caption-text">Gain d’un filtre passe-bande idéal.</span><a class="headerlink" href="#f-filtre-intro-pbande-ideal" title="Lien permanent vers cette image">¶</a></p>
-</div>
-</div>
-<div class="section" id="filtre-coupe-bande">
-<h3>Filtre coupe-bande<a class="headerlink" href="#filtre-coupe-bande" title="Lien permanent vers ce titre">¶</a></h3>
+<figcaption>
+<p><span class="caption-number">Fig. 4 </span><span class="caption-text">Gain d’un filtre passe-bande idéal.</span><a class="headerlink" href="#f-filtre-intro-pbande-ideal" title="Lien permanent vers cette image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="filtre-coupe-bande">
+<h3>Filtre coupe-bande<a class="headerlink" href="#filtre-coupe-bande" title="Lien permanent vers ce titre">#</a></h3>
 <p>Un filtre coupe-bande (<em>band-stop filter</em>, ou <em>notch filter</em> lorsque la bande atténuée est très étroite)
 ne supprime que les fréquences situées entre <span class="math notranslate nohighlight">\(f_{c-}\)</span> et <span class="math notranslate nohighlight">\(f_{c+}\)</span>.
-Sa réponse fréquentielle s’écrit sous la forme suivante et son gain est représenté <a class="reference internal" href="#f-filtre-intro-cbande-ideal"><span class="std std-numref">Fig. 6</span></a>.
+Sa réponse fréquentielle s’écrit sous la forme suivante et son gain est représenté <a class="reference internal" href="#f-filtre-intro-cbande-ideal"><span class="std std-numref">Fig. 5</span></a>.
 Il n’est pas réalisable.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -738,29 +901,33 @@ H(f) = \begin{cases}
   K e^{-j 2\pi f a} &amp;\text{sinon}.
 \end{cases}
 \end{split}\]</div>
-<div class="figure align-default" id="f-filtre-intro-cbande-ideal">
+<figure class="align-default" id="f-filtre-intro-cbande-ideal">
 <a class="reference internal image-reference" href="_images/idealbandstop.svg"><img alt="_images/idealbandstop.svg" src="_images/idealbandstop.svg" width="300px" /></a>
-<p class="caption"><span class="caption-number">Fig. 6 </span><span class="caption-text">Gain d’un filtre coupe-bande idéal.</span><a class="headerlink" href="#f-filtre-intro-cbande-ideal" title="Lien permanent vers cette image">¶</a></p>
-</div>
-</div>
-<div class="section" id="filtre-passe-tout">
-<h3>Filtre passe-tout<a class="headerlink" href="#filtre-passe-tout" title="Lien permanent vers ce titre">¶</a></h3>
+<figcaption>
+<p><span class="caption-number">Fig. 5 </span><span class="caption-text">Gain d’un filtre coupe-bande idéal.</span><a class="headerlink" href="#f-filtre-intro-cbande-ideal" title="Lien permanent vers cette image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="filtre-passe-tout">
+<h3>Filtre passe-tout<a class="headerlink" href="#filtre-passe-tout" title="Lien permanent vers ce titre">#</a></h3>
 <p>Un filtre passe-tout (<em>all-pass filter</em>) laisse passer toutes les fréquences sans les atténuer, mais modifie leur phase.
 Il est utilisé pour linéariser la phase ou introduire des retards.
-Sa réponse fréquentielle s’écrit sous la forme suivante et son gain est représenté <a class="reference internal" href="#f-filtre-intro-ptout-ideal"><span class="std std-numref">Fig. 7</span></a>.
+Sa réponse fréquentielle s’écrit sous la forme suivante et son gain est représenté <a class="reference internal" href="#f-filtre-intro-ptout-ideal"><span class="std std-numref">Fig. 6</span></a>.
 Comme tous les filtres idéaux précédents, il n’est pas réalisable vous vous en doutiez…</p>
 <div class="math notranslate nohighlight">
 \[
 H(f) = K e^{-j 2\pi f a}.
 \]</div>
-<div class="figure align-default" id="f-filtre-intro-ptout-ideal">
+<figure class="align-default" id="f-filtre-intro-ptout-ideal">
 <a class="reference internal image-reference" href="_images/idealallpass.svg"><img alt="_images/idealallpass.svg" src="_images/idealallpass.svg" width="300px" /></a>
-<p class="caption"><span class="caption-number">Fig. 7 </span><span class="caption-text">Gain d’un filtre passe-tout idéal.</span><a class="headerlink" href="#f-filtre-intro-ptout-ideal" title="Lien permanent vers cette image">¶</a></p>
-</div>
-</div>
-</div>
-<div class="section" id="filtres-realisables">
-<h2>Filtres réalisables<a class="headerlink" href="#filtres-realisables" title="Lien permanent vers ce titre">¶</a></h2>
+<figcaption>
+<p><span class="caption-number">Fig. 6 </span><span class="caption-text">Gain d’un filtre passe-tout idéal.</span><a class="headerlink" href="#f-filtre-intro-ptout-ideal" title="Lien permanent vers cette image">#</a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="filtres-realisables">
+<h2>Filtres réalisables<a class="headerlink" href="#filtres-realisables" title="Lien permanent vers ce titre">#</a></h2>
 <p>Comme on l’a vu dans la section <a class="reference internal" href="#s-filtre-intro-ideaux"><span class="std std-ref">Filtres idéaux</span></a>,
 il est impossible de réaliser des filtres idéaux (en temps réel en tout cas).
 Par conséquent, les filtres réalisables ne sont que des approximations des filtres idéaux :</p>
@@ -768,21 +935,25 @@ Par conséquent, les filtres réalisables ne sont que des approximations des fil
 <li><p>des variations de gain dans les bandes passante et atténuée peuvent apparaître,</p></li>
 <li><p>les transitions d’une bande à l’autre ne peuvent pas être aussi brusques que pour les filtres idéaux.</p></li>
 </ul>
-<p>La <a class="reference internal" href="#f-filtre-intro-reel"><span class="std std-numref">Fig. 8</span></a> représente un exemple de filtre passe-bas réalisable :
+<p>La <a class="reference internal" href="#f-filtre-intro-reel"><span class="std std-numref">Fig. 7</span></a> représente un exemple de filtre passe-bas réalisable :
 le filtre idéal (en bleu) est en fait approximé par le filtre réalisable (en rouge).
 Par conséquent, pour définir un filtre, il faudra avant tout choisir un <em>gabarit</em> (en vert)
 qui précise la zone dans laquelle devra se situer la réponse fréquentielle.</p>
-<div class="figure align-default" id="f-filtre-intro-reel">
+<figure class="align-default" id="f-filtre-intro-reel">
 <a class="reference internal image-reference" href="_images/filtre-reel.svg"><img alt="_images/filtre-reel.svg" src="_images/filtre-reel.svg" width="600px" /></a>
-<p class="caption"><span class="caption-number">Fig. 8 </span><span class="caption-text">Exemple de gain pour un filtre passe-bas réalisable.</span><a class="headerlink" href="#f-filtre-intro-reel" title="Lien permanent vers cette image">¶</a></p>
-</div>
-<p>Très souvent, on utilise une échelle logarithmique pour les ordonnées, comme dans la <a class="reference internal" href="#f-filtre-intro-reel-log"><span class="std std-numref">Fig. 9</span></a>.</p>
-<div class="figure align-default" id="f-filtre-intro-reel-log">
+<figcaption>
+<p><span class="caption-number">Fig. 7 </span><span class="caption-text">Exemple de gain pour un filtre passe-bas réalisable.</span><a class="headerlink" href="#f-filtre-intro-reel" title="Lien permanent vers cette image">#</a></p>
+</figcaption>
+</figure>
+<p>Très souvent, on utilise une échelle logarithmique pour les ordonnées, comme dans la <a class="reference internal" href="#f-filtre-intro-reel-log"><span class="std std-numref">Fig. 8</span></a>.</p>
+<figure class="align-default" id="f-filtre-intro-reel-log">
 <a class="reference internal image-reference" href="_images/filtre-reel-log.svg"><img alt="_images/filtre-reel-log.svg" src="_images/filtre-reel-log.svg" width="600px" /></a>
-<p class="caption"><span class="caption-number">Fig. 9 </span><span class="caption-text">Exemple de gain pour un filtre passe-bas réalisable (en échelle logarithmique).</span><a class="headerlink" href="#f-filtre-intro-reel-log" title="Lien permanent vers cette image">¶</a></p>
-</div>
-<div class="section" id="gabarit-d-un-filtre">
-<h3>Gabarit d’un filtre<a class="headerlink" href="#gabarit-d-un-filtre" title="Lien permanent vers ce titre">¶</a></h3>
+<figcaption>
+<p><span class="caption-number">Fig. 8 </span><span class="caption-text">Exemple de gain pour un filtre passe-bas réalisable (en échelle logarithmique).</span><a class="headerlink" href="#f-filtre-intro-reel-log" title="Lien permanent vers cette image">#</a></p>
+</figcaption>
+</figure>
+<section id="gabarit-d-un-filtre">
+<h3>Gabarit d’un filtre<a class="headerlink" href="#gabarit-d-un-filtre" title="Lien permanent vers ce titre">#</a></h3>
 <p>Par conséquent, la définition des caractéristiques d’un filtre nécessite au préalable la définition d’un gabarit
 (<em>filter specification</em>) qui définit :</p>
 <ul class="simple">
@@ -793,23 +964,23 @@ que l’on souhaite la plus étroite possible.</p></li>
 </ul>
 <p>À cela s’ajoute la volonté d’avoir un filtre le plus simple possible (car plus facile à réaliser et moins cher),
 ce qui implique une fonction de transfert d’ordre le plus faible possible (on le verra plus loin).</p>
-</div>
-<div class="section" id="frequence-de-coupure">
-<h3>Fréquence de coupure<a class="headerlink" href="#frequence-de-coupure" title="Lien permanent vers ce titre">¶</a></h3>
+</section>
+<section id="frequence-de-coupure">
+<h3>Fréquence de coupure<a class="headerlink" href="#frequence-de-coupure" title="Lien permanent vers ce titre">#</a></h3>
 <p>Par ailleurs, la transition entre les bandes passante et atténuée n’étant plus instantanée,
 il faut redéfinir la fréquence de coupure.
 Généralement, la fréquence de coupure est définie comme la fréquence
 à laquelle le filtre a perdu la moitié de sa puissance instantanée (définie comme le carré du gain).</p>
 <p>On montre alors que la fréquence de coupure <span class="math notranslate nohighlight">\(f_c\)</span> est la fréquence à laquelle le gain du filtre
 est à 3 dB sous le gain maximal.</p>
-<details class="sphinx-bs dropdown card mb-3">
-<summary class="summary-title card-header">
-Démonstration<div class="summary-down docutils">
-<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
-<div class="summary-up docutils">
-<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
-</summary><div class="summary-content card-body docutils">
-<p class="card-text">La puissance instantantée à la fréquence <span class="math notranslate nohighlight">\(f\)</span> est notée <span class="math notranslate nohighlight">\(P(f)\)</span>.
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Démonstration<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">La puissance instantantée à la fréquence <span class="math notranslate nohighlight">\(f\)</span> est notée <span class="math notranslate nohighlight">\(P(f)\)</span>.
 On cherche donc la valeur de <span class="math notranslate nohighlight">\(f\)</span> pour laquelle <span class="math notranslate nohighlight">\(P(f) = \frac{1}{2} P_\mathrm{max}\)</span>, donc :</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -819,11 +990,11 @@ P(f) &amp;= \frac{1}{2} P_\mathrm{max} \\
 \Leftrightarrow\qquad 20 \log_{10} |H(f)| &amp;= 10 \log_{10} \frac{1}{2} + 20 \log_{10} |H(f)|_\mathrm{max} \\
 \Leftrightarrow\qquad G_\text{dB}(f) &amp;\approx -3.010 + {G_\text{dB}}_\mathrm{max} \\
 \end{split}\]</div>
-<p class="card-text">On arrondit la valeur de <span class="math notranslate nohighlight">\(10 \log_{10} \frac{1}{2}\)</span> à <span class="math notranslate nohighlight">\(3\)</span>.</p>
+<p class="sd-card-text">On arrondit la valeur de <span class="math notranslate nohighlight">\(10 \log_{10} \frac{1}{2}\)</span> à <span class="math notranslate nohighlight">\(3\)</span>.</p>
 </div>
-</details></div>
-<div class="section" id="conception-d-un-filtre">
-<h3>Conception d’un filtre<a class="headerlink" href="#conception-d-un-filtre" title="Lien permanent vers ce titre">¶</a></h3>
+</details></section>
+<section id="conception-d-un-filtre">
+<h3>Conception d’un filtre<a class="headerlink" href="#conception-d-un-filtre" title="Lien permanent vers ce titre">#</a></h3>
 <p>Pour résumer, la conception d’un filtre commence par la définition d’un gabarit,
 puis le choix d’une méthode de conception qui génère un filtre dont la réponse fréquentielle vérifie le gabarit souhaité.
 Les sections <a class="reference internal" href="filtres-analogiques.html#c-filtre-analogique"><span class="std std-ref">Filtres analogiques</span></a> et <a class="reference internal" href="filtres-numeriques.html#c-filtre-numerique"><span class="std std-ref">Filtres numériques</span></a> présenteront des méthodes pour cela.</p>
@@ -835,9 +1006,9 @@ dans ce cas, la phase n’est pas spécifiée et acceptée telle quelle.</p>
 <p>En revanche, si le gain et la phase sont tous les deux importants,
 alors on conçoit d’abord un filtre vérifiant le gain puis, si la phase obtenue n’est pas satisfaisante,
 on ajoute des filtres appelés « égaliseurs de phase » qui n’agissent que sur la phase.</p>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -861,37 +1032,51 @@ on ajoute des filtres appelés « égaliseurs de phase » qui n’agissent que s
 
               </div>
               
-        
-        <div class='prev-next-bottom'>
-            
-    <a class='left-prev' id="prev-link" href="tp/tp14.html" title="previous page">✐ Analyse spectrale d’un signal audio</a>
-    <a class='right-next' id="next-link" href="laplace.html" title="next page">Transformée de Laplace</a>
-
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="rev-p.html" title="précédent page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">précédent</p>
+            <p class="prev-next-title">TP : révisions</p>
         </div>
-        
+    </a>
+    <a class='right-next' id="next-link" href="laplace.html" title="suivant page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">suivant</p>
+        <p class="prev-next-title">Transformée de Laplace</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
         </div>
     </div>
-    <footer class="footer mt-5 mt-md-0">
-    <div class="container">
-      <p>
-        
-          Par Vincent Mazet (University of Strasbourg, France)<br/>
-        
-            &copy; droits d'auteur 2021-2022.<br/>
-          <div class="extra_footer">
-            Traitement du signal 2 &mdash; Vincent Mazet (Université de Strasbourg), 2021 &mdash; <a href='licence.html'>CC BY-NC 4.0</a>.
-          </div>
-      </p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Vincent Mazet (Université de Strasbourg, France)<br/>
+  
+      &copy; Copyright 2022-2023.<br/>
+    <div class="extra_footer">
+      Traitement du signal 2 &mdash; Vincent Mazet (Université de Strasbourg), 2020-2023 &mdash; <a href='licence.html'>CC BY-NC 4.0</a>.
     </div>
-  </footer>
-</main>
+</p>
+        </footer>
+    </div>
+    
+</div>
 
 
       </div>
     </div>
   
-  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
 
-  
+
   </body>
 </html>
