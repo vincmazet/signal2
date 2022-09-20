@@ -2,9 +2,9 @@
 
 Ce manuel est le support du cours de Traitement du signal de la formation EII à Télécom Physique Strasbourg.
 Il correspond au cours de deuxième année, le cours de première année est accessible dans [un autre manuel](https://vincmazet.github.io/signal1/).
-Ce cours commence par une rapide révision des notions vues en première année ;
-puis traite du filtrage analogique et numérique des signaux.
-Enfin, une courte présentation du traitement statistique du signal est abordée.
+Ce cours commence par une rapide révision des notions vues en première année,
+puis traite du filtrage analogique et numérique des signaux,
+et se termine par une courte présentation du traitement statistique du signal.
 Le cours peut être complété par les documents cités en [références](C:refs).
 
 Ce cours est accompagné d'exercices théoriques (à faire sur feuille) et pratiques (programmation en Python).

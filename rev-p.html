@@ -380,8 +380,8 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#analyse-spectrale-d-un-signal-audio">
-   Analyse spectrale d’un signal audio
+  <a class="reference internal nav-link" href="#analyse-spectrale">
+   Analyse spectrale
   </a>
  </li>
 </ul>
@@ -419,8 +419,8 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#analyse-spectrale-d-un-signal-audio">
-   Analyse spectrale d’un signal audio
+  <a class="reference internal nav-link" href="#analyse-spectrale">
+   Analyse spectrale
   </a>
  </li>
 </ul>
@@ -461,9 +461,9 @@ Choisissez un pas de temps correct pour obtenir une jolie courbe.</p>
 \[\begin{split}
   x[n] =
   \begin{cases}
-    +1 \text{ pour } n=1, \\
-    -1 \text{ pour } n=-1, \\
-    0  \text{ ailleurs},
+    +1 &amp;\text{ pour } n=1, \\
+    -1 &amp;\text{ pour } n=-1, \\
+    0  &amp;\text{ ailleurs},
   \end{cases}
   \qquad\qquad
   y[n] =
@@ -508,14 +508,15 @@ Par exemple, l’impulsion</p>
 On suppose que <span class="math notranslate nohighlight">\(T_e=0,5\)</span> s.</p></li>
 </ul>
 </section>
-<section id="analyse-spectrale-d-un-signal-audio">
-<h2>Analyse spectrale d’un signal audio<a class="headerlink" href="#analyse-spectrale-d-un-signal-audio" title="Lien permanent vers ce titre">#</a></h2>
+<section id="analyse-spectrale">
+<h2>Analyse spectrale<a class="headerlink" href="#analyse-spectrale" title="Lien permanent vers ce titre">#</a></h2>
 <ul class="simple">
-<li><p>Chargez le signal <a class="reference external" href="https://vincmazet.github.io/signal2/_static/files/chord.wav">chord.wav</a> (<code class="docutils literal notranslate"><span class="pre">scipy.io.wavfile.read</span></code>).
-C’est un signal sonore enregistré en stéréo : comment le convertir en mono ?
-Affichez-le.</p></li>
-<li><p>Affichez la TFD du signal pour déterminer les harmoniques principales.</p></li>
-<li><p>Quel est l’accord joué ? Vous pouvez également l’écouter si vous avez l’oreille musicale (<code class="docutils literal notranslate"><span class="pre">IPython.display.Audio</span></code>)…</p></li>
+<li><p>Le signal <a class="reference external" href="https://vincmazet.github.io/signal2/_static/files/consommation.csv">consommation.csv</a>
+(<code class="docutils literal notranslate"><span class="pre">numpy.loadtxt</span></code>) contient la consommation horaire en gaz (deuxième colonne)
+et en électricité (troisième colonne).
+Affichez la consommation électrique.</p></li>
+<li><p>Affichez la TFD du signal pour déterminer les principales fréquences.</p></li>
+<li><p>Identifiez quel phénomène correspond aux principales fréquences.</p></li>
 </ul>
 </section>
 </section>
