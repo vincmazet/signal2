@@ -1,5 +1,5 @@
 (C:tp-ssp)=
-# TP Traitement statistique du signal
+# TP
 
 
 ## Détection de motifs par filtrage adapté

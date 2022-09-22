@@ -58,7 +58,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Recherche" href="search.html" />
     <link rel="next" title="Transformée en Z" href="z.html" />
-    <link rel="prev" title="Introduction" href="filtre-intro.html" />
+    <link rel="prev" title="Filtres réalisables" href="filtres-realisables.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="fr">
     
@@ -137,8 +137,18 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="filtre-intro.html">
+  <a class="reference internal" href="filtres-intro.html">
    Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="filtres-ideaux.html">
+   Filtres idéaux
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="filtres-realisables.html">
+   Filtres réalisables
   </a>
  </li>
  <li class="toctree-l1 current active">
@@ -151,14 +161,31 @@ const thebe_selector_output = ".output, .cell_output"
    Transformée en Z
   </a>
  </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="filtres-numeriques.html">
+   Filtres numériques
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="filtres-rif.html">
+     Filtres RIF
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="filtres-rii.html">
+     Filtres RII
+    </a>
+   </li>
+  </ul>
+ </li>
  <li class="toctree-l1">
   <a class="reference internal" href="filtres-analogiques.html">
    Filtres analogiques
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="filtres-numeriques.html">
-   Filtres numériques
   </a>
  </li>
  <li class="toctree-l1">
@@ -477,8 +504,8 @@ H(s) = \frac{Y(s)}{X(s)}.
 d’une variable complexe (<span class="math notranslate nohighlight">\(s\)</span> est complexe).
 Pour la représenter, il faudrait donc quatre dimensions !
 C’est bien sûr trop compliqué.
-D’ailleurs, il n’y aurait pas de réel intérêt à la représenter.
-Juste pour la curiosité, la transformée de Laplace de <span class="math notranslate nohighlight">\(e^{-at} \cos(bt) u(t)\)</span> est représentée <a class="reference internal" href="#f-laplace-laplace4d"><span class="std std-numref">Fig. 9</span></a>.
+D’ailleurs, il n’y aurait pas de réel intérêt à la représenter.</p>
+<p>Juste pour la curiosité, la transformée de Laplace de <span class="math notranslate nohighlight">\(e^{-at} \cos(bt) u(t)\)</span> est représentée <a class="reference internal" href="#f-laplace-laplace4d"><span class="std std-numref">Fig. 9</span></a>.
 Vous conviendrez que ce n’est pas simple à interpréter !</p>
 <figure class="align-default" id="f-laplace-laplace4d">
 <img alt="_images/laplace4d.svg" src="_images/laplace4d.svg" /><figcaption>
@@ -513,7 +540,7 @@ sur la <a class="reference internal" href="#f-laplace-diagpz"><span class="std s
 \[
 x(t) = \frac{1}{2\pi j} \int X(s) e^{+st} ds.
 \]</div>
-<p>Le calcul de cette intégrale s’effectue en intégrant le long d’un contour dans le plan complexe en s.
+<p>Le calcul de cette intégrale s’effectue en intégrant le long d’un contour dans le plan complexe en <span class="math notranslate nohighlight">\(s\)</span>.
 C’est un calcul compliqué qui nécessite des notions que nous n’aborderons pas dans ce cours.</p>
 <p>Or, la plupart des transformées de Laplace s’écrivent sous forme d’une fraction rationnelle (fraction entre deux polynômes):</p>
 <div class="math notranslate nohighlight">
@@ -709,11 +736,11 @@ impliquant qu’ils sont tous situés à gauche de l’axe vertical du diagramme
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="filtre-intro.html" title="précédent page">
+    <a class='left-prev' id="prev-link" href="filtres-realisables.html" title="précédent page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">précédent</p>
-            <p class="prev-next-title">Introduction</p>
+            <p class="prev-next-title">Filtres réalisables</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="z.html" title="suivant page">

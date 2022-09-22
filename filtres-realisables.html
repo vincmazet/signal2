@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Filtres analogiques &#8212; Traitement du signal 2</title>
+    <title>Filtres réalisables &#8212; Traitement du signal 2</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -57,8 +57,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Recherche" href="search.html" />
-    <link rel="next" title="Exercices" href="filtres-t.html" />
-    <link rel="prev" title="Filtres RII" href="filtres-rii.html" />
+    <link rel="next" title="Transformée de Laplace" href="laplace.html" />
+    <link rel="prev" title="Filtres idéaux" href="filtres-ideaux.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="fr">
     
@@ -146,8 +146,8 @@ const thebe_selector_output = ".output, .cell_output"
    Filtres idéaux
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="filtres-realisables.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    Filtres réalisables
   </a>
  </li>
@@ -183,8 +183,8 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="filtres-analogiques.html">
    Filtres analogiques
   </a>
  </li>
@@ -332,7 +332,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="_sources/filtres-analogiques.ipynb"
+        <a href="_sources/filtres-realisables.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -392,13 +392,18 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#synthese-des-filtres-analogiques">
-   Synthèse des filtres analogiques
+  <a class="reference internal nav-link" href="#gabarit-d-un-filtre">
+   Gabarit d’un filtre
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#reponses-standards">
-   Réponses standards
+  <a class="reference internal nav-link" href="#frequence-de-coupure">
+   Fréquence de coupure
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conception-d-un-filtre">
+   Conception d’un filtre
   </a>
  </li>
 </ul>
@@ -410,7 +415,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Filtres analogiques</h1>
+                <h1>Filtres réalisables</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -421,13 +426,18 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#synthese-des-filtres-analogiques">
-   Synthèse des filtres analogiques
+  <a class="reference internal nav-link" href="#gabarit-d-un-filtre">
+   Gabarit d’un filtre
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#reponses-standards">
-   Réponses standards
+  <a class="reference internal nav-link" href="#frequence-de-coupure">
+   Fréquence de coupure
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conception-d-un-filtre">
+   Conception d’un filtre
   </a>
  </li>
 </ul>
@@ -440,104 +450,86 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="filtres-analogiques">
-<span id="c-filtres-analogiques"></span><h1>Filtres analogiques<a class="headerlink" href="#filtres-analogiques" title="Lien permanent vers ce titre">#</a></h1>
-<p>Malgré le développement incontestable du traitement numérique du signal, le filtrage analogique reste incontournable.
-En effet, les signaux à filtrer peuvent être analogiques,
-mais on peut également citer les filtres anti-repliement pour réduire la bande passante d’un signal analogique,
-ou le fait que la conception de certains filtres numériques nécessite de définir un filtre analogique.</p>
-<p>Les premiers développements de filtres analogiques sont expérimentaux et datent du début du XX<sup>e</sup> siècle avec la téléphonie.
-Les premières théories ont été développées dans les années 1930–1940.</p>
-<section id="synthese-des-filtres-analogiques">
-<h2>Synthèse des filtres analogiques<a class="headerlink" href="#synthese-des-filtres-analogiques" title="Lien permanent vers ce titre">#</a></h2>
-<p>Comme on l’a vu précédemment (cf. <a class="reference internal" href="laplace.html#s-laplace-inverse"><span class="std std-ref">Transformée de Laplace inverse</span></a>), on ne peut pas construire de filtre idéal pour une applciation temps réel.
-Les fonctions de transfert des filtres analogiques classiques s’écrivent sous la forme d’une fraction rationnelle
-et ne peuvent qu’approximer le gain d’un filtre idéal :</p>
-<div class="math notranslate nohighlight">
-\[
-H(s) = \frac{ \sum_{m=0}^M b_m s^m }{ \sum_{n=0}^N a_n s^n }
-     = \frac{ b_Ms^M + b_{M-1}s^{M-1} + \dots + b_1s + b_0 }{ a_Ns^N + a_{N-1}s^{N-1} + \dots + a_1s + a_0 }
-\]</div>
-<p>L’enjeu revient donc à déterminer, en fonction du gabarit choisi, les valeurs des coefficients <span class="math notranslate nohighlight">\(b_m\)</span> et <span class="math notranslate nohighlight">\(a_n\)</span> :
-c’est l’objet des travaux de <a class="reference external" href="https://en.wikipedia.org/wiki/Stephen_Butterworth">Butterworth</a>,
-<a class="reference external" href="https://fr.wikipedia.org/wiki/Pafnouti_Tchebychev">Tchebychev</a>
-ou <a class="reference external" href="https://en.wikipedia.org/wiki/Wilhelm_Cauer">Cauer</a>.
-La réponse fréquentielle d’un filtre varie donc en fonction des coefficients de sa fonction de transfert.</p>
-<p>La plupart des méthodes de conception des filtres nécessitent de concevoir avant tout
-un filtre passe-bas de fréquence de coupure égale à 1 Hz : c’est ce qu’on appelle un filtre passe-bas normalisé (<em>low-pass prototype</em>).
-Une transformation est ensuite appliquée sur les coefficients du filtre passe-bas normalisé
-pour régler la fréquence de coupure et le convertir si besoin en un autre type (passe-haut, passe-bande, coupe-bande).
-Historiquement, on utilisait des tables ou des formules pour obtenir les coefficients du filtre passe-bas prototype,
-et la transformation était effectuée à l’aide de calculs.
-Désormais, des programmes déterminent directement les coefficients du filtre attendus à partir du gabarit souhaité.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="filtres-realisables">
+<span id="c-filtre-reaslisables"></span><h1>Filtres réalisables<a class="headerlink" href="#filtres-realisables" title="Lien permanent vers ce titre">#</a></h1>
+<p>Comme on l’a vu dans la section <a class="reference internal" href="filtres-ideaux.html#c-filtres-ideaux"><span class="std std-ref">Filtres idéaux</span></a>,
+il est impossible de réaliser des filtres idéaux (en temps réel en tout cas).
+Par conséquent, les filtres réalisables ne sont que des approximations des filtres idéaux :</p>
+<ul class="simple">
+<li><p>des variations de gain dans les bandes passante et atténuée peuvent apparaître,</p></li>
+<li><p>les transitions d’une bande à l’autre ne peuvent pas être aussi brusques que pour les filtres idéaux.</p></li>
+</ul>
+<p>La <a class="reference internal" href="#f-filtre-intro-reel"><span class="std std-numref">Fig. 7</span></a> représente un exemple de filtre passe-bas réalisable :
+le filtre idéal (en bleu) est en fait approximé par le filtre réalisable (en rouge).
+Par conséquent, pour définir un filtre, il faudra avant tout choisir un <em>gabarit</em> (en vert)
+qui précise la zone dans laquelle devra se situer la réponse fréquentielle.</p>
+<figure class="align-default" id="f-filtre-intro-reel">
+<a class="reference internal image-reference" href="_images/filtre-reel.svg"><img alt="_images/filtre-reel.svg" src="_images/filtre-reel.svg" width="600px" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 7 </span><span class="caption-text">Exemple de gain pour un filtre passe-bas réalisable.</span><a class="headerlink" href="#f-filtre-intro-reel" title="Lien permanent vers cette image">#</a></p>
+</figcaption>
+</figure>
+<p>Très souvent, on utilise une échelle logarithmique pour les ordonnées, comme dans la <a class="reference internal" href="#f-filtre-intro-reel-log"><span class="std std-numref">Fig. 8</span></a>.</p>
+<figure class="align-default" id="f-filtre-intro-reel-log">
+<a class="reference internal image-reference" href="_images/filtre-reel-log.svg"><img alt="_images/filtre-reel-log.svg" src="_images/filtre-reel-log.svg" width="600px" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 8 </span><span class="caption-text">Exemple de gain pour un filtre passe-bas réalisable (en échelle logarithmique).</span><a class="headerlink" href="#f-filtre-intro-reel-log" title="Lien permanent vers cette image">#</a></p>
+</figcaption>
+</figure>
+<section id="gabarit-d-un-filtre">
+<h2>Gabarit d’un filtre<a class="headerlink" href="#gabarit-d-un-filtre" title="Lien permanent vers ce titre">#</a></h2>
+<p>Par conséquent, la définition des caractéristiques d’un filtre nécessite au préalable la définition d’un gabarit
+(<em>filter specification</em>) qui définit :</p>
+<ul class="simple">
+<li><p>l’ondulation maximale autorisée en bande passante (<em>pass-band ripple</em>), que l’on souhaite la plus faible possible,</p></li>
+<li><p>l’atténuation minimale en bande atténuée (<em>stop-band attenuation</em>), que l’on souhaite la plus forte possible,</p></li>
+<li><p>la largeur de transition entre bande passante et bande atténuée (<em>transition band</em>),
+que l’on souhaite la plus étroite possible.</p></li>
+</ul>
+<p>À cela s’ajoute la volonté d’avoir un filtre le plus simple possible (car plus facile à réaliser et moins cher),
+ce qui implique une fonction de transfert d’ordre le plus faible possible (on le verra plus loin).</p>
 </section>
-<section id="reponses-standards">
-<h2>Réponses standards<a class="headerlink" href="#reponses-standards" title="Lien permanent vers ce titre">#</a></h2>
-<p>Outre la définition du gabarit, il reste à choisir la famille du filtre à synthétiser.
-Les cinq principales familles sont détaillées ci-après,
-à noter qu’il existe deux types de filtre de Tchebychev (Chebyshev en anglais) : le type I et le type II.</p>
-<aside class="margin sidebar">
-<p class="sidebar-title"></p>
-<p>La fréquence « de coin » (<em>critical frequency</em> ou <em>edge frequency</em>)
-est une fréquence particulière du gabarit, qui définit le filtre.
-Ce peut être la fréquence de coupure à <span class="math notranslate nohighlight">\(-3\)</span> dB, ou la fréquence de la bande passante,
-ou la fréquence de la bande atténuée.</p>
-</aside>
-<p>Une comparaison de ces familles en termes de réponse fréquentielle, réponse impulsionnelle et retard de groupe
-est effectuée ci-dessous sur la base d’un filtre passe-bas d’ordre 3, de fréquence « de coin » 1 Hz,
-d’ondulation en bande passante 3 dB et d’atténuation en bande atténuée 30 dB.</p>
-<div class="sd-tab-set docutils">
-<input checked="checked" id="96292278-7c85-48cb-b4c4-2a2041216afa" name="643658c7-cdc1-42eb-a472-1627093d25e1" type="radio">
-</input><label class="sd-tab-label" for="96292278-7c85-48cb-b4c4-2a2041216afa">
-Gain</label><div class="sd-tab-content docutils">
-<img alt="_images/fana-gain.svg" src="_images/fana-gain.svg" /></div>
-<input id="c9039560-34b2-4c5f-a7b4-01ff7c1929f8" name="643658c7-cdc1-42eb-a472-1627093d25e1" type="radio">
-</input><label class="sd-tab-label" for="c9039560-34b2-4c5f-a7b4-01ff7c1929f8">
-Phase</label><div class="sd-tab-content docutils">
-<img alt="_images/fana-phase.svg" src="_images/fana-phase.svg" /></div>
-<input id="2819e95a-a053-4bd0-8e0c-22897a5c98b1" name="643658c7-cdc1-42eb-a472-1627093d25e1" type="radio">
-</input><label class="sd-tab-label" for="2819e95a-a053-4bd0-8e0c-22897a5c98b1">
-Réponse impulsionnelle</label><div class="sd-tab-content docutils">
-<img alt="_images/fana-impulse.svg" src="_images/fana-impulse.svg" /></div>
-<input id="47d7174b-1983-48f7-9365-63eda365f001" name="643658c7-cdc1-42eb-a472-1627093d25e1" type="radio">
-</input><label class="sd-tab-label" for="47d7174b-1983-48f7-9365-63eda365f001">
-Retard de groupe</label><div class="sd-tab-content docutils">
-<img alt="_images/fana-gd.svg" src="_images/fana-gd.svg" /></div>
+<section id="frequence-de-coupure">
+<h2>Fréquence de coupure<a class="headerlink" href="#frequence-de-coupure" title="Lien permanent vers ce titre">#</a></h2>
+<p>Par ailleurs, la transition entre les bandes passante et atténuée n’étant plus instantanée,
+il faut redéfinir la fréquence de coupure.
+Généralement, la fréquence de coupure est définie comme la fréquence
+à laquelle le filtre a perdu la moitié de sa puissance instantanée (définie comme le carré du gain).</p>
+<p>On montre alors que la fréquence de coupure <span class="math notranslate nohighlight">\(f_c\)</span> est la fréquence à laquelle le gain du filtre
+est à 3 dB sous le gain maximal.</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Démonstration<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">La puissance instantantée à la fréquence <span class="math notranslate nohighlight">\(f\)</span> est notée <span class="math notranslate nohighlight">\(P(f)\)</span>.
+On cherche donc la valeur de <span class="math notranslate nohighlight">\(f\)</span> pour laquelle <span class="math notranslate nohighlight">\(P(f) = \frac{1}{2} P_\mathrm{max}\)</span>, donc :</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+P(f) &amp;= \frac{1}{2} P_\mathrm{max} \\
+\Leftrightarrow\qquad |H(f)|^2 &amp;= \frac{1}{2} |H(f)|^2_\mathrm{max} \\
+\Leftrightarrow\qquad 10 \log_{10} |H(f)|^2 &amp;= 10 \log_{10} \left[ \frac{1}{2} |H(f)|^2_\mathrm{max} \right] \\
+\Leftrightarrow\qquad 20 \log_{10} |H(f)| &amp;= 10 \log_{10} \frac{1}{2} + 20 \log_{10} |H(f)|_\mathrm{max} \\
+\Leftrightarrow\qquad G_\text{dB}(f) &amp;\approx -3.010 + {G_\text{dB}}_\mathrm{max} \\
+\end{split}\]</div>
+<p class="sd-card-text">On arrondit la valeur de <span class="math notranslate nohighlight">\(10 \log_{10} \frac{1}{2}\)</span> à <span class="math notranslate nohighlight">\(3\)</span>.</p>
 </div>
-<p>Des résultats précédents, on peut en déduire les principales différences et caractéristiques des filtres.</p>
-<p>Le <strong>filtre de Butterworth</strong> est caractérisé par :</p>
-<ul class="simple">
-<li><p>aucune ondulation en bande passante,</p></li>
-<li><p>aucune ondulation en bande atténuée,</p></li>
-<li><p>une bande de transition assez large.</p></li>
-</ul>
-<p>Le <strong>filtre de Bessel</strong> est l’approximation d’un retard pur, et ses caractéristiques sont :</p>
-<ul class="simple">
-<li><p>un retard de groupe quasi-constant dans la bande passante,</p></li>
-<li><p>aucune ondulation en bande passante,</p></li>
-<li><p>aucune ondulation en bande atténuée,</p></li>
-<li><p>une bande de transition très large.</p></li>
-</ul>
-<p>Le <strong>filtre de Tchebychev de type I</strong> possède les caractéristiques suivantes :</p>
-<ul class="simple">
-<li><p>présence d’ondulations en bande passante (mais la valeur maximale de ces atténuations est minimisée),</p></li>
-<li><p>aucune ondulation en bande atténuée,</p></li>
-<li><p>bande de transition plus étroite que les filtres de Butterworth et Bessel,</p></li>
-<li><p>un retard de groupe très distordue près de la fréquence de coupure.</p></li>
-</ul>
-<p>Le <strong>filtre de Tchebychev de type II</strong> possède les caractéristiques suivantes :</p>
-<ul class="simple">
-<li><p>aucune ondulation en bande passante,</p></li>
-<li><p>présence d’ondulations en bande atténuée,</p></li>
-<li><p>une bande de transition plus étroite que les filtres de Butterworth et Bessel.</p></li>
-</ul>
-<p>Le <strong>filtre de Cauer</strong> (ou <strong>filtre elliptique</strong>) possède les caractéristiques ci-dessous :</p>
-<ul class="simple">
-<li><p>présence d’ondulations en bande passante,</p></li>
-<li><p>présence d’ondulations en bande atténuée,</p></li>
-<li><p>une transition très rapide,</p></li>
-<li><p>un retard de groupe très distordu près de la fréquence de coupure.</p></li>
-</ul>
+</details></section>
+<section id="conception-d-un-filtre">
+<h2>Conception d’un filtre<a class="headerlink" href="#conception-d-un-filtre" title="Lien permanent vers ce titre">#</a></h2>
+<p>Pour résumer, la conception d’un filtre commence par la définition d’un gabarit,
+puis le choix d’une méthode de conception qui génère un filtre dont la réponse fréquentielle vérifie le gabarit souhaité.
+Les sections <a class="reference internal" href="filtres-numeriques.html#c-filtres-numeriques"><span class="std std-ref">Filtres numériques</span></a> et <a class="reference internal" href="filtres-analogiques.html#c-filtres-analogiques"><span class="std std-ref">Filtres analogiques</span></a> présenteront des méthodes pour cela.</p>
+<p>Jusqu’ici, on a beaucoup plus parlé des spécifications des filtres en gain, et non en phase.
+En effet, la réalisation de filtres vérifiant à la fois des spécifications en gain et en phase est trop difficile,
+voire impossible.
+Heureusement, dans la plupart des applications, seul le gain est important ;
+dans ce cas, la phase n’est pas spécifiée et acceptée telle quelle.</p>
+<p>En revanche, si le gain et la phase sont tous les deux importants,
+alors on conçoit d’abord un filtre vérifiant le gain puis, si la phase obtenue n’est pas satisfaisante,
+on ajoute des filtres appelés « égaliseurs de phase » qui n’agissent que sur la phase.</p>
 </section>
 </section>
 
@@ -568,17 +560,17 @@ Retard de groupe</label><div class="sd-tab-content docutils">
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="filtres-rii.html" title="précédent page">
+    <a class='left-prev' id="prev-link" href="filtres-ideaux.html" title="précédent page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">précédent</p>
-            <p class="prev-next-title">Filtres RII</p>
+            <p class="prev-next-title">Filtres idéaux</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="filtres-t.html" title="suivant page">
+    <a class='right-next' id="next-link" href="laplace.html" title="suivant page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">suivant</p>
-        <p class="prev-next-title">Exercices</p>
+        <p class="prev-next-title">Transformée de Laplace</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

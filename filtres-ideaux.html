@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Filtres analogiques &#8212; Traitement du signal 2</title>
+    <title>Filtres idéaux &#8212; Traitement du signal 2</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -57,8 +57,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Recherche" href="search.html" />
-    <link rel="next" title="Exercices" href="filtres-t.html" />
-    <link rel="prev" title="Filtres RII" href="filtres-rii.html" />
+    <link rel="next" title="Filtres réalisables" href="filtres-realisables.html" />
+    <link rel="prev" title="Introduction" href="filtres-intro.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="fr">
     
@@ -141,8 +141,8 @@ const thebe_selector_output = ".output, .cell_output"
    Introduction
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="filtres-ideaux.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    Filtres idéaux
   </a>
  </li>
@@ -183,8 +183,8 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="filtres-analogiques.html">
    Filtres analogiques
   </a>
  </li>
@@ -332,7 +332,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="_sources/filtres-analogiques.ipynb"
+        <a href="_sources/filtres-ideaux.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -392,13 +392,28 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#synthese-des-filtres-analogiques">
-   Synthèse des filtres analogiques
+  <a class="reference internal nav-link" href="#filtre-passe-bas">
+   Filtre passe bas
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#reponses-standards">
-   Réponses standards
+  <a class="reference internal nav-link" href="#filtre-passe-haut">
+   Filtre passe-haut
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#filtre-passe-bande">
+   Filtre passe-bande
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#filtre-coupe-bande">
+   Filtre coupe-bande
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#filtre-passe-tout">
+   Filtre passe-tout
   </a>
  </li>
 </ul>
@@ -410,7 +425,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Filtres analogiques</h1>
+                <h1>Filtres idéaux</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -421,13 +436,28 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#synthese-des-filtres-analogiques">
-   Synthèse des filtres analogiques
+  <a class="reference internal nav-link" href="#filtre-passe-bas">
+   Filtre passe bas
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#reponses-standards">
-   Réponses standards
+  <a class="reference internal nav-link" href="#filtre-passe-haut">
+   Filtre passe-haut
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#filtre-passe-bande">
+   Filtre passe-bande
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#filtre-coupe-bande">
+   Filtre coupe-bande
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#filtre-passe-tout">
+   Filtre passe-tout
   </a>
  </li>
 </ul>
@@ -440,104 +470,160 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="filtres-analogiques">
-<span id="c-filtres-analogiques"></span><h1>Filtres analogiques<a class="headerlink" href="#filtres-analogiques" title="Lien permanent vers ce titre">#</a></h1>
-<p>Malgré le développement incontestable du traitement numérique du signal, le filtrage analogique reste incontournable.
-En effet, les signaux à filtrer peuvent être analogiques,
-mais on peut également citer les filtres anti-repliement pour réduire la bande passante d’un signal analogique,
-ou le fait que la conception de certains filtres numériques nécessite de définir un filtre analogique.</p>
-<p>Les premiers développements de filtres analogiques sont expérimentaux et datent du début du XX<sup>e</sup> siècle avec la téléphonie.
-Les premières théories ont été développées dans les années 1930–1940.</p>
-<section id="synthese-des-filtres-analogiques">
-<h2>Synthèse des filtres analogiques<a class="headerlink" href="#synthese-des-filtres-analogiques" title="Lien permanent vers ce titre">#</a></h2>
-<p>Comme on l’a vu précédemment (cf. <a class="reference internal" href="laplace.html#s-laplace-inverse"><span class="std std-ref">Transformée de Laplace inverse</span></a>), on ne peut pas construire de filtre idéal pour une applciation temps réel.
-Les fonctions de transfert des filtres analogiques classiques s’écrivent sous la forme d’une fraction rationnelle
-et ne peuvent qu’approximer le gain d’un filtre idéal :</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="filtres-ideaux">
+<span id="c-filtres-ideaux"></span><h1>Filtres idéaux<a class="headerlink" href="#filtres-ideaux" title="Lien permanent vers ce titre">#</a></h1>
+<section id="filtre-passe-bas">
+<span id="s-filtre-intro-pbas"></span><h2>Filtre passe bas<a class="headerlink" href="#filtre-passe-bas" title="Lien permanent vers ce titre">#</a></h2>
+<p>Un filtre passe-bas (<em>low-pass filter</em>) laisse passer les fréquences faibles et arrête les fréquences hautes.
+Sa réponse fréquentielle s’écrit sous la forme :</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+H(f) = \begin{cases}
+  K e^{-j 2\pi f a} &amp;\text{si}\; |f| \leq f_c, \\
+  0                 &amp;\text{si}\; |f| &gt; f_c
+\end{cases}
+\end{split}\]</div>
+<p>où <span class="math notranslate nohighlight">\(K\)</span> et <span class="math notranslate nohighlight">\(a\)</span> sont deux paramètres du filtre et <span class="math notranslate nohighlight">\(f_c\)</span> est la « fréquence de coupure » (<em>cutoff frequency</em>).
+Le gain de ce filtre est donc :</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+G(f) = |H(f)| = \begin{cases}
+  K &amp;\text{si}\; |f| \leq f_c, \\
+  0 &amp;\text{si}\; |f| &gt; f_c.
+\end{cases}
+\end{split}\]</div>
+<p>Le gain du filtre passe-bas idéal est représenté <a class="reference internal" href="#f-filtre-intro-pbas-ideal"><span class="std std-numref">Fig. 1</span></a> :
+le gain dans les hautes fréquences est nul, donc le filtre passe-bas supprimera toute fréquence supérieure à <span class="math notranslate nohighlight">\(f_c\)</span>.
+Cette bande de fréquence est appelée « bande atténuée »,
+et la bande de fréquence pour laquelle le gain n’est pas nul est la « bande passante ».</p>
+<figure class="align-default" id="f-filtre-intro-pbas-ideal">
+<a class="reference internal image-reference" href="_images/ideallowpass.svg"><img alt="_images/ideallowpass.svg" src="_images/ideallowpass.svg" width="300px" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 1 </span><span class="caption-text">Gain d’un filtre passe-bas idéal.</span><a class="headerlink" href="#f-filtre-intro-pbas-ideal" title="Lien permanent vers cette image">#</a></p>
+</figcaption>
+</figure>
+<p>Intéressons-nous à la réponse impulsionnelle de ce filtre,
+en nous plaçant dans le domaine analogique.
+Par définition, la réponse impulsionnelle <span class="math notranslate nohighlight">\(h(t)\)</span> du filtre passe-bas idéal
+est la transformée de Fourier inverse de sa réponse fréquentielle <span class="math notranslate nohighlight">\(H(f)\)</span>.
+Le calcul donne :</p>
 <div class="math notranslate nohighlight">
 \[
-H(s) = \frac{ \sum_{m=0}^M b_m s^m }{ \sum_{n=0}^N a_n s^n }
-     = \frac{ b_Ms^M + b_{M-1}s^{M-1} + \dots + b_1s + b_0 }{ a_Ns^N + a_{N-1}s^{N-1} + \dots + a_1s + a_0 }
+h(t) = 2 K f_c \, \mathrm{sinc}(2 f_c (t-a))
 \]</div>
-<p>L’enjeu revient donc à déterminer, en fonction du gabarit choisi, les valeurs des coefficients <span class="math notranslate nohighlight">\(b_m\)</span> et <span class="math notranslate nohighlight">\(a_n\)</span> :
-c’est l’objet des travaux de <a class="reference external" href="https://en.wikipedia.org/wiki/Stephen_Butterworth">Butterworth</a>,
-<a class="reference external" href="https://fr.wikipedia.org/wiki/Pafnouti_Tchebychev">Tchebychev</a>
-ou <a class="reference external" href="https://en.wikipedia.org/wiki/Wilhelm_Cauer">Cauer</a>.
-La réponse fréquentielle d’un filtre varie donc en fonction des coefficients de sa fonction de transfert.</p>
-<p>La plupart des méthodes de conception des filtres nécessitent de concevoir avant tout
-un filtre passe-bas de fréquence de coupure égale à 1 Hz : c’est ce qu’on appelle un filtre passe-bas normalisé (<em>low-pass prototype</em>).
-Une transformation est ensuite appliquée sur les coefficients du filtre passe-bas normalisé
-pour régler la fréquence de coupure et le convertir si besoin en un autre type (passe-haut, passe-bande, coupe-bande).
-Historiquement, on utilisait des tables ou des formules pour obtenir les coefficients du filtre passe-bas prototype,
-et la transformation était effectuée à l’aide de calculs.
-Désormais, des programmes déterminent directement les coefficients du filtre attendus à partir du gabarit souhaité.</p>
-</section>
-<section id="reponses-standards">
-<h2>Réponses standards<a class="headerlink" href="#reponses-standards" title="Lien permanent vers ce titre">#</a></h2>
-<p>Outre la définition du gabarit, il reste à choisir la famille du filtre à synthétiser.
-Les cinq principales familles sont détaillées ci-après,
-à noter qu’il existe deux types de filtre de Tchebychev (Chebyshev en anglais) : le type I et le type II.</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Démonstration<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<div class="math notranslate nohighlight">
+\[\begin{split}
+h(t) &amp;= \mathcal{F}^{-1}\left[H(f)\right](t) \\
+     &amp;= \int_{-f_c}^{+f_c} K e^{-j 2\pi f a} e^{+j 2\pi f t} df \\
+     &amp;= \int_{-f_c}^{+f_c} K e^{+j 2\pi f (t-a)} df \\
+     &amp;= K \left[ \frac{e^{+j 2\pi f (t-a)}}{+j 2\pi (t-a)}  \right]_{-f_c}^{+f_c} \\
+     &amp;= K \frac{e^{+j 2\pi f_c (t-a)} - e^{-j 2\pi f_c (t-a)}}{+j 2\pi (t-a)} \\
+     &amp;= K \frac{1}{\pi (t-a)} \sin(2\pi f_c (t-a)) \\
+     &amp;= K \frac{1}{\pi (t-a)} \sin(2\pi f_c (t-a)) \frac{2f_c}{2f_c} \\
+     &amp;= 2 K f_c \, \mathrm{sinc}(2 f_c (t-a))
+\end{split}\]</div>
+</div>
+</details><p>La réponse impulsionnelle de l’équation précédente est représentée <a class="reference internal" href="#f-filtre-intro-ri-pbas"><span class="std std-numref">Fig. 2</span></a>.</p>
+<figure class="align-default" id="f-filtre-intro-ri-pbas">
+<img alt="_images/ri-pbas.svg" src="_images/ri-pbas.svg" /><figcaption>
+<p><span class="caption-number">Fig. 2 </span><span class="caption-text">Réponse impulsionnelle du filtre passe-bas idéal (ici : <span class="math notranslate nohighlight">\(K\)</span> = 0,9, <span class="math notranslate nohighlight">\(f_c\)</span> = 0,5, <span class="math notranslate nohighlight">\(a\)</span> = 0,7).</span><a class="headerlink" href="#f-filtre-intro-ri-pbas" title="Lien permanent vers cette image">#</a></p>
+</figcaption>
+</figure>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
-<p>La fréquence « de coin » (<em>critical frequency</em> ou <em>edge frequency</em>)
-est une fréquence particulière du gabarit, qui définit le filtre.
-Ce peut être la fréquence de coupure à <span class="math notranslate nohighlight">\(-3\)</span> dB, ou la fréquence de la bande passante,
-ou la fréquence de la bande atténuée.</p>
+<p>En fait, il existe tout de même une manière de réaliser un filtre idéal en effectuant l’opération dans le domaine de Fourier.
+Cela implique toutefois que le filtrage se fasse sur le signal en entier :
+ce n’est donc possible que sur un signal enregistré, mais pas en temps réel.</p>
 </aside>
-<p>Une comparaison de ces familles en termes de réponse fréquentielle, réponse impulsionnelle et retard de groupe
-est effectuée ci-dessous sur la base d’un filtre passe-bas d’ordre 3, de fréquence « de coin » 1 Hz,
-d’ondulation en bande passante 3 dB et d’atténuation en bande atténuée 30 dB.</p>
-<div class="sd-tab-set docutils">
-<input checked="checked" id="96292278-7c85-48cb-b4c4-2a2041216afa" name="643658c7-cdc1-42eb-a472-1627093d25e1" type="radio">
-</input><label class="sd-tab-label" for="96292278-7c85-48cb-b4c4-2a2041216afa">
-Gain</label><div class="sd-tab-content docutils">
-<img alt="_images/fana-gain.svg" src="_images/fana-gain.svg" /></div>
-<input id="c9039560-34b2-4c5f-a7b4-01ff7c1929f8" name="643658c7-cdc1-42eb-a472-1627093d25e1" type="radio">
-</input><label class="sd-tab-label" for="c9039560-34b2-4c5f-a7b4-01ff7c1929f8">
-Phase</label><div class="sd-tab-content docutils">
-<img alt="_images/fana-phase.svg" src="_images/fana-phase.svg" /></div>
-<input id="2819e95a-a053-4bd0-8e0c-22897a5c98b1" name="643658c7-cdc1-42eb-a472-1627093d25e1" type="radio">
-</input><label class="sd-tab-label" for="2819e95a-a053-4bd0-8e0c-22897a5c98b1">
-Réponse impulsionnelle</label><div class="sd-tab-content docutils">
-<img alt="_images/fana-impulse.svg" src="_images/fana-impulse.svg" /></div>
-<input id="47d7174b-1983-48f7-9365-63eda365f001" name="643658c7-cdc1-42eb-a472-1627093d25e1" type="radio">
-</input><label class="sd-tab-label" for="47d7174b-1983-48f7-9365-63eda365f001">
-Retard de groupe</label><div class="sd-tab-content docutils">
-<img alt="_images/fana-gd.svg" src="_images/fana-gd.svg" /></div>
-</div>
-<p>Des résultats précédents, on peut en déduire les principales différences et caractéristiques des filtres.</p>
-<p>Le <strong>filtre de Butterworth</strong> est caractérisé par :</p>
-<ul class="simple">
-<li><p>aucune ondulation en bande passante,</p></li>
-<li><p>aucune ondulation en bande atténuée,</p></li>
-<li><p>une bande de transition assez large.</p></li>
-</ul>
-<p>Le <strong>filtre de Bessel</strong> est l’approximation d’un retard pur, et ses caractéristiques sont :</p>
-<ul class="simple">
-<li><p>un retard de groupe quasi-constant dans la bande passante,</p></li>
-<li><p>aucune ondulation en bande passante,</p></li>
-<li><p>aucune ondulation en bande atténuée,</p></li>
-<li><p>une bande de transition très large.</p></li>
-</ul>
-<p>Le <strong>filtre de Tchebychev de type I</strong> possède les caractéristiques suivantes :</p>
-<ul class="simple">
-<li><p>présence d’ondulations en bande passante (mais la valeur maximale de ces atténuations est minimisée),</p></li>
-<li><p>aucune ondulation en bande atténuée,</p></li>
-<li><p>bande de transition plus étroite que les filtres de Butterworth et Bessel,</p></li>
-<li><p>un retard de groupe très distordue près de la fréquence de coupure.</p></li>
-</ul>
-<p>Le <strong>filtre de Tchebychev de type II</strong> possède les caractéristiques suivantes :</p>
-<ul class="simple">
-<li><p>aucune ondulation en bande passante,</p></li>
-<li><p>présence d’ondulations en bande atténuée,</p></li>
-<li><p>une bande de transition plus étroite que les filtres de Butterworth et Bessel.</p></li>
-</ul>
-<p>Le <strong>filtre de Cauer</strong> (ou <strong>filtre elliptique</strong>) possède les caractéristiques ci-dessous :</p>
-<ul class="simple">
-<li><p>présence d’ondulations en bande passante,</p></li>
-<li><p>présence d’ondulations en bande atténuée,</p></li>
-<li><p>une transition très rapide,</p></li>
-<li><p>un retard de groupe très distordu près de la fréquence de coupure.</p></li>
-</ul>
+<p>On observe que la réponse impulsionnelle est infinie, et donc non causale (elle n’est pas nulle pour <span class="math notranslate nohighlight">\(t&lt;0\)</span>).
+Qu’est-ce que cela implique ?
+Et bien ce filtre n’est pas réalisable !
+En effet, pour pouvoir implémenter un tel filtre (et donc effectuer convenablement la convolution),
+il aurait déjà fallu commencer le filtrage il y a très très longtemps, et le filtrage se poursuivra jusqu’à la fin des temps ! 😵
+Bref, un filtre passe-bas idéal n’est pas réalisable pour une application en temps réel.</p>
+</section>
+<section id="filtre-passe-haut">
+<h2>Filtre passe-haut<a class="headerlink" href="#filtre-passe-haut" title="Lien permanent vers ce titre">#</a></h2>
+<p>Un filtre passe-haut (<em>high-pass filter</em>) laisse passer les fréquences hautes et arrête les fréquences faibles.
+Sa réponse fréquentielle s’écrit sous la forme suivante et son gain est représenté <a class="reference internal" href="#f-filtre-intro-phaut-ideal"><span class="std std-numref">Fig. 3</span></a>.
+Comme pour le filtre passe-bas idéal, il n’est pas réalisable.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+H(f) = \begin{cases}
+  K e^{-j 2\pi f a} &amp;\text{si} |f| \geq f_c, \\
+  0                 &amp;\text{si} |f| &lt; f_c.
+\end{cases}
+\end{split}\]</div>
+<figure class="align-default" id="f-filtre-intro-phaut-ideal">
+<a class="reference internal image-reference" href="_images/idealhighpass.svg"><img alt="_images/idealhighpass.svg" src="_images/idealhighpass.svg" width="300px" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 3 </span><span class="caption-text">Gain d’un filtre passe-haut idéal.</span><a class="headerlink" href="#f-filtre-intro-phaut-ideal" title="Lien permanent vers cette image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="filtre-passe-bande">
+<h2>Filtre passe-bande<a class="headerlink" href="#filtre-passe-bande" title="Lien permanent vers ce titre">#</a></h2>
+<p>Un filtre passe-bande (<em>band-pass filter</em>) laisse passer les fréquences moyennes,
+entre deux fréquences de coupure <span class="math notranslate nohighlight">\(f_{c-}\)</span> et <span class="math notranslate nohighlight">\(f_{c+}\)</span>.
+Sa réponse fréquentielle s’écrit sous la forme suivante et son gain est représenté <a class="reference internal" href="#f-filtre-intro-pbande-ideal"><span class="std std-numref">Fig. 4</span></a>.
+Il n’est pas réalisable.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+H(f) = \begin{cases}
+  K e^{-j 2\pi f a} &amp;\text{si} f_{c-} \leq |f| \leq f_{c+}, \\
+  0                 &amp;\text{sinon}.
+\end{cases}
+\end{split}\]</div>
+<figure class="align-default" id="f-filtre-intro-pbande-ideal">
+<a class="reference internal image-reference" href="_images/idealbandpass.svg"><img alt="_images/idealbandpass.svg" src="_images/idealbandpass.svg" width="300px" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 4 </span><span class="caption-text">Gain d’un filtre passe-bande idéal.</span><a class="headerlink" href="#f-filtre-intro-pbande-ideal" title="Lien permanent vers cette image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="filtre-coupe-bande">
+<h2>Filtre coupe-bande<a class="headerlink" href="#filtre-coupe-bande" title="Lien permanent vers ce titre">#</a></h2>
+<p>Un filtre coupe-bande (<em>band-stop filter</em>, ou <em>notch filter</em> lorsque la bande atténuée est très étroite)
+ne supprime que les fréquences situées entre <span class="math notranslate nohighlight">\(f_{c-}\)</span> et <span class="math notranslate nohighlight">\(f_{c+}\)</span>.
+Sa réponse fréquentielle s’écrit sous la forme suivante et son gain est représenté <a class="reference internal" href="#f-filtre-intro-cbande-ideal"><span class="std std-numref">Fig. 5</span></a>.
+Il n’est pas réalisable.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+H(f) = \begin{cases}
+  0                 &amp;\text{si} f_{c-} \leq |f| \leq f_{c+}, \\
+  K e^{-j 2\pi f a} &amp;\text{sinon}.
+\end{cases}
+\end{split}\]</div>
+<figure class="align-default" id="f-filtre-intro-cbande-ideal">
+<a class="reference internal image-reference" href="_images/idealbandstop.svg"><img alt="_images/idealbandstop.svg" src="_images/idealbandstop.svg" width="300px" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 5 </span><span class="caption-text">Gain d’un filtre coupe-bande idéal.</span><a class="headerlink" href="#f-filtre-intro-cbande-ideal" title="Lien permanent vers cette image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="filtre-passe-tout">
+<h2>Filtre passe-tout<a class="headerlink" href="#filtre-passe-tout" title="Lien permanent vers ce titre">#</a></h2>
+<p>Un filtre passe-tout (<em>all-pass filter</em>) laisse passer toutes les fréquences sans les atténuer, mais modifie leur phase.
+Il est utilisé pour linéariser la phase ou introduire des retards.
+Sa réponse fréquentielle s’écrit sous la forme suivante et son gain est représenté <a class="reference internal" href="#f-filtre-intro-ptout-ideal"><span class="std std-numref">Fig. 6</span></a>.
+Comme tous les filtres idéaux précédents, il n’est pas réalisable, vous vous en doutiez…</p>
+<div class="math notranslate nohighlight">
+\[
+H(f) = K e^{-j 2\pi f a}.
+\]</div>
+<figure class="align-default" id="f-filtre-intro-ptout-ideal">
+<a class="reference internal image-reference" href="_images/idealallpass.svg"><img alt="_images/idealallpass.svg" src="_images/idealallpass.svg" width="300px" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 6 </span><span class="caption-text">Gain d’un filtre passe-tout idéal.</span><a class="headerlink" href="#f-filtre-intro-ptout-ideal" title="Lien permanent vers cette image">#</a></p>
+</figcaption>
+</figure>
 </section>
 </section>
 
@@ -568,17 +654,17 @@ Retard de groupe</label><div class="sd-tab-content docutils">
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="filtres-rii.html" title="précédent page">
+    <a class='left-prev' id="prev-link" href="filtres-intro.html" title="précédent page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">précédent</p>
-            <p class="prev-next-title">Filtres RII</p>
+            <p class="prev-next-title">Introduction</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="filtres-t.html" title="suivant page">
+    <a class='right-next' id="next-link" href="filtres-realisables.html" title="suivant page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">suivant</p>
-        <p class="prev-next-title">Exercices</p>
+        <p class="prev-next-title">Filtres réalisables</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

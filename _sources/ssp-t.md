@@ -1,5 +1,5 @@
 (C:td-ssp)=
-# Exercices : Traitement statistique du signal
+# Exercices
 
 
 **Exercice 1**

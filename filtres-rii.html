@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Filtres analogiques &#8212; Traitement du signal 2</title>
+    <title>Filtres RII &#8212; Traitement du signal 2</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -57,8 +57,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Recherche" href="search.html" />
-    <link rel="next" title="Exercices" href="filtres-t.html" />
-    <link rel="prev" title="Filtres RII" href="filtres-rii.html" />
+    <link rel="next" title="Filtres analogiques" href="filtres-analogiques.html" />
+    <link rel="prev" title="Filtres RIF" href="filtres-rif.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="fr">
     
@@ -161,30 +161,30 @@ const thebe_selector_output = ".output, .cell_output"
    Transformée en Z
   </a>
  </li>
- <li class="toctree-l1 has-children">
+ <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="filtres-numeriques.html">
    Filtres numériques
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
+  <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="filtres-rif.html">
      Filtres RIF
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="filtres-rii.html">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      Filtres RII
     </a>
    </li>
   </ul>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="filtres-analogiques.html">
    Filtres analogiques
   </a>
  </li>
@@ -332,7 +332,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="_sources/filtres-analogiques.ipynb"
+        <a href="_sources/filtres-rii.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -392,13 +392,23 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#synthese-des-filtres-analogiques">
-   Synthèse des filtres analogiques
+  <a class="reference internal nav-link" href="#reponse-impulsionnelle">
+   Réponse impulsionnelle
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#reponses-standards">
-   Réponses standards
+  <a class="reference internal nav-link" href="#fonction-de-transfert">
+   Fonction de transfert
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#schema-bloc">
+   Schéma bloc
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#transformation-bilineaire">
+   Transformation bilinéaire
   </a>
  </li>
 </ul>
@@ -410,7 +420,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Filtres analogiques</h1>
+                <h1>Filtres RII</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -421,13 +431,23 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#synthese-des-filtres-analogiques">
-   Synthèse des filtres analogiques
+  <a class="reference internal nav-link" href="#reponse-impulsionnelle">
+   Réponse impulsionnelle
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#reponses-standards">
-   Réponses standards
+  <a class="reference internal nav-link" href="#fonction-de-transfert">
+   Fonction de transfert
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#schema-bloc">
+   Schéma bloc
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#transformation-bilineaire">
+   Transformation bilinéaire
   </a>
  </li>
 </ul>
@@ -440,105 +460,119 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="filtres-analogiques">
-<span id="c-filtres-analogiques"></span><h1>Filtres analogiques<a class="headerlink" href="#filtres-analogiques" title="Lien permanent vers ce titre">#</a></h1>
-<p>Malgré le développement incontestable du traitement numérique du signal, le filtrage analogique reste incontournable.
-En effet, les signaux à filtrer peuvent être analogiques,
-mais on peut également citer les filtres anti-repliement pour réduire la bande passante d’un signal analogique,
-ou le fait que la conception de certains filtres numériques nécessite de définir un filtre analogique.</p>
-<p>Les premiers développements de filtres analogiques sont expérimentaux et datent du début du XX<sup>e</sup> siècle avec la téléphonie.
-Les premières théories ont été développées dans les années 1930–1940.</p>
-<section id="synthese-des-filtres-analogiques">
-<h2>Synthèse des filtres analogiques<a class="headerlink" href="#synthese-des-filtres-analogiques" title="Lien permanent vers ce titre">#</a></h2>
-<p>Comme on l’a vu précédemment (cf. <a class="reference internal" href="laplace.html#s-laplace-inverse"><span class="std std-ref">Transformée de Laplace inverse</span></a>), on ne peut pas construire de filtre idéal pour une applciation temps réel.
-Les fonctions de transfert des filtres analogiques classiques s’écrivent sous la forme d’une fraction rationnelle
-et ne peuvent qu’approximer le gain d’un filtre idéal :</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="filtres-rii">
+<span id="c-filtres-rii"></span><h1>Filtres RII<a class="headerlink" href="#filtres-rii" title="Lien permanent vers ce titre">#</a></h1>
+<section id="reponse-impulsionnelle">
+<h2>Réponse impulsionnelle<a class="headerlink" href="#reponse-impulsionnelle" title="Lien permanent vers ce titre">#</a></h2>
+<p>Un filtre RII a une réponse impulsionnelle qui ne s’annule jamais au délà d’un certain échantillon :</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+h[n] =
+\begin{cases}
+c_n &amp;\text{si}\, n \geq 0, \\
+0   &amp;\text{sinon}.
+\end{cases}
+\end{split}\]</div>
+</section>
+<section id="fonction-de-transfert">
+<h2>Fonction de transfert<a class="headerlink" href="#fonction-de-transfert" title="Lien permanent vers ce titre">#</a></h2>
+<p>La fonction de transfert d’un filtre RII est de la forme:</p>
 <div class="math notranslate nohighlight">
 \[
-H(s) = \frac{ \sum_{m=0}^M b_m s^m }{ \sum_{n=0}^N a_n s^n }
-     = \frac{ b_Ms^M + b_{M-1}s^{M-1} + \dots + b_1s + b_0 }{ a_Ns^N + a_{N-1}s^{N-1} + \dots + a_1s + a_0 }
+H(z) = \frac{ \sum_{m=0}^M b_m z^{-m} }{ \sum_{n=0}^N a_n z^{-n} }.
 \]</div>
-<p>L’enjeu revient donc à déterminer, en fonction du gabarit choisi, les valeurs des coefficients <span class="math notranslate nohighlight">\(b_m\)</span> et <span class="math notranslate nohighlight">\(a_n\)</span> :
-c’est l’objet des travaux de <a class="reference external" href="https://en.wikipedia.org/wiki/Stephen_Butterworth">Butterworth</a>,
-<a class="reference external" href="https://fr.wikipedia.org/wiki/Pafnouti_Tchebychev">Tchebychev</a>
-ou <a class="reference external" href="https://en.wikipedia.org/wiki/Wilhelm_Cauer">Cauer</a>.
-La réponse fréquentielle d’un filtre varie donc en fonction des coefficients de sa fonction de transfert.</p>
-<p>La plupart des méthodes de conception des filtres nécessitent de concevoir avant tout
-un filtre passe-bas de fréquence de coupure égale à 1 Hz : c’est ce qu’on appelle un filtre passe-bas normalisé (<em>low-pass prototype</em>).
-Une transformation est ensuite appliquée sur les coefficients du filtre passe-bas normalisé
-pour régler la fréquence de coupure et le convertir si besoin en un autre type (passe-haut, passe-bande, coupe-bande).
-Historiquement, on utilisait des tables ou des formules pour obtenir les coefficients du filtre passe-bas prototype,
-et la transformation était effectuée à l’aide de calculs.
-Désormais, des programmes déterminent directement les coefficients du filtre attendus à partir du gabarit souhaité.</p>
+<p>Les filtres RII sont parfois appelés filtres ARMA car la fonction de transfert est le quotient entre :</p>
+<ul class="simple">
+<li><p>un numérateur correspondant à un filtre MA (on l’a vu plus haut),</p></li>
+<li><p>et un dénominateur correspondant à un filtre appelé AR (<em>autoregressive</em>).</p></li>
+</ul>
 </section>
-<section id="reponses-standards">
-<h2>Réponses standards<a class="headerlink" href="#reponses-standards" title="Lien permanent vers ce titre">#</a></h2>
-<p>Outre la définition du gabarit, il reste à choisir la famille du filtre à synthétiser.
-Les cinq principales familles sont détaillées ci-après,
-à noter qu’il existe deux types de filtre de Tchebychev (Chebyshev en anglais) : le type I et le type II.</p>
+<section id="schema-bloc">
+<h2>Schéma bloc<a class="headerlink" href="#schema-bloc" title="Lien permanent vers ce titre">#</a></h2>
+<p>Comme pour les filtres RIF, il est possible de représenter les filtres RII sous forme d’un schéma bloc.
+À partir de la fonction de transfert, on peut écrire la sortie en fonction de l’entrée :</p>
+<div class="math notranslate nohighlight">
+\[
+H(z) = \frac{Y(z)}{X(z)} = \frac{ \sum_{m=0}^M b_m z^{-m} }{ \sum_{n=0}^N a_n z^{-n} }
+\qquad\Leftrightarrow\quad
+\sum_{k=0}^N a_k z^{-k} Y(z) = \sum_{l=0}^M b_l z^{-l} X(z).
+\]</div>
+<p>d’où, en utilisant la transformée en z inverse :</p>
+<div class="math notranslate nohighlight">
+\[
+\sum_{k=0}^N a_k y[n-k] = \sum_{l=0}^M b_l x[n-l].
+\]</div>
+<p>On peut alors isoler <span class="math notranslate nohighlight">\(y[n]\)</span> et l’écrire en fonction des autres termes :</p>
+<div class="math notranslate nohighlight">
+\[
+y[n] = \frac{1}{a_0} \left( \sum_{l=0}^M b_l x[n-l] - \sum_{k=1}^N a_k y[n-k] \right).
+\]</div>
+<p>La sortie <span class="math notranslate nohighlight">\(y[n]\)</span> est donc la somme de <span class="math notranslate nohighlight">\(M+1\)</span> échantillons d’entrée pondérés et retardés
+et de <span class="math notranslate nohighlight">\(N\)</span> échantillons de la sortie pondérés et retardés,
+le tout multiplié par <span class="math notranslate nohighlight">\(\frac{1}{a_0}\)</span>.
+On peut donc représenter graphiquement cette équation (rappel : le bloc <span class="math notranslate nohighlight">\(z^{-1}\)</span> indique un retard) :</p>
+<figure class="align-default">
+<a class="reference internal image-reference" href="_images/filtre-rii.svg"><img alt="_images/filtre-rii.svg" height="400px" src="_images/filtre-rii.svg" /></a>
+</figure>
+<p>Remarquez qu’à l’inverse des filtres RIF, les filtres RII possèdent une boucle de retour (partie récursive).
+À cause de cette boucle, les filtres RII peuvent être instables :
+le signal étant indéfiniment réinjecté dans le filtre, la sortie peut être de plus en plus grande.</p>
+</section>
+<section id="transformation-bilineaire">
+<h2>Transformation bilinéaire<a class="headerlink" href="#transformation-bilineaire" title="Lien permanent vers ce titre">#</a></h2>
+<p>La transformation bilinéaire est la méthode la plus simple pour concevoir un filtre RII.
+Elle s’applique sur un filtre analogique pour le transformer en filtre numérique.
+De ce fait, l’application de la transformation bilinéaire suit les étapes ci-dessous,
+en partant d’un gabarit numérique.</p>
+<ol>
+<li><p>Les fréquences <span class="math notranslate nohighlight">\(f_n\)</span> du gabarit numérique sont remplacées par de nouvelles valeurs <span class="math notranslate nohighlight">\(f_a\)</span> qui définissent un gabarit analogique.
+La transformation de fréquence est :</p>
+<div class="math notranslate nohighlight">
+\[
+   f_a = \frac{f_e}{\pi} \tan\left(\pi\frac{f_n}{f_e}\right).
+   \]</div>
+<p>où <span class="math notranslate nohighlight">\(f_e\)</span> est la fréquence d’échantillonnage.</p>
+</li>
+<li><p>Un <a class="reference internal" href="filtres-analogiques.html#c-filtres-analogiques"><span class="std std-ref">filtre analogique</span></a> est conçu à partir de ce gabarit analogique :
+on dispose alors de la fonction de transfert <span class="math notranslate nohighlight">\(H_a(s)\)</span> de ce filtre analogique.</p></li>
+<li><p>Enfin, la fonction de transfert numérique <span class="math notranslate nohighlight">\(H_n(z)\)</span> s’obtient à partir de la la fonction de transfert analogique <span class="math notranslate nohighlight">\(H_a(s)\)</span>
+grâce à la relation suivante :</p>
+<div class="math notranslate nohighlight">
+\[
+   H_n(z) = H_a\left(2f_e \left(\frac{1-z^{-1}}{1+z^{-1}}\right)\right).
+   \]</div>
+</li>
+</ol>
+<p>Cette méthode se base sur la transformation bilinéaire qui effectue le passage du domaine analogique au domaine numérique
+en transformant l’axe des imaginaires du plan en <span class="math notranslate nohighlight">\(s\)</span> en le cercle unité du plan en <span class="math notranslate nohighlight">\(z\)</span> :</p>
+<div class="math notranslate nohighlight">
+\[
+s = \frac{2}{T_e} \left(\frac{1-z^{-1}}{1+z^{-1}}\right)
+\qquad\Leftrightarrow\qquad
+z = \frac{1+T_e/2s}{1-T_e/2s}.
+\]</div>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
-<p>La fréquence « de coin » (<em>critical frequency</em> ou <em>edge frequency</em>)
-est une fréquence particulière du gabarit, qui définit le filtre.
-Ce peut être la fréquence de coupure à <span class="math notranslate nohighlight">\(-3\)</span> dB, ou la fréquence de la bande passante,
-ou la fréquence de la bande atténuée.</p>
+<p>Ces deux vidéos illustrent également l’effet de la transformation bilinéaire :</p>
+<iframe width="200" height="112" src="https://www.youtube.com/embed/4PV6ikgBShw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="200" height="112" src="https://www.youtube.com/embed/acQecd6dmxw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </aside>
-<p>Une comparaison de ces familles en termes de réponse fréquentielle, réponse impulsionnelle et retard de groupe
-est effectuée ci-dessous sur la base d’un filtre passe-bas d’ordre 3, de fréquence « de coin » 1 Hz,
-d’ondulation en bande passante 3 dB et d’atténuation en bande atténuée 30 dB.</p>
-<div class="sd-tab-set docutils">
-<input checked="checked" id="96292278-7c85-48cb-b4c4-2a2041216afa" name="643658c7-cdc1-42eb-a472-1627093d25e1" type="radio">
-</input><label class="sd-tab-label" for="96292278-7c85-48cb-b4c4-2a2041216afa">
-Gain</label><div class="sd-tab-content docutils">
-<img alt="_images/fana-gain.svg" src="_images/fana-gain.svg" /></div>
-<input id="c9039560-34b2-4c5f-a7b4-01ff7c1929f8" name="643658c7-cdc1-42eb-a472-1627093d25e1" type="radio">
-</input><label class="sd-tab-label" for="c9039560-34b2-4c5f-a7b4-01ff7c1929f8">
-Phase</label><div class="sd-tab-content docutils">
-<img alt="_images/fana-phase.svg" src="_images/fana-phase.svg" /></div>
-<input id="2819e95a-a053-4bd0-8e0c-22897a5c98b1" name="643658c7-cdc1-42eb-a472-1627093d25e1" type="radio">
-</input><label class="sd-tab-label" for="2819e95a-a053-4bd0-8e0c-22897a5c98b1">
-Réponse impulsionnelle</label><div class="sd-tab-content docutils">
-<img alt="_images/fana-impulse.svg" src="_images/fana-impulse.svg" /></div>
-<input id="47d7174b-1983-48f7-9365-63eda365f001" name="643658c7-cdc1-42eb-a472-1627093d25e1" type="radio">
-</input><label class="sd-tab-label" for="47d7174b-1983-48f7-9365-63eda365f001">
-Retard de groupe</label><div class="sd-tab-content docutils">
-<img alt="_images/fana-gd.svg" src="_images/fana-gd.svg" /></div>
-</div>
-<p>Des résultats précédents, on peut en déduire les principales différences et caractéristiques des filtres.</p>
-<p>Le <strong>filtre de Butterworth</strong> est caractérisé par :</p>
-<ul class="simple">
-<li><p>aucune ondulation en bande passante,</p></li>
-<li><p>aucune ondulation en bande atténuée,</p></li>
-<li><p>une bande de transition assez large.</p></li>
-</ul>
-<p>Le <strong>filtre de Bessel</strong> est l’approximation d’un retard pur, et ses caractéristiques sont :</p>
-<ul class="simple">
-<li><p>un retard de groupe quasi-constant dans la bande passante,</p></li>
-<li><p>aucune ondulation en bande passante,</p></li>
-<li><p>aucune ondulation en bande atténuée,</p></li>
-<li><p>une bande de transition très large.</p></li>
-</ul>
-<p>Le <strong>filtre de Tchebychev de type I</strong> possède les caractéristiques suivantes :</p>
-<ul class="simple">
-<li><p>présence d’ondulations en bande passante (mais la valeur maximale de ces atténuations est minimisée),</p></li>
-<li><p>aucune ondulation en bande atténuée,</p></li>
-<li><p>bande de transition plus étroite que les filtres de Butterworth et Bessel,</p></li>
-<li><p>un retard de groupe très distordue près de la fréquence de coupure.</p></li>
-</ul>
-<p>Le <strong>filtre de Tchebychev de type II</strong> possède les caractéristiques suivantes :</p>
-<ul class="simple">
-<li><p>aucune ondulation en bande passante,</p></li>
-<li><p>présence d’ondulations en bande atténuée,</p></li>
-<li><p>une bande de transition plus étroite que les filtres de Butterworth et Bessel.</p></li>
-</ul>
-<p>Le <strong>filtre de Cauer</strong> (ou <strong>filtre elliptique</strong>) possède les caractéristiques ci-dessous :</p>
-<ul class="simple">
-<li><p>présence d’ondulations en bande passante,</p></li>
-<li><p>présence d’ondulations en bande atténuée,</p></li>
-<li><p>une transition très rapide,</p></li>
-<li><p>un retard de groupe très distordu près de la fréquence de coupure.</p></li>
-</ul>
-</section>
+<p>La <a class="reference internal" href="#f-num-tbilin"><span class="std std-numref">Fig. 18</span></a> illustre cette transformation.</p>
+<figure class="align-default" id="f-num-tbilin">
+<a class="reference internal image-reference" href="_images/tbilineaire.svg"><img alt="_images/tbilineaire.svg" src="_images/tbilineaire.svg" width="500px" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 18 </span><span class="caption-text">Transformée bilinéaire.</span><a class="headerlink" href="#f-num-tbilin" title="Lien permanent vers cette image">#</a></p>
+</figcaption>
+</figure>
+<p>Ainsi, la stabilité du filtre analogique est conservée pour le filtre numérique
+puisque les pôles à partie réelle négative du plan en <span class="math notranslate nohighlight">\(s\)</span> se retrouvent dans le cercle unité du plan en <span class="math notranslate nohighlight">\(z\)</span>.</p>
+<!-- Lorsque l'ordre des filtres augmente (c'est-à-dire lorsque le nombre de coefficients augmentent) le filtre peut devenir instable à cause de la quantification des coefficients point. Une solution consiste à remplacer le filtre par une série de filtres d'ordre faible (un ou 2) 
+
+Filtres, bi-quad, biquadratique 
+
+SOS s order section 
+-->
+<!-- autres méthodes de conception de filtres RII : design direct (approximer par une réponse fréquentielle linéaire par morceaux ; Yulewalk), Butterworth généralisé (plus de zéros ; maxflat), modèle paramétrique ? (cf Matlpab : lpc, prony, invfreqs) --></section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -568,17 +602,17 @@ Retard de groupe</label><div class="sd-tab-content docutils">
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="filtres-rii.html" title="précédent page">
+    <a class='left-prev' id="prev-link" href="filtres-rif.html" title="précédent page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">précédent</p>
-            <p class="prev-next-title">Filtres RII</p>
+            <p class="prev-next-title">Filtres RIF</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="filtres-t.html" title="suivant page">
+    <a class='right-next' id="next-link" href="filtres-analogiques.html" title="suivant page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">suivant</p>
-        <p class="prev-next-title">Exercices</p>
+        <p class="prev-next-title">Filtres analogiques</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

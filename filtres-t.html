@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Exercices : filtrage &#8212; Traitement du signal 2</title>
+    <title>Exercices &#8212; Traitement du signal 2</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -57,8 +57,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Recherche" href="search.html" />
-    <link rel="next" title="TP : filtrage numérique" href="filtres-p.html" />
-    <link rel="prev" title="Filtres numériques" href="filtres-numeriques.html" />
+    <link rel="next" title="TP" href="filtres-p.html" />
+    <link rel="prev" title="Filtres analogiques" href="filtres-analogiques.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="fr">
     
@@ -137,8 +137,18 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="filtre-intro.html">
+  <a class="reference internal" href="filtres-intro.html">
    Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="filtres-ideaux.html">
+   Filtres idéaux
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="filtres-realisables.html">
+   Filtres réalisables
   </a>
  </li>
  <li class="toctree-l1">
@@ -151,14 +161,31 @@ const thebe_selector_output = ".output, .cell_output"
    Transformée en Z
   </a>
  </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="filtres-numeriques.html">
+   Filtres numériques
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="filtres-rif.html">
+     Filtres RIF
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="filtres-rii.html">
+     Filtres RII
+    </a>
+   </li>
+  </ul>
+ </li>
  <li class="toctree-l1">
   <a class="reference internal" href="filtres-analogiques.html">
    Filtres analogiques
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="filtres-numeriques.html">
-   Filtres numériques
   </a>
  </li>
  <li class="toctree-l1 current active">
@@ -374,6 +401,11 @@ title="Print to PDF"
      Exercice 1
     </a>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exercice-2">
+     Exercice 2
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -381,11 +413,6 @@ title="Print to PDF"
    Conception d’un gabarit
   </a>
   <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#exercice-2">
-     Exercice 2
-    </a>
-   </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#exercice-3">
      Exercice 3
@@ -401,6 +428,11 @@ title="Print to PDF"
      Exercice 5
     </a>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exercice-6">
+     Exercice 6
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -408,11 +440,6 @@ title="Print to PDF"
    Transformées de Laplace et en Z
   </a>
   <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#exercice-6">
-     Exercice 6
-    </a>
-   </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#exercice-7">
      Exercice 7
@@ -433,13 +460,6 @@ title="Print to PDF"
      Exercice 10
     </a>
    </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#filtres-analogiques">
-   Filtres analogiques
-  </a>
-  <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#exercice-11">
      Exercice 11
@@ -474,6 +494,23 @@ title="Print to PDF"
    </li>
   </ul>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#filtres-analogiques">
+   Filtres analogiques
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exercice-16">
+     Exercice 16
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exercice-17">
+     Exercice 17
+    </a>
+   </li>
+  </ul>
+ </li>
 </ul>
 
     </nav>
@@ -483,7 +520,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Exercices : filtrage</h1>
+                <h1>Exercices</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -503,6 +540,11 @@ title="Print to PDF"
      Exercice 1
     </a>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exercice-2">
+     Exercice 2
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -510,11 +552,6 @@ title="Print to PDF"
    Conception d’un gabarit
   </a>
   <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#exercice-2">
-     Exercice 2
-    </a>
-   </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#exercice-3">
      Exercice 3
@@ -530,6 +567,11 @@ title="Print to PDF"
      Exercice 5
     </a>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exercice-6">
+     Exercice 6
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -537,11 +579,6 @@ title="Print to PDF"
    Transformées de Laplace et en Z
   </a>
   <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#exercice-6">
-     Exercice 6
-    </a>
-   </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#exercice-7">
      Exercice 7
@@ -562,13 +599,6 @@ title="Print to PDF"
      Exercice 10
     </a>
    </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#filtres-analogiques">
-   Filtres analogiques
-  </a>
-  <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#exercice-11">
      Exercice 11
@@ -603,6 +633,23 @@ title="Print to PDF"
    </li>
   </ul>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#filtres-analogiques">
+   Filtres analogiques
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exercice-16">
+     Exercice 16
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exercice-17">
+     Exercice 17
+    </a>
+   </li>
+  </ul>
+ </li>
 </ul>
 
                         </nav>
@@ -613,8 +660,8 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="exercices-filtrage">
-<span id="c-td-filtres"></span><h1>Exercices : filtrage<a class="headerlink" href="#exercices-filtrage" title="Lien permanent vers ce titre">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="exercices">
+<span id="c-td-filtres"></span><h1>Exercices<a class="headerlink" href="#exercices" title="Lien permanent vers ce titre">#</a></h1>
 <section id="systeme-lineaire-invariant">
 <h2>Système linéaire invariant<a class="headerlink" href="#systeme-lineaire-invariant" title="Lien permanent vers ce titre">#</a></h2>
 <section id="exercice-1">
@@ -622,30 +669,46 @@ title="Print to PDF"
 <p>Dans le cas de signaux à temps discrets, montrez que la sortie d’un système linéaire invariant
 s’exprime comme la convolution de l’entrée par la réponse impulsionnelle du système.
 Pour cela, utilisez le fait que l’entrée peut s’écrire comme une somme d’impulsions.</p>
+<!--
+Indiquez si les systèmes suivant sont invariants/linéaires/stables :
+- épargne
+-->
+</section>
+<section id="exercice-2">
+<h3>Exercice 2<a class="headerlink" href="#exercice-2" title="Lien permanent vers ce titre">#</a></h3>
+<p>Représentez la réponse fréquentielle d’un système de réponse impulsionnelle</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+h(t) =
+\begin{cases}
+0      &amp;\text{si } t&lt;0,\\
+e^{-t} &amp;\text{si } t\geq 0
+\end{cases}.
+\end{split}\]</div>
 </section>
 </section>
 <section id="conception-d-un-gabarit">
 <h2>Conception d’un gabarit<a class="headerlink" href="#conception-d-un-gabarit" title="Lien permanent vers ce titre">#</a></h2>
-<section id="exercice-2">
-<h3>Exercice 2<a class="headerlink" href="#exercice-2" title="Lien permanent vers ce titre">#</a></h3>
+<section id="exercice-3">
+<h3>Exercice 3<a class="headerlink" href="#exercice-3" title="Lien permanent vers ce titre">#</a></h3>
 <p>Représentez le gabarit d’un filtre passe-bas de largeur de transition 20 Hz,
 de bande passante 100 Hz, d’ondulation maximale en bande passante 1 dB et d’atténuation minimale 30 dB.</p>
 </section>
-<section id="exercice-3">
-<h3>Exercice 3<a class="headerlink" href="#exercice-3" title="Lien permanent vers ce titre">#</a></h3>
+<section id="exercice-4">
+<h3>Exercice 4<a class="headerlink" href="#exercice-4" title="Lien permanent vers ce titre">#</a></h3>
 <p>Représentez le gabarit d’un filtre qui atténue d’au moins 60 dB les fréquences inférieures à 10 kHz
 et d’au plus 3 dB les fréquences supérieures à 15 kHz.</p>
 </section>
-<section id="exercice-4">
-<h3>Exercice 4<a class="headerlink" href="#exercice-4" title="Lien permanent vers ce titre">#</a></h3>
+<section id="exercice-5">
+<h3>Exercice 5<a class="headerlink" href="#exercice-5" title="Lien permanent vers ce titre">#</a></h3>
 <p>La capture d’écran ci-dessous est tirée de l’outil de conception de filtres analogiques d’Analog Devices.
 Représentez le gabarit correspondant.</p>
 <figure class="align-default">
 <a class="reference internal image-reference" href="_images/filter-specs.png"><img alt="_images/filter-specs.png" src="_images/filter-specs.png" style="width: 250px;" /></a>
 </figure>
 </section>
-<section id="exercice-5">
-<h3>Exercice 5<a class="headerlink" href="#exercice-5" title="Lien permanent vers ce titre">#</a></h3>
+<section id="exercice-6">
+<h3>Exercice 6<a class="headerlink" href="#exercice-6" title="Lien permanent vers ce titre">#</a></h3>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <p>L”<a class="reference external" href="http://en.wikipedia.org/wiki/Magnetic_particle_imaging">imagerie des particules magnétiques</a>
@@ -669,8 +732,26 @@ Le filtre doit répondre à des critères supplémentaires :</p>
 </section>
 <section id="transformees-de-laplace-et-en-z">
 <h2>Transformées de Laplace et en Z<a class="headerlink" href="#transformees-de-laplace-et-en-z" title="Lien permanent vers ce titre">#</a></h2>
-<section id="exercice-6">
-<h3>Exercice 6<a class="headerlink" href="#exercice-6" title="Lien permanent vers ce titre">#</a></h3>
+<section id="exercice-7">
+<h3>Exercice 7<a class="headerlink" href="#exercice-7" title="Lien permanent vers ce titre">#</a></h3>
+<p>Pour chacun des diagrammes pôles-zéros ci-dessous :</p>
+<ul class="simple">
+<li><p>donnez les pôles et zéros,</p></li>
+<li><p>précisez l’ordre du système,</p></li>
+<li><p>indiquez si ces systèmes sont analogiques ou numériques.</p></li>
+</ul>
+<figure class="align-default">
+<a class="reference internal image-reference" href="_images/pz1.svg"><img alt="_images/pz1.svg" height="250px" src="_images/pz1.svg" /></a>
+</figure>
+<figure class="align-default">
+<a class="reference internal image-reference" href="_images/pz2.svg"><img alt="_images/pz2.svg" height="250px" src="_images/pz2.svg" /></a>
+</figure>
+<figure class="align-default">
+<a class="reference internal image-reference" href="_images/pz3.svg"><img alt="_images/pz3.svg" height="250px" src="_images/pz3.svg" /></a>
+</figure>
+</section>
+<section id="exercice-8">
+<h3>Exercice 8<a class="headerlink" href="#exercice-8" title="Lien permanent vers ce titre">#</a></h3>
 <!-- Oppenheim 9.2, 9.3, 10.2, 10.4 -->
 <!-- Oppenheim 9.4 -->
 <p>On considère les deux filtres analogiques de réponses impulsionnelles :</p>
@@ -682,14 +763,14 @@ h_2(t) = e^{-t} \cos(3t) \, u(t).
 \]</div>
 <p>Pour chacun d’eux :</p>
 <ul class="simple">
-<li><p>Calculez la transformée de Laplace de ce filtre.</p></li>
+<li><p>Calculez la transformée de Laplace.</p></li>
 <li><p>Représentez la région de convergence.</p></li>
 <li><p>Placez les pôles et zéros.</p></li>
 <li><p>Ce filtre est-il stable ?</p></li>
 </ul>
 </section>
-<section id="exercice-7">
-<h3>Exercice 7<a class="headerlink" href="#exercice-7" title="Lien permanent vers ce titre">#</a></h3>
+<section id="exercice-9">
+<h3>Exercice 9<a class="headerlink" href="#exercice-9" title="Lien permanent vers ce titre">#</a></h3>
 <!-- Oppenheim 10.3 + 10.4 -->
 <p>On considère les deux filtres numériques de réponses impulsionnelles :</p>
 <div class="math notranslate nohighlight">
@@ -700,7 +781,7 @@ h_2[n] = 2^n \sin\left(\frac{\pi}{4}n\right) \, u[n].
 \]</div>
 <p>Pour chacun d’eux :</p>
 <ul class="simple">
-<li><p>Calculez la transformée en Z de ce filtre.</p></li>
+<li><p>Calculez la transformée en Z.</p></li>
 <li><p>Représentez la région de convergence.</p></li>
 <li><p>Placez les pôles et zéros.</p></li>
 <li><p>Ce filtre est-il stable ?</p></li>
@@ -708,8 +789,8 @@ h_2[n] = 2^n \sin\left(\frac{\pi}{4}n\right) \, u[n].
 <!-- Oppenheim 9.2, 9.3, 10.2, 10.4 -->
 <!-- h[n] = \left(\frac{1}{3}\right)^n \sin\left(\frac{\pi}{4}n\right) \, u[n] -->
 </section>
-<section id="exercice-8">
-<h3>Exercice 8<a class="headerlink" href="#exercice-8" title="Lien permanent vers ce titre">#</a></h3>
+<section id="exercice-10">
+<h3>Exercice 10<a class="headerlink" href="#exercice-10" title="Lien permanent vers ce titre">#</a></h3>
 <p>Calculez les transformées de Laplace inverse de :</p>
 <div class="math notranslate nohighlight">
 \[
@@ -718,8 +799,8 @@ H_1(s) = \frac{1}{(s+1)(s+2)},
 H_2(s) = \frac{s-3}{s^2+2}.
 \]</div>
 </section>
-<section id="exercice-9">
-<h3>Exercice 9<a class="headerlink" href="#exercice-9" title="Lien permanent vers ce titre">#</a></h3>
+<section id="exercice-11">
+<h3>Exercice 11<a class="headerlink" href="#exercice-11" title="Lien permanent vers ce titre">#</a></h3>
 <p>Calculez les transformées en Z inverse de :</p>
 <div class="math notranslate nohighlight">
 \[
@@ -728,8 +809,8 @@ H_1(z) = \frac{1}{1-2z^{-1}},
 H_2(z) = \frac{4z}{(z-2)^2}.
 \]</div>
 </section>
-<section id="exercice-10">
-<h3>Exercice 10<a class="headerlink" href="#exercice-10" title="Lien permanent vers ce titre">#</a></h3>
+<section id="exercice-12">
+<h3>Exercice 12<a class="headerlink" href="#exercice-12" title="Lien permanent vers ce titre">#</a></h3>
 <p>Deux filtres <span class="math notranslate nohighlight">\(H_1(s)\)</span> et <span class="math notranslate nohighlight">\(H_2(s)\)</span> sont mis en série.
 Leurs fonctions de transfert sont :</p>
 <div class="math notranslate nohighlight">
@@ -743,31 +824,6 @@ H_2(s) = \frac{1}{b_1s + b_0}
 <li><p>Quelle est la fonction de transfert du filtre global <span class="math notranslate nohighlight">\(H(s)\)</span> ? Quel est son ordre ?</p></li>
 <li><p>Qu’obtient-on en ajoutant un troisième filtre du premier ordre à <span class="math notranslate nohighlight">\(H(s)\)</span> ?</p></li>
 </ul>
-</section>
-</section>
-<section id="filtres-analogiques">
-<h2>Filtres analogiques<a class="headerlink" href="#filtres-analogiques" title="Lien permanent vers ce titre">#</a></h2>
-<section id="exercice-11">
-<h3>Exercice 11<a class="headerlink" href="#exercice-11" title="Lien permanent vers ce titre">#</a></h3>
-<p>Identifiez le type de filtre correspondant à la réponse fréquentielle ci-dessous.
-Précisez également la bande passante du filtre (les fréquences sont données en hertz).</p>
-<figure class="align-default">
-<a class="reference internal image-reference" href="_images/fana-filtre1-gain.png"><img alt="_images/fana-filtre1-gain.png" src="_images/fana-filtre1-gain.png" style="width: 400px;" /></a>
-</figure>
-<figure class="align-default">
-<a class="reference internal image-reference" href="_images/fana-filtre1-phase.png"><img alt="_images/fana-filtre1-phase.png" src="_images/fana-filtre1-phase.png" style="width: 400px;" /></a>
-</figure>
-</section>
-<section id="exercice-12">
-<h3>Exercice 12<a class="headerlink" href="#exercice-12" title="Lien permanent vers ce titre">#</a></h3>
-<p>Identifiez le type de filtre correspondant à la réponse fréquentielle ci-dessous.
-Précisez également la bande passante du filtre (les fréquences sont données en hertz).</p>
-<figure class="align-default">
-<a class="reference internal image-reference" href="_images/fana-filtre2-gain.png"><img alt="_images/fana-filtre2-gain.png" src="_images/fana-filtre2-gain.png" style="width: 400px;" /></a>
-</figure>
-<figure class="align-default">
-<a class="reference internal image-reference" href="_images/fana-filtre2-phase.png"><img alt="_images/fana-filtre2-phase.png" src="_images/fana-filtre2-phase.png" style="width: 400px;" /></a>
-</figure>
 </section>
 </section>
 <section id="filtres-numeriques">
@@ -784,13 +840,14 @@ Précisez également la bande passante du filtre (les fréquences sont données 
 </section>
 <section id="exercice-14">
 <h3>Exercice 14<a class="headerlink" href="#exercice-14" title="Lien permanent vers ce titre">#</a></h3>
-<p>Déterminez les fonctions de transfert des formes directes ci-dessous.</p>
-<!-- % + réponse impulsionnelle ? -->
+<!-- il reste dans le TD filtre des images en PNG à remplacer par du SVG -->
+<p>Déterminez les fonctions de transfert des formes directes ci-dessous,
+puis calculez leur réponse impulsionnelle.</p>
 <figure class="align-default">
-<a class="reference internal image-reference" href="_images/sli2.png"><img alt="_images/sli2.png" src="_images/sli2.png" style="height: 250px;" /></a>
+<a class="reference internal image-reference" href="_images/forme-directe-sys1.svg"><img alt="_images/forme-directe-sys1.svg" height="250px" src="_images/forme-directe-sys1.svg" /></a>
 </figure>
 <figure class="align-default">
-<a class="reference internal image-reference" href="_images/sli4.png"><img alt="_images/sli4.png" src="_images/sli4.png" style="height: 250px;" /></a>
+<a class="reference internal image-reference" href="_images/forme-directe-sys2.svg"><img alt="_images/forme-directe-sys2.svg" height="250px" src="_images/forme-directe-sys2.svg" /></a>
 </figure>
 </section>
 <section id="exercice-15">
@@ -805,6 +862,32 @@ La fréquence d’échantillonnage est égale à 120 Hz</p>
 <li><p>Quelles fenêtres peuvent être utilisées pour obtenir un filtre vérifiant le gabarit ?</p></li>
 <li><p>Parmi celles-ci, quelle fenêtre donnera l’ordre le plus faible ? Calculez son ordre.</p></li>
 </ul>
+</section>
+</section>
+<section id="filtres-analogiques">
+<h2>Filtres analogiques<a class="headerlink" href="#filtres-analogiques" title="Lien permanent vers ce titre">#</a></h2>
+<!-- il reste dans le TD filtre des images en PNG à remplacer par du SVG -->
+<section id="exercice-16">
+<h3>Exercice 16<a class="headerlink" href="#exercice-16" title="Lien permanent vers ce titre">#</a></h3>
+<p>Identifiez le type de filtre correspondant à la réponse fréquentielle ci-dessous.
+Précisez également la bande passante du filtre (les fréquences sont données en hertz).</p>
+<figure class="align-default">
+<a class="reference internal image-reference" href="_images/fana-filtre1-gain.png"><img alt="_images/fana-filtre1-gain.png" src="_images/fana-filtre1-gain.png" style="width: 400px;" /></a>
+</figure>
+<figure class="align-default">
+<a class="reference internal image-reference" href="_images/fana-filtre1-phase.png"><img alt="_images/fana-filtre1-phase.png" src="_images/fana-filtre1-phase.png" style="width: 400px;" /></a>
+</figure>
+</section>
+<section id="exercice-17">
+<h3>Exercice 17<a class="headerlink" href="#exercice-17" title="Lien permanent vers ce titre">#</a></h3>
+<p>Identifiez le type de filtre correspondant à la réponse fréquentielle ci-dessous.
+Précisez également la bande passante du filtre (les fréquences sont données en hertz).</p>
+<figure class="align-default">
+<a class="reference internal image-reference" href="_images/fana-filtre2-gain.png"><img alt="_images/fana-filtre2-gain.png" src="_images/fana-filtre2-gain.png" style="width: 400px;" /></a>
+</figure>
+<figure class="align-default">
+<a class="reference internal image-reference" href="_images/fana-filtre2-phase.png"><img alt="_images/fana-filtre2-phase.png" src="_images/fana-filtre2-phase.png" style="width: 400px;" /></a>
+</figure>
 </section>
 </section>
 </section>
@@ -836,17 +919,17 @@ La fréquence d’échantillonnage est égale à 120 Hz</p>
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="filtres-numeriques.html" title="précédent page">
+    <a class='left-prev' id="prev-link" href="filtres-analogiques.html" title="précédent page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">précédent</p>
-            <p class="prev-next-title">Filtres numériques</p>
+            <p class="prev-next-title">Filtres analogiques</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="filtres-p.html" title="suivant page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">suivant</p>
-        <p class="prev-next-title">TP : filtrage numérique</p>
+        <p class="prev-next-title">TP</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
