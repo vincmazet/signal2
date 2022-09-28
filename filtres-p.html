@@ -541,6 +541,7 @@ On choisit de ne travailler qu’avec la fenêtre permettant d’avoir l’ordre
 <li><p>En analysant le retard de groupe du filtre (<code class="docutils literal notranslate"><span class="pre">signal.group_delay</span></code>),
 indiquez quel est son effet sur le déphasage des fréquences.</p></li>
 <li><p>Affichez le diagramme pôle-zéro (<code class="docutils literal notranslate"><span class="pre">scipy.signal.tf2zpk</span></code>) : que pouvez-vous en conclure ?</p></li>
+<li><p>Appliquez ce filtre sur l’ECG (<code class="docutils literal notranslate"><span class="pre">scipy.signal.lfilter</span></code>) pour observer le résultat.</p></li>
 </ul>
 </section>
 <section id="realisation-d-un-filtre-rii">
@@ -553,12 +554,13 @@ obtenu à l’aide d’un gabarit analogique, lui-même construit à partir du g
 <li><p>Synthétisez le filtre numérique avec la fonction <code class="docutils literal notranslate"><span class="pre">scipy.signal.iirdesign</span></code>.</p></li>
 <li><p>Vérifiez que le filtre obtenu correspond bien au gabarit numérique en traçant sa réponse fréquentielle sur le gabarit.</p></li>
 <li><p>De même que pour un filtre RIF, analysez le retard de groupe du filtre puis le diagramme pôle-zéro.</p></li>
+<li><p>Appliquez ce filtre sur l’ECG (<code class="docutils literal notranslate"><span class="pre">scipy.signal.lfilter</span></code>) pour observer le résultat.</p></li>
 </ul>
 </section>
 <section id="comparaison-des-filtres-synthetises">
 <h2>Comparaison des filtres synthétisés<a class="headerlink" href="#comparaison-des-filtres-synthetises" title="Lien permanent vers ce titre">#</a></h2>
 <ul class="simple">
-<li><p>Appliquez ces filtres sur l’ECG (<code class="docutils literal notranslate"><span class="pre">scipy.signal.lfilter</span></code>) et discutez du résultat obtenu, en temporel comme en fréquentiel.</p></li>
+<li><p>Discutez du résultat obtenu avec les deux méthodes de filtrage, à la fois en temporel et en fréquentiel.</p></li>
 <li><p>Comparez les deux filtres synthétisés, notamment sur :</p>
 <ul>
 <li><p>leur performance vis-à-vis du gabarit souhaité,</p></li>
