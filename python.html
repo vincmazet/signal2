@@ -220,10 +220,22 @@ const thebe_selector_output = ".output, .cell_output"
    ✎ Exercices théoriques
   </a>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="filtres-p.html">
    ✎ Exercices sur machine
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="tp/tp2.html">
+     ✐ Filtrage numérique
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
@@ -531,10 +543,7 @@ elle est suffisamment intuitive pour se débrouiller sans aide, mais vous pouvez
 </figure>
 <p>Normalement, JupyterLab est inclus dans l’installation d’Anaconda.
 Mais si ce n’est pas le cas, vous trouverez les instructions pour installer JupyterLab <a class="reference external" href="https://jupyter.org/install.html">ici</a>.</p>
-<p>Pour ouvrir JupyterLab, tapez dans un terminal :</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">jupyter</span> <span class="n">lab</span>
-</pre></div>
-</div>
+<p>Pour ouvrir JupyterLab, tapez dans un terminal <code class="docutils literal notranslate"><span class="pre">jupyter lab</span></code> ou <code class="docutils literal notranslate"><span class="pre">jupyter-lab</span></code>.</p>
 </section>
 <section id="notebooks-python">
 <span id="c-python-notebook"></span><h2>Notebooks Python<a class="headerlink" href="#notebooks-python" title="Lien permanent vers ce titre">#</a></h2>
@@ -639,11 +648,14 @@ En général, nous n’utiliserons que deux modules :</p>
 <span class="c1"># l&#39;expression mathématique 😎</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">f</span><span class="o">*</span><span class="n">n</span><span class="p">)</span>
 
-<span class="c1"># Création d&#39;une figure</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="c1"># Création d&#39;une figure, dont on définit la taille</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
 
 <span class="c1"># Affichage de la sinusoïde (dans la figure créée)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;sinusoïde&quot;</span><span class="p">)</span>
+
+<span class="c1"># Légende</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 
 <span class="c1"># Légende des axes et titre</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;$n$&quot;</span><span class="p">)</span>
