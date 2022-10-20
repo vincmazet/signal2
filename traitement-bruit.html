@@ -618,7 +618,7 @@ R_y[m] &amp;= \sum_{n=-\infty}^{+\infty} y[n+m] y[n] \\
 Si <span class="math notranslate nohighlight">\(x\)</span> est bien présent dans l’observation, alors <span class="math notranslate nohighlight">\(R_y\)</span> est périodique et sa période est égale à la période de <span class="math notranslate nohighlight">\(x\)</span>.</p>
 <figure class="align-default" id="f-ssp-detection1">
 <img alt="_images/detection1.svg" src="_images/detection1.svg" /><figcaption>
-<p><span class="caption-number">Fig. 23 </span><span class="caption-text">Le signal <span class="math notranslate nohighlight">\(y\)</span> est la somme du signal <span class="math notranslate nohighlight">\(x\)</span> (périodique, mais de forme et de période inconnues) et d’un bruit blanc <span class="math notranslate nohighlight">\(b\)</span>.
+<p><span class="caption-number">Fig. 24 </span><span class="caption-text">Le signal <span class="math notranslate nohighlight">\(y\)</span> est la somme du signal <span class="math notranslate nohighlight">\(x\)</span> (périodique, mais de forme et de période inconnues) et d’un bruit blanc <span class="math notranslate nohighlight">\(b\)</span>.
 L’autocorrélation <span class="math notranslate nohighlight">\(R_{y}\)</span> fait apparaître un motif périodique de période 50
 qui confirme la présence dans <span class="math notranslate nohighlight">\(y\)</span> d’un signal de même période.</span><a class="headerlink" href="#f-ssp-detection1" title="Lien permanent vers cette image">#</a></p>
 </figcaption>
@@ -642,7 +642,7 @@ alors que <span class="math notranslate nohighlight">\(R_{bz}\)</span> est nulle
 Ainsi, <span class="math notranslate nohighlight">\(R_{yz}\)</span> sera périodique de période <span class="math notranslate nohighlight">\(T\)</span> si le signal <span class="math notranslate nohighlight">\(x\)</span> est présent.</p>
 <figure class="align-default" id="f-ssp-detection2">
 <img alt="_images/detection2.svg" src="_images/detection2.svg" /><figcaption>
-<p><span class="caption-number">Fig. 24 </span><span class="caption-text">Le signal observé <span class="math notranslate nohighlight">\(y\)</span> est la somme du signal périodique <span class="math notranslate nohighlight">\(x\)</span> (de forme inconnue mais de période connue) et d’un bruit blanc <span class="math notranslate nohighlight">\(b\)</span>.
+<p><span class="caption-number">Fig. 25 </span><span class="caption-text">Le signal observé <span class="math notranslate nohighlight">\(y\)</span> est la somme du signal périodique <span class="math notranslate nohighlight">\(x\)</span> (de forme inconnue mais de période connue) et d’un bruit blanc <span class="math notranslate nohighlight">\(b\)</span>.
 Le signal auxiliaire <span class="math notranslate nohighlight">\(z\)</span> est ici une sinusoïde de même période que <span class="math notranslate nohighlight">\(x\)</span>.
 L’intercorrélation <span class="math notranslate nohighlight">\(R_{yz}\)</span> fait apparaître un motif périodique de période 50
 qui confirme la présence dans <span class="math notranslate nohighlight">\(y\)</span> d’un signal de même période.</span><a class="headerlink" href="#f-ssp-detection2" title="Lien permanent vers cette image">#</a></p>
@@ -667,7 +667,7 @@ On peut montrer qu’elle est la solution optimale pour maximiser le RSB dans le
 Elle est notamment utilisé dans des applications radar ou en communications numériques.</p>
 <figure class="align-default" id="f-ssp-filtre-adapte">
 <img alt="_images/filtre-adapte.svg" src="_images/filtre-adapte.svg" /><figcaption>
-<p><span class="caption-number">Fig. 25 </span><span class="caption-text">Le motif <span class="math notranslate nohighlight">\(x\)</span> est une porte et le signal observé <span class="math notranslate nohighlight">\(y\)</span> correspond à <span class="math notranslate nohighlight">\(x\)</span> décalé de <span class="math notranslate nohighlight">\(k=60\)</span> échantillons
+<p><span class="caption-number">Fig. 26 </span><span class="caption-text">Le motif <span class="math notranslate nohighlight">\(x\)</span> est une porte et le signal observé <span class="math notranslate nohighlight">\(y\)</span> correspond à <span class="math notranslate nohighlight">\(x\)</span> décalé de <span class="math notranslate nohighlight">\(k=60\)</span> échantillons
 et bruité par un bruit blanc gaussien de RSB 20 dB.
 Seules les corrélations de <span class="math notranslate nohighlight">\(x\)</span> avec <span class="math notranslate nohighlight">\(x\)</span> et <span class="math notranslate nohighlight">\(y\)</span> présentent un maximum clair,
 ce qui indique la présence du motif à cet instant.</span><a class="headerlink" href="#f-ssp-filtre-adapte" title="Lien permanent vers cette image">#</a></p>
@@ -706,11 +706,11 @@ y = [4,\, 9,\, 8,\, 7,\, 12,\, 5,\, 1,\, 0,\, 5,\, 4,\, 3,\, 2,\, 4]
 z = [?,\, 7,\, 8,\, 9,\, 8,\, 6,\, 2,\, 2,\, 3,\, 4,\, 3,\, 3,\, ?]
 \]</div>
 <p>où les deux points d’interrogation correspondent à des échantillons qu’on ne peut pas calculer.</p>
-<p>La <a class="reference internal" href="#f-ssp-filtre-moyenneur-exemple"><span class="std std-numref">Fig. 26</span></a> représente ces deux signaux.</p>
+<p>La <a class="reference internal" href="#f-ssp-filtre-moyenneur-exemple"><span class="std std-numref">Fig. 27</span></a> représente ces deux signaux.</p>
 <figure class="align-default" id="f-ssp-filtre-moyenneur-exemple">
 <a class="reference internal image-reference" href="_images/filtre-moyenneur-exemple.svg"><img alt="_images/filtre-moyenneur-exemple.svg" src="_images/filtre-moyenneur-exemple.svg" width="600px" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 26 </span><span class="caption-text">Signaux <span class="math notranslate nohighlight">\(y\)</span> (en bleu) et <span class="math notranslate nohighlight">\(z\)</span> (en orange).</span><a class="headerlink" href="#f-ssp-filtre-moyenneur-exemple" title="Lien permanent vers cette image">#</a></p>
+<p><span class="caption-number">Fig. 27 </span><span class="caption-text">Signaux <span class="math notranslate nohighlight">\(y\)</span> (en bleu) et <span class="math notranslate nohighlight">\(z\)</span> (en orange).</span><a class="headerlink" href="#f-ssp-filtre-moyenneur-exemple" title="Lien permanent vers cette image">#</a></p>
 </figcaption>
 </figure>
 </div>
@@ -722,12 +722,12 @@ Ainsi, le filtre moyenneur est un filtre passe-bas.
 Il atténue les fréquences élevées présentes dans le bruit.</p>
 <p>Le filtre moyenneur effectue une moyenne glissante pour remplacer chaque échantillon du signal observé
 par la moyenne des <span class="math notranslate nohighlight">\(M\)</span> échantillons voisins.
-Comme on l’observe sur la <a class="reference internal" href="#f-ssp-filtre-moyenneur"><span class="std std-numref">Fig. 27</span></a>,
+Comme on l’observe sur la <a class="reference internal" href="#f-ssp-filtre-moyenneur"><span class="std std-numref">Fig. 28</span></a>,
 plus le nombre d’échantillons moyennés <span class="math notranslate nohighlight">\(M\)</span> est grand, plus le bruit sera atténué.
 Mais la forme du signal d’intérêt <span class="math notranslate nohighlight">\(x\)</span> sera lissée.</p>
 <figure class="align-default" id="f-ssp-filtre-moyenneur">
 <img alt="_images/filtre-moyenneur.svg" src="_images/filtre-moyenneur.svg" /><figcaption>
-<p><span class="caption-number">Fig. 27 </span><span class="caption-text">Application d’un filtre moyenneur sur le signal observé <span class="math notranslate nohighlight">\(y\)</span> (qui est la somme du signal d’intérêt <span class="math notranslate nohighlight">\(x\)</span> et d’un bruit).</span><a class="headerlink" href="#f-ssp-filtre-moyenneur" title="Lien permanent vers cette image">#</a></p>
+<p><span class="caption-number">Fig. 28 </span><span class="caption-text">Application d’un filtre moyenneur sur le signal observé <span class="math notranslate nohighlight">\(y\)</span> (qui est la somme du signal d’intérêt <span class="math notranslate nohighlight">\(x\)</span> et d’un bruit).</span><a class="headerlink" href="#f-ssp-filtre-moyenneur" title="Lien permanent vers cette image">#</a></p>
 </figcaption>
 </figure>
 <p>Le filtre moyenneur est une très bonne première approche pour débruiter un signal.
@@ -745,7 +745,7 @@ et il faut parfois recourir à des techniques plus évoluées.</p>
 Aussi, plus il y a de signaux moyennés, meilleur sera le débruitage.</p>
 <figure class="align-default" id="f-ssp-moyennage">
 <img alt="_images/moyennage.svg" src="_images/moyennage.svg" /><figcaption>
-<p><span class="caption-number">Fig. 28 </span><span class="caption-text">Moyennage de plusieurs réalisations <span class="math notranslate nohighlight">\(y_i\)</span> d’un même signal <span class="math notranslate nohighlight">\(x\)</span>.
+<p><span class="caption-number">Fig. 29 </span><span class="caption-text">Moyennage de plusieurs réalisations <span class="math notranslate nohighlight">\(y_i\)</span> d’un même signal <span class="math notranslate nohighlight">\(x\)</span>.
 Le premier graphe ci-dessous représente 50 réalisations superposées (en gris),
 l’une d’elle est en bleu pour être visible.</span><a class="headerlink" href="#f-ssp-moyennage" title="Lien permanent vers cette image">#</a></p>
 </figcaption>
@@ -864,21 +864,21 @@ c’est donc la valeur de <span class="math notranslate nohighlight">\(\theta\)<
 </section>
 <section id="illustration">
 <h3>Illustration<a class="headerlink" href="#illustration" title="Lien permanent vers ce titre">#</a></h3>
-<p>Sur l’exemple de la <a class="reference internal" href="#f-ssp-moindres-carres"><span class="std std-numref">Fig. 29</span></a>, l’observation <span class="math notranslate nohighlight">\(y\)</span> est une version bruitée d’un polynôme <span class="math notranslate nohighlight">\(x\)</span>.
+<p>Sur l’exemple de la <a class="reference internal" href="#f-ssp-moindres-carres"><span class="std std-numref">Fig. 30</span></a>, l’observation <span class="math notranslate nohighlight">\(y\)</span> est une version bruitée d’un polynôme <span class="math notranslate nohighlight">\(x\)</span>.
 L’approximation par moindres carrés est plus appréciable que celle obtenue avec le filtre moyenneur
 car on bénéficie ici du fait que le signal inconnu est un polynôme.</p>
 <figure class="align-default" id="f-ssp-moindres-carres">
 <img alt="_images/moindres-carres.svg" src="_images/moindres-carres.svg" /><figcaption>
-<p><span class="caption-number">Fig. 29 </span><span class="caption-text">Les données <span class="math notranslate nohighlight">\(y\)</span> sont approximées par un polynôme d’ordre 3 avec la méthode des moindres carrés.
+<p><span class="caption-number">Fig. 30 </span><span class="caption-text">Les données <span class="math notranslate nohighlight">\(y\)</span> sont approximées par un polynôme d’ordre 3 avec la méthode des moindres carrés.
 Le résultat est comparé avec un filtre moyenneur de taille 20, qui donne une estimation moins « propre ».</span><a class="headerlink" href="#f-ssp-moindres-carres" title="Lien permanent vers cette image">#</a></p>
 </figcaption>
 </figure>
 <p>La solution obtenue est issue de calcul <span class="math notranslate nohighlight">\(\boldsymbol{\theta} = (\boldsymbol{H}^T\boldsymbol{H})^{-1} \boldsymbol{H}^T\boldsymbol{y}\)</span>.
-La figure <a class="reference internal" href="#f-ssp-moindres-carres-differences"><span class="std std-numref">Fig. 30</span></a> représente en orange les différences entre l’observation et l’estimation.
+La figure <a class="reference internal" href="#f-ssp-moindres-carres-differences"><span class="std std-numref">Fig. 31</span></a> représente en orange les différences entre l’observation et l’estimation.
 C’est la somme de ces différences qui est minimisée par la méthode des moindres carrés.</p>
 <figure class="align-default" id="f-ssp-moindres-carres-differences">
 <img alt="_images/moindres-carres-differences.svg" src="_images/moindres-carres-differences.svg" /><figcaption>
-<p><span class="caption-number">Fig. 30 </span><span class="caption-text">Mise en évidence des erreurs à minimiser.</span><a class="headerlink" href="#f-ssp-moindres-carres-differences" title="Lien permanent vers cette image">#</a></p>
+<p><span class="caption-number">Fig. 31 </span><span class="caption-text">Mise en évidence des erreurs à minimiser.</span><a class="headerlink" href="#f-ssp-moindres-carres-differences" title="Lien permanent vers cette image">#</a></p>
 </figcaption>
 </figure>
 </section>

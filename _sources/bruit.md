@@ -6,20 +6,21 @@ Ils étaient définis par une forme analytique (par exemple : $x[n] = \sin(2\pi 
 ou une suite d'échantillons (par exemple : $x[n] = [1, 2, 3, 4]$).
 
 Mais en pratique, il est rare que les signaux soient connus exactement et parfaitement.
-Les signaux aléatoires (c'est-à-dire non déterministes) sont des signaux qu'on ne peut pas prédire complètement
-avant de les avoir observés.
+Les signaux aléatoires (c'est-à-dire non déterministes)
+sont des signaux qu'on ne peut pas prédire complètement avant de les avoir observés.
 Par exemple :
-* un signal bruité est un signal aléatoire, car le bruit n'est pas parfaitement connu
+* un signal bruité (il contient des parasites) est un signal aléatoire,
+  car le bruit n'est pas parfaitement connu
   (si c'était le cas, alors il serait très simple de supprimer le bruit du signal !) ;
 * une sinusoïde de fréquence inconnue peut également être considérée comme un signal aléatoire ;
 * un signal de communication numérique, au niveau du récepteur, est un signal aléatoire
   puisque le message émis n'est pas connu a priori du récepteur (sinon, il serait inutile de transmettre le message...).
 
 Attention, lorsqu'on a mesuré et enregistré un signal physique, cet enregistrement n'est plus aléatoire.
-Cependant, une deuxième mesure du même phénomène physique sera différente.
+Mais une deuxième mesure du même phénomène physique sera différente.
 Lorsqu'on parle de signal aléatoire, c'est en fait le phénomène avant la mesure qui est aléatoire !
-Ce qui nous intéresse ici, c'est de concevoir un traitement sur un signal qui n'a pas encore été mesuré :
-le signal est donc considéré aléatoire.
+Ce qui nous intéresse ici, c'est de concevoir un traitement
+sur un signal qui n'a pas encore été mesuré et qui est donc considéré aléatoire.
 
 Pour analyser et traiter ces signaux, on se base sur leurs propriétés statistiques,
 telles que leur moyenne ou une distribution de probabilité.
@@ -29,7 +30,11 @@ Nous allons donc commencer par quelques rappels de probabilités.
 ## Rappels de probabilité
 
 Une _variable aléatoire_ est une variable mathématique dont la valeur n'est pas fixée.
-Les valeurs possibles de cette variable aléatoire n'ont pas forcément la même probabilité d'apparaître :
+Lors d'une expérience ou après l'acquisition d'un signal,
+on dispose des mesures de la variable aléatoire sous forme de valeurs numériques :
+c'est ce qu'on appelle des _réalisations_.
+
+Les valeurs possibles d'une variable aléatoire n'ont pas forcément la même probabilité d'apparaître :
 la distribution des probabilités d'apparition des valeurs est appelée _densité de probabilité_
 et elle est souvent notée $p$.
 Les densités de probabilité les plus courantes en traitement statistique du signal sont listées ci-dessous.
@@ -47,7 +52,7 @@ $$
 et dépend de deux paramètres : la moyenne $\mu$ et l'écart-type $\sigma$.
 La moyenne représente la valeur moyenne que prend un échantillon, l'écart-type est l'écart moyen d'un échantillon par rapport à $\mu$.
 Ainsi, la variable aléatoire peut prendre n'importe quelle valeur sur $\mathbb{R}$,
-les valeurs proches de $\mu$ étant plus probables que les valeurs éloignées de $\mu$.
+les valeurs proches de $\mu$ étant plus probables que les valeurs éloignées de $\mu$.
 
 On note aussi :
 
@@ -62,6 +67,8 @@ name: F:ssp:normale
 Densités de probabilité gaussiennes et 500 réalisations
 (à gauche : $\mathcal{N}(0\ ;1)$, à droite : $\mathcal{N}(1\ ;0,3)$).
 ```
+
+La densité de probabilité gaussienne est un très bon modèle pour la plupart des bruits courants.
 
 
 ### Densité de probabilité uniforme
@@ -93,8 +100,13 @@ Densités de probabilité uniformes et 500 réalisations
 (à gauche : $\mathcal{U}[0\ ;1]$, à droite : $\mathcal{U}[-2\ ;2]$).
 ```
 
+La distribution de probabilité uniforme a le mérite d'être très simple,
+même si elle représente assez mal les bruits les plus classiques dans les signaux.
+Si la variable aléatoire uniforme prend des valeurs discrètes,
+sa distribution de probabilité peut modéliser des bruits de quantification.
 
-### Probabilité de Poisson
+
+### Loi de Poisson
 
 Enfin, la loi de [Poisson](https://fr.wikipedia.org/wiki/Sim%C3%A9on_Denis_Poisson)
 modélise un processus de comptage (par exemple un nombre de photons sur les pixels d'un capteur CCD).
@@ -120,6 +132,13 @@ Loi de Poisson et 500 réalisations
 (à gauche : $\mathcal{P}(1)$, à droite : $\mathcal{P}(5)$).
 ```
 
+La loi de Poisson est généralement utilisée lors d'un comptage d'objets
+(comme des photons ou des électrons).
+C'est donc une loi particulièrement utile dans des signaux électroniques.
+Toutefois, lorsque le nombre d'objets comptés est grand,
+le bruit peut être modélisé par une distribution de probabilité gaussienne,
+qui est plus simple à manipuler mathématiquement.
+
 
 ### Caractéristiques statistiques d'une variable aléatoire
 
@@ -128,6 +147,10 @@ Loi de Poisson et 500 réalisations
   $$
   \mathbb{E}[x] = \int x p(x) dx.
   $$
+  
+  ```{margin}
+  L'accent $\hat{\cdot}$ signifie « estimation ».
+  ```
   
   Lorsqu'on dispose de $N$ réalisations $x[n]$, l'espérance peut être estimée ainsi :
   
@@ -170,7 +193,8 @@ La densité de probabilité du bruit peut être gaussienne, uniforme, de Poisson
 
 ### Le bruit blanc
 
-Un bruit $b[n]$ est _blanc_ si sa puissance est constante quelle que soit sa fréquence.
+Un bruit $b[n]$ _blanc_ est un signal aléatoire qui contient toutes les fréquences
+et que cellez-ci ont toute la même puissance.
 Cela signifie que la puissance du signal se répartit de façon uniforme sur l'ensemble des fréquences et que son espérance est nulle.
 
 <!-- Par définition un bruit blanc est de densité spectrale de puissance constante
@@ -196,14 +220,14 @@ est un modèle très répandu et assez simple de bruit qui possède les caracté
 - le bruit est blanc,
 - ses réalisations sont i.i.d.,
 - la densité de probabilité de ses réalisations est une loi normale,
-- il s'ajoute au signal d'intérêt.
+- le bruit s'ajoute au signal d'intérêt.
 
 Ainsi, un signal $x$ bruité par un bruit AWGN se modélise :
 
 $$
 \forall n, \quad
 y[n] = x[n] + b[n]\quad
-\text{où}\, b[n] \sim \mathcal{N}(0,\sigma).
+\text{où}\; b[n] \sim \mathcal{N}(0,\sigma).
 $$
 
 ### Rapport signal à bruit
