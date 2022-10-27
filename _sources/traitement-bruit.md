@@ -275,11 +275,11 @@ où :
 
 $$
 \boldsymbol{y} = \begin{bmatrix} y_1 \\ \vdots \\ y_N \end{bmatrix},
-\qquad
+\quad
 \boldsymbol{H} = \begin{bmatrix} 1 & n_1 & \dots & n_1^M \\ \vdots & \vdots & & \vdots \\ 1 & n_N & \dots & n_N^M \end{bmatrix},
-\qquad
+\quad
 \boldsymbol{\theta} = \begin{bmatrix} \theta_0 \\ \vdots \\ \theta_M \end{bmatrix}
-\qquad\text{et}\qquad
+\quad\text{et}\qquad
 \boldsymbol{b} = \begin{bmatrix} b_1 \\ \vdots \\ b_N \end{bmatrix}
 $$
 
@@ -331,6 +331,7 @@ c'est donc la valeur de $\theta$ qui permet d'avoir une fonction $f_{\theta}$ qu
 
 ### Illustration
 
+La solution obtenue est issue du calcul $\boldsymbol{\theta} = (\boldsymbol{H}^T\boldsymbol{H})^{-1} \boldsymbol{H}^T\boldsymbol{y}$.
 Sur l'exemple de la {numref}`F:ssp:moindres-carres`, l'observation $y$ est une version bruitée d'un polynôme $x$.
 L'approximation par moindres carrés est plus appréciable que celle obtenue avec le filtre moyenneur
 car on bénéficie ici du fait que le signal inconnu est un polynôme.
@@ -343,7 +344,6 @@ Les données $y$ sont approximées par un polynôme d'ordre 3 avec la méthode d
 Le résultat est comparé avec un filtre moyenneur de taille 20, qui donne une estimation moins « propre ».
 ```
 
-La solution obtenue est issue de calcul $\boldsymbol{\theta} = (\boldsymbol{H}^T\boldsymbol{H})^{-1} \boldsymbol{H}^T\boldsymbol{y}$.
 La figure {numref}`F:ssp:moindres-carres-differences` représente en orange les différences entre l'observation et l'estimation.
 C'est la somme de ces différences qui est minimisée par la méthode des moindres carrés.
 

@@ -813,11 +813,11 @@ f_{\theta}[n_N] = \theta_0 + \theta_1 n_N + \theta_2 n_N^2 + \dots + \theta_M n_
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \boldsymbol{y} = \begin{bmatrix} y_1 \\ \vdots \\ y_N \end{bmatrix},
-\qquad
+\quad
 \boldsymbol{H} = \begin{bmatrix} 1 &amp; n_1 &amp; \dots &amp; n_1^M \\ \vdots &amp; \vdots &amp; &amp; \vdots \\ 1 &amp; n_N &amp; \dots &amp; n_N^M \end{bmatrix},
-\qquad
+\quad
 \boldsymbol{\theta} = \begin{bmatrix} \theta_0 \\ \vdots \\ \theta_M \end{bmatrix}
-\qquad\text{et}\qquad
+\quad\text{et}\qquad
 \boldsymbol{b} = \begin{bmatrix} b_1 \\ \vdots \\ b_N \end{bmatrix}
 \end{split}\]</div>
 </section>
@@ -864,7 +864,8 @@ c’est donc la valeur de <span class="math notranslate nohighlight">\(\theta\)<
 </section>
 <section id="illustration">
 <h3>Illustration<a class="headerlink" href="#illustration" title="Lien permanent vers ce titre">#</a></h3>
-<p>Sur l’exemple de la <a class="reference internal" href="#f-ssp-moindres-carres"><span class="std std-numref">Fig. 30</span></a>, l’observation <span class="math notranslate nohighlight">\(y\)</span> est une version bruitée d’un polynôme <span class="math notranslate nohighlight">\(x\)</span>.
+<p>La solution obtenue est issue du calcul <span class="math notranslate nohighlight">\(\boldsymbol{\theta} = (\boldsymbol{H}^T\boldsymbol{H})^{-1} \boldsymbol{H}^T\boldsymbol{y}\)</span>.
+Sur l’exemple de la <a class="reference internal" href="#f-ssp-moindres-carres"><span class="std std-numref">Fig. 30</span></a>, l’observation <span class="math notranslate nohighlight">\(y\)</span> est une version bruitée d’un polynôme <span class="math notranslate nohighlight">\(x\)</span>.
 L’approximation par moindres carrés est plus appréciable que celle obtenue avec le filtre moyenneur
 car on bénéficie ici du fait que le signal inconnu est un polynôme.</p>
 <figure class="align-default" id="f-ssp-moindres-carres">
@@ -873,8 +874,7 @@ car on bénéficie ici du fait que le signal inconnu est un polynôme.</p>
 Le résultat est comparé avec un filtre moyenneur de taille 20, qui donne une estimation moins « propre ».</span><a class="headerlink" href="#f-ssp-moindres-carres" title="Lien permanent vers cette image">#</a></p>
 </figcaption>
 </figure>
-<p>La solution obtenue est issue de calcul <span class="math notranslate nohighlight">\(\boldsymbol{\theta} = (\boldsymbol{H}^T\boldsymbol{H})^{-1} \boldsymbol{H}^T\boldsymbol{y}\)</span>.
-La figure <a class="reference internal" href="#f-ssp-moindres-carres-differences"><span class="std std-numref">Fig. 31</span></a> représente en orange les différences entre l’observation et l’estimation.
+<p>La figure <a class="reference internal" href="#f-ssp-moindres-carres-differences"><span class="std std-numref">Fig. 31</span></a> représente en orange les différences entre l’observation et l’estimation.
 C’est la somme de ces différences qui est minimisée par la méthode des moindres carrés.</p>
 <figure class="align-default" id="f-ssp-moindres-carres-differences">
 <img alt="_images/moindres-carres-differences.svg" src="_images/moindres-carres-differences.svg" /><figcaption>
