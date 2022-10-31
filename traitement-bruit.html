@@ -762,10 +762,8 @@ Dans le cadre de l’approximation, elle permet de décrire un signal bruité pa
 <section id="problematique">
 <h3>Problématique<a class="headerlink" href="#problematique" title="Lien permanent vers ce titre">#</a></h3>
 <p>On considère donc le cas où les observations <span class="math notranslate nohighlight">\(y\)</span> sont la somme d’un signal <span class="math notranslate nohighlight">\(x=f_{\theta}\)</span> bruité :</p>
-<div class="math notranslate nohighlight">
-\[
-\forall n, \quad y[n] = f_{\theta}[n] + b[n]
-\]</div>
+<div class="math notranslate nohighlight" id="equation-e-mc-y">
+<span class="eqno">(1)<a class="headerlink" href="#equation-e-mc-y" title="Lien permanent vers cette équation">#</a></span>\[\forall n, \quad y[n] = f_{\theta}[n] + b[n]\]</div>
 <p>où :</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(f_{\theta}\)</span> est une fonction paramétrique (sinusoïde, polynôme, etc.) connue,</p></li>
@@ -781,30 +779,38 @@ Dans le cadre de l’approximation, elle permet de décrire un signal bruité pa
 comme un polynôme d’ordre 2 (<span class="math notranslate nohighlight">\(f_{\theta}[n] = \theta_0 + \theta_1 n + \theta_2 n^2\)</span>)
 ou une exponentielle (<span class="math notranslate nohighlight">\(f_{\theta}[n] = \theta_0 \exp(\theta_1 n)\)</span>).
 Mais par simplicité, nous nous concentrons dans cette section sur les fonctions <span class="math notranslate nohighlight">\(f_{\theta}\)</span> linéaires en <span class="math notranslate nohighlight">\(\theta\)</span>,
-c’est-à-dire que <span class="math notranslate nohighlight">\(f\)</span> est un polynôme :</p>
-<div class="math notranslate nohighlight">
-\[
-\forall n, \quad f_{\theta}[n] = \theta_0 + \theta_1 n + \theta_2 n^2 + \dots + \theta_M n^M.
-\]</div>
+et en particulier des fonctions <span class="math notranslate nohighlight">\(f_{\theta}\)</span> polynomiale :</p>
+<div class="math notranslate nohighlight" id="equation-e-mc-f">
+<span class="eqno">(2)<a class="headerlink" href="#equation-e-mc-f" title="Lien permanent vers cette équation">#</a></span>\[\forall n, \quad f_{\theta}[n] = \theta_0 + \theta_1 n + \theta_2 n^2 + \dots + \theta_M n^M.\]</div>
 </section>
 <section id="ecriture-matricielle">
 <h3>Écriture matricielle<a class="headerlink" href="#ecriture-matricielle" title="Lien permanent vers ce titre">#</a></h3>
 <p>Dans la suite, les calculs sont effectués avec la représentation vectorielle.
 Les abscisses des échantillons sont regroupés dans le vecteur <span class="math notranslate nohighlight">\(n = \begin{bmatrix} n_1 &amp; \dots &amp; n_N \end{bmatrix}^T\)</span>.
-Puisque d’après l’équation précédente :</p>
+Puisque d’après l’équation <a class="reference internal" href="#equation-e-mc-f">(2)</a> :</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{cases}
 f_{\theta}[n_1] = \theta_0 + \theta_1 n_1 + \theta_2 n_1^2 + \dots + \theta_M n_1^M \\
-\quad\dots \\
+\quad\vdots \\
 f_{\theta}[n_N] = \theta_0 + \theta_1 n_N + \theta_2 n_N^2 + \dots + \theta_M n_N^M
+\end{cases}
+\end{split}\]</div>
+<p>alors l’équation du modèle <a class="reference internal" href="#equation-e-mc-y">(1)</a> devient un système de <span class="math notranslate nohighlight">\(N\)</span> équations
+à <span class="math notranslate nohighlight">\(M+1\)</span> inconnues :</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{cases}
+y[n_1] = \theta_0 + \theta_1 n_1 + \theta_2 n_1^2 + \dots + \theta_M n_1^M + b[n_1] \\
+\quad\vdots \\
+y[n_N] = \theta_0 + \theta_1 n_N + \theta_2 n_N^2 + \dots + \theta_M n_N^M + b[n_2]
 \end{cases}
 \end{split}\]</div>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <p>Pour identifier les variables maricielles, on a l’habitude de les écrire en gras.</p>
 </aside>
-<p>alors l’équation du modèle s’écrit simplement sous forme matricielle :</p>
+<p>ce système peut s’écrire plus simplement sous forme matricielle :</p>
 <div class="math notranslate nohighlight">
 \[
 \boldsymbol{y} = \boldsymbol{H} \boldsymbol{\theta} + \boldsymbol{b}
@@ -812,13 +818,13 @@ f_{\theta}[n_N] = \theta_0 + \theta_1 n_N + \theta_2 n_N^2 + \dots + \theta_M n_
 <p>où :</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
-\boldsymbol{y} = \begin{bmatrix} y_1 \\ \vdots \\ y_N \end{bmatrix},
+\boldsymbol{y} = \begin{bmatrix} y[n_1] \\ \vdots \\ y[n_N] \end{bmatrix},
 \quad
 \boldsymbol{H} = \begin{bmatrix} 1 &amp; n_1 &amp; \dots &amp; n_1^M \\ \vdots &amp; \vdots &amp; &amp; \vdots \\ 1 &amp; n_N &amp; \dots &amp; n_N^M \end{bmatrix},
 \quad
 \boldsymbol{\theta} = \begin{bmatrix} \theta_0 \\ \vdots \\ \theta_M \end{bmatrix}
 \quad\text{et}\qquad
-\boldsymbol{b} = \begin{bmatrix} b_1 \\ \vdots \\ b_N \end{bmatrix}
+\boldsymbol{b} = \begin{bmatrix} b[n_1] \\ \vdots \\ b[n_N] \end{bmatrix}
 \end{split}\]</div>
 </section>
 <section id="minimisation-du-critere-des-moindres-carres">

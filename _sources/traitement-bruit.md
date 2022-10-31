@@ -223,9 +223,10 @@ Dans le cadre de l'approximation, elle permet de décrire un signal bruité par 
 
 On considère donc le cas où les observations $y$ sont la somme d'un signal $x=f_{\theta}$ bruité :
 
-$$
+```{math}
+:label: E:mc:y
 \forall n, \quad y[n] = f_{\theta}[n] + b[n]
-$$
+```
 
 où :
 * $f_{\theta}$ est une fonction paramétrique (sinusoïde, polynôme, etc.) connue,
@@ -241,23 +242,35 @@ De manière générale, $f$ peut être n'importe quelle fonction paramétrée,
 comme un polynôme d'ordre 2 ($f_{\theta}[n] = \theta_0 + \theta_1 n + \theta_2 n^2$)
 ou une exponentielle ($f_{\theta}[n] = \theta_0 \exp(\theta_1 n)$).
 Mais par simplicité, nous nous concentrons dans cette section sur les fonctions $f_{\theta}$ linéaires en $\theta$,
-c'est-à-dire que $f$ est un polynôme :
+et en particulier des fonctions $f_{\theta}$ polynomiale :
 
-$$
+```{math}
+:label: E:mc:f
 \forall n, \quad f_{\theta}[n] = \theta_0 + \theta_1 n + \theta_2 n^2 + \dots + \theta_M n^M.
-$$
+```
 
 ### Écriture matricielle
 
 Dans la suite, les calculs sont effectués avec la représentation vectorielle.
 Les abscisses des échantillons sont regroupés dans le vecteur $n = \begin{bmatrix} n_1 & \dots & n_N \end{bmatrix}^T$.
-Puisque d'après l'équation précédente :
+Puisque d'après l'équation {eq}`E:mc:f` :
 
 $$
 \begin{cases}
 f_{\theta}[n_1] = \theta_0 + \theta_1 n_1 + \theta_2 n_1^2 + \dots + \theta_M n_1^M \\
-\quad\dots \\
+\quad\vdots \\
 f_{\theta}[n_N] = \theta_0 + \theta_1 n_N + \theta_2 n_N^2 + \dots + \theta_M n_N^M
+\end{cases}
+$$
+
+alors l'équation du modèle {eq}`E:mc:y` devient un système de $N$ équations
+à $M+1$ inconnues :
+
+$$
+\begin{cases}
+y[n_1] = \theta_0 + \theta_1 n_1 + \theta_2 n_1^2 + \dots + \theta_M n_1^M + b[n_1] \\
+\quad\vdots \\
+y[n_N] = \theta_0 + \theta_1 n_N + \theta_2 n_N^2 + \dots + \theta_M n_N^M + b[n_2]
 \end{cases}
 $$
 
@@ -265,7 +278,7 @@ $$
 Pour identifier les variables maricielles, on a l'habitude de les écrire en gras.
 ```
 
-alors l'équation du modèle s'écrit simplement sous forme matricielle :
+ce système peut s'écrire plus simplement sous forme matricielle :
 
 $$
 \boldsymbol{y} = \boldsymbol{H} \boldsymbol{\theta} + \boldsymbol{b}
@@ -274,14 +287,15 @@ $$
 où :
 
 $$
-\boldsymbol{y} = \begin{bmatrix} y_1 \\ \vdots \\ y_N \end{bmatrix},
+\boldsymbol{y} = \begin{bmatrix} y[n_1] \\ \vdots \\ y[n_N] \end{bmatrix},
 \quad
 \boldsymbol{H} = \begin{bmatrix} 1 & n_1 & \dots & n_1^M \\ \vdots & \vdots & & \vdots \\ 1 & n_N & \dots & n_N^M \end{bmatrix},
 \quad
 \boldsymbol{\theta} = \begin{bmatrix} \theta_0 \\ \vdots \\ \theta_M \end{bmatrix}
 \quad\text{et}\qquad
-\boldsymbol{b} = \begin{bmatrix} b_1 \\ \vdots \\ b_N \end{bmatrix}
+\boldsymbol{b} = \begin{bmatrix} b[n_1] \\ \vdots \\ b[n_N] \end{bmatrix}
 $$
+
 
 ### Minimisation du critère des moindres carrés
 

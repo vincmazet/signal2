@@ -74,3 +74,9 @@ table p { margin-bottom: 0 }
   font-weight: bold;
   color: #9c9ea1;
 }
+
+/* Numéro d'équation */
+
+span.eqno {
+    font-size: 1em;
+}
