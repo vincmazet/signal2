@@ -1,12 +1,12 @@
 (C:tp-ssp)=
-# TP
+# TP : traitement statistique du signal
 
 
 ## Détection de motifs par filtrage adapté
 
-Le codage Manchester est une norme de transmission de signaux binaires,
+Le codage Manchester est une norme de transmission de messages binaires,
 utilisée notamment dans certaines communications Ethernet.
-Les bits du signal binaire sont transmis les uns à la suite des autres.
+Les bits du message binaire sont transmis les uns à la suite des autres.
 un 1 logique est représenté par le motif $h$,
 tandis qu'un 0 logique est représenté par $-h$ où
 
@@ -18,20 +18,31 @@ h(t) =
 \end{cases}
 $$
 
-Dans cet exercice, nous reproduisons la chaîne de communication avec un émetteur qui crée un message binaire codé en Manchester,
-un canal de transmission où s'ajoute du bruit au signal émis,
-et enfin un récepteur dont l'objectif est de décoder le signal reçu.
+Dans cet exercice, nous reproduisons la chaîne de communication avec :
+1. un émetteur qui crée un message binaire codé en Manchester,
+1. un canal de transmission où s'ajoute du bruit au signal émis,
+1. un récepteur dont l'objectif est de décoder le signal reçu.
 
-* Créez un vecteur contenant le motif $h$ de durée $T=10^{-7}$ s et échantillonné à $10^{9}$ Hz.
+
+### Création du signal par l'émetteur
+
+* Créez le motif $h$ de durée $T=10^{-7}$ s et échantillonné à $10^{9}$ Hz.
+  Au préalable, définissez un vecteur des abscisses qui permettra de générer $h$.
 
 * En concaténant plusieurs motifs (par exemple avec `numpy.concatenate`),
   créez le signal correspondant à la séquence binaire $1\ 0\ 1\ 1$.
   Pensez à définir un nouveau vecteur de temps pour afficher le signal.
 
+
+### Simulation du canal de transmission
+
 * Ajoutez un bruit gaussien (`numpy.random.normal`) à ce signal de sorte à obtenir un RSB de 10 dB
   (utilisez le résultat de l'exercice 3 du TD pour obtenir le lien entre le RSB et l'écart-type du bruit).
   La norme peut être calculée avec `np.linalg.norm`.
   Vérifiez notamment que le niveau de bruit évolue conformément à la valeur du RSB.
+
+
+### Décodage du signal par le récepteur
   
 On se place maintenant au niveau du récepteur :
 un filtre adapté est utilisé pour retrouver la séquence binaire à partir du signal bruité.
@@ -40,18 +51,20 @@ un filtre adapté est utilisé pour retrouver la séquence binaire à partir du 
   et une réponse impulsionnelle.
   Quelle est cette réponse impulsionnelle ?
 
-* Appliquez le filtre adapté avec une convolution sur le signal bruité.
+* Appliquez le filtre adapté en calculant une convolution sur le signal bruité.
   Décrivez le signal obtenu.
   Comment retrouver la séquence binaire à partir de ce signal ?  
+
+
+### Étude des performances du filtrage adapté
 
 * Évaluez la robustesse du filtrage adapté en fonction du niveau de bruit :
   comment se comporte cette méthode lorsque le RSB évolue ?
 
 * Appliquez le filtre adapté sur le signal <a href="_static/files/manchester.csv">manchester.csv</a>
   pour décoder la séquence binaire correspondante
-  (la durée $T$ du motif et la fréquence d'échantillonnage restant les mêmes que dans les questions précédentes).
-  Vous pouvez déterminer visuellement les bits de la séquence (sans programmation, donc)
-  et retrouver le message correspondant sachant que la norme ASCII a été utilisée.
+  (la durée $T$ du motif et la fréquence d'échantillonnage restant les mêmes que dans les questions précédentes),
+  sachant que la norme ASCII a été utilisée.
 
 
 ## Lissage par filtre moyenneur
@@ -88,11 +101,8 @@ Ces données illustrent la hausse de températures mondiales.
   - attention à la dimension des matrices et vecteurs (vérifiez bien chaque étape du calcul avec `shape` !) ;
   - Pour générer la matrice $H$ des coefficients et le vecteur des données $y$,
     vous pouvez vous inspirer du code suivant :
-<!--     ```
-    y = np.transpose(np.array([temperatures]))
-    H = np.transpose(np.array([ n**0, n**1, n**2 ]))
-    ``` -->
-    ```
+
+    ```python
     H = np.transpose( np.array([ n**0, n**1, n**2 ]) )
     ```
   
