@@ -257,10 +257,32 @@ const thebe_selector_output = ".output, .cell_output"
    ✎ Exercices théoriques
   </a>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../ssp-p.html">
    ✎ Exercices sur machine
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="tp31.html">
+     ✐ Détection de motifs par filtrage adapté
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="tp32.html">
+     ✐ Lissage par filtre moyenneur
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="tp33.html">
+     ✐ Approximation et extrapolation par moindres carrés
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
@@ -456,7 +478,7 @@ title="Print to PDF"
 <p>La phase est, comme la plupart des signaux réels, difficile à analyser…
 Mais le module est informatif.</p>
 <p>En zoomant sur les fréquences basses du spectre, on peut identifier les fréquences principales.
-La fonction <span class="xref myst">https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.find_peaks.html</span> peut aider à trouver les pics.</p>
+La fonction <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.find_peaks.html"><code class="docutils literal notranslate"><span class="pre">scipy.signal.find_peaks</span></code></a> peut aider à trouver les pics.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">peaks</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">find_peaks</span><span class="p">(</span><span class="n">module</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mf">1e8</span><span class="p">)</span>

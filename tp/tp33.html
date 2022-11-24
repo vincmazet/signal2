@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>✐ Transformée de Fourier discrète &#8212; Traitement du signal 2</title>
+    <title>✐ Approximation et extrapolation par moindres carrés &#8212; Traitement du signal 2</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -57,8 +57,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Recherche" href="../search.html" />
-    <link rel="next" title="✐ Analyse spectrale" href="tp14.html" />
-    <link rel="prev" title="✐ Produit de convolution" href="tp12.html" />
+    <link rel="next" title="Installer et utiliser Python" href="../python.html" />
+    <link rel="prev" title="✐ Lissage par filtre moyenneur" href="tp32.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="fr">
     
@@ -118,22 +118,22 @@ const thebe_selector_output = ".output, .cell_output"
   Révisions
  </span>
 </p>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../rev-t.html">
    ✎ Exercices théoriques
   </a>
  </li>
- <li class="toctree-l1 current active has-children">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../rev-p.html">
    ✎ Exercices sur machine
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul class="current">
+  <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="tp11.html">
      ✐ Représentation d’un signal
@@ -144,8 +144,8 @@ const thebe_selector_output = ".output, .cell_output"
      ✐ Produit de convolution
     </a>
    </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
+   <li class="toctree-l2">
+    <a class="reference internal" href="tp13.html">
      ✐ Transformée de Fourier discrète
     </a>
    </li>
@@ -243,7 +243,7 @@ const thebe_selector_output = ".output, .cell_output"
   Traitement statistique du signal
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../bruit.html">
    Bruit dans les signaux
@@ -259,16 +259,16 @@ const thebe_selector_output = ".output, .cell_output"
    ✎ Exercices théoriques
   </a>
  </li>
- <li class="toctree-l1 has-children">
+ <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="../ssp-p.html">
    ✎ Exercices sur machine
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
   <label for="toctree-checkbox-4">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
+  <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="tp31.html">
      ✐ Détection de motifs par filtrage adapté
@@ -279,8 +279,8 @@ const thebe_selector_output = ".output, .cell_output"
      ✐ Lissage par filtre moyenneur
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="tp33.html">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      ✐ Approximation et extrapolation par moindres carrés
     </a>
    </li>
@@ -393,7 +393,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../_sources/tp/tp13.ipynb"
+        <a href="../_sources/tp/tp33.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -453,32 +453,13 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#tfd-entre-0-et-n-1">
-   TFD entre
-   <span class="math notranslate nohighlight">
-    \(0\)
-   </span>
-   et
-   <span class="math notranslate nohighlight">
-    \(N-1\)
-   </span>
+  <a class="reference internal nav-link" href="#approximation-par-moindres-carres">
+   Approximation par moindres carrés
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#tfd-entre-n-2-et-n-2-1">
-   TFD entre
-   <span class="math notranslate nohighlight">
-    \(-N/2\)
-   </span>
-   et
-   <span class="math notranslate nohighlight">
-    \(N/2-1\)
-   </span>
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#tfd-centree-en-fonction-des-frequences">
-   TFD centrée en fonction des fréquences
+  <a class="reference internal nav-link" href="#extrapolation">
+   Extrapolation
   </a>
  </li>
 </ul>
@@ -490,7 +471,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>✐ Transformée de Fourier discrète</h1>
+                <h1>✐ Approximation et extrapolation par moindres carrés</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -501,32 +482,13 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#tfd-entre-0-et-n-1">
-   TFD entre
-   <span class="math notranslate nohighlight">
-    \(0\)
-   </span>
-   et
-   <span class="math notranslate nohighlight">
-    \(N-1\)
-   </span>
+  <a class="reference internal nav-link" href="#approximation-par-moindres-carres">
+   Approximation par moindres carrés
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#tfd-entre-n-2-et-n-2-1">
-   TFD entre
-   <span class="math notranslate nohighlight">
-    \(-N/2\)
-   </span>
-   et
-   <span class="math notranslate nohighlight">
-    \(N/2-1\)
-   </span>
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#tfd-centree-en-fonction-des-frequences">
-   TFD centrée en fonction des fréquences
+  <a class="reference internal nav-link" href="#extrapolation">
+   Extrapolation
   </a>
  </li>
 </ul>
@@ -539,104 +501,74 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="transformee-de-fourier-discrete">
-<h1>✐ Transformée de Fourier discrète<a class="headerlink" href="#transformee-de-fourier-discrete" title="Lien permanent vers ce titre">#</a></h1>
-<p>Après avoir importé les modules nécessaires, le créneau est généré sur 100 échantillons.
-Attention, les 50 premiers échantillons (de 0 à 49) sont égaux à 1, les suivants (de 50 à 99) sont nuls !</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="approximation-et-extrapolation-par-moindres-carres">
+<h1>✐ Approximation et extrapolation par moindres carrés<a class="headerlink" href="#approximation-et-extrapolation-par-moindres-carres" title="Lien permanent vers ce titre">#</a></h1>
+<div class="cell tag_remove-input docutils container">
+</div>
+<div class="cell tag_remove-input docutils container">
+</div>
+<section id="approximation-par-moindres-carres">
+<h2>Approximation par moindres carrés<a class="headerlink" href="#approximation-par-moindres-carres" title="Lien permanent vers ce titre">#</a></h2>
+<div class="math notranslate nohighlight">
+\[
+\theta = (H^TH)^{-1} H^Ty
+\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">49</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;x[</span><span class="si">{</span><span class="n">m</span><span class="si">}</span><span class="s2">] = </span><span class="si">{</span><span class="n">x</span><span class="p">[</span><span class="n">m</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x[0] = 1
-x[49] = 1
-x[50] = 0
-x[-1] = 0
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Normalisation des abscisses entre 0 et 1</span>
+<span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="n">year</span><span class="o">-</span><span class="mi">1880</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2020</span><span class="o">-</span><span class="mi">1880</span><span class="p">)</span>
+
+<span class="c1"># Données sous forme de vecteur colonne</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span> <span class="c1"># plus clair que y = np.transpose(np.array([temp]))</span>
+
+<span class="c1"># Matrice H</span>
+<span class="n">H</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span> <span class="n">x</span><span class="o">**</span><span class="mi">0</span><span class="p">,</span> <span class="n">x</span><span class="o">**</span><span class="mi">1</span><span class="p">,</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="p">]))</span>
+
+<span class="c1"># Estimation des paramètres θ</span>
+<span class="n">HT</span>     <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">H</span><span class="p">)</span>
+<span class="n">HTH</span>    <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">HT</span><span class="p">,</span> <span class="n">H</span><span class="p">)</span>
+<span class="n">HTHinv</span> <span class="o">=</span> <span class="n">linalg</span><span class="o">.</span><span class="n">pinv</span><span class="p">(</span><span class="n">HTH</span><span class="p">)</span>
+<span class="n">HTy</span>    <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">HT</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">theta</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">HTHinv</span><span class="p">,</span> <span class="n">HTy</span><span class="p">)</span>
+
+<span class="c1"># Calcul du polynôme z</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">H</span><span class="p">,</span><span class="n">theta</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../_images/tp13_5_0.png" src="../_images/tp13_5_0.png" />
-</div>
-</div>
-<section id="tfd-entre-0-et-n-1">
-<h2>TFD entre <span class="math notranslate nohighlight">\(0\)</span> et <span class="math notranslate nohighlight">\(N-1\)</span><a class="headerlink" href="#tfd-entre-0-et-n-1" title="Lien permanent vers ce titre">#</a></h2>
-<p>FFT est un algorithme très rapide pour calculer une transformée de Fourier discrète (TFD).
-Il est implémenté en Python dans <code class="docutils literal notranslate"><span class="pre">scipy.fft.fft</span></code>.
-Par défaut, FFT calcule une TFD entre <span class="math notranslate nohighlight">\(0\)</span> et <span class="math notranslate nohighlight">\(N-1\)</span>.
-Pour la représenter, il faut donc définir les abscisses <span class="math notranslate nohighlight">\(k\)</span> entre <span class="math notranslate nohighlight">\(0\)</span> et <span class="math notranslate nohighlight">\(N-1\)</span>.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">k</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
-<span class="n">X</span> <span class="o">=</span> <span class="n">fft</span><span class="o">.</span><span class="n">fft</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>N’oubliez pas : la TFD est très souvent complexe, c’est pourquoi on la représente avec deux graphes : le module et l’argument.</p>
-<div class="cell tag_remove-input docutils container">
-<div class="cell_output docutils container">
-<img alt="../_images/tp13_12_0.png" src="../_images/tp13_12_0.png" />
-</div>
-</div>
-<p>Les impulsions bizarres qu’on observe sur la phase sont des erreurs numériques,
-que l’on peut supprimer en forçant à 0 les échantillons de <span class="math notranslate nohighlight">\(X\)</span> qui sont très faibles.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="p">[</span><span class="nb">abs</span><span class="p">(</span><span class="n">X</span><span class="p">)</span><span class="o">&lt;</span><span class="mf">1e-9</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell tag_remove-input docutils container">
-<div class="cell_output docutils container">
-<img alt="../_images/tp13_15_0.png" src="../_images/tp13_15_0.png" />
-</div>
-</div>
-<p>Le signal temporel étant un créneau, on peut l’interpréter comme un signal porte périodisé.
-Par conséquent, le module de son spectre est bien la TFD d’une porte (un sinus cardinal) périodisé.</p>
-</section>
-<section id="tfd-entre-n-2-et-n-2-1">
-<h2>TFD entre <span class="math notranslate nohighlight">\(-N/2\)</span> et <span class="math notranslate nohighlight">\(N/2-1\)</span><a class="headerlink" href="#tfd-entre-n-2-et-n-2-1" title="Lien permanent vers ce titre">#</a></h2>
-<p>Il suffit de redéfinir les abscisses, et d’appliquer <code class="docutils literal notranslate"><span class="pre">scipy.fft.fftshift</span></code> sur le spectre pour inverser les parties gauche et droite.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">k</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">X</span> <span class="o">=</span> <span class="n">fft</span><span class="o">.</span><span class="n">fftshift</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell tag_remove-input docutils container">
-<div class="cell_output docutils container">
-<img alt="../_images/tp13_20_0.png" src="../_images/tp13_20_0.png" />
+<img alt="../_images/tp33_5_0.png" src="../_images/tp33_5_0.png" />
 </div>
 </div>
 </section>
-<section id="tfd-centree-en-fonction-des-frequences">
-<h2>TFD centrée en fonction des fréquences<a class="headerlink" href="#tfd-centree-en-fonction-des-frequences" title="Lien permanent vers ce titre">#</a></h2>
-<p>Dans ce cas, le module et la phase du spectre ne changent pas.
-Seule l’abscisse est à redéfinir.</p>
+<section id="extrapolation">
+<h2>Extrapolation<a class="headerlink" href="#extrapolation" title="Lien permanent vers ce titre">#</a></h2>
+<p>Pour extrapoler la courbe (c’est-à-dire calculer ses valeurs au délà des données),
+il suffit de calculer le polynôme sur une autre plage des abscisses,
+donc en redéfinissant <span class="math notranslate nohighlight">\(H\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Te</span> <span class="o">=</span> <span class="mf">0.5</span>
-<span class="n">fe</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">Te</span>
-<span class="n">f</span> <span class="o">=</span> <span class="n">k</span><span class="o">*</span><span class="n">fe</span><span class="o">/</span><span class="n">N</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">year2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1880</span><span class="p">,</span><span class="mi">2070</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="n">year2</span><span class="o">-</span><span class="mi">1880</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">2020</span><span class="o">-</span><span class="mi">1880</span><span class="p">)</span>
+<span class="n">H</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span> <span class="n">x</span><span class="o">**</span><span class="mi">0</span><span class="p">,</span> <span class="n">x</span><span class="o">**</span><span class="mi">1</span><span class="p">,</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="p">]))</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">H</span><span class="p">,</span><span class="n">theta</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../_images/tp13_24_0.png" src="../_images/tp13_24_0.png" />
+<img alt="../_images/tp33_8_0.png" src="../_images/tp33_8_0.png" />
 </div>
 </div>
-<p>Si vous avez des difficultés pour reproduire ces résultats ou pour tout complément, <a class="reference external" href="mailto:vincent&#46;mazet&#37;&#52;&#48;unistra&#46;fr">envoyez-moi un mail</a> !</p>
+<p>Si vous avez le moral accroché, vous pouvez connaître les conséquences issues de cette extrapolation sur l’article Wikipedia <a class="reference external" href="https://fr.wikipedia.org/wiki/R%C3%A9chauffement_climatique">Réchauffement climatique</a>… 😱</p>
+<p>Données :</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://data.giss.nasa.gov/gistemp/graphs_v4/">https://data.giss.nasa.gov/gistemp/graphs_v4/</a></p></li>
+<li><p><a class="reference external" href="https://climate.nasa.gov/vital-signs/global-temperature/">https://climate.nasa.gov/vital-signs/global-temperature/</a></p></li>
+</ul>
 </section>
 </section>
 
@@ -667,17 +599,17 @@ Seule l’abscisse est à redéfinir.</p>
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="tp12.html" title="précédent page">
+    <a class='left-prev' id="prev-link" href="tp32.html" title="précédent page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">précédent</p>
-            <p class="prev-next-title">✐ Produit de convolution</p>
+            <p class="prev-next-title">✐ Lissage par filtre moyenneur</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="tp14.html" title="suivant page">
+    <a class='right-next' id="next-link" href="../python.html" title="suivant page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">suivant</p>
-        <p class="prev-next-title">✐ Analyse spectrale</p>
+        <p class="prev-next-title">Installer et utiliser Python</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>✐ Filtrage numérique &#8212; Traitement du signal 2</title>
+    <title>✐ Détection de motifs par filtrage adapté &#8212; Traitement du signal 2</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -57,8 +57,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Recherche" href="../search.html" />
-    <link rel="next" title="Bruit dans les signaux" href="../bruit.html" />
-    <link rel="prev" title="TP : filtrage" href="../filtres-p.html" />
+    <link rel="next" title="✐ Lissage par filtre moyenneur" href="tp32.html" />
+    <link rel="prev" title="TP : traitement statistique du signal" href="../ssp-p.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="fr">
     
@@ -162,7 +162,7 @@ const thebe_selector_output = ".output, .cell_output"
   Filtrage
  </span>
 </p>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../filtres-intro.html">
    Introduction
@@ -220,18 +220,18 @@ const thebe_selector_output = ".output, .cell_output"
    ✎ Exercices théoriques
   </a>
  </li>
- <li class="toctree-l1 current active has-children">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../filtres-p.html">
    ✎ Exercices sur machine
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
   <label for="toctree-checkbox-3">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul class="current">
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="tp2.html">
      ✐ Filtrage numérique
     </a>
    </li>
@@ -243,7 +243,7 @@ const thebe_selector_output = ".output, .cell_output"
   Traitement statistique du signal
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../bruit.html">
    Bruit dans les signaux
@@ -259,18 +259,18 @@ const thebe_selector_output = ".output, .cell_output"
    ✎ Exercices théoriques
   </a>
  </li>
- <li class="toctree-l1 has-children">
+ <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="../ssp-p.html">
    ✎ Exercices sur machine
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
   <label for="toctree-checkbox-4">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="tp31.html">
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      ✐ Détection de motifs par filtrage adapté
     </a>
    </li>
@@ -393,7 +393,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../_sources/tp/tp2.ipynb"
+        <a href="../_sources/tp/tp31.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -453,43 +453,28 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#affichage-de-lecg-mesure">
-   Affichage de l’ECG mesuré
+  <a class="reference internal nav-link" href="#emetteur">
+   Émetteur
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#definition-du-gabarit">
-   Définition du gabarit
+  <a class="reference internal nav-link" href="#canal-de-transmission">
+   Canal de transmission
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#realisation-d-un-filtre-rif-avec-la-methode-des-fenetres">
-   Réalisation d’un filtre RIF avec la méthode des fenêtres
+  <a class="reference internal nav-link" href="#recepteur">
+   Récepteur
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#realisation-d-un-filtre-rii-avec-la-transformation-bilineaire">
-   Réalisation d’un filtre RII avec la transformation bilinéaire
+  <a class="reference internal nav-link" href="#robustesse-par-rapport-au-bruit">
+   Robustesse par rapport au bruit
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#realisation-du-filtre-rif-avec-la-methode-de-parks-mcclellan">
-   Réalisation du filtre RIF avec la méthode de Parks-McClellan
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#realisation-d-un-filtre-ideal">
-   Réalisation d’un filtre idéal
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#application">
-   Application
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#effet-de-la-quantification-des-coefficients">
-   Effet de la quantification des coefficients
+  <a class="reference internal nav-link" href="#decodage-du-signal-manchester-csv">
+   Décodage du signal manchester.csv
   </a>
  </li>
 </ul>
@@ -501,7 +486,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>✐ Filtrage numérique</h1>
+                <h1>✐ Détection de motifs par filtrage adapté</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -512,43 +497,28 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#affichage-de-lecg-mesure">
-   Affichage de l’ECG mesuré
+  <a class="reference internal nav-link" href="#emetteur">
+   Émetteur
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#definition-du-gabarit">
-   Définition du gabarit
+  <a class="reference internal nav-link" href="#canal-de-transmission">
+   Canal de transmission
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#realisation-d-un-filtre-rif-avec-la-methode-des-fenetres">
-   Réalisation d’un filtre RIF avec la méthode des fenêtres
+  <a class="reference internal nav-link" href="#recepteur">
+   Récepteur
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#realisation-d-un-filtre-rii-avec-la-transformation-bilineaire">
-   Réalisation d’un filtre RII avec la transformation bilinéaire
+  <a class="reference internal nav-link" href="#robustesse-par-rapport-au-bruit">
+   Robustesse par rapport au bruit
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#realisation-du-filtre-rif-avec-la-methode-de-parks-mcclellan">
-   Réalisation du filtre RIF avec la méthode de Parks-McClellan
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#realisation-d-un-filtre-ideal">
-   Réalisation d’un filtre idéal
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#application">
-   Application
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#effet-de-la-quantification-des-coefficients">
-   Effet de la quantification des coefficients
+  <a class="reference internal nav-link" href="#decodage-du-signal-manchester-csv">
+   Décodage du signal manchester.csv
   </a>
  </li>
 </ul>
@@ -561,192 +531,116 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="filtrage-numerique">
-<h1>✐ Filtrage numérique<a class="headerlink" href="#filtrage-numerique" title="Lien permanent vers ce titre">#</a></h1>
-<p>Les fonctions de filtrage sont dans <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/signal.html"><code class="docutils literal notranslate"><span class="pre">scipy.signal</span></code></a>.</p>
-<section id="affichage-de-lecg-mesure">
-<h2>Affichage de l’ECG mesuré<a class="headerlink" href="#affichage-de-lecg-mesure" title="Lien permanent vers ce titre">#</a></h2>
-<p>Connaissant le nombre de points dans le signal (<code class="docutils literal notranslate"><span class="pre">numpy.shape</span></code>) et la fréquence d’échantillonnage, il est facile de générer le vecteur des échantillons.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="detection-de-motifs-par-filtrage-adapte">
+<h1>✐ Détection de motifs par filtrage adapté<a class="headerlink" href="#detection-de-motifs-par-filtrage-adapte" title="Lien permanent vers ce titre">#</a></h1>
 <div class="cell tag_remove-input docutils container">
-<div class="cell_output docutils container">
-<img alt="../_images/tp2_7_0.png" src="../_images/tp2_7_0.png" />
 </div>
-</div>
-<p>Attention : avant de sous-échantillonner, il convient d’appliquer un filtre anti-repliement !
-On peut utiliser la fonction <code class="docutils literal notranslate"><span class="pre">scipy.signal.decimate</span></code>.</p>
+<section id="emetteur">
+<h2>Émetteur<a class="headerlink" href="#emetteur" title="Lien permanent vers ce titre">#</a></h2>
 <div class="cell tag_remove-input docutils container">
 </div>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../_images/tp2_11_0.png" src="../_images/tp2_11_0.png" />
+<img alt="../_images/tp31_4_0.png" src="../_images/tp31_4_0.png" />
 </div>
 </div>
 <div class="cell tag_remove-input docutils container">
+</div>
+<div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../_images/tp2_12_0.png" src="../_images/tp2_12_0.png" />
+<img alt="../_images/tp31_6_0.png" src="../_images/tp31_6_0.png" />
 </div>
 </div>
-<p>L’observation du spectre nous permet d’affirmer que le signal ECG est plutôt basse fréquence,
-mais cela on le savait déjà en observant le signal temporel.
-La phase n’est pas interprétable ; cela arrive souvent sur les signaux réels.</p>
-<p>Finalement, le spectre ne nous permet pas, ici,
-de déterminer les contenus fréquentiels de la variation basse fréquence d’une part, et des ondes d’autre part.</p>
 </section>
-<section id="definition-du-gabarit">
-<h2>Définition du gabarit<a class="headerlink" href="#definition-du-gabarit" title="Lien permanent vers ce titre">#</a></h2>
-<p>Or, on sait que les ondes apparaissent toutes les secondes environ (il y a dix ondes sur presque dix secondes) :
-leur fréquence d’apparition est donc de l’ordre du hertz.
-D’autre part, la variation basse fréquence peut être assimilée (très grossièrement) à un sinus de période sept secondes
-(donc de fréquence 1/7 Hz).
-Aussi, pour éliminer la composante basse fréquence, il faut réaliser un filtre passe-haut
-dont la fréquence de coupure est comprise entre 1/7 Hz et 1 Hz.</p>
-<p>Nous choisissons donc le gabarit représenté ci-dessous, avec une fréquence de la bande passante à 1 Hz,
-et une fréquence de la bande atténuée de 0,5 Hz.
-Seule l’application sur le signal nous permettra d’affiner ces deux valeurs :
-c’est pourquoi il est important de réaliser un code qui utilise des variables pour ces deux fréquences, afin de les changer facilement.</p>
+<section id="canal-de-transmission">
+<h2>Canal de transmission<a class="headerlink" href="#canal-de-transmission" title="Lien permanent vers ce titre">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Gabarit numérique</span>
-<span class="n">fmin</span><span class="p">,</span> <span class="n">fmax</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">fe</span><span class="o">/</span><span class="mi">2</span>
-<span class="n">fp</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="n">fs</span> <span class="o">=</span> <span class="mf">0.5</span>
-<span class="n">edB</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="n">AdB</span> <span class="o">=</span> <span class="mi">60</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Bruit gaussien (RSB = 10 dB)</span>
+
+<span class="n">snr</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">Px</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="n">N</span>
+<span class="n">sig</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">Px</span> <span class="o">*</span> <span class="mi">10</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="n">snr</span><span class="o">/</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">sig</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">b</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../_images/tp2_16_0.png" src="../_images/tp2_16_0.png" />
+<img alt="../_images/tp31_9_0.png" src="../_images/tp31_9_0.png" />
 </div>
 </div>
 </section>
-<section id="realisation-d-un-filtre-rif-avec-la-methode-des-fenetres">
-<h2>Réalisation d’un filtre RIF avec la méthode des fenêtres<a class="headerlink" href="#realisation-d-un-filtre-rif-avec-la-methode-des-fenetres" title="Lien permanent vers ce titre">#</a></h2>
-<p>D’après le <a class="reference internal" href="../filtres-rif.html#s-methode-des-fenetres"><span class="std std-ref">tableau vu en cours</span></a>,
-pour respecter une atténuation de 60 dB, nous pouvons utiliser les fenêtres de Blackman ou Kaiser
-(à la condition que <span class="math notranslate nohighlight">\(\beta\)</span> soit suffisamment grand).</p>
+<section id="recepteur">
+<h2>Récepteur<a class="headerlink" href="#recepteur" title="Lien permanent vers ce titre">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">largeur_de_transition</span> <span class="o">=</span> <span class="p">(</span><span class="n">fp</span><span class="o">-</span><span class="n">fs</span><span class="p">)</span> <span class="o">/</span> <span class="n">fe</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Réponse impulsionnelle du filtre adapté</span>
+
+<span class="n">h</span> <span class="o">=</span> <span class="n">motif</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ordre des fenêtres (déterminé à partir de la largeur de transition) :
-Blackmann :            N = 1100
-Kaiser (beta = 6,76) : N = 864
-Kaiser (beta = 8,96) : N = 1142
+<img alt="../_images/tp31_12_0.png" src="../_images/tp31_12_0.png" />
+</div>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="../_images/tp31_13_0.png" src="../_images/tp31_13_0.png" />
+</div>
+</div>
+</section>
+<section id="robustesse-par-rapport-au-bruit">
+<h2>Robustesse par rapport au bruit<a class="headerlink" href="#robustesse-par-rapport-au-bruit" title="Lien permanent vers ce titre">#</a></h2>
+<p>L’exemple ci-dessus est reproduit pour différents RSB.</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="../_images/tp31_15_0.png" src="../_images/tp31_15_0.png" />
+</div>
+</div>
+<p>On peut approfondir l’étude en testant un grand nombre de RSB,
+et pour chacun d’eux calculer le nombre d’erreurs de transmission,
+c’est-à-dire le nombre de bits différents entre la séquence binaire émise et la séquence binaire identifiée par le récepteur.</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="../_images/tp31_17_0.png" src="../_images/tp31_17_0.png" />
+</div>
+</div>
+<ul class="simple">
+<li><p>Comme on pouvait s’y attendre, le nombre d’erreur diminue lorsque le RSB augmente.</p></li>
+<li><p>On remarque par ailleurs que si le RSB est supérieur à <span class="math notranslate nohighlight">\(-10\)</span> dB, il n’y a aucune erreur détectée,
+ce qui montre que le filtre adapté est une méthode très robuste au bruit !</p></li>
+<li><p>Il y a une stagnation du pourcentage d’erreurs à environ 50 % pour un RSB inférieur à <span class="math notranslate nohighlight">\(-40\)</span> dB :
+dans ces conditions, le bruit est tellement fort que le filtre adapté se comporte comme un générateur aléatoire indépendant du message émis.</p></li>
+</ul>
+</section>
+<section id="decodage-du-signal-manchester-csv">
+<h2>Décodage du signal manchester.csv<a class="headerlink" href="#decodage-du-signal-manchester-csv" title="Lien permanent vers ce titre">#</a></h2>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="../_images/tp31_21_0.png" src="../_images/tp31_21_0.png" />
+</div>
+</div>
+<p>La séquence décodée est :</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1 0 0 0 0 1 0 1 0 1 0 0 1 0 1 0 0 0 0 0 1 1 0 1 0 1 1 0 1 0 0 1 1 1 1]
 </pre></div>
 </div>
 </div>
 </div>
-<p>En pratique, l’ordre donné par la méthode des fenêtres est souvent trop grand.
-Je choisis donc un ordre plus faible.</p>
+<p>Ce qui, en regroupant les bits 7 par 7 (code ASCII) permet d’obtenir le message :</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ordre du filtre RIF : 801
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BRAVO
 </pre></div>
 </div>
-<img alt="../_images/tp2_22_1.png" src="../_images/tp2_22_1.png" />
-</div>
-</div>
-<p>Le filtre RIF synthétisé respecte bien le gabarit et ne génère aucune oscillation dans la bande passante.
-La phase est linéaire, et donc le retard de groupe est constant.
-Les deux pics visibles sur le retard de groupe sont probablement dus à des erreurs numériques.
-Enfin, le filtre étant d’ordre très élevé, il existe énormément de zéros, qui sont visible sur le diagramme pôles-zéros.
-Le filtre RIF est toujours stable, aucun pôle n’existe.</p>
-</section>
-<section id="realisation-d-un-filtre-rii-avec-la-transformation-bilineaire">
-<h2>Réalisation d’un filtre RII avec la transformation bilinéaire<a class="headerlink" href="#realisation-d-un-filtre-rii-avec-la-transformation-bilineaire" title="Lien permanent vers ce titre">#</a></h2>
-<p>Le gabarit analogique est le même que le gabarit numérique, à l’exception des fréquences qui sont calculée à partir de l’expression</p>
-<div class="math notranslate nohighlight">
-\[
-f_a = \frac{f_e}{\pi} \tan\left(\pi\frac{f_n}{f_e}\right).
-\]</div>
-<div class="cell tag_remove-input docutils container">
-<div class="cell_output docutils container">
-<img alt="../_images/tp2_26_0.png" src="../_images/tp2_26_0.png" />
-</div>
-</div>
-<p>L’expression de la transformation bilinéaire permettant d’obtenir H(z) à partir de H(s) est :</p>
-<div class="math notranslate nohighlight">
-\[
-H_n(z) = H_a\left(2f_e \left(\frac{1-z^{-1}}{1+z^{-1}}\right)\right).
-\]</div>
-<p>La fonction <code class="docutils literal notranslate"><span class="pre">iirdesign</span></code> effectue le schéma complet de la transformation bilinéaire :
-détermination du gabarit analogique, synthèse du filtre analogique, et enfin transformation de la fonction de transfert analogique en fonction de transfert numérique.</p>
-<p>La fonction utilise <code class="docutils literal notranslate"><span class="pre">ordfunc</span></code> et <code class="docutils literal notranslate"><span class="pre">iirfilter</span></code> puis la transformée bilinéaire <code class="docutils literal notranslate"><span class="pre">bilinear_zpk</span></code>.</p>
-<div class="cell tag_remove-input docutils container">
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ordre du filtre RII : 6
-</pre></div>
-</div>
-<img alt="../_images/tp2_29_1.png" src="../_images/tp2_29_1.png" />
-</div>
-</div>
-<p>Le filtre RII synthétisé respecte bien le gabarit, quelques oscillations sont visibles dans la bande passante.
-La phase évolue doucement mais présentent plusieurs « sauts ».
-Les premiers sauts de phase ont une valeur de <span class="math notranslate nohighlight">\(\pi\)</span> et correspondent à une inversion de signe dans la réponse fréquentielle et se traduisent par un rebond sur le module.
-Le dernier saut de phase a une valeur de <span class="math notranslate nohighlight">\(2\pi\)</span> et ne traduit aucun phénomène : ce saut existe seulement parce que la phase est ici représentée entre <span class="math notranslate nohighlight">\(-\pi\)</span> et <span class="math notranslate nohighlight">\(\pi\)</span>.
-Comme la phase n’est pas linéaire, le retard de groupe n’est pas constant.
-Enfin, le diagramme pôles-zéros fait apparaître des pôles qui sont tous dans le cercle unité : le filtre est donc stable.</p>
-</section>
-<section id="realisation-du-filtre-rif-avec-la-methode-de-parks-mcclellan">
-<h2>Réalisation du filtre RIF avec la méthode de Parks-McClellan<a class="headerlink" href="#realisation-du-filtre-rif-avec-la-methode-de-parks-mcclellan" title="Lien permanent vers ce titre">#</a></h2>
-<p>En général, la méthode de Parks-McClellan fourni des filtres RIF d’ordre moins élevés que ceux produits avec la méthode des fenêtres.
-Mais dans notre cas, cette méthode ne donne pas de résultat satisfaisant (le gabarit n’est pas du tout respecté) car la bande de transition est très faible et très à gauche dans les fréquences.
-Dans notre cas, cette méthode n’est donc pas utilisable.</p>
-<div class="cell tag_remove-input docutils container">
-<div class="cell_output docutils container">
-<img alt="../_images/tp2_32_0.png" src="../_images/tp2_32_0.png" />
-</div>
-</div>
-</section>
-<section id="realisation-d-un-filtre-ideal">
-<h2>Réalisation d’un filtre idéal<a class="headerlink" href="#realisation-d-un-filtre-ideal" title="Lien permanent vers ce titre">#</a></h2>
-<p>Comme le signal ECG est enregistré, on peut y appliquer un filtre idéal en travaillant dans le domaine de Fourier.
-Pour cela, on multiplie le spectre du signal par une réponse fréquentielle nulle pour les fréquences inférieures à la fréquence de coupure, et égale à 1 au delà.</p>
-<div class="cell tag_remove-input docutils container">
-<div class="cell_output docutils container">
-<img alt="../_images/tp2_34_0.png" src="../_images/tp2_34_0.png" />
-</div>
-</div>
-<p>Le module du filtre idéal correspond bien à une porte.
-Dans la représentation ci-dessous, la porte n’est visible que pour des fréquences supérieures à la fréquence de coupure car le module est tracé en échelle logarithmique, donc les amplitudes nulles de la réponse fréquentielle sont renvoyées en <span class="math notranslate nohighlight">\(-\infty\)</span>.
-La phase est linéaire et même constante ; on ne représente pas le retard de groupe qui serait nul.
-Enfin, le filtre n’ayant pas d’expression sous forme de fonction de transfert, on ne peut pas définir des pôles et des zéros et on ne peut donc pas représenter son ddiagramme pôles-zéros.</p>
-</section>
-<section id="application">
-<h2>Application<a class="headerlink" href="#application" title="Lien permanent vers ce titre">#</a></h2>
-<p>Nous représentons ci-dessous le signal temporel et son spectre du signal ECG original et des sorties des filtres (RIF, RII et idéal).</p>
-<p>On observe que le filtre RIF donne un signal filtré plus « propre » (d’un point de vue médical) que le filtre RII.
-Le filtre idéal est quant à lui encore meilleur.
-Cela s’explique par le fait qu’il ne génère aucune oscillation, ni en bande atténuée ni en bande passante,
-et que par ailleurs le signal basse fréquence de l’ECG est spectralement très différent du signal d’intérêt : on peut donc les séparer proprement par filtrage des fréquences.</p>
-<p>Enfin, on peut également observer le retard de groupe important sur le filtre RIF.</p>
-<div class="cell tag_remove-input docutils container">
-<div class="cell_output docutils container">
-<img alt="../_images/tp2_37_0.png" src="../_images/tp2_37_0.png" />
-<img alt="../_images/tp2_37_1.png" src="../_images/tp2_37_1.png" />
-<img alt="../_images/tp2_37_2.png" src="../_images/tp2_37_2.png" />
-<img alt="../_images/tp2_37_3.png" src="../_images/tp2_37_3.png" />
-</div>
-</div>
-</section>
-<section id="effet-de-la-quantification-des-coefficients">
-<h2>Effet de la quantification des coefficients<a class="headerlink" href="#effet-de-la-quantification-des-coefficients" title="Lien permanent vers ce titre">#</a></h2>
-<p>En se concentrant sur les deux filtres à réaliser dans ce TP (le filtre RIF et le filtre RII), on constate que la précision des coefficients est importantes.
-Dans les figures ci-dessous, on a représenté le gain de la réponse fréquentielle des deux filtres en n’utilisant que certains chiffres décimaux des coefficients : une troncature est donc effectuée.
-On constate que le filtre RIF est plus stable à cette troncature car il respecte le gabarit même si peu de chiffres sont consercés.
-Cela indique donc que la mémoire utilisée par chaque coefficient peut être moindre avec un filtre RIF qu’avec un filtre RII.
-Mais ce gain possible en mémoire est contrebalancé par le fait que le filtre RIF nécessite beaucoup plus de coefficients que le filtre RII.</p>
-<div class="cell tag_remove-input docutils container">
-<div class="cell_output docutils container">
-<img alt="../_images/tp2_39_0.png" src="../_images/tp2_39_0.png" />
 </div>
 </div>
 </section>
@@ -779,17 +673,17 @@ Mais ce gain possible en mémoire est contrebalancé par le fait que le filtre R
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="../filtres-p.html" title="précédent page">
+    <a class='left-prev' id="prev-link" href="../ssp-p.html" title="précédent page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">précédent</p>
-            <p class="prev-next-title">TP : filtrage</p>
+            <p class="prev-next-title">TP : traitement statistique du signal</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="../bruit.html" title="suivant page">
+    <a class='right-next' id="next-link" href="tp32.html" title="suivant page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">suivant</p>
-        <p class="prev-next-title">Bruit dans les signaux</p>
+        <p class="prev-next-title">✐ Lissage par filtre moyenneur</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
