@@ -10,13 +10,20 @@ body {
   font-size: 1.1rem;
 }
 
-h1, h2, h3, h4, h5, h6 {
+.bd-article-container h1,
+.bd-article-container h2,
+.bd-article-container h3,
+.bd-article-container h4,
+.bd-article-container h5,
+.bd-article-container h6 {
   font-family: "Source Sans Pro";
   font-weight: 600;
+  color: var(--pst-color-text-base);
+}
 }
 
-h1 {font-size: 2.5em}
-h2 {font-size: 1.7em}
+h1 {font-size: 2.5em;}
+h2 {font-size: 1.7em;}
 h3 {
   font-size: 1.0em;
   margin: 1.2rem 0 .5rem 0;
@@ -32,15 +39,15 @@ span.pre {
   line-height: 1.3077
 }
 
-#site-navigation {
-    font-size: 1.05rem;
-    line-height: 1.5;
+/* Légendes */
+
+figure span.caption-number, figure span.caption-text {
+  font-family: "Source Sans Pro";
+  font-size: 1.1rem;
 }
 
-/* Taille des légendes */
-
-main.bd-content #main-content div.figure span {
-  font-size: 1.1rem;
+figure span.caption-number {
+  margin-right: .5em;
 }
 
 /* Hack pour faire disparaître le bouton "launch" */
@@ -51,7 +58,7 @@ main.bd-content #main-content div.figure span {
 
 /* Hack pour faire disparaître le footer (et mettre le mien à la place) */
 
-.footer p {
+.component-author, .copyright {
     display: none;
 }
 
@@ -75,8 +82,64 @@ table p { margin-bottom: 0 }
   color: #9c9ea1;
 }
 
+.admonition.exemple,
+div.admonition.exemple {
+    border-color: #AEBCE8
+}
+.admonition.exemple>.admonition-title:before,
+div.admonition.exemple>.admonition-title:before {
+    background-color: #AEBCE8;
+}
+.admonition.exemple>.admonition-title:after,
+div.admonition.exemple>.admonition-title:after {
+    color: #AEBCE8;
+    content: (--pst-icon-admonition-tip);
+}
+
+
+/* Bouton exercice */
+
+a.exercise {
+    text-decoration: none;
+}
+
+a.exercise::before {
+    content: "➜ Exercice ";
+}
+
+/* Fond pour les tabs */
+
+sd-tab-content {
+    background-color: #f4f4f4;
+}
+
 /* Numéro d'équation */
 
 span.eqno {
     font-size: 1em;
+}
+
+/* Print mode */
+
+@media print {
+    
+    body {
+        width: 100%;
+    }
+    
+    # Supprimer le texte "Passer au contenu principal"
+    skip-link {
+        display: none;
+    }
+
+    #print-main-content {
+        border: 1px solid #333;
+        padding: 0mm 10mm 0mm 10mm;
+        width: 80%;
+        margin: auto;
+        margin-top: 10mm;
+        margin-bottom: 10mm;
+        background-color: #eee;
+    }
+
 }

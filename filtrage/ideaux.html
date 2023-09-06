@@ -1,0 +1,638 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="fr" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Filtres idéaux &#8212; Traitement du signal 2</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/jbvinc.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/.ipynb_checkpoints/jbvinc-checkpoint.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/translations.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'filtrage/ideaux';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="next" title="Filtres réalisables" href="realisables.html" />
+    <link rel="prev" title="Introduction" href="intro.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="fr"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Passer au contenu principal</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">Traitement du signal 2</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Révisions</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../revisions/td.html">Exercices sur feuille</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../revisions/tp.html">Exercices sur machine</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Filtrage</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Filtres idéaux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="realisables.html">Filtres réalisables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="laplace.html">Transformée de Laplace</a></li>
+<li class="toctree-l1"><a class="reference internal" href="z.html">Transformée en Z</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="numeriques.html">Filtres numériques</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="rif.html">Filtres RIF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rii.html">Filtres RII</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="analogiques.html">Filtres analogiques</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td.html">Exercices sur feuille</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tp.html">Exercices sur machine</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Traitement statistique du signal</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../ssp/bruit.html">Bruit dans les signaux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ssp/traitement-bruit.html">Traitement des signaux bruités</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ssp/td.html">Exercices sur feuille</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ssp/tp.html">Exercices sur machine</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Annexes</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://moodle.unistra.fr/course/view.php?id=5497">Moodle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../annexes/python.html">Installer et utiliser Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../annexes/refs.html">Références</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../annexes/licence.html">Licence</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Téléchargez cette page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/filtrage/ideaux.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Télécharger le fichier source"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Imprimer au format PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Mode plein écran"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="clair/sombre" aria-label="clair/sombre" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Recherche" aria-label="Recherche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Filtres idéaux</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contenu </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filtre-passe-bas">Filtre passe bas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filtre-passe-haut">Filtre passe-haut</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filtre-passe-bande">Filtre passe-bande</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filtre-coupe-bande">Filtre coupe-bande</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filtre-passe-tout">Filtre passe-tout</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="filtres-ideaux">
+<span id="c-filtrage-ideaux"></span><h1>Filtres idéaux<a class="headerlink" href="#filtres-ideaux" title="Lien permanent vers ce titre">#</a></h1>
+<section id="filtre-passe-bas">
+<span id="s-filtre-intro-pbas"></span><h2>Filtre passe bas<a class="headerlink" href="#filtre-passe-bas" title="Lien permanent vers ce titre">#</a></h2>
+<p>Un filtre passe-bas (<em>low-pass filter</em>) laisse passer les fréquences faibles et arrête les fréquences hautes.
+De manière générale, sa réponse fréquentielle s’écrit sous la forme :</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+H(f) = \begin{cases}
+  K e^{-j 2\pi f a} &amp;\text{si}\; |f| \leq f_c, \\
+  0                 &amp;\text{si}\; |f| &gt; f_c
+\end{cases}
+\end{split}\]</div>
+<p>où <span class="math notranslate nohighlight">\(K\)</span> et <span class="math notranslate nohighlight">\(a\)</span> sont deux paramètres du filtre et <span class="math notranslate nohighlight">\(f_c\)</span> est la « fréquence de coupure » (<em>cutoff frequency</em>).
+En utilisant la transformée de Fourier, on obtient le gain de ce filtre :</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+G(f) = |H(f)| = \begin{cases}
+  K &amp;\text{si}\; |f| \leq f_c, \\
+  0 &amp;\text{si}\; |f| &gt; f_c.
+\end{cases}
+\end{split}\]</div>
+<p>Le gain du filtre passe-bas idéal est représenté <a class="reference internal" href="#f-filtre-intro-pbas-ideal"><span class="std std-numref">Fig. 6</span></a> :
+le gain dans les hautes fréquences est nul, donc le filtre passe-bas supprimera toute fréquence supérieure à <span class="math notranslate nohighlight">\(f_c\)</span>.
+Cette bande de fréquence est appelée « bande atténuée »,
+et la bande de fréquence pour laquelle le gain n’est pas nul est la « bande passante ».</p>
+<figure class="align-default" id="f-filtre-intro-pbas-ideal">
+<a class="reference internal image-reference" href="../_images/ideallowpass.svg"><img alt="../_images/ideallowpass.svg" src="../_images/ideallowpass.svg" width="300px" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 6 </span><span class="caption-text">Gain d’un filtre passe-bas idéal.</span><a class="headerlink" href="#f-filtre-intro-pbas-ideal" title="Lien permanent vers cette image">#</a></p>
+</figcaption>
+</figure>
+<p>Intéressons-nous à la réponse impulsionnelle de ce filtre,
+en nous plaçant dans le domaine analogique.
+Par définition, la réponse impulsionnelle <span class="math notranslate nohighlight">\(h(t)\)</span> du filtre passe-bas idéal
+est la transformée de Fourier inverse de sa réponse fréquentielle <span class="math notranslate nohighlight">\(H(f)\)</span>.
+Le calcul donne :</p>
+<div class="math notranslate nohighlight">
+\[
+h(t) = 2 K f_c \, \mathrm{sinc}(2 f_c (t-a))
+\]</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Démonstration<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<div class="math notranslate nohighlight">
+\[\begin{split}
+h(t) &amp;= \mathcal{F}^{-1}\left[H(f)\right](t) \\
+     &amp;= \int_{-f_c}^{+f_c} K e^{-j 2\pi f a} e^{+j 2\pi f t} df \\
+     &amp;= \int_{-f_c}^{+f_c} K e^{+j 2\pi f (t-a)} df \\
+     &amp;= K \left[ \frac{e^{+j 2\pi f (t-a)}}{+j 2\pi (t-a)}  \right]_{-f_c}^{+f_c} \\
+     &amp;= K \frac{e^{+j 2\pi f_c (t-a)} - e^{-j 2\pi f_c (t-a)}}{+j 2\pi (t-a)} \\
+     &amp;= K \frac{1}{\pi (t-a)} \sin(2\pi f_c (t-a)) \\
+     &amp;= K \frac{1}{\pi (t-a)} \sin(2\pi f_c (t-a)) \frac{2f_c}{2f_c} \\
+     &amp;= 2 K f_c \, \mathrm{sinc}(2 f_c (t-a))
+\end{split}\]</div>
+</div>
+</details><p>La réponse impulsionnelle de l’équation précédente est représentée <a class="reference internal" href="#f-filtre-intro-ri-pbas"><span class="std std-numref">Fig. 7</span></a>.</p>
+<figure class="align-default" id="f-filtre-intro-ri-pbas">
+<img alt="../_images/ri-pbas.svg" src="../_images/ri-pbas.svg" /><figcaption>
+<p><span class="caption-number">Fig. 7 </span><span class="caption-text">Réponse impulsionnelle du filtre passe-bas idéal (ici : <span class="math notranslate nohighlight">\(K\)</span> = 0,9, <span class="math notranslate nohighlight">\(f_c\)</span> = 0,4, <span class="math notranslate nohighlight">\(a\)</span> = 0,7).</span><a class="headerlink" href="#f-filtre-intro-ri-pbas" title="Lien permanent vers cette image">#</a></p>
+</figcaption>
+</figure>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<p>En fait, il existe tout de même une manière de réaliser un filtre idéal en effectuant l’opération dans le domaine de Fourier.
+Cela implique toutefois que le filtrage se fasse sur le signal en entier :
+ce n’est donc possible que sur un signal enregistré, mais pas en temps réel.</p>
+</aside>
+<p>On observe que la réponse impulsionnelle est infinie, et donc non causale (elle n’est pas nulle pour <span class="math notranslate nohighlight">\(t&lt;0\)</span>).
+Qu’est-ce que cela implique ?
+Et bien ce filtre n’est pas réalisable !
+En effet, pour pouvoir implémenter un tel filtre (et donc effectuer convenablement la convolution),
+il aurait déjà fallu commencer le filtrage il y a très très longtemps, et le filtrage se poursuivra jusqu’à la fin des temps ! 😵
+Bref, un filtre passe-bas idéal n’est pas réalisable pour une application en temps réel.</p>
+</section>
+<section id="filtre-passe-haut">
+<h2>Filtre passe-haut<a class="headerlink" href="#filtre-passe-haut" title="Lien permanent vers ce titre">#</a></h2>
+<p>Un filtre passe-haut (<em>high-pass filter</em>) laisse passer les fréquences hautes et arrête les fréquences faibles.
+Sa réponse fréquentielle s’écrit sous la forme suivante et son gain est représenté <a class="reference internal" href="#f-filtre-intro-phaut-ideal"><span class="std std-numref">Fig. 8</span></a>.
+Comme pour le filtre passe-bas idéal, il n’est pas réalisable.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+H(f) = \begin{cases}
+  K e^{-j 2\pi f a} &amp;\text{si} |f| \geq f_c, \\
+  0                 &amp;\text{si} |f| &lt; f_c.
+\end{cases}
+\end{split}\]</div>
+<figure class="align-default" id="f-filtre-intro-phaut-ideal">
+<a class="reference internal image-reference" href="../_images/idealhighpass.svg"><img alt="../_images/idealhighpass.svg" src="../_images/idealhighpass.svg" width="300px" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 8 </span><span class="caption-text">Gain d’un filtre passe-haut idéal.</span><a class="headerlink" href="#f-filtre-intro-phaut-ideal" title="Lien permanent vers cette image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="filtre-passe-bande">
+<h2>Filtre passe-bande<a class="headerlink" href="#filtre-passe-bande" title="Lien permanent vers ce titre">#</a></h2>
+<p>Un filtre passe-bande (<em>band-pass filter</em>) laisse passer les fréquences moyennes,
+entre deux fréquences de coupure <span class="math notranslate nohighlight">\(f_{c-}\)</span> et <span class="math notranslate nohighlight">\(f_{c+}\)</span>.
+Sa réponse fréquentielle s’écrit sous la forme suivante et son gain est représenté <a class="reference internal" href="#f-filtre-intro-pbande-ideal"><span class="std std-numref">Fig. 9</span></a>.
+Il n’est pas réalisable.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+H(f) = \begin{cases}
+  K e^{-j 2\pi f a} &amp;\text{si} f_{c-} \leq |f| \leq f_{c+}, \\
+  0                 &amp;\text{sinon}.
+\end{cases}
+\end{split}\]</div>
+<figure class="align-default" id="f-filtre-intro-pbande-ideal">
+<a class="reference internal image-reference" href="../_images/idealbandpass.svg"><img alt="../_images/idealbandpass.svg" src="../_images/idealbandpass.svg" width="300px" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 9 </span><span class="caption-text">Gain d’un filtre passe-bande idéal.</span><a class="headerlink" href="#f-filtre-intro-pbande-ideal" title="Lien permanent vers cette image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="filtre-coupe-bande">
+<h2>Filtre coupe-bande<a class="headerlink" href="#filtre-coupe-bande" title="Lien permanent vers ce titre">#</a></h2>
+<p>Un filtre coupe-bande (<em>band-stop filter</em>, ou <em>notch filter</em> lorsque la bande atténuée est très étroite)
+ne supprime que les fréquences situées entre <span class="math notranslate nohighlight">\(f_{c-}\)</span> et <span class="math notranslate nohighlight">\(f_{c+}\)</span>.
+Sa réponse fréquentielle s’écrit sous la forme suivante et son gain est représenté <a class="reference internal" href="#f-filtre-intro-cbande-ideal"><span class="std std-numref">Fig. 10</span></a>.
+Il n’est pas réalisable.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+H(f) = \begin{cases}
+  0                 &amp;\text{si} f_{c-} \leq |f| \leq f_{c+}, \\
+  K e^{-j 2\pi f a} &amp;\text{sinon}.
+\end{cases}
+\end{split}\]</div>
+<figure class="align-default" id="f-filtre-intro-cbande-ideal">
+<a class="reference internal image-reference" href="../_images/idealbandstop.svg"><img alt="../_images/idealbandstop.svg" src="../_images/idealbandstop.svg" width="300px" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 10 </span><span class="caption-text">Gain d’un filtre coupe-bande idéal.</span><a class="headerlink" href="#f-filtre-intro-cbande-ideal" title="Lien permanent vers cette image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="filtre-passe-tout">
+<h2>Filtre passe-tout<a class="headerlink" href="#filtre-passe-tout" title="Lien permanent vers ce titre">#</a></h2>
+<p>Un filtre passe-tout (<em>all-pass filter</em>) laisse passer toutes les fréquences sans les atténuer, mais modifie leur phase.
+Il est utilisé pour linéariser la phase ou introduire des retards.
+Sa réponse fréquentielle s’écrit sous la forme suivante et son gain est représenté <a class="reference internal" href="#f-filtre-intro-ptout-ideal"><span class="std std-numref">Fig. 11</span></a>.
+Comme tous les filtres idéaux précédents, il n’est pas réalisable, vous vous en doutiez…</p>
+<div class="math notranslate nohighlight">
+\[
+H(f) = K e^{-j 2\pi f a}.
+\]</div>
+<figure class="align-default" id="f-filtre-intro-ptout-ideal">
+<a class="reference internal image-reference" href="../_images/idealallpass.svg"><img alt="../_images/idealallpass.svg" src="../_images/idealallpass.svg" width="300px" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 11 </span><span class="caption-text">Gain d’un filtre passe-tout idéal.</span><a class="headerlink" href="#f-filtre-intro-ptout-ideal" title="Lien permanent vers cette image">#</a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./filtrage"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="intro.html"
+       title="page précédente">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">précédent</p>
+        <p class="prev-next-title">Introduction</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="realisables.html"
+       title="page suivante">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">suivant</p>
+        <p class="prev-next-title">Filtres réalisables</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contenu
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filtre-passe-bas">Filtre passe bas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filtre-passe-haut">Filtre passe-haut</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filtre-passe-bande">Filtre passe-bande</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filtre-coupe-bande">Filtre coupe-bande</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filtre-passe-tout">Filtre passe-tout</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Par Vincent Mazet (Université de Strasbourg, France)
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023-2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  Traitement du signal 2 &mdash; Vincent Mazet (Université de Strasbourg), 2020-2024 &mdash; <a href='licence.html'>CC BY-NC 4.0</a>.
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

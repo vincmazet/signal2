@@ -1,0 +1,87 @@
+(C:refs)=
+# Références
+
+
+## Bibliographie
+
+* [Hsu 1995]
+  H.P. Hsu.
+  _Signals and Systems_.
+  Schaum’s Outline.
+  McGraw Hill, 1995.
+  Cote : 006.4 HSU.
+  
+* [Jutten 2018]
+  C. Jutten.
+  _Théorie du signal_.
+  Univ. Grenoble Alpes - Polytech Grenoble, 2018.
+  [Téléchargeable librement](https://www.gipsa-lab.grenoble-inp.fr/~christian.jutten/mescours/Cours_Theorie_Signal_2018.pdf)
+
+* [Oppenheim 1989]
+  A.V. Oppenheim, R.W. Schafer et J.R. Buck.
+  _Discrete-Time Signal Processing_.
+  Prentice Hall, 2e édition, 1989.
+  Cote : 621.382 2 OPP.
+
+* [Oppenheim 1996]
+  A.V. Oppenheim, A.S. Willsky et S. Hamid Nawab.
+  _Signals & Systems_.
+  Prentice Hall, 1996.
+  Cote : 621.382 2 OPP.
+
+* [Prandoni 2008]
+  P. Prandoni, M. Vetterli.
+  _Signal Processing for Communications_.
+  EPFL Press, 2008.
+  Cote : 621.382 2 PRA.
+  [Téléchargeable librement](https://www.sp4comm.org/download.html).
+  
+* [Wikipedia]
+  Wikipedia : commencez par l'article [Traitement du signal](https://fr.wikipedia.org/wiki/Traitement_du_signal)
+  puis continuez à explorer !
+  N'hésitez pas également à lire la [version en anglais](https://en.wikipedia.org/wiki/Signal_processing),
+  souvent plus complète.
+  
+* [Zumbahlen 2007]
+  H. Zumbahlen.
+  _Basic Linear Design_.
+  Analog Devices, 2007.
+  [Téléchargeable librement](https://www.analog.com/en/education/education-library/linear-circuit-design-handbook.html).
+  
+* [Animations pédagogiques en traitement du signal](https://vincmazet.github.io/spetsi/)
+
+* [Circuits à AO pour la réalisation de fonctions mathématiques](http://electronique.aop.free.fr/liste_aop.html)
+
+* [Outil de conception de filtres analogiques](https://tools.analog.com/en/filterwizard/)
+
+
+## Culture générale
+
+* I. Bellin. [Histoire du traitement d'images](https://interstices.info/histoire-du-traitement-dimages/).
+  Interstices, 2004.
+
+* [Plein d'articles sur le traitement du signal et ses applications !](https://interstices.info/?s=signal&fwp_sort=date_desc).
+  Interstices.
+
+* [Traitement du signal](http://culturesciencesphysique.ens-lyon.fr/dossiersthematiques/traitement-du-signal/).
+  Culture Sciences physique, ENS Lyon.
+
+* Doc Sciences : entre les hommes et les machines, automatique et traitement du signal, n<sup>o</sup> 15, 2013.
+  Disponible en demandant gentiment à votre professeur préféré.
+
+* [Gretsi](http://www.gretsi.fr/). Groupe de recherche en traitement du signal et des images.
+
+* [Cours de l'école d'été sur le traitement du signal et des images](http://gretsi.fr/archives/peyresq) organisée par le Gretsi.
+
+* [Signal Processing Society](https://signalprocessingsociety.org/).
+  Société savante, éditrice notamment de la revue Signal Processing Magazine.
+
+* P. Flandrin, [Le traitement du signal, au cœur de la science et de notre vie quotidienne](https://theconversation.com/le-traitement-du-signal-au-coeur-de-la-science-et-de-notre-vie-quotidienne-84156),
+  The Conversation, 2017.
+
+* B. Van Veen, [Vidéos de traitement numérique du signal](https://www.youtube.com/user/allsignalprocessing)
+
+
+## Vidéos
+
+<iframe width="360" height="202" src="https://www.youtube.com/embed/4PV6ikgBShw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
