@@ -156,7 +156,10 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Révisions</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../revisions/td.html">Exercices sur feuille</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../revisions/td.html">Exercices sur feuille</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../revisions/tdc.html">Corrections</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../revisions/tp.html">Exercices sur machine</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Filtrage</span></p>
@@ -166,7 +169,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../filtrage/realisables.html">Filtres réalisables</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../filtrage/laplace.html">Transformée de Laplace</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../filtrage/z.html">Transformée en Z</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../filtrage/numeriques.html">Filtres numériques</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../filtrage/numeriques.html">Filtres numériques</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../filtrage/rif.html">Filtres RIF</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../filtrage/rii.html">Filtres RII</a></li>
 </ul>
@@ -547,7 +550,7 @@ Dans le cadre de l’approximation, elle permet de décrire un signal bruité pa
 <h3>Problématique<a class="headerlink" href="#problematique" title="Lien permanent vers ce titre">#</a></h3>
 <p>On considère donc le cas où les observations <span class="math notranslate nohighlight">\(y\)</span> sont la somme d’un signal <span class="math notranslate nohighlight">\(x=f_{\theta}\)</span> bruité :</p>
 <div class="math notranslate nohighlight" id="equation-e-mc-y">
-<span class="eqno">(1)<a class="headerlink" href="#equation-e-mc-y" title="Lien permanent vers cette équation">#</a></span>\[\forall n, \quad y[n] = f_{\theta}[n] + b[n]\]</div>
+<span class="eqno">(2)<a class="headerlink" href="#equation-e-mc-y" title="Lien permanent vers cette équation">#</a></span>\[\forall n, \quad y[n] = f_{\theta}[n] + b[n]\]</div>
 <p>où :</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(f_{\theta}\)</span> est une fonction paramétrique (sinusoïde, polynôme, etc.) connue,</p></li>
@@ -565,13 +568,13 @@ ou une exponentielle (<span class="math notranslate nohighlight">\(f_{\theta}[n]
 Mais par simplicité, nous nous concentrons dans cette section sur les fonctions <span class="math notranslate nohighlight">\(f_{\theta}\)</span> linéaires en <span class="math notranslate nohighlight">\(\theta\)</span>,
 et en particulier des fonctions <span class="math notranslate nohighlight">\(f_{\theta}\)</span> polynomiale :</p>
 <div class="math notranslate nohighlight" id="equation-e-mc-f">
-<span class="eqno">(2)<a class="headerlink" href="#equation-e-mc-f" title="Lien permanent vers cette équation">#</a></span>\[\forall n, \quad f_{\theta}[n] = \theta_0 + \theta_1 n + \theta_2 n^2 + \dots + \theta_M n^M.\]</div>
+<span class="eqno">(3)<a class="headerlink" href="#equation-e-mc-f" title="Lien permanent vers cette équation">#</a></span>\[\forall n, \quad f_{\theta}[n] = \theta_0 + \theta_1 n + \theta_2 n^2 + \dots + \theta_M n^M.\]</div>
 </section>
 <section id="ecriture-matricielle">
 <h3>Écriture matricielle<a class="headerlink" href="#ecriture-matricielle" title="Lien permanent vers ce titre">#</a></h3>
 <p>Dans la suite, les calculs sont effectués avec la représentation vectorielle.
 Les abscisses des échantillons sont regroupés dans le vecteur <span class="math notranslate nohighlight">\(n = \begin{bmatrix} n_1 &amp; \dots &amp; n_N \end{bmatrix}^T\)</span>.
-Puisque d’après l’équation <a class="reference internal" href="#equation-e-mc-f">(2)</a> :</p>
+Puisque d’après l’équation <a class="reference internal" href="#equation-e-mc-f">(3)</a> :</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{cases}
@@ -580,7 +583,7 @@ f_{\theta}[n_1] = \theta_0 + \theta_1 n_1 + \theta_2 n_1^2 + \dots + \theta_M n_
 f_{\theta}[n_N] = \theta_0 + \theta_1 n_N + \theta_2 n_N^2 + \dots + \theta_M n_N^M
 \end{cases}
 \end{split}\]</div>
-<p>alors l’équation du modèle <a class="reference internal" href="#equation-e-mc-y">(1)</a> devient un système de <span class="math notranslate nohighlight">\(N\)</span> équations
+<p>alors l’équation du modèle <a class="reference internal" href="#equation-e-mc-y">(2)</a> devient un système de <span class="math notranslate nohighlight">\(N\)</span> équations
 à <span class="math notranslate nohighlight">\(M+1\)</span> inconnues :</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
