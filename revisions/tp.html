@@ -68,7 +68,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'revisions/tp';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Recherche" href="../search.html" />
-    <link rel="next" title="Introduction" href="../filtrage/intro.html" />
+    <link rel="next" title="Représentation d’un signal" href="tpc1.html" />
     <link rel="prev" title="Corrections" href="tdc.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="fr"/>
@@ -160,7 +160,13 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="tdc.html">Corrections</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Exercices sur machine</a></li>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Exercices sur machine</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="tpc1.html">Représentation d’un signal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tpc2.html">Transformée de Fourier discrète</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tpc3.html">Analyse spectrale</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tpc4.html">Produit de convolution</a></li>
+</ul>
+</li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Filtrage</span></p>
 <ul class="nav bd-sidenav">
@@ -169,7 +175,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../filtrage/realisables.html">Filtres réalisables</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../filtrage/laplace.html">Transformée de Laplace</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../filtrage/z.html">Transformée en Z</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../filtrage/numeriques.html">Filtres numériques</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../filtrage/numeriques.html">Filtres numériques</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../filtrage/rif.html">Filtres RIF</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../filtrage/rii.html">Filtres RII</a></li>
 </ul>
@@ -384,7 +390,9 @@ Choisissez un pas de temps correct pour obtenir une jolie courbe.</p>
   \end{cases}
 \end{split}\]</div>
 <ul class="simple">
-<li><p>Créez et affichez le signal <span class="math notranslate nohighlight">\(x[n]\)</span> sur 100 échantillons.</p></li>
+<li><p>Créez et affichez le signal <span class="math notranslate nohighlight">\(x[n]\)</span> sur 100 échantillons.
+Une porte discrète peut être générée avec la fonction <code class="docutils literal notranslate"><span class="pre">numpy.where</span></code>
+(voir sa <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.where.html">syntaxe</a>).</p></li>
 <li><p>Tracez la transformée de Fourier discrète (TFD) <span class="math notranslate nohighlight">\(X[k]\)</span> de <span class="math notranslate nohighlight">\(x[n]\)</span> entre <span class="math notranslate nohighlight">\(0\)</span> et <span class="math notranslate nohighlight">\(N-1\)</span> (<code class="docutils literal notranslate"><span class="pre">scipy.fft.fft</span></code>).</p></li>
 <li><p>Centrez la TFD pour la représenter entre <span class="math notranslate nohighlight">\(-N/2\)</span> et <span class="math notranslate nohighlight">\(N/2-1\)</span> (<code class="docutils literal notranslate"><span class="pre">scipy.fft.fftshift</span></code>).</p></li>
 <li><p>Modifiez les abscisses pour représenter la TFD en fonction des fréquences (et non des échantillons).
@@ -421,23 +429,10 @@ contient la consommation horaire en gaz (deuxième colonne, en MW) et en électr
     0 &amp;\text{ ailleurs}.
   \end{cases}
 \end{split}\]</div>
-<p>Pour définir <span class="math notranslate nohighlight">\(x[n]\)</span>, remarquez que le signal correspond à la somme de deux impulsions discrètes.
-Une impulsion discrète peut être générée avec la fonction <code class="docutils literal notranslate"><span class="pre">numpy.where</span></code>
-(voir sa <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.where.html">syntaxe</a>).
-Par exemple, l’impulsion</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-  z[n] =
-  \begin{cases}
-    A &amp;\text{ pour } n = m, \\
-    0 &amp;\text{ ailleurs}.
-  \end{cases}
-\end{split}\]</div>
-<p>peut être définie par :</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">n</span><span class="o">==</span><span class="n">m</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-</pre></div>
-</div>
+<p>Pour définir <span class="math notranslate nohighlight">\(x[n]\)</span>, remarquez que le signal correspond à la somme de deux impulsions discrètes, et qu’une impulsion discrète n’est rien d’autre qu’une porte très étroite…</p>
 </section>
+<div class="toctree-wrapper compound">
+</div>
 </section>
 
     <script type="text/x-thebe-config">
@@ -481,11 +476,11 @@ Par exemple, l’impulsion</p>
       </div>
     </a>
     <a class="right-next"
-       href="../filtrage/intro.html"
+       href="tpc1.html"
        title="page suivante">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">suivant</p>
-        <p class="prev-next-title">Introduction</p>
+        <p class="prev-next-title">Représentation d’un signal</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

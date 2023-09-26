@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Exercices sur feuille &#8212; Traitement du signal 2</title>
+    <title>Analyse spectrale &#8212; Traitement du signal 2</title>
   
   
   
@@ -63,13 +63,11 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'ssp/td';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'revisions/tpc3';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Recherche" href="../search.html" />
-    <link rel="next" title="Exercices sur machine" href="tp.html" />
-    <link rel="prev" title="Traitement des signaux bruités" href="traitement-bruit.html" />
+    <link rel="next" title="Produit de convolution" href="tpc4.html" />
+    <link rel="prev" title="Transformée de Fourier discrète" href="tpc2.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="fr"/>
   </head>
@@ -155,16 +153,16 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Révisions</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../revisions/td.html">Exercices sur feuille</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../revisions/tdc.html">Corrections</a></li>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="td.html">Exercices sur feuille</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="tdc.html">Corrections</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../revisions/tp.html">Exercices sur machine</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc1.html">✐ Représentation d’un signal</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc2.html">✐ Transformée de Fourier discrète</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc3.html">✐ Analyse spectrale</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc4.html">✐ Produit de convolution</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="tp.html">Exercices sur machine</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="tpc1.html">Représentation d’un signal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tpc2.html">Transformée de Fourier discrète</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Analyse spectrale</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tpc4.html">Produit de convolution</a></li>
 </ul>
 </li>
 </ul>
@@ -185,11 +183,11 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../filtrage/tp.html">Exercices sur machine</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Traitement statistique du signal</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="bruit.html">Bruit dans les signaux</a></li>
-<li class="toctree-l1"><a class="reference internal" href="traitement-bruit.html">Traitement des signaux bruités</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Exercices sur feuille</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tp.html">Exercices sur machine</a></li>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../ssp/bruit.html">Bruit dans les signaux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ssp/traitement-bruit.html">Traitement des signaux bruités</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ssp/td.html">Exercices sur feuille</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ssp/tp.html">Exercices sur machine</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Annexes</span></p>
 <ul class="nav bd-sidenav">
@@ -251,7 +249,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../_sources/ssp/td.md" target="_blank"
+      <li><a href="../_sources/revisions/tpc3.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Télécharger le fichier source"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -261,7 +259,7 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.md</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -320,9 +318,7 @@ document.write(`
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</label>
+
 </div></div>
       
     </div>
@@ -333,34 +329,11 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Exercices sur feuille</h1>
+    <h1>Analyse spectrale</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contenu </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rappels-de-probabilite">Rappels de probabilité</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-1">Exercice 1</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-2">Exercice 2</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#le-bruit-dans-les-signaux">Le bruit dans les signaux</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-3">Exercice 3</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#traitement-des-signaux-bruites">Traitement des signaux bruités</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-4">Exercice 4</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-5">Exercice 5</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-6">Exercice 6</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-7">Exercice 7</a></li>
-</ul>
-</li>
-</ul>
-            </nav>
         </div>
     </div>
 </div>
@@ -370,83 +343,57 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="exercices-sur-feuille">
-<span id="c-td-ssp"></span><h1>Exercices sur feuille<a class="headerlink" href="#exercices-sur-feuille" title="Lien permanent vers ce titre">#</a></h1>
-<section id="rappels-de-probabilite">
-<h2>Rappels de probabilité<a class="headerlink" href="#rappels-de-probabilite" title="Lien permanent vers ce titre">#</a></h2>
-<section id="exercice-1">
-<h3>Exercice 1<a class="headerlink" href="#exercice-1" title="Lien permanent vers ce titre">#</a></h3>
-<p>Calculez l’espérance et l’écart-type d’une variable aléatoire distribuée suivant une loi uniforme <span class="math notranslate nohighlight">\(\ \mathcal{U}[0\ ; 1]\)</span>.</p>
-</section>
-<section id="exercice-2">
-<h3>Exercice 2<a class="headerlink" href="#exercice-2" title="Lien permanent vers ce titre">#</a></h3>
-<p>Calculez une estimation de l’espérance et de l’écart-type de la série de <span class="math notranslate nohighlight">\(N=4\)</span> échantillons ci-dessous :</p>
-<div class="math notranslate nohighlight">
-\[
-  x = \begin{bmatrix} 0,\!81 &amp; 0,\!90 &amp; 0,\!12 &amp; 0,\!91 \end{bmatrix}.
-\]</div>
-</section>
-</section>
-<section id="le-bruit-dans-les-signaux">
-<h2>Le bruit dans les signaux<a class="headerlink" href="#le-bruit-dans-les-signaux" title="Lien permanent vers ce titre">#</a></h2>
-<section id="exercice-3">
-<h3>Exercice 3<a class="headerlink" href="#exercice-3" title="Lien permanent vers ce titre">#</a></h3>
-<p>Un signal à temps discret <span class="math notranslate nohighlight">\(x\)</span> est bruité par un bruit blanc gaussien additif.</p>
-<ul class="simple">
-<li><p>Quel est le lien entre la puissance du bruit et son écart-type ?</p></li>
-<li><p>Exprimez l’écart-type du bruit en fonction du RSB et des échantillons du signal <span class="math notranslate nohighlight">\(x\)</span>.</p></li>
-</ul>
-<!-- Le calcul en TD du RSB est compliqué (notions de variances, espérance, covariance, indépendance...) -->
-</section>
-</section>
-<section id="traitement-des-signaux-bruites">
-<h2>Traitement des signaux bruités<a class="headerlink" href="#traitement-des-signaux-bruites" title="Lien permanent vers ce titre">#</a></h2>
-<section id="exercice-4">
-<h3>Exercice 4<a class="headerlink" href="#exercice-4" title="Lien permanent vers ce titre">#</a></h3>
-<p>On rappelle que le filtre adapté correspond à l’intercorrélation <span class="math notranslate nohighlight">\(R_{yx}\)</span>
-entre un signal observé <span class="math notranslate nohighlight">\(y\)</span> et le motif recherché <span class="math notranslate nohighlight">\(x\)</span>.</p>
-<ul class="simple">
-<li><p>Donnez la définition de l’intercorrélation <span class="math notranslate nohighlight">\(R_{yx}\)</span>.</p></li>
-<li><p>En effectuant un changement de variable dans cette dernière expression,
-montrez que l’intercorrélation <span class="math notranslate nohighlight">\(R_{yx}\)</span> s’écrit comme la convolution de <span class="math notranslate nohighlight">\(y\)</span> avec un signal <span class="math notranslate nohighlight">\(h\)</span> à déterminer.</p></li>
-</ul>
-<p>Cette dernière question montre que le filtre adapté s’exprime également comme une convolution :
-c’est donc bien un filtre dont la réponse impulsionnelle est <span class="math notranslate nohighlight">\(h\)</span>.</p>
-</section>
-<section id="exercice-5">
-<h3>Exercice 5<a class="headerlink" href="#exercice-5" title="Lien permanent vers ce titre">#</a></h3>
-<p>Montrez que le filtre moyenneur peut s’écrire comme une convolution entre le signal observé <span class="math notranslate nohighlight">\(y\)</span>
-et une porte <span class="math notranslate nohighlight">\(h\)</span>.</p>
-</section>
-<section id="exercice-6">
-<h3>Exercice 6<a class="headerlink" href="#exercice-6" title="Lien permanent vers ce titre">#</a></h3>
-<p>On dispose de <span class="math notranslate nohighlight">\(I\)</span> mesures <span class="math notranslate nohighlight">\(y_i\)</span> d’un même signal <span class="math notranslate nohighlight">\(x\)</span> :</p>
-<div class="math notranslate nohighlight">
-\[
-\forall i\in\{1,\dots,I\}, \forall n, \quad y_i[n]=x[n]+b_i[n]
-\]</div>
-<p>où les bruits <span class="math notranslate nohighlight">\(b_i\)</span> sont supposés blancs gaussiens additifs.</p>
-<ul class="simple">
-<li><p>Écrivez la moyenne des mesures <span class="math notranslate nohighlight">\(y_i\)</span> comme la somme d’un signal (que l’on notera <span class="math notranslate nohighlight">\(\tilde{x}\)</span>)
-et d’un bruit (que l’on notera <span class="math notranslate nohighlight">\(\tilde{b}\)</span>).
-Que valent <span class="math notranslate nohighlight">\(\tilde{x}\)</span> et <span class="math notranslate nohighlight">\(\tilde{b}\)</span> ?</p></li>
-<li><p>Déterminez l’espérance de <span class="math notranslate nohighlight">\(\tilde{b}\)</span> en fonction de l’espérance de <span class="math notranslate nohighlight">\(b_i\)</span>.</p></li>
-<li><p>Déterminez la variance de <span class="math notranslate nohighlight">\(\tilde{b}\)</span> en fonction de la variance de <span class="math notranslate nohighlight">\(b_i\)</span>.</p></li>
-<li><p>Montrez finalement que le RSB du signal moyenné est égal au RSB d’un signal <span class="math notranslate nohighlight">\(y_i\)</span> plus un facteur <span class="math notranslate nohighlight">\(10\log(I)\)</span>.</p></li>
-</ul>
-</section>
-<section id="exercice-7">
-<h3>Exercice 7<a class="headerlink" href="#exercice-7" title="Lien permanent vers ce titre">#</a></h3>
-<ul class="simple">
-<li><p>Déterminez le polynôme de degré 0 (une constante, donc…) qui approxime au mieux
-les données d’abscisses <span class="math notranslate nohighlight">\(n=[0,\ 1]^T\)</span> et d’ordonnées <span class="math notranslate nohighlight">\(y=[2,\ 3]^T\)</span>.</p></li>
-<li><p>Déterminez le polynôme de degré 1 (une droite affine) qui approxime au mieux
-les données d’abscisses <span class="math notranslate nohighlight">\(n=[0,\ 1,\ 2]^T\)</span> et d’ordonnées <span class="math notranslate nohighlight">\(y=[2,\ 4,\ 4]^T\)</span>.</p></li>
-</ul>
-<p>On rappelle que l’inverse d’une matrice <span class="math notranslate nohighlight">\(2\times2\)</span> <span class="math notranslate nohighlight">\(\begin{pmatrix} a &amp; b \\ c &amp; d \end{pmatrix}\)</span>
-est égale à <span class="math notranslate nohighlight">\(\displaystyle\frac{1}{ad-bc} \begin{pmatrix} d &amp; -b \\ -c &amp; a \end{pmatrix}\)</span>.</p>
-</section>
-</section>
+  <section class="tex2jax_ignore mathjax_ignore" id="analyse-spectrale">
+<h1>Analyse spectrale<a class="headerlink" href="#analyse-spectrale" title="Lien permanent vers ce titre">#</a></h1>
+<div class="cell tag_remove-input docutils container">
+</div>
+<p>Chargement et affichage du signal :</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s2">&quot;../_static/files/consommation.csv&quot;</span><span class="p">,</span>
+               <span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot;,&quot;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">usecols</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="../_images/23e21972cbdc421fb8fefad80632305a56748711982ff133b240750995de6988.png" src="../_images/23e21972cbdc421fb8fefad80632305a56748711982ff133b240750995de6988.png" />
+</div>
+</div>
+<p>Spectre du signal…</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="../_images/676e199bbcedd152a786ca7b8b007105b5aa0db71d0496374a66ed9a9ec1d9cd.png" src="../_images/676e199bbcedd152a786ca7b8b007105b5aa0db71d0496374a66ed9a9ec1d9cd.png" />
+</div>
+</div>
+<p>La phase est, comme la plupart des signaux réels, difficile à analyser…
+Mais le module est informatif.</p>
+<p>En zoomant sur les fréquences basses du spectre (<code class="docutils literal notranslate"><span class="pre">matplotlib.pyplot.xlim</span></code>), on peut identifier les fréquences principales.
+La fonction <code class="docutils literal notranslate"><span class="pre">scipy.signal.find_peaks</span></code> peut aider à trouver les pics.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">peaks</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">find_peaks</span><span class="p">(</span><span class="n">module</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mf">1e8</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="../_images/3d74b63a8cb0c1f05351372a5950338b35215a75e24645bc43f2c0c69cc93ba6.png" src="../_images/3d74b63a8cb0c1f05351372a5950338b35215a75e24645bc43f2c0c69cc93ba6.png" />
+</div>
+</div>
+<p>On peut alors afficher les fréquences des raies principales, et la période correspondante.</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.006 h^-1 :	168.143 h (7.006 jours)
+0.042 h^-1 :	24.000 h (1.000 jours)
+0.083 h^-1 :	12.000 h (0.500 jours)
+</pre></div>
+</div>
+</div>
+</div>
+<p>On retrouve là les périodicités hebdomadaire, quotidienne et même sur 12 heures de la consommation électrique.</p>
 </section>
 
     <script type="text/x-thebe-config">
@@ -462,7 +409,7 @@ est égale à <span class="math notranslate nohighlight">\(\displaystyle\frac{1}
         },
         kernelOptions: {
             name: "python3",
-            path: "./ssp"
+            path: "./revisions"
         },
         predefinedOutput: true
     }
@@ -481,20 +428,20 @@ est égale à <span class="math notranslate nohighlight">\(\displaystyle\frac{1}
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="traitement-bruit.html"
+       href="tpc2.html"
        title="page précédente">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">précédent</p>
-        <p class="prev-next-title">Traitement des signaux bruités</p>
+        <p class="prev-next-title">Transformée de Fourier discrète</p>
       </div>
     </a>
     <a class="right-next"
-       href="tp.html"
+       href="tpc4.html"
        title="page suivante">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">suivant</p>
-        <p class="prev-next-title">Exercices sur machine</p>
+        <p class="prev-next-title">Produit de convolution</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -507,35 +454,6 @@ est égale à <span class="math notranslate nohighlight">\(\displaystyle\frac{1}
             </div>
             
             
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contenu
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rappels-de-probabilite">Rappels de probabilité</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-1">Exercice 1</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-2">Exercice 2</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#le-bruit-dans-les-signaux">Le bruit dans les signaux</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-3">Exercice 3</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#traitement-des-signaux-bruites">Traitement des signaux bruités</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-4">Exercice 4</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-5">Exercice 5</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-6">Exercice 6</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-7">Exercice 7</a></li>
-</ul>
-</li>
-</ul>
-  </nav></div>
-
-</div></div>
               
             
           </div>

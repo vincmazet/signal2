@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Filtres analogiques &#8212; Traitement du signal 2</title>
+    <title>Produit de convolution &#8212; Traitement du signal 2</title>
   
   
   
@@ -65,11 +65,11 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'filtrage/analogiques';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'revisions/tpc4';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Recherche" href="../search.html" />
-    <link rel="next" title="Exercices sur feuille" href="td.html" />
-    <link rel="prev" title="Filtres RII" href="rii.html" />
+    <link rel="next" title="Introduction" href="../filtrage/intro.html" />
+    <link rel="prev" title="Analyse spectrale" href="tpc3.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="fr"/>
   </head>
@@ -155,34 +155,34 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Révisions</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../revisions/td.html">Exercices sur feuille</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../revisions/tdc.html">Corrections</a></li>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="td.html">Exercices sur feuille</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="tdc.html">Corrections</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../revisions/tp.html">Exercices sur machine</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc1.html">✐ Représentation d’un signal</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc2.html">✐ Transformée de Fourier discrète</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc3.html">✐ Analyse spectrale</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc4.html">✐ Produit de convolution</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="tp.html">Exercices sur machine</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="tpc1.html">Représentation d’un signal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tpc2.html">Transformée de Fourier discrète</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tpc3.html">Analyse spectrale</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Produit de convolution</a></li>
 </ul>
 </li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Filtrage</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ideaux.html">Filtres idéaux</a></li>
-<li class="toctree-l1"><a class="reference internal" href="realisables.html">Filtres réalisables</a></li>
-<li class="toctree-l1"><a class="reference internal" href="laplace.html">Transformée de Laplace</a></li>
-<li class="toctree-l1"><a class="reference internal" href="z.html">Transformée en Z</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="numeriques.html">Filtres numériques</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="rif.html">Filtres RIF</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rii.html">Filtres RII</a></li>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../filtrage/intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../filtrage/ideaux.html">Filtres idéaux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../filtrage/realisables.html">Filtres réalisables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../filtrage/laplace.html">Transformée de Laplace</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../filtrage/z.html">Transformée en Z</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../filtrage/numeriques.html">Filtres numériques</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../filtrage/rif.html">Filtres RIF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../filtrage/rii.html">Filtres RII</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Filtres analogiques</a></li>
-<li class="toctree-l1"><a class="reference internal" href="td.html">Exercices sur feuille</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tp.html">Exercices sur machine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../filtrage/analogiques.html">Filtres analogiques</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../filtrage/td.html">Exercices sur feuille</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../filtrage/tp.html">Exercices sur machine</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Traitement statistique du signal</span></p>
 <ul class="nav bd-sidenav">
@@ -251,7 +251,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../_sources/filtrage/analogiques.ipynb" target="_blank"
+      <li><a href="../_sources/revisions/tpc4.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Télécharger le fichier source"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -320,9 +320,7 @@ document.write(`
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</label>
+
 </div></div>
       
     </div>
@@ -333,20 +331,11 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Filtres analogiques</h1>
+    <h1>Produit de convolution</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contenu </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#synthese-des-filtres-analogiques">Synthèse des filtres analogiques</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reponses-standards">Réponses standards</a></li>
-</ul>
-            </nav>
         </div>
     </div>
 </div>
@@ -356,127 +345,53 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="filtres-analogiques">
-<span id="c-filtrage-analogiques"></span><h1>Filtres analogiques<a class="headerlink" href="#filtres-analogiques" title="Lien permanent vers ce titre">#</a></h1>
-<p>Malgré le développement incontestable du traitement numérique du signal, le filtrage analogique reste incontournable.
-En effet, les signaux à filtrer peuvent être analogiques,
-mais on peut également citer les filtres anti-repliement pour réduire la bande passante d’un signal analogique,
-ou le fait que la conception de certains filtres numériques nécessite de définir un filtre analogique.</p>
-<p>Les premiers développements de filtres analogiques sont expérimentaux et datent du début du XX<sup>e</sup> siècle avec la téléphonie.
-Les premières théories ont été développées dans les années 1930–1940.</p>
-<section id="synthese-des-filtres-analogiques">
-<h2>Synthèse des filtres analogiques<a class="headerlink" href="#synthese-des-filtres-analogiques" title="Lien permanent vers ce titre">#</a></h2>
-<p>Comme on l’a vu précédemment (cf. <a class="reference internal" href="laplace.html#s-laplace-inverse"><span class="std std-ref">Transformée de Laplace inverse</span></a>), on ne peut pas construire de filtre idéal pour une application temps réel.
-Les fonctions de transfert des filtres analogiques classiques s’écrivent sous la forme d’une fraction rationnelle
-et ne peuvent qu’approximer le gain d’un filtre idéal :</p>
-<div class="math notranslate nohighlight">
-\[
-H(s) = \frac{ \sum_{m=0}^M b_m s^m }{ \sum_{n=0}^N a_n s^n }
-     = \frac{ b_Ms^M + b_{M-1}s^{M-1} + \dots + b_1s + b_0 }{ a_Ns^N + a_{N-1}s^{N-1} + \dots + a_1s + a_0 }
-\]</div>
-<p>L’enjeu revient donc à déterminer, en fonction du gabarit choisi, les valeurs des coefficients <span class="math notranslate nohighlight">\(b_m\)</span> et <span class="math notranslate nohighlight">\(a_n\)</span> :
-c’est l’objet des travaux de <a class="reference external" href="https://en.wikipedia.org/wiki/Stephen_Butterworth">Butterworth</a>,
-<a class="reference external" href="https://fr.wikipedia.org/wiki/Pafnouti_Tchebychev">Tchebychev</a>
-ou <a class="reference external" href="https://en.wikipedia.org/wiki/Wilhelm_Cauer">Cauer</a> pour ne citer qu’eux.
-La réponse fréquentielle d’un filtre varie donc en fonction des coefficients de sa fonction de transfert.</p>
-<p>La plupart des méthodes de conception des filtres nécessitent de concevoir avant tout
-un filtre passe-bas de fréquence de coupure égale à 1 Hz : c’est ce qu’on appelle un filtre passe-bas normalisé (<em>low-pass prototype</em>).
-On obtient ensuite le filtre désiré en remplaçant la variable <span class="math notranslate nohighlight">\(s\)</span> de la fonction de transfert <span class="math notranslate nohighlight">\(H(s)\)</span> du filtre passe-bas normalisé par la transformation adéquate :</p>
-<aside class="margin sidebar">
-<p class="sidebar-title"></p>
-<p>La pulsation est égale à la fréquence multipliée par <span class="math notranslate nohighlight">\(2\pi\)</span> ;
-elle s’exprime en rad.s<sup>-1</sup>.</p>
-</aside>
-<aside class="margin sidebar">
-<p class="sidebar-title"></p>
-<p>La fréquence « de coin » (<em>edge frequency</em> ou <em>critical frequency</em>)
-est une fréquence particulière du gabarit, qui définit le filtre.
-Ce peut être la fréquence de coupure à <span class="math notranslate nohighlight">\(-3\)</span> dB, ou la fréquence de la bande passante,
-ou la fréquence de la bande atténuée.</p>
-</aside>
-<ul>
-<li><p>Passe-bas de pulsation de coin <span class="math notranslate nohighlight">\(w_0\)</span> :</p>
-<div class="math notranslate nohighlight">
-\[s \rightarrow \frac{s}{\omega_0}\]</div>
-</li>
-<li><p>Passe-haut de pulsation de coin <span class="math notranslate nohighlight">\(w_0\)</span> :</p>
-<div class="math notranslate nohighlight">
-\[s \rightarrow \frac{\omega_0}{s}\]</div>
-</li>
-<li><p>Passe-bande de pulsations de coin <span class="math notranslate nohighlight">\(\omega_1\)</span> et <span class="math notranslate nohighlight">\(\omega_2\)</span> :</p>
-<div class="math notranslate nohighlight">
-\[s \rightarrow \frac{\omega_0}{\omega_2-\omega_1} \frac{s^2+\omega_0^2}{s\omega_0}\]</div>
-</li>
-<li><p>Coupe-bande de pulsation de coin <span class="math notranslate nohighlight">\(\omega_1\)</span> et <span class="math notranslate nohighlight">\(\omega_2\)</span> :</p>
-<div class="math notranslate nohighlight">
-\[s \rightarrow \frac{\omega_2-\omega_1}{\omega_0} \frac{s\omega_0}{s^2+\omega_0^2}\]</div>
-</li>
-</ul>
-<p>Historiquement, on utilisait des tables ou des formules pour obtenir les coefficients du filtre passe-bas prototype,
-et la transformation était effectuée à l’aide de calculs.
-Désormais, des programmes déterminent directement les coefficients du filtre attendus à partir du gabarit souhaité.</p>
-</section>
-<section id="reponses-standards">
-<h2>Réponses standards<a class="headerlink" href="#reponses-standards" title="Lien permanent vers ce titre">#</a></h2>
-<p>Outre la définition du gabarit, il reste à choisir la famille du filtre à synthétiser.
-Les cinq principales familles sont détaillées ci-après,
-à noter qu’il existe deux types de filtre de Tchebychev (Chebyshev en anglais) : le type I et le type II.</p>
-<p>Une comparaison de ces familles en termes de réponse fréquentielle, réponse impulsionnelle et retard de groupe
-est présentée ci-dessous sur la base d’un filtre passe-bas d’ordre 3, de fréquence de coin 1 Hz,
-d’ondulation en bande passante 3 dB et d’atténuation en bande atténuée 30 dB.</p>
-<div class="sd-tab-set docutils">
-<input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
-</input><label class="sd-tab-label" for="sd-tab-item-0">
-Gain</label><div class="sd-tab-content docutils">
-<img alt="../_images/fana-gain.svg" src="../_images/fana-gain.svg" /></div>
-<input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
-</input><label class="sd-tab-label" for="sd-tab-item-1">
-Phase</label><div class="sd-tab-content docutils">
-<img alt="../_images/fana-phase.svg" src="../_images/fana-phase.svg" /></div>
-<input id="sd-tab-item-2" name="sd-tab-set-0" type="radio">
-</input><label class="sd-tab-label" for="sd-tab-item-2">
-Réponse impulsionnelle</label><div class="sd-tab-content docutils">
-<img alt="../_images/fana-impulse.svg" src="../_images/fana-impulse.svg" /></div>
-<input id="sd-tab-item-3" name="sd-tab-set-0" type="radio">
-</input><label class="sd-tab-label" for="sd-tab-item-3">
-Retard de groupe</label><div class="sd-tab-content docutils">
-<img alt="../_images/fana-gd.svg" src="../_images/fana-gd.svg" /></div>
+  <section class="tex2jax_ignore mathjax_ignore" id="produit-de-convolution">
+<h1>Produit de convolution<a class="headerlink" href="#produit-de-convolution" title="Lien permanent vers ce titre">#</a></h1>
+<p>Génération des signaux avec la fonction <code class="docutils literal notranslate"><span class="pre">numpy.where</span></code>.
+Il est utile de définir au préalable un tableau contenant les abscisses.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Abscisses de -10 à 10 (penser à rajouter +1 à la limite de droite)</span>
+<span class="n">n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Signal x</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span> <span class="n">n</span><span class="o">==</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span> <span class="n">n</span><span class="o">==-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># Signal y</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span> <span class="nb">abs</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="o">&lt;=</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
 </div>
-<p>Des résultats précédents, on peut en déduire les principales différences et caractéristiques des filtres.</p>
-<p>Le <strong>filtre de Butterworth</strong> est caractérisé par :</p>
-<ul class="simple">
-<li><p>aucune ondulation en bande passante,</p></li>
-<li><p>aucune ondulation en bande atténuée,</p></li>
-<li><p>une bande de transition assez large.</p></li>
-</ul>
-<p>Le <strong>filtre de Bessel</strong> est l’approximation d’un retard pur, et ses caractéristiques sont :</p>
-<ul class="simple">
-<li><p>un retard de groupe quasi-constant dans la bande passante,</p></li>
-<li><p>aucune ondulation en bande passante,</p></li>
-<li><p>aucune ondulation en bande atténuée,</p></li>
-<li><p>une bande de transition très large.</p></li>
-</ul>
-<p>Le <strong>filtre de Tchebychev de type I</strong> possède les caractéristiques suivantes :</p>
-<ul class="simple">
-<li><p>présence d’ondulations en bande passante (mais la valeur maximale de ces atténuations est minimisée),</p></li>
-<li><p>aucune ondulation en bande atténuée,</p></li>
-<li><p>bande de transition plus étroite que les filtres de Butterworth et Bessel,</p></li>
-<li><p>un retard de groupe très distordue près de la fréquence de coupure.</p></li>
-</ul>
-<p>Le <strong>filtre de Tchebychev de type II</strong> possède les caractéristiques suivantes :</p>
-<ul class="simple">
-<li><p>aucune ondulation en bande passante,</p></li>
-<li><p>présence d’ondulations en bande atténuée,</p></li>
-<li><p>une bande de transition plus étroite que les filtres de Butterworth et Bessel.</p></li>
-</ul>
-<p>Le <strong>filtre de Cauer</strong> (ou <strong>filtre elliptique</strong>) possède les caractéristiques ci-dessous :</p>
-<ul class="simple">
-<li><p>présence d’ondulations en bande passante,</p></li>
-<li><p>présence d’ondulations en bande atténuée,</p></li>
-<li><p>une transition très rapide,</p></li>
-<li><p>un retard de groupe très distordu près de la fréquence de coupure.</p></li>
-</ul>
-</section>
+</div>
+</div>
+<p>On affiche les signaux pour vérifier qu’ils sont bien construits…</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="../_images/62f70fc2a80383517231fc7863ab7986437575568b9d6518edd4da3c56920034.png" src="../_images/62f70fc2a80383517231fc7863ab7986437575568b9d6518edd4da3c56920034.png" />
+</div>
+</div>
+<p>La convolution est obtenue avec <code class="docutils literal notranslate"><span class="pre">numpy.convolve</span></code>.
+Attention à bien choisir la valeur du troisième paramètre (<code class="docutils literal notranslate"><span class="pre">mode</span></code>) !</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">convolve</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s2">&quot;same&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Résultat :</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="../_images/83803064b3a16ea98ac4892edffd62da790c25bb9887354f83a4f1bc838d7946.png" src="../_images/83803064b3a16ea98ac4892edffd62da790c25bb9887354f83a4f1bc838d7946.png" />
+</div>
+</div>
+<p>Le résultat obtenu peut s’interpréter comme la somme des deux signaux ci-dessous,
+chacun d’eux étant la convolution de <span class="math notranslate nohighlight">\(y\)</span> avec l’une des deux impulsions de <span class="math notranslate nohighlight">\(x\)</span> :
+l’impulsion en <span class="math notranslate nohighlight">\(-1\)</span> donne le signal orange et l’impulsion en <span class="math notranslate nohighlight">\(+1\)</span> donne le signal vert.</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="../_images/e1512e206ac3c6402c535842b740feb764477ad590574c1809a6240073b1711a.png" src="../_images/e1512e206ac3c6402c535842b740feb764477ad590574c1809a6240073b1711a.png" />
+</div>
+</div>
 </section>
 
     <script type="text/x-thebe-config">
@@ -492,7 +407,7 @@ Retard de groupe</label><div class="sd-tab-content docutils">
         },
         kernelOptions: {
             name: "python3",
-            path: "./filtrage"
+            path: "./revisions"
         },
         predefinedOutput: true
     }
@@ -511,20 +426,20 @@ Retard de groupe</label><div class="sd-tab-content docutils">
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="rii.html"
+       href="tpc3.html"
        title="page précédente">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">précédent</p>
-        <p class="prev-next-title">Filtres RII</p>
+        <p class="prev-next-title">Analyse spectrale</p>
       </div>
     </a>
     <a class="right-next"
-       href="td.html"
+       href="../filtrage/intro.html"
        title="page suivante">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">suivant</p>
-        <p class="prev-next-title">Exercices sur feuille</p>
+        <p class="prev-next-title">Introduction</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -537,21 +452,6 @@ Retard de groupe</label><div class="sd-tab-content docutils">
             </div>
             
             
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contenu
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#synthese-des-filtres-analogiques">Synthèse des filtres analogiques</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reponses-standards">Réponses standards</a></li>
-</ul>
-  </nav></div>
-
-</div></div>
               
             
           </div>
