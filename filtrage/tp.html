@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Exercices sur machine &#8212; Traitement du signal 2</title>
   
@@ -46,6 +46,7 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -63,13 +64,13 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'filtrage/tp';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Recherche" href="../search.html" />
-    <link rel="next" title="Bruit dans les signaux" href="../ssp/bruit.html" />
-    <link rel="prev" title="Exercices sur feuille" href="td.html" />
+    <link rel="next" title="Introduction" href="../modulation/intro.html" />
+    <link rel="prev" title="Corrections" href="tdc.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="fr"/>
   </head>
@@ -161,10 +162,10 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../revisions/tp.html">Exercices sur machine</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc1.html">✐ Représentation d’un signal</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc2.html">✐ Transformée de Fourier discrète</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc3.html">✐ Analyse spectrale</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc4.html">✐ Produit de convolution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc1.html">Représentation d’un signal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc2.html">Transformée de Fourier discrète</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc3.html">Analyse spectrale</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc4.html">Produit de convolution</a></li>
 </ul>
 </li>
 </ul>
@@ -181,8 +182,20 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="analogiques.html">Filtres analogiques</a></li>
-<li class="toctree-l1"><a class="reference internal" href="td.html">Exercices sur feuille</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="td.html">Exercices sur feuille</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="tdc.html">Corrections</a></li>
+</ul>
+</li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Exercices sur machine</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Modulation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../modulation/intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulation/analogique.html">Modulation analogique</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulation/bande-de-base.html">Modulation en bande de base</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulation/porteuse.html">Modulation sur porteuse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulation/td.html">Excercices sur feuille</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulation/tp.html">Exercices sur machine</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Traitement statistique du signal</span></p>
 <ul class="nav bd-sidenav">
@@ -360,7 +373,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="exercices-sur-machine">
-<span id="c-filtrage-tp"></span><h1>Exercices sur machine<a class="headerlink" href="#exercices-sur-machine" title="Lien permanent vers ce titre">#</a></h1>
+<span id="c-filtrage-tp"></span><h1>Exercices sur machine<a class="headerlink" href="#exercices-sur-machine" title="Lien permanent vers cette rubrique">#</a></h1>
 <p>Un électrocardiogramme (ECG) est le tracé de l’activité électrique du cœur.
 Il comporte plusieurs signaux caractéristiques appelés « ondes »,
 qui dans le cas d’un ECG normal peuvent être schématisées ainsi :</p>
@@ -371,7 +384,7 @@ qui dans le cas d’un ECG normal peuvent être schématisées ainsi :</p>
 Cette variation est principalement due aux mouvements du patient, mais elle perturbe l’analyse du médecin.
 L’objectif de ce TP, qui se déroule sur deux séances, est de réaliser deux filtres pour supprimer cette variation basse fréquence.</p>
 <section id="affichage-de-l-ecg-mesure">
-<h2>Affichage de l’ECG mesuré<a class="headerlink" href="#affichage-de-l-ecg-mesure" title="Lien permanent vers ce titre">#</a></h2>
+<h2>Affichage de l’ECG mesuré<a class="headerlink" href="#affichage-de-l-ecg-mesure" title="Lien permanent vers cette rubrique">#</a></h2>
 <p>Un ECG contenant dix ondes et une variation basse fréquence a été enregistré à une fréquence de 1 kHz et sauvegardé dans le fichier
 <a href="../_static/ecg_lfn.csv">ecg_lfn.csv</a>.</p>
 <ul class="simple">
@@ -385,7 +398,7 @@ L’objectif de ce TP, qui se déroule sur deux séances, est de réaliser deux 
 </ul>
 </section>
 <section id="definition-du-gabarit">
-<h2>Définition du gabarit<a class="headerlink" href="#definition-du-gabarit" title="Lien permanent vers ce titre">#</a></h2>
+<h2>Définition du gabarit<a class="headerlink" href="#definition-du-gabarit" title="Lien permanent vers cette rubrique">#</a></h2>
 <ul class="simple">
 <li><p>Quel type de filtre (passe-bas, passe-haut, passe-bande ou coupe-bande) faut-il choisir pour supprimer la variation ?
 Donnez une valeur approximative de la (ou des) fréquence(s) de coupure.</p></li>
@@ -418,7 +431,7 @@ Pour représenter une ligne brisée, vous pouvez vous inspirer de l’exemple su
 </div>
 </section>
 <section id="realisation-d-un-filtre-rif">
-<h2>Réalisation d’un filtre RIF<a class="headerlink" href="#realisation-d-un-filtre-rif" title="Lien permanent vers ce titre">#</a></h2>
+<h2>Réalisation d’un filtre RIF<a class="headerlink" href="#realisation-d-un-filtre-rif" title="Lien permanent vers cette rubrique">#</a></h2>
 <p>Le premier filtre appliqué sur l’ECG sera un filtre RIF synthétisé avec la méthode des fenêtres.</p>
 <ul class="simple">
 <li><p>Donnez, en le justifiant, les fenêtres pouvant être utilisés pour la synthèse du filtre numérique.</p></li>
@@ -434,7 +447,7 @@ indiquez quel est son effet sur le déphasage des fréquences.</p></li>
 </ul>
 </section>
 <section id="realisation-d-un-filtre-rii">
-<h2>Réalisation d’un filtre RII<a class="headerlink" href="#realisation-d-un-filtre-rii" title="Lien permanent vers ce titre">#</a></h2>
+<h2>Réalisation d’un filtre RII<a class="headerlink" href="#realisation-d-un-filtre-rii" title="Lien permanent vers cette rubrique">#</a></h2>
 <p>On rappelle qu’avec la transformation bilinéaire, un filtre RII est conçu à partir d’un filtre analogique
 obtenu à l’aide d’un gabarit analogique, lui-même construit à partir du gabarit numérique.</p>
 <ul class="simple">
@@ -447,7 +460,7 @@ obtenu à l’aide d’un gabarit analogique, lui-même construit à partir du g
 </ul>
 </section>
 <section id="comparaison-des-filtres-synthetises">
-<h2>Comparaison des filtres synthétisés<a class="headerlink" href="#comparaison-des-filtres-synthetises" title="Lien permanent vers ce titre">#</a></h2>
+<h2>Comparaison des filtres synthétisés<a class="headerlink" href="#comparaison-des-filtres-synthetises" title="Lien permanent vers cette rubrique">#</a></h2>
 <ul class="simple">
 <li><p>Discutez du résultat obtenu avec les deux méthodes de filtrage, à la fois en temporel et en fréquentiel.</p></li>
 <li><p>Comparez les deux filtres synthétisés, notamment sur :</p>
@@ -496,20 +509,20 @@ obtenu à l’aide d’un gabarit analogique, lui-même construit à partir du g
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="td.html"
+       href="tdc.html"
        title="page précédente">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">précédent</p>
-        <p class="prev-next-title">Exercices sur feuille</p>
+        <p class="prev-next-title">Corrections</p>
       </div>
     </a>
     <a class="right-next"
-       href="../ssp/bruit.html"
+       href="../modulation/intro.html"
        title="page suivante">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">suivant</p>
-        <p class="prev-next-title">Bruit dans les signaux</p>
+        <p class="prev-next-title">Introduction</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

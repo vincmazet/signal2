@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Transformée en Z &#8212; Traitement du signal 2</title>
   
@@ -46,6 +46,7 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -63,8 +64,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'filtrage/z';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Recherche" href="../search.html" />
@@ -161,10 +162,10 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../revisions/tp.html">Exercices sur machine</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc1.html">✐ Représentation d’un signal</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc2.html">✐ Transformée de Fourier discrète</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc3.html">✐ Analyse spectrale</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc4.html">✐ Produit de convolution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc1.html">Représentation d’un signal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc2.html">Transformée de Fourier discrète</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc3.html">Analyse spectrale</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc4.html">Produit de convolution</a></li>
 </ul>
 </li>
 </ul>
@@ -181,8 +182,20 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="analogiques.html">Filtres analogiques</a></li>
-<li class="toctree-l1"><a class="reference internal" href="td.html">Exercices sur feuille</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="td.html">Exercices sur feuille</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="tdc.html">Corrections</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="tp.html">Exercices sur machine</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Modulation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../modulation/intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulation/analogique.html">Modulation analogique</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulation/bande-de-base.html">Modulation en bande de base</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulation/porteuse.html">Modulation sur porteuse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulation/td.html">Excercices sur feuille</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulation/tp.html">Exercices sur machine</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Traitement statistique du signal</span></p>
 <ul class="nav bd-sidenav">
@@ -365,12 +378,12 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="transformee-en-z">
-<span id="c-filtrage-z"></span><h1>Transformée en Z<a class="headerlink" href="#transformee-en-z" title="Lien permanent vers ce titre">#</a></h1>
+<span id="c-filtrage-z"></span><h1>Transformée en Z<a class="headerlink" href="#transformee-en-z" title="Lien permanent vers cette rubrique">#</a></h1>
 <p>La transformée en Z est l’équivalent discret de la transformée de Laplace.
 Contrairement à Fourier et Laplace,
 Z n’est pas un scientifique mais seulement le nom que l’on a donné à la variable de cette transformée.</p>
 <section id="definition">
-<h2>Définition<a class="headerlink" href="#definition" title="Lien permanent vers ce titre">#</a></h2>
+<h2>Définition<a class="headerlink" href="#definition" title="Lien permanent vers cette rubrique">#</a></h2>
 <p>La transformée en Z d’un signal à temps discret <span class="math notranslate nohighlight">\(x[n]\)</span> est :</p>
 <div class="math notranslate nohighlight">
 \[
@@ -388,7 +401,7 @@ H(z) = \frac{Y(z)}{X(z)}.
 \]</div>
 </section>
 <section id="representation">
-<h2>Représentation<a class="headerlink" href="#representation" title="Lien permanent vers ce titre">#</a></h2>
+<h2>Représentation<a class="headerlink" href="#representation" title="Lien permanent vers cette rubrique">#</a></h2>
 <p>De même que pour la transformée de Laplace, la transformée en Z est une fonction complexe d’une variable complexe
 et il serait difficile et inutile de la représenter.</p>
 <p>On utilise alors le diagramme pôles–zéros qui se construit de la même manière
@@ -399,7 +412,7 @@ En d’autres termes, la transformée de Fourier discrète est égale à la tran
 Cela correspond à un cercle de rayon 1 centré sur l’origine.</p>
 </section>
 <section id="transformee-inverse">
-<h2>Transformée inverse<a class="headerlink" href="#transformee-inverse" title="Lien permanent vers ce titre">#</a></h2>
+<h2>Transformée inverse<a class="headerlink" href="#transformee-inverse" title="Lien permanent vers cette rubrique">#</a></h2>
 <p>La transformée en Z inverse de <span class="math notranslate nohighlight">\(X(z)\)</span> est :</p>
 <div class="math notranslate nohighlight">
 \[
@@ -417,12 +430,12 @@ H(z) = \frac{ \sum_{m=0}^{M} b_m z^{-m} }{ \sum_{n=0}^{N} a_n z^{-n} }
 <p>La fonction de transfert est donc définie par ses coefficients <span class="math notranslate nohighlight">\(b_m\)</span> et <span class="math notranslate nohighlight">\(a_n\)</span>, ou par ses zéros <span class="math notranslate nohighlight">\(z_m\)</span>, pôles <span class="math notranslate nohighlight">\(p_n\)</span> et gain <span class="math notranslate nohighlight">\(k\)</span>.</p>
 </section>
 <section id="proprietes">
-<h2>Propriétés<a class="headerlink" href="#proprietes" title="Lien permanent vers ce titre">#</a></h2>
+<h2>Propriétés<a class="headerlink" href="#proprietes" title="Lien permanent vers cette rubrique">#</a></h2>
 <p>Les propriétés de la transformée en Z sont similaires à celles des transformées de Fourier et de Laplace.
 On note <span class="math notranslate nohighlight">\(a\)</span> et <span class="math notranslate nohighlight">\(b\)</span> deux constantes, <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(x_1\)</span> et <span class="math notranslate nohighlight">\(x_2\)</span> des signaux
 et <span class="math notranslate nohighlight">\(X\)</span>, <span class="math notranslate nohighlight">\(X_1\)</span> et <span class="math notranslate nohighlight">\(X_2\)</span> leurs transformées en Z respectives.</p>
 <section id="linearite">
-<h3>Linéarité<a class="headerlink" href="#linearite" title="Lien permanent vers ce titre">#</a></h3>
+<h3>Linéarité<a class="headerlink" href="#linearite" title="Lien permanent vers cette rubrique">#</a></h3>
 <div class="math notranslate nohighlight">
 \[
 ax_1[n] + bx_2[n]
@@ -431,7 +444,7 @@ a X_1(z) + b X_2(z)
 \]</div>
 </section>
 <section id="translation">
-<h3>Translation<a class="headerlink" href="#translation" title="Lien permanent vers ce titre">#</a></h3>
+<h3>Translation<a class="headerlink" href="#translation" title="Lien permanent vers cette rubrique">#</a></h3>
 <div class="math notranslate nohighlight">
 \[
 x[n-N]
@@ -440,7 +453,7 @@ z^{-N} X(z)
 \]</div>
 </section>
 <section id="convolution">
-<h3>Convolution<a class="headerlink" href="#convolution" title="Lien permanent vers ce titre">#</a></h3>
+<h3>Convolution<a class="headerlink" href="#convolution" title="Lien permanent vers cette rubrique">#</a></h3>
 <div class="math notranslate nohighlight">
 \[
 (x_1*x_2)[n]
@@ -450,7 +463,7 @@ X_1(z) \times X_2(z)
 </section>
 </section>
 <section id="region-de-convergence-et-stabilite">
-<h2>Région de convergence et stabilité<a class="headerlink" href="#region-de-convergence-et-stabilite" title="Lien permanent vers ce titre">#</a></h2>
+<h2>Région de convergence et stabilité<a class="headerlink" href="#region-de-convergence-et-stabilite" title="Lien permanent vers cette rubrique">#</a></h2>
 <p>Comme pour la transformée de Laplace, on peut définir une région de convergence avec la transformée en Z
 qui indique les régions où la transformée en Z converge.</p>
 <p>Prenons l’exemple de la réponse impulsionnelle <span class="math notranslate nohighlight">\(h[n] = a^n u[n]\)</span>.

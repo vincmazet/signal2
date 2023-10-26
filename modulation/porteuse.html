@@ -1,0 +1,718 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="fr" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Modulation sur porteuse &#8212; Traitement du signal 2</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/jbvinc.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/.ipynb_checkpoints/jbvinc-checkpoint.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/translations.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'modulation/porteuse';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="next" title="Excercices sur feuille" href="td.html" />
+    <link rel="prev" title="Modulation en bande de base" href="bande-de-base.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="fr"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Passer au contenu principal</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">Traitement du signal 2</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Révisions</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../revisions/td.html">Exercices sur feuille</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../revisions/tdc.html">Corrections</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../revisions/tp.html">Exercices sur machine</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc1.html">Représentation d’un signal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc2.html">Transformée de Fourier discrète</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc3.html">Analyse spectrale</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc4.html">Produit de convolution</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Filtrage</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../filtrage/intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../filtrage/ideaux.html">Filtres idéaux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../filtrage/realisables.html">Filtres réalisables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../filtrage/laplace.html">Transformée de Laplace</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../filtrage/z.html">Transformée en Z</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../filtrage/numeriques.html">Filtres numériques</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../filtrage/rif.html">Filtres RIF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../filtrage/rii.html">Filtres RII</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../filtrage/analogiques.html">Filtres analogiques</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../filtrage/td.html">Exercices sur feuille</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../filtrage/tdc.html">Corrections</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../filtrage/tp.html">Exercices sur machine</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Modulation</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="analogique.html">Modulation analogique</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bande-de-base.html">Modulation en bande de base</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Modulation sur porteuse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="td.html">Excercices sur feuille</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tp.html">Exercices sur machine</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Traitement statistique du signal</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../ssp/bruit.html">Bruit dans les signaux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ssp/traitement-bruit.html">Traitement des signaux bruités</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ssp/td.html">Exercices sur feuille</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ssp/tp.html">Exercices sur machine</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Annexes</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://moodle.unistra.fr/course/view.php?id=5497">Moodle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../annexes/python.html">Installer et utiliser Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../annexes/refs.html">Références</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../annexes/licence.html">Licence</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Téléchargez cette page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/modulation/porteuse.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Télécharger le fichier source"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Imprimer au format PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Mode plein écran"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="clair/sombre" aria-label="clair/sombre" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Recherche" aria-label="Recherche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Modulation sur porteuse</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contenu </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modulation">Modulation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modulation-a-deplacement-d-amplitude">Modulation à déplacement d’amplitude</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modulation-a-deplacement-de-phase">Modulation à déplacement de phase</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modulation-d-amplitude-en-quadrature">Modulation d’amplitude en quadrature</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#demodulation-en-presence-de-bruit">Démodulation en présence de bruit</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="modulation-sur-porteuse">
+<h1>Modulation sur porteuse<a class="headerlink" href="#modulation-sur-porteuse" title="Lien permanent vers cette rubrique">#</a></h1>
+<p>Une modulation sur porteuse permet de générer un signal
+dont la bande passante est presque entièrement incluse dans une bande de fréquence éloignée de 0 Hz.</p>
+<section id="modulation">
+<h2>Modulation<a class="headerlink" href="#modulation" title="Lien permanent vers cette rubrique">#</a></h2>
+<p>Les modulations sur porteuse linéaires affectent à chaque symbole du message une sinusoïde de fréquence <span class="math notranslate nohighlight">\(f_p\)</span>
+dont l’amplitude <span class="math notranslate nohighlight">\(a_k\)</span> et la phase <span class="math notranslate nohighlight">\(\varphi_k\)</span> dépendent du symbole <span class="math notranslate nohighlight">\(k\)</span> :</p>
+<div class="math notranslate nohighlight">
+\[
+x(t) = \sum_{k=-\infty}^{+\infty} a_k h(t-kd) \cos(2\pi f_p t + \varphi_k).
+\]</div>
+<p>Ce signal est la partie réelle d’un signal complexe <span class="math notranslate nohighlight">\(\bar{x}(t)\)</span> tel que :</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\bar{x}(t) &amp;= \sum_{k=-\infty}^{+\infty} a_k h(t-kd) \exp\big(j(2\pi f_p t + \varphi_k)\big) \\
+           &amp;= \sum_{k=-\infty}^{+\infty} a_k h(t-kd) \exp(j(2\pi f_p t) \exp(j\varphi_k) \\
+           &amp;= \sum_{k=-\infty}^{+\infty} A_k h(t-kd) \exp(j2\pi f_p t)
+\end{split}\]</div>
+<p>où <span class="math notranslate nohighlight">\(A_k = a_k \exp(j\varphi_k)\)</span>.
+C’est l’amplitude complexe de la modulation, qui peut se noter également sous forme cartésienne <span class="math notranslate nohighlight">\(A_k = \alpha_k + j\beta_k\)</span>.
+On peut alors montrer que la modulation sur porteuse revient à deux modulations en bande de base multipliées
+par des porteuses sinusoïdales de même fréquence <span class="math notranslate nohighlight">\(f_p\)</span> en quadrature de phase :</p>
+<div class="math notranslate nohighlight">
+\[
+x(t) = \underbrace{ \sum_{k=-\infty}^{+\infty} \alpha_k h(t-kd) \cos(2\pi f_p t) }_{ \text{Composante en phase} }
+     - \underbrace{ \sum_{k=-\infty}^{+\infty} \beta_k  h(t-kd) \sin(2\pi f_p t) }_{ \text{Composante en quadrature} }.
+\]</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Démonstration<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">En notant l’amplitude complexe sous la forme cartésienne <span class="math notranslate nohighlight">\(A_k = \alpha_k + j\beta_k\)</span>, le signal complexe s’écrit :</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\bar{x}(t) &amp;= \sum_{k=-\infty}^{+\infty} (\alpha_k + j\beta_k) h(t-kd) \exp(j2\pi f_p t) \\
+           &amp;= \sum_{k=-\infty}^{+\infty} (\alpha_k + j\beta_k) h(t-kd) \left( \cos(2\pi f_p t)+j\sin(2\pi f_p t) \right) \\
+           &amp;= \sum_{k=-\infty}^{+\infty}     \alpha_k h(t-kd) \cos(2\pi f_p t) - \beta_k h(t-kd) \sin(2\pi f_p t) \\
+           &amp;\;  + j \sum_{k=-\infty}^{+\infty} \alpha_k h(t-kd) \sin(2\pi f_p t) + \beta_k h(t-kd) \cos(2\pi f_p t) \\
+\end{split}\]</div>
+<p class="sd-card-text">Le signal <span class="math notranslate nohighlight">\(x(t)\)</span> est la partie réelle de <span class="math notranslate nohighlight">\(\bar{x}(t)\)</span> et vaut bien :</p>
+<div class="math notranslate nohighlight">
+\[
+x(t) = \sum_{k=-\infty}^{+\infty} \alpha_k h(t-kd) \cos(2\pi f_p t) - \beta_k h(t-kd) \sin(2\pi f_p t).
+\]</div>
+</div>
+</details><p>Pour réaliser une modulation sur porteuse, il faut donc définir trois types de quantités :</p>
+<ul>
+<li><p>la fréquence de la porteuse <span class="math notranslate nohighlight">\(f_p\)</span>, qui est choisie en fonction des contraintes liées à l’application
+(capacité à traverser les obstacles, capacités du matériel, normes, etc.) ;</p></li>
+<li><p>la forme d’onde <span class="math notranslate nohighlight">\(h(t)\)</span>, qui est le plus souvent la même que la forme d’onde de la modulation NRZ (soit une porte de durée <span class="math notranslate nohighlight">\(d\)</span>) ;</p></li>
+<li><p>les amplitudes complexes <span class="math notranslate nohighlight">\(A_k\)</span>, ou de manière équivalente les amplitudes réelles <span class="math notranslate nohighlight">\(\alpha_k\)</span> et <span class="math notranslate nohighlight">\(\beta_k\)</span>,
+ou encore les modules <span class="math notranslate nohighlight">\(a_k\)</span> et les phases <span class="math notranslate nohighlight">\(\varphi_k\)</span>.
+Il se trouve que les modulations sur porteuse sont très souvent utilisées dans le cas de signaux <span class="math notranslate nohighlight">\(M\)</span>-aires avec <span class="math notranslate nohighlight">\(M\)</span> grand.
+On préfère donc représenter les amplitudes <span class="math notranslate nohighlight">\(A_k\)</span> graphiquement (dans le plan complexe)
+plutôt que sous la forme d’un tableau qui pourrait être très long.
+Cette représentation graphique s’appelle une constellation :
+c’est un graphe 2D où chaque point correspond à un symbole dont les coordonnées sont les amplitudes <span class="math notranslate nohighlight">\(\alpha_k\)</span> et <span class="math notranslate nohighlight">\(\beta_k\)</span>.
+Les axes sont donc nommés <span class="math notranslate nohighlight">\(I\)</span> (pour <em>in-phase component</em>) et <span class="math notranslate nohighlight">\(Q\)</span> (pour <em>quadrature component</em>).</p>
+<div class="exemple admonition">
+<p class="admonition-title">Exemple</p>
+<p>La modulation 4-QAM est une modulation 4-aire dont le tableau de correspondance est :</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p><span class="math notranslate nohighlight">\(m_k\)</span></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(\alpha_k\)</span></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(\beta_k\)</span></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(a_k\)</span></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(\varphi_k\)</span></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(A_k\)</span></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(0\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(+1\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(+1\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\sqrt{2}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\pi/4\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(1+j\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(1\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(-1\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(+1\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\sqrt{2}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(3\pi/4\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(-1+j\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(2\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(-1\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(-1\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\sqrt{2}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(-3\pi/4\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(-1-j\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(3\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(+1\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(-1\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\sqrt{2}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(-\pi/4\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(1-j\)</span></p></td>
+</tr>
+</tbody>
+</table>
+<p>La constellation associée est la suivante :</p>
+<a class="reference internal image-reference" href="../_images/code-4qam.svg"><img alt="../_images/code-4qam.svg" class="align-center" src="../_images/code-4qam.svg" width="300px" /></a>
+</div>
+<p>Chaque point de la constellation correspond à une amplitude des composantes en phase et en quadrature,
+lesquelles sont directement reliées à l’énergie du signal.
+Par conséquent, l’énergie du signal est directement reliée au module des points de la constellation.
+En d’autres termes, plus l’espace occupé par la constellation est important,
+plus l’énergie nécessaire pour générer le signal modulé est importante.</p>
+</li>
+</ul>
+<section id="modulation-a-deplacement-d-amplitude">
+<h3>Modulation à déplacement d’amplitude<a class="headerlink" href="#modulation-a-deplacement-d-amplitude" title="Lien permanent vers cette rubrique">#</a></h3>
+<p>Dans une modulation à déplacement d’amplitude (ASK pour <em>amplitude shift keying</em>),
+tous les symboles sont associés à une sinusoïde de même phase.</p>
+<p>Ainsi, si <span class="math notranslate nohighlight">\(\alpha_k\)</span> varie et <span class="math notranslate nohighlight">\(\beta_k=0\)</span>, alors chaque symbole est codé par un cosinus.
+À l’inverse, si <span class="math notranslate nohighlight">\(\alpha_k=0\)</span> et <span class="math notranslate nohighlight">\(\beta_k\)</span> varie, alors chaque symbole est codé par un sinus.
+En fait, toute constellation dont les points sont alignés sur une droite passant par l’origine est une modulation ASK
+(cela se vérifie en utilisant les règles de trigonométrie).</p>
+<div class="exemple docutils">
+<p>La modulation représentée par la constellation ci-dessous est bien ASK puisque les points sont alignés.
+Comme il y a 4 points dans la constellation, alors la modulation est 4-aire.
+On parle alors de modulation 4-ASK.</p>
+<a class="reference internal image-reference" href="../_images/code-4ask.svg"><img alt="../_images/code-4ask.svg" class="align-center" src="../_images/code-4ask.svg" width="300px" /></a>
+<p>Le signal associé au message <code>013302</code> est donc :</p>
+<a class="reference internal image-reference" href="../_images/signal-4ask.svg"><img alt="../_images/signal-4ask.svg" class="align-center" src="../_images/signal-4ask.svg" width="600px" /></a>
+</div>
+</section>
+<section id="modulation-a-deplacement-de-phase">
+<h3>Modulation à déplacement de phase<a class="headerlink" href="#modulation-a-deplacement-de-phase" title="Lien permanent vers cette rubrique">#</a></h3>
+<p>Dans une modulation à déplacement de phase (PSK pour <em>phase shift keying</em>),
+tous les symboles sont associés à une sinusoïde de même ampliltude, mais de phase différente.</p>
+<p>Tous les points d’une constellation PSK sont répartis sur un cercle de centre l’origine.
+On peut le vérifier en utilisant la trigonométrie,
+mais aussi parce que l’amplitude complexe <span class="math notranslate nohighlight">\(A_k\)</span> peut s’écrire sous la forme <span class="math notranslate nohighlight">\(a_k e^{j\varphi_k}\)</span>
+où <span class="math notranslate nohighlight">\(a_k\)</span> est constant et <span class="math notranslate nohighlight">\(\varphi_k\)</span> varie.</p>
+<div class="exemple docutils">
+<p>Un exemple de modulation 4-PSK est représentée ci-dessous.</p>
+<a class="reference internal image-reference" href="../_images/code-4psk.svg"><img alt="../_images/code-4psk.svg" class="align-center" src="../_images/code-4psk.svg" width="300px" /></a>
+<p>Le signal associé au message <code>013302</code> est donc :</p>
+<a class="reference internal image-reference" href="../_images/signal-4psk.svg"><img alt="../_images/signal-4psk.svg" class="align-center" src="../_images/signal-4psk.svg" width="600px" /></a>
+</div>
+</section>
+<section id="modulation-d-amplitude-en-quadrature">
+<h3>Modulation d’amplitude en quadrature<a class="headerlink" href="#modulation-d-amplitude-en-quadrature" title="Lien permanent vers cette rubrique">#</a></h3>
+<p>Lorsque le nombre de symboles <span class="math notranslate nohighlight">\(M\)</span> devient grand, les modulations ASK et PSK ne sont plus satisfaisantes
+pour utiliser efficacement l’énergie émise : elles occupent un espace trop important.
+En effet, si les points sont éloignés les uns des autres, alors l’énergie nécessaire pour fabriquer le signal augmente.
+À l’inverse, si les points sont trop rapprochés, alors il y a un risque de les confondre à la réception.
+Le mieux est donc de répartir les symboles dans une zone la plus compacte tout en espaçant le plus possible les points.
+On ne peut donc plus se retreindre à organiser les points sur une ligne (comme la modulation ASK)
+ou un cercle (comme la modulation PSK).</p>
+<p>La modulation d’amplitude en quadrature (QAM pour <em>quadrature amplitude modulation</em>) répond de façon simple à cette question.
+La <a class="reference internal" href="#f-qam"><span class="std std-numref">Fig. 28</span></a> donne quelques exemples de modulation QAM.</p>
+<figure class="align-default" id="f-qam">
+<img alt="../_images/code-qam.svg" src="../_images/code-qam.svg" /><figcaption>
+<p><span class="caption-number">Fig. 28 </span><span class="caption-text">Exemples de modulations QAM.</span><a class="headerlink" href="#f-qam" title="Lien permanent vers cette image">#</a></p>
+</figcaption>
+</figure>
+<p><a class="exercise btn btn-light" href="td.html#exercice-6" role="button">6</a></p>
+</section>
+</section>
+<section id="demodulation-en-presence-de-bruit">
+<h2>Démodulation en présence de bruit<a class="headerlink" href="#demodulation-en-presence-de-bruit" title="Lien permanent vers cette rubrique">#</a></h2>
+<p>On s’intéresse dans cette section à la réception d’un signal analogique lorsque le canal est bruité et de bande passante infinie.
+Le signal reçu est :</p>
+<div class="math notranslate nohighlight">
+\[
+y(t) = x(t) + b(t)
+\]</div>
+<p>où <span class="math notranslate nohighlight">\(b(t)\)</span> et le bruit.</p>
+<p>On rappelle que les modulations linéaires sur porteuse correspondent à deux modulations en bande de base multipliées par des sinusoïdes en quadrature de phase.
+La première étape de la démodulation consiste à supprimer les sinusoïdes, pour se retrouver ensuite dans le cas de deux démodulations en bande de base.
+Pour supprimer les sinusoïdes, on peut effectuer une démodulation cohérente en multipliant le signal reçu <span class="math notranslate nohighlight">\(y\)</span> par la porteuse.</p>
+<div class="full-width docutils">
+<div class="math notranslate nohighlight">
+\[\begin{split}
+w(t) &amp;= y(t) \cos(2\pi f_p t) \\
+     &amp;= \left[
+          \sum_{k=-\infty}^{+\infty} \alpha_k h(t-kd) \cos(2\pi f_p t)
+        - \sum_{k=-\infty}^{+\infty} \beta_k  h(t-kd) \sin(2\pi f_p t)
+        + b(t)
+       \right] \cos(2\pi f_p t) \\
+     &amp;=   \sum_{k=-\infty}^{+\infty} \alpha_k h(t-kd) \frac{1}{2} \left(1+\cos(4\pi f_p t)\right)
+        - \sum_{k=-\infty}^{+\infty} \beta_k  h(t-kd) \frac{1}{2} \sin(4\pi f_p t)
+        + b(t) \cos(2\pi f_p t) \\
+     &amp;=   \underbrace{ \frac{1}{2} \sum_{k=-\infty}^{+\infty} \alpha_k h(t-kd) }_{\text{basse fréquence}}
+        + \underbrace{ \frac{1}{2} \sum_{k=-\infty}^{+\infty} \alpha_k h(t-kd) \cos(4\pi f_p t) }_{\text{haute fréquence}}
+        - \underbrace{ \frac{1}{2} \sum_{k=-\infty}^{+\infty} \beta_k  h(t-kd) \sin(4\pi f_p t) }_{\text{haute fréquence}}
+        + \underbrace{ b(t) \cos(2\pi f_p t) }_{\text{bruit}}
+\end{split}\]</div>
+</div>
+<p>Le signal <span class="math notranslate nohighlight">\(w(t)\)</span> contient une composante basse fréquence, une composante haute fréquence et du bruit.
+Un filtre passe-bas de fréquence de coupure égale à <span class="math notranslate nohighlight">\(f_p\)</span> permet d’éliminer les composantes hautes fréquences.
+En effet, ces composantes haute fréquence sont centrées autour de <span class="math notranslate nohighlight">\(2f_p\)</span>.
+Le signal basse fréquence résultant est un signal en bande de base sur lequel on effectue une démodulation en bande de base
+(filtre adapté, échantillonnage, seuillage) pour obtenir les symboles associés aux amplitudes <span class="math notranslate nohighlight">\(\alpha_k\)</span>.</p>
+<p>Pour obtenir les symboles associés aux amplitudes <span class="math notranslate nohighlight">\(\beta_k\)</span>, on procède de la même manière en multipliant le signal reçu par <span class="math notranslate nohighlight">\(\sin(2\pi f_p t)\)</span>.</p>
+<!-- Schéma d'un démodulateur -->
+<p>Pour terminer, notons que la démodulation cohérente nécessite de connaître parfaitement la fréquence et la phase de la porteuse,
+ce qui peut se faire avec une <a class="reference external" href="https://fr.wikipedia.org/wiki/Boucle_%C3%A0_phase_asservie">boucle à verrouillage de phase</a>
+ou une <a class="reference external" href="https://fr.wikipedia.org/wiki/Circuit_d%C3%A9tecteur_d%27enveloppe">détection d’enveloppe</a>.</p>
+<p><a class="exercise btn btn-light" href="td.html#exercice-7" role="button">7</a></p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./modulation"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="bande-de-base.html"
+       title="page précédente">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">précédent</p>
+        <p class="prev-next-title">Modulation en bande de base</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="td.html"
+       title="page suivante">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">suivant</p>
+        <p class="prev-next-title">Excercices sur feuille</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contenu
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modulation">Modulation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modulation-a-deplacement-d-amplitude">Modulation à déplacement d’amplitude</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modulation-a-deplacement-de-phase">Modulation à déplacement de phase</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modulation-d-amplitude-en-quadrature">Modulation d’amplitude en quadrature</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#demodulation-en-presence-de-bruit">Démodulation en présence de bruit</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Par Vincent Mazet (Université de Strasbourg, France)
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023-2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  Traitement du signal 2 &mdash; Vincent Mazet (Université de Strasbourg), 2020-2024 &mdash; <a href='licence.html'>CC BY-NC 4.0</a>.
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

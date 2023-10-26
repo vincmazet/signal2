@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Exercices sur feuille &#8212; Traitement du signal 2</title>
   
@@ -46,6 +46,7 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -63,8 +64,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'revisions/td';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Recherche" href="../search.html" />
@@ -161,10 +162,10 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="tp.html">Exercices sur machine</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="tpc1.html">✐ Représentation d’un signal</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tpc2.html">✐ Transformée de Fourier discrète</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tpc3.html">✐ Analyse spectrale</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tpc4.html">✐ Produit de convolution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tpc1.html">Représentation d’un signal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tpc2.html">Transformée de Fourier discrète</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tpc3.html">Analyse spectrale</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tpc4.html">Produit de convolution</a></li>
 </ul>
 </li>
 </ul>
@@ -181,8 +182,20 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../filtrage/analogiques.html">Filtres analogiques</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../filtrage/td.html">Exercices sur feuille</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../filtrage/td.html">Exercices sur feuille</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../filtrage/tdc.html">Corrections</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../filtrage/tp.html">Exercices sur machine</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Modulation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../modulation/intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulation/analogique.html">Modulation analogique</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulation/bande-de-base.html">Modulation en bande de base</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulation/porteuse.html">Modulation sur porteuse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulation/td.html">Excercices sur feuille</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulation/tp.html">Exercices sur machine</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Traitement statistique du signal</span></p>
 <ul class="nav bd-sidenav">
@@ -377,22 +390,22 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="exercices-sur-feuille">
-<h1>Exercices sur feuille<a class="headerlink" href="#exercices-sur-feuille" title="Lien permanent vers ce titre">#</a></h1>
+<h1>Exercices sur feuille<a class="headerlink" href="#exercices-sur-feuille" title="Lien permanent vers cette rubrique">#</a></h1>
 <p>Cette première séance a pour but de reprendre les <a class="reference external" href="https://vincmazet.github.io/signal1/">notions étudiées en première année</a>
 et de se remettre dans le bain…</p>
 <section id="signaux-elementaires">
-<h2>Signaux élémentaires<a class="headerlink" href="#signaux-elementaires" title="Lien permanent vers ce titre">#</a></h2>
+<h2>Signaux élémentaires<a class="headerlink" href="#signaux-elementaires" title="Lien permanent vers cette rubrique">#</a></h2>
 <section id="exercice-1">
-<h3>Exercice 1<a class="headerlink" href="#exercice-1" title="Lien permanent vers ce titre">#</a></h3>
+<h3>Exercice 1<a class="headerlink" href="#exercice-1" title="Lien permanent vers cette rubrique">#</a></h3>
 <p>Donnez des exemples concrets de signaux échantillonnés, de signaux à temps continu,
 de signaux quantifiés, de signaux analogiques et de signaux numériques.</p>
 </section>
 <section id="exercice-2">
-<h3>Exercice 2<a class="headerlink" href="#exercice-2" title="Lien permanent vers ce titre">#</a></h3>
+<h3>Exercice 2<a class="headerlink" href="#exercice-2" title="Lien permanent vers cette rubrique">#</a></h3>
 <p>Qu’est-ce qu’un signal causal ?</p>
 </section>
 <section id="exercice-3">
-<h3>Exercice 3<a class="headerlink" href="#exercice-3" title="Lien permanent vers ce titre">#</a></h3>
+<h3>Exercice 3<a class="headerlink" href="#exercice-3" title="Lien permanent vers cette rubrique">#</a></h3>
 <p>Donnez la définition mathématique des signaux suivants puis représentez-les :</p>
 <ul class="simple">
 <li><p>un échelon,</p></li>
@@ -403,7 +416,7 @@ de signaux quantifiés, de signaux analogiques et de signaux numériques.</p>
 </ul>
 </section>
 <section id="exercice-4">
-<h3>Exercice 4<a class="headerlink" href="#exercice-4" title="Lien permanent vers ce titre">#</a></h3>
+<h3>Exercice 4<a class="headerlink" href="#exercice-4" title="Lien permanent vers cette rubrique">#</a></h3>
 <p>Représentez les signaux</p>
 <div class="math notranslate nohighlight">
 \[
@@ -413,7 +426,7 @@ y(t) = 2\,\delta(t-1) - \delta(t+1).
 \]</div>
 </section>
 <section id="exercice-5">
-<h3>Exercice 5<a class="headerlink" href="#exercice-5" title="Lien permanent vers ce titre">#</a></h3>
+<h3>Exercice 5<a class="headerlink" href="#exercice-5" title="Lien permanent vers cette rubrique">#</a></h3>
 <p>Donnez la définition du sinus cardinal.
 Parmi les signaux suivants, lequel pourrait correspondre à <span class="math notranslate nohighlight">\(\mathrm{sinc}(t)\)</span> ?</p>
 <figure class="align-default" id="f-quatre-sinc">
@@ -421,9 +434,9 @@ Parmi les signaux suivants, lequel pourrait correspondre à <span class="math no
 </section>
 </section>
 <section id="produit-de-convolution">
-<h2>Produit de convolution<a class="headerlink" href="#produit-de-convolution" title="Lien permanent vers ce titre">#</a></h2>
+<h2>Produit de convolution<a class="headerlink" href="#produit-de-convolution" title="Lien permanent vers cette rubrique">#</a></h2>
 <section id="exercice-6">
-<h3>Exercice 6<a class="headerlink" href="#exercice-6" title="Lien permanent vers ce titre">#</a></h3>
+<h3>Exercice 6<a class="headerlink" href="#exercice-6" title="Lien permanent vers cette rubrique">#</a></h3>
 <p>Calculez le produit de convolution <span class="math notranslate nohighlight">\((x*y)[n]\)</span> où (<span class="math notranslate nohighlight">\(a\in\mathbb{R}\)</span>) :</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -442,7 +455,7 @@ y[n] =
 \end{split}\]</div>
 </section>
 <section id="exercice-7">
-<h3>Exercice 7<a class="headerlink" href="#exercice-7" title="Lien permanent vers ce titre">#</a></h3>
+<h3>Exercice 7<a class="headerlink" href="#exercice-7" title="Lien permanent vers cette rubrique">#</a></h3>
 <p>Représentez schématiquement les produits de convolution des signaux ci-dessous.</p>
 <ul class="simple">
 <li><p>A :</p></li>
@@ -461,7 +474,7 @@ y[n] =
 <img alt="../_images/conv-3.svg" src="../_images/conv-3.svg" /></figure>
 </section>
 <section id="exercice-8">
-<h3>Exercice 8<a class="headerlink" href="#exercice-8" title="Lien permanent vers ce titre">#</a></h3>
+<h3>Exercice 8<a class="headerlink" href="#exercice-8" title="Lien permanent vers cette rubrique">#</a></h3>
 <p>Simplifiez les expressions suivantes :</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\((x*d_0)(t)\;\)</span>   où : <span class="math notranslate nohighlight">\(\quad d_0(t) = \delta(t-\tau)\;\)</span> et <span class="math notranslate nohighlight">\(\;x(t)\)</span> est un signal quelconque.</p></li>
@@ -470,9 +483,9 @@ y[n] =
 </section>
 </section>
 <section id="analyse-de-fourier">
-<h2>Analyse de Fourier<a class="headerlink" href="#analyse-de-fourier" title="Lien permanent vers ce titre">#</a></h2>
+<h2>Analyse de Fourier<a class="headerlink" href="#analyse-de-fourier" title="Lien permanent vers cette rubrique">#</a></h2>
 <section id="exercice-9">
-<h3>Exercice 9<a class="headerlink" href="#exercice-9" title="Lien permanent vers ce titre">#</a></h3>
+<h3>Exercice 9<a class="headerlink" href="#exercice-9" title="Lien permanent vers cette rubrique">#</a></h3>
 <p>Le signal défini ci-dessous est-il continu ou discret ? périodique ou apériodique ?
 Calculez sa transformée de Fourier.</p>
 <div class="math notranslate nohighlight">
@@ -485,7 +498,7 @@ x(t) = A\,\mathrm{rect}(2t/T) =
 \end{split}\]</div>
 </section>
 <section id="exercice-10">
-<h3>Exercice 10<a class="headerlink" href="#exercice-10" title="Lien permanent vers ce titre">#</a></h3>
+<h3>Exercice 10<a class="headerlink" href="#exercice-10" title="Lien permanent vers cette rubrique">#</a></h3>
 <ul class="simple">
 <li><p>Rappelez le théorème de l’échantillonnage (ou théorème de Nyquist-Shannon).</p></li>
 <li><p>Le contenu fréquentiel d’un signal analogique <span class="math notranslate nohighlight">\(x\)</span> est situé dans la bande <span class="math notranslate nohighlight">\([0, 100]\)</span> Hz.
@@ -497,17 +510,17 @@ Quel signal obtient-on après échantillonnage ?</p></li>
 </ul>
 </section>
 <section id="exercice-11">
-<h3>Exercice 11<a class="headerlink" href="#exercice-11" title="Lien permanent vers ce titre">#</a></h3>
+<h3>Exercice 11<a class="headerlink" href="#exercice-11" title="Lien permanent vers cette rubrique">#</a></h3>
 <p>Quel est, intuitivement, le spectre d’un signal temporel constant ?
 En déduire le spectre d’une impulsion de Dirac centrée en 0.
 Qu’en concluez-vous sur la composition fréquentielle d’une impulsion de Dirac ?</p>
 </section>
 <section id="exercice-12">
-<h3>Exercice 12<a class="headerlink" href="#exercice-12" title="Lien permanent vers ce titre">#</a></h3>
+<h3>Exercice 12<a class="headerlink" href="#exercice-12" title="Lien permanent vers cette rubrique">#</a></h3>
 <p>La transformée de Fourier discrète est-elle périodique ? à support continu ? à valeurs réelles ?</p>
 </section>
 <section id="exercice-13">
-<h3>Exercice 13<a class="headerlink" href="#exercice-13" title="Lien permanent vers ce titre">#</a></h3>
+<h3>Exercice 13<a class="headerlink" href="#exercice-13" title="Lien permanent vers cette rubrique">#</a></h3>
 <p>Représentez le spectre de <span class="math notranslate nohighlight">\(\cos(t)\)</span> sans calculer sa série de Fourier.</p>
 </section>
 </section>

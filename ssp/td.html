@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Exercices sur feuille &#8212; Traitement du signal 2</title>
   
@@ -46,6 +46,7 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -63,8 +64,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'ssp/td';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Recherche" href="../search.html" />
@@ -161,10 +162,10 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../revisions/tp.html">Exercices sur machine</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc1.html">✐ Représentation d’un signal</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc2.html">✐ Transformée de Fourier discrète</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc3.html">✐ Analyse spectrale</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc4.html">✐ Produit de convolution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc1.html">Représentation d’un signal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc2.html">Transformée de Fourier discrète</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc3.html">Analyse spectrale</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc4.html">Produit de convolution</a></li>
 </ul>
 </li>
 </ul>
@@ -181,8 +182,20 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../filtrage/analogiques.html">Filtres analogiques</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../filtrage/td.html">Exercices sur feuille</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../filtrage/td.html">Exercices sur feuille</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../filtrage/tdc.html">Corrections</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../filtrage/tp.html">Exercices sur machine</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Modulation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../modulation/intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulation/analogique.html">Modulation analogique</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulation/bande-de-base.html">Modulation en bande de base</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulation/porteuse.html">Modulation sur porteuse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulation/td.html">Excercices sur feuille</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulation/tp.html">Exercices sur machine</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Traitement statistique du signal</span></p>
 <ul class="current nav bd-sidenav">
@@ -371,15 +384,15 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="exercices-sur-feuille">
-<span id="c-td-ssp"></span><h1>Exercices sur feuille<a class="headerlink" href="#exercices-sur-feuille" title="Lien permanent vers ce titre">#</a></h1>
+<span id="c-td-ssp"></span><h1>Exercices sur feuille<a class="headerlink" href="#exercices-sur-feuille" title="Lien permanent vers cette rubrique">#</a></h1>
 <section id="rappels-de-probabilite">
-<h2>Rappels de probabilité<a class="headerlink" href="#rappels-de-probabilite" title="Lien permanent vers ce titre">#</a></h2>
+<h2>Rappels de probabilité<a class="headerlink" href="#rappels-de-probabilite" title="Lien permanent vers cette rubrique">#</a></h2>
 <section id="exercice-1">
-<h3>Exercice 1<a class="headerlink" href="#exercice-1" title="Lien permanent vers ce titre">#</a></h3>
+<h3>Exercice 1<a class="headerlink" href="#exercice-1" title="Lien permanent vers cette rubrique">#</a></h3>
 <p>Calculez l’espérance et l’écart-type d’une variable aléatoire distribuée suivant une loi uniforme <span class="math notranslate nohighlight">\(\ \mathcal{U}[0\ ; 1]\)</span>.</p>
 </section>
 <section id="exercice-2">
-<h3>Exercice 2<a class="headerlink" href="#exercice-2" title="Lien permanent vers ce titre">#</a></h3>
+<h3>Exercice 2<a class="headerlink" href="#exercice-2" title="Lien permanent vers cette rubrique">#</a></h3>
 <p>Calculez une estimation de l’espérance et de l’écart-type de la série de <span class="math notranslate nohighlight">\(N=4\)</span> échantillons ci-dessous :</p>
 <div class="math notranslate nohighlight">
 \[
@@ -388,9 +401,9 @@ document.write(`
 </section>
 </section>
 <section id="le-bruit-dans-les-signaux">
-<h2>Le bruit dans les signaux<a class="headerlink" href="#le-bruit-dans-les-signaux" title="Lien permanent vers ce titre">#</a></h2>
+<h2>Le bruit dans les signaux<a class="headerlink" href="#le-bruit-dans-les-signaux" title="Lien permanent vers cette rubrique">#</a></h2>
 <section id="exercice-3">
-<h3>Exercice 3<a class="headerlink" href="#exercice-3" title="Lien permanent vers ce titre">#</a></h3>
+<h3>Exercice 3<a class="headerlink" href="#exercice-3" title="Lien permanent vers cette rubrique">#</a></h3>
 <p>Un signal à temps discret <span class="math notranslate nohighlight">\(x\)</span> est bruité par un bruit blanc gaussien additif.</p>
 <ul class="simple">
 <li><p>Quel est le lien entre la puissance du bruit et son écart-type ?</p></li>
@@ -400,9 +413,9 @@ document.write(`
 </section>
 </section>
 <section id="traitement-des-signaux-bruites">
-<h2>Traitement des signaux bruités<a class="headerlink" href="#traitement-des-signaux-bruites" title="Lien permanent vers ce titre">#</a></h2>
+<h2>Traitement des signaux bruités<a class="headerlink" href="#traitement-des-signaux-bruites" title="Lien permanent vers cette rubrique">#</a></h2>
 <section id="exercice-4">
-<h3>Exercice 4<a class="headerlink" href="#exercice-4" title="Lien permanent vers ce titre">#</a></h3>
+<h3>Exercice 4<a class="headerlink" href="#exercice-4" title="Lien permanent vers cette rubrique">#</a></h3>
 <p>On rappelle que le filtre adapté correspond à l’intercorrélation <span class="math notranslate nohighlight">\(R_{yx}\)</span>
 entre un signal observé <span class="math notranslate nohighlight">\(y\)</span> et le motif recherché <span class="math notranslate nohighlight">\(x\)</span>.</p>
 <ul class="simple">
@@ -414,12 +427,12 @@ montrez que l’intercorrélation <span class="math notranslate nohighlight">\(R
 c’est donc bien un filtre dont la réponse impulsionnelle est <span class="math notranslate nohighlight">\(h\)</span>.</p>
 </section>
 <section id="exercice-5">
-<h3>Exercice 5<a class="headerlink" href="#exercice-5" title="Lien permanent vers ce titre">#</a></h3>
+<h3>Exercice 5<a class="headerlink" href="#exercice-5" title="Lien permanent vers cette rubrique">#</a></h3>
 <p>Montrez que le filtre moyenneur peut s’écrire comme une convolution entre le signal observé <span class="math notranslate nohighlight">\(y\)</span>
 et une porte <span class="math notranslate nohighlight">\(h\)</span>.</p>
 </section>
 <section id="exercice-6">
-<h3>Exercice 6<a class="headerlink" href="#exercice-6" title="Lien permanent vers ce titre">#</a></h3>
+<h3>Exercice 6<a class="headerlink" href="#exercice-6" title="Lien permanent vers cette rubrique">#</a></h3>
 <p>On dispose de <span class="math notranslate nohighlight">\(I\)</span> mesures <span class="math notranslate nohighlight">\(y_i\)</span> d’un même signal <span class="math notranslate nohighlight">\(x\)</span> :</p>
 <div class="math notranslate nohighlight">
 \[
@@ -436,7 +449,7 @@ Que valent <span class="math notranslate nohighlight">\(\tilde{x}\)</span> et <s
 </ul>
 </section>
 <section id="exercice-7">
-<h3>Exercice 7<a class="headerlink" href="#exercice-7" title="Lien permanent vers ce titre">#</a></h3>
+<h3>Exercice 7<a class="headerlink" href="#exercice-7" title="Lien permanent vers cette rubrique">#</a></h3>
 <ul class="simple">
 <li><p>Déterminez le polynôme de degré 0 (une constante, donc…) qui approxime au mieux
 les données d’abscisses <span class="math notranslate nohighlight">\(n=[0,\ 1]^T\)</span> et d’ordonnées <span class="math notranslate nohighlight">\(y=[2,\ 3]^T\)</span>.</p></li>

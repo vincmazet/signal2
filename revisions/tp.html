@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Exercices sur machine &#8212; Traitement du signal 2</title>
   
@@ -46,6 +46,7 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -63,8 +64,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'revisions/tp';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Recherche" href="../search.html" />
@@ -181,8 +182,20 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../filtrage/analogiques.html">Filtres analogiques</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../filtrage/td.html">Exercices sur feuille</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../filtrage/td.html">Exercices sur feuille</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../filtrage/tdc.html">Corrections</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../filtrage/tp.html">Exercices sur machine</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Modulation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../modulation/intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulation/analogique.html">Modulation analogique</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulation/bande-de-base.html">Modulation en bande de base</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulation/porteuse.html">Modulation sur porteuse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulation/td.html">Excercices sur feuille</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulation/tp.html">Exercices sur machine</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Traitement statistique du signal</span></p>
 <ul class="nav bd-sidenav">
@@ -359,7 +372,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="exercices-sur-machine">
-<h1>Exercices sur machine<a class="headerlink" href="#exercices-sur-machine" title="Lien permanent vers ce titre">#</a></h1>
+<h1>Exercices sur machine<a class="headerlink" href="#exercices-sur-machine" title="Lien permanent vers cette rubrique">#</a></h1>
 <p>Comme la séance précédente, ce TP est un rappel des notions de première année.</p>
 <p>Ouvrez JupyterLab en tapant dans un terminal :</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">jupyter</span> <span class="n">lab</span>
@@ -368,7 +381,7 @@ document.write(`
 <p>puis créez un nouveau notebook dans lequel vous pourrez donner un titre (en définissant la cellule courante en markdown, et y tapant par exemple <code class="docutils literal notranslate"><span class="pre"># TP 1</span></code>).
 Tapez <code class="docutils literal notranslate"><span class="pre">Shift + Entrée</span></code> pour exécuter la cellule courante et en créer une nouvelle.</p>
 <section id="representation-d-un-signal">
-<h2>Représentation d’un signal<a class="headerlink" href="#representation-d-un-signal" title="Lien permanent vers ce titre">#</a></h2>
+<h2>Représentation d’un signal<a class="headerlink" href="#representation-d-un-signal" title="Lien permanent vers cette rubrique">#</a></h2>
 <p>Représentez entre 0 et 10 s la sinusoïde amortie</p>
 <div class="math notranslate nohighlight">
 \[
@@ -379,7 +392,7 @@ Vous pouvez vous inspirer de l’exemple donné en section <a class="reference i
 Choisissez un pas de temps correct pour obtenir une jolie courbe.</p>
 </section>
 <section id="transformee-de-fourier-discrete">
-<h2>Transformée de Fourier discrète<a class="headerlink" href="#transformee-de-fourier-discrete" title="Lien permanent vers ce titre">#</a></h2>
+<h2>Transformée de Fourier discrète<a class="headerlink" href="#transformee-de-fourier-discrete" title="Lien permanent vers cette rubrique">#</a></h2>
 <p>On considère le signal créneau suivant de période <span class="math notranslate nohighlight">\(N=100\)</span> :</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -400,7 +413,7 @@ On suppose que <span class="math notranslate nohighlight">\(T_e=2,5\)</span> ms
 </ul>
 </section>
 <section id="analyse-spectrale">
-<h2>Analyse spectrale<a class="headerlink" href="#analyse-spectrale" title="Lien permanent vers ce titre">#</a></h2>
+<h2>Analyse spectrale<a class="headerlink" href="#analyse-spectrale" title="Lien permanent vers cette rubrique">#</a></h2>
 <!-- https://opendata.reseaux-energies.fr/explore/dataset/consommation-quotidienne-brute/table/?sort=-date_heure -->
 <p>Le signal <a class="reference external" href="https://vincmazet.github.io/signal2/_static/consommation.csv">consommation.csv</a>
 contient la consommation horaire en gaz (deuxième colonne, en MW) et en électricité (troisième colonne, en MW) en France métropolitaine (hors Corse) de 2012 à 2021.</p>
@@ -412,7 +425,7 @@ contient la consommation horaire en gaz (deuxième colonne, en MW) et en électr
 </ul>
 </section>
 <section id="produit-de-convolution">
-<h2>Produit de convolution<a class="headerlink" href="#produit-de-convolution" title="Lien permanent vers ce titre">#</a></h2>
+<h2>Produit de convolution<a class="headerlink" href="#produit-de-convolution" title="Lien permanent vers cette rubrique">#</a></h2>
 <p>Représentez le produit de convolution <span class="math notranslate nohighlight">\((x*y)[n]\)</span> où :</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}

@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Transformée de Fourier discrète &#8212; Traitement du signal 2</title>
   
@@ -46,6 +46,7 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -63,8 +64,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'revisions/tpc2';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Recherche" href="../search.html" />
@@ -181,8 +182,20 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../filtrage/analogiques.html">Filtres analogiques</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../filtrage/td.html">Exercices sur feuille</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../filtrage/td.html">Exercices sur feuille</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../filtrage/tdc.html">Corrections</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../filtrage/tp.html">Exercices sur machine</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Modulation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../modulation/intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulation/analogique.html">Modulation analogique</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulation/bande-de-base.html">Modulation en bande de base</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulation/porteuse.html">Modulation sur porteuse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulation/td.html">Excercices sur feuille</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulation/tp.html">Exercices sur machine</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Traitement statistique du signal</span></p>
 <ul class="nav bd-sidenav">
@@ -358,7 +371,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="transformee-de-fourier-discrete">
-<h1>Transformée de Fourier discrète<a class="headerlink" href="#transformee-de-fourier-discrete" title="Lien permanent vers ce titre">#</a></h1>
+<h1>Transformée de Fourier discrète<a class="headerlink" href="#transformee-de-fourier-discrete" title="Lien permanent vers cette rubrique">#</a></h1>
 <p>Importation des modules…</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -381,7 +394,13 @@ Attention, les 10 premiers échantillons (de 0 à 9) sont égaux à 1, les suiva
 </div>
 </div>
 <p>On peut vérifier certaines valeurs (l’échantillon <span class="math notranslate nohighlight">\(-1\)</span> correspond au dernier échantillon) :</p>
-<div class="cell tag_remove-input docutils container">
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;x[</span><span class="si">{</span><span class="n">m</span><span class="si">}</span><span class="s2">] = </span><span class="si">{</span><span class="n">x</span><span class="p">[</span><span class="n">m</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x[0] = 1
 x[9] = 1
@@ -408,7 +427,7 @@ x[-1] = 0
 </div>
 </div>
 <section id="tfd-entre-0-et-n-1">
-<h2>TFD entre <span class="math notranslate nohighlight">\(0\)</span> et <span class="math notranslate nohighlight">\(N-1\)</span><a class="headerlink" href="#tfd-entre-0-et-n-1" title="Lien permanent vers ce titre">#</a></h2>
+<h2>TFD entre <span class="math notranslate nohighlight">\(0\)</span> et <span class="math notranslate nohighlight">\(N-1\)</span><a class="headerlink" href="#tfd-entre-0-et-n-1" title="Lien permanent vers cette rubrique">#</a></h2>
 <p>FFT est un algorithme très rapide pour calculer une transformée de Fourier discrète (TFD).
 Il est implémenté en Python dans <code class="docutils literal notranslate"><span class="pre">scipy.fft.fft</span></code>.
 Par défaut, FFT calcule une TFD entre <span class="math notranslate nohighlight">\(0\)</span> et <span class="math notranslate nohighlight">\(N-1\)</span>.
@@ -437,11 +456,16 @@ en forçant à 0 les échantillons de <span class="math notranslate nohighlight"
 </div>
 </div>
 </div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="../_images/9d6a09d0594d8ec4d9c0f88d9ab7888ab01d8c8a3503fa7cc3c2e5fae8d0a92f.png" src="../_images/9d6a09d0594d8ec4d9c0f88d9ab7888ab01d8c8a3503fa7cc3c2e5fae8d0a92f.png" />
+</div>
+</div>
 <p>Le signal temporel étant un créneau, on peut l’interpréter comme un signal porte périodisé.
 Par conséquent, le module de son spectre est bien la TFD d’une porte (un sinus cardinal) périodisé.</p>
 </section>
 <section id="tfd-entre-n-2-et-n-2-1">
-<h2>TFD entre <span class="math notranslate nohighlight">\(-N/2\)</span> et <span class="math notranslate nohighlight">\(N/2-1\)</span><a class="headerlink" href="#tfd-entre-n-2-et-n-2-1" title="Lien permanent vers ce titre">#</a></h2>
+<h2>TFD entre <span class="math notranslate nohighlight">\(-N/2\)</span> et <span class="math notranslate nohighlight">\(N/2-1\)</span><a class="headerlink" href="#tfd-entre-n-2-et-n-2-1" title="Lien permanent vers cette rubrique">#</a></h2>
 <p>Il suffit de redéfinir les abscisses, et d’appliquer <code class="docutils literal notranslate"><span class="pre">scipy.fft.fftshift</span></code> sur le spectre pour inverser les parties gauche et droite.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -458,7 +482,7 @@ Par conséquent, le module de son spectre est bien la TFD d’une porte (un sinu
 </div>
 </section>
 <section id="tfd-centree-en-fonction-des-frequences">
-<h2>TFD centrée en fonction des fréquences<a class="headerlink" href="#tfd-centree-en-fonction-des-frequences" title="Lien permanent vers ce titre">#</a></h2>
+<h2>TFD centrée en fonction des fréquences<a class="headerlink" href="#tfd-centree-en-fonction-des-frequences" title="Lien permanent vers cette rubrique">#</a></h2>
 <p>Dans ce cas, le module et la phase du spectre ne changent pas.
 Seule l’abscisse est à redéfinir.</p>
 <div class="cell docutils container">

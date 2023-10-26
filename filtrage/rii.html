@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Filtres RII &#8212; Traitement du signal 2</title>
   
@@ -46,6 +46,7 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -63,8 +64,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'filtrage/rii';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Recherche" href="../search.html" />
@@ -161,10 +162,10 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../revisions/tp.html">Exercices sur machine</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc1.html">✐ Représentation d’un signal</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc2.html">✐ Transformée de Fourier discrète</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc3.html">✐ Analyse spectrale</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc4.html">✐ Produit de convolution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc1.html">Représentation d’un signal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc2.html">Transformée de Fourier discrète</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc3.html">Analyse spectrale</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc4.html">Produit de convolution</a></li>
 </ul>
 </li>
 </ul>
@@ -181,8 +182,20 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="analogiques.html">Filtres analogiques</a></li>
-<li class="toctree-l1"><a class="reference internal" href="td.html">Exercices sur feuille</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="td.html">Exercices sur feuille</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="tdc.html">Corrections</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="tp.html">Exercices sur machine</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Modulation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../modulation/intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulation/analogique.html">Modulation analogique</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulation/bande-de-base.html">Modulation en bande de base</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulation/porteuse.html">Modulation sur porteuse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulation/td.html">Excercices sur feuille</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulation/tp.html">Exercices sur machine</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Traitement statistique du signal</span></p>
 <ul class="nav bd-sidenav">
@@ -359,9 +372,9 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="filtres-rii">
-<span id="c-filtrage-rii"></span><h1>Filtres RII<a class="headerlink" href="#filtres-rii" title="Lien permanent vers ce titre">#</a></h1>
+<span id="c-filtrage-rii"></span><h1>Filtres RII<a class="headerlink" href="#filtres-rii" title="Lien permanent vers cette rubrique">#</a></h1>
 <section id="reponse-impulsionnelle">
-<h2>Réponse impulsionnelle<a class="headerlink" href="#reponse-impulsionnelle" title="Lien permanent vers ce titre">#</a></h2>
+<h2>Réponse impulsionnelle<a class="headerlink" href="#reponse-impulsionnelle" title="Lien permanent vers cette rubrique">#</a></h2>
 <p>Un filtre RII a une réponse impulsionnelle qui ne s’annule jamais au délà d’un certain échantillon :</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -373,7 +386,7 @@ c_n &amp;\text{si}\, n \geq 0, \\
 \end{split}\]</div>
 </section>
 <section id="fonction-de-transfert">
-<h2>Fonction de transfert<a class="headerlink" href="#fonction-de-transfert" title="Lien permanent vers ce titre">#</a></h2>
+<h2>Fonction de transfert<a class="headerlink" href="#fonction-de-transfert" title="Lien permanent vers cette rubrique">#</a></h2>
 <p>La fonction de transfert d’un filtre RII est de la forme:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -386,7 +399,7 @@ H(z) = \frac{ \sum_{m=0}^M b_m z^{-m} }{ \sum_{n=0}^N a_n z^{-n} }.
 </ul>
 </section>
 <section id="schema-bloc">
-<h2>Schéma bloc<a class="headerlink" href="#schema-bloc" title="Lien permanent vers ce titre">#</a></h2>
+<h2>Schéma bloc<a class="headerlink" href="#schema-bloc" title="Lien permanent vers cette rubrique">#</a></h2>
 <p>Comme pour les filtres RIF, il est possible de représenter les filtres RII sous forme d’un schéma bloc.
 À partir de la fonction de transfert, on peut écrire la sortie en fonction de l’entrée :</p>
 <div class="math notranslate nohighlight">
@@ -417,7 +430,7 @@ On peut donc représenter graphiquement cette équation (rappel : le bloc <span 
 le signal étant indéfiniment réinjecté dans le filtre, la sortie peut être de plus en plus grande.</p>
 </section>
 <section id="transformation-bilineaire">
-<h2>Transformation bilinéaire<a class="headerlink" href="#transformation-bilineaire" title="Lien permanent vers ce titre">#</a></h2>
+<h2>Transformation bilinéaire<a class="headerlink" href="#transformation-bilineaire" title="Lien permanent vers cette rubrique">#</a></h2>
 <p>La transformation bilinéaire est la méthode la plus simple pour concevoir un filtre RII.
 Elle s’applique sur un filtre analogique pour le transformer en filtre numérique.
 De ce fait, l’application de la transformation bilinéaire suit les étapes ci-dessous,

@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Installer et utiliser Python &#8212; Traitement du signal 2</title>
   
@@ -46,6 +46,7 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -63,8 +64,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'annexes/python';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Recherche" href="../search.html" />
@@ -161,10 +162,10 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../revisions/tp.html">Exercices sur machine</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc1.html">✐ Représentation d’un signal</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc2.html">✐ Transformée de Fourier discrète</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc3.html">✐ Analyse spectrale</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc4.html">✐ Produit de convolution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc1.html">Représentation d’un signal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc2.html">Transformée de Fourier discrète</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc3.html">Analyse spectrale</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc4.html">Produit de convolution</a></li>
 </ul>
 </li>
 </ul>
@@ -181,8 +182,20 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../filtrage/analogiques.html">Filtres analogiques</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../filtrage/td.html">Exercices sur feuille</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../filtrage/td.html">Exercices sur feuille</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../filtrage/tdc.html">Corrections</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../filtrage/tp.html">Exercices sur machine</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Modulation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../modulation/intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulation/analogique.html">Modulation analogique</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulation/bande-de-base.html">Modulation en bande de base</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulation/porteuse.html">Modulation sur porteuse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulation/td.html">Excercices sur feuille</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulation/tp.html">Exercices sur machine</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Traitement statistique du signal</span></p>
 <ul class="nav bd-sidenav">
@@ -362,7 +375,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="installer-et-utiliser-python">
-<span id="c-python"></span><h1>Installer et utiliser Python<a class="headerlink" href="#installer-et-utiliser-python" title="Lien permanent vers ce titre">#</a></h1>
+<span id="c-python"></span><h1>Installer et utiliser Python<a class="headerlink" href="#installer-et-utiliser-python" title="Lien permanent vers cette rubrique">#</a></h1>
 <p>Python est un langage moderne et de haut niveau qui est de plus en plus utilisé dans l’industrie et les disciplines scientifiques.
 Cette page décrit comment :</p>
 <ul class="simple">
@@ -371,7 +384,7 @@ Cette page décrit comment :</p>
 <li><p>utiliser des modules additionnels et commencer à programmer.</p></li>
 </ul>
 <section id="installation">
-<h2>Installation<a class="headerlink" href="#installation" title="Lien permanent vers ce titre">#</a></h2>
+<h2>Installation<a class="headerlink" href="#installation" title="Lien permanent vers cette rubrique">#</a></h2>
 <p>Anaconda est une distribution Python spécialisée notamment dans la science des données et l’apprentissage machine.
 Pour un usage individuel, elle est gratuite et suffisante pour effectuer les TP de traitement du signal.
 <a class="reference external" href="https://www.anaconda.com/products/individual">Téléchargez</a> et installer Anaconda si Python n’est pas déjà présent sur votre ordinateur.
@@ -380,13 +393,13 @@ Attention, choisissez la version 3 (ou supérieure) de Python !</p>
 Anaconda propose un environnement de développement pour écrire des programmes appelé
 <a class="reference external" href="https://jupyterlab.readthedocs.io/en/latest/index.html">JupyterLab</a>.
 C’est un logiciel libre et très moderne pour écrire des notebooks.</p>
-<p>La <a class="reference internal" href="#f-python-jupyterlab"><span class="std std-numref">figure 39</span></a> montre l’interface de JupyterLab :
+<p>La <a class="reference internal" href="#f-python-jupyterlab"><span class="std std-numref">figure 42</span></a> montre l’interface de JupyterLab :
 elle est suffisamment intuitive pour se débrouiller sans aide, mais vous pouvez toujours consulter
 <a class="reference external" href="https://jupyterlab.readthedocs.io/en/latest/user/interface.html">cette page</a> pour en savoir plus.</p>
 <figure class="align-default" id="f-python-jupyterlab">
 <img alt="https://jupyterlab.readthedocs.io/en/latest/_images/jupyterlab.png" src="https://jupyterlab.readthedocs.io/en/latest/_images/jupyterlab.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 39 </span><span class="caption-text">JupyterLab.</span><a class="headerlink" href="#f-python-jupyterlab" title="Lien permanent vers cette image">#</a></p>
+<p><span class="caption-number">Fig. 42 </span><span class="caption-text">JupyterLab.</span><a class="headerlink" href="#f-python-jupyterlab" title="Lien permanent vers cette image">#</a></p>
 </figcaption>
 </figure>
 <p>Normalement, JupyterLab est inclus dans l’installation d’Anaconda.
@@ -394,14 +407,14 @@ Mais si ce n’est pas le cas, vous trouverez les instructions pour installer Ju
 <p>Pour ouvrir JupyterLab, tapez dans un terminal <code class="docutils literal notranslate"><span class="pre">jupyter lab</span></code> ou <code class="docutils literal notranslate"><span class="pre">jupyter-lab</span></code>.</p>
 </section>
 <section id="notebooks-python">
-<span id="c-python-notebook"></span><h2>Notebooks Python<a class="headerlink" href="#notebooks-python" title="Lien permanent vers ce titre">#</a></h2>
+<span id="c-python-notebook"></span><h2>Notebooks Python<a class="headerlink" href="#notebooks-python" title="Lien permanent vers cette rubrique">#</a></h2>
 <p>Après avoir installé Anaconda, vous êtes prêt à écrire et exécuter des notebooks Python !
 Un <a class="reference external" href="https://jupyterlab.readthedocs.io/en/latest/user/notebook.html">notebook</a> est un fichier contenant du code, mais également les résultats produits par ce code (comme des valeurs numériques ou des images) et du texte qui accompagnera le code.
 Un notebook est divisé en <em>cellules</em> qui peuvent être de deux types : « code » ou « markdown ».
 En appuyant sur <code class="docutils literal notranslate"><span class="pre">Ctrl + Entrée</span></code> dans une cellule, le code de celle-ci (et uniquement de celle-ci) est exécuté.
 Si à la place vous appuyez sur <code class="docutils literal notranslate"><span class="pre">Shift + Entrée</span></code>, alors le code de la cellule courante est exécuté et le curseur passe sur la cellule suivante.</p>
 <section id="cellules-de-code">
-<h3>Cellules de code<a class="headerlink" href="#cellules-de-code" title="Lien permanent vers ce titre">#</a></h3>
+<h3>Cellules de code<a class="headerlink" href="#cellules-de-code" title="Lien permanent vers cette rubrique">#</a></h3>
 <p>Les cellules contiennent par défaut du code Python (<em>input</em>) et le résultat (<em>output</em>).</p>
 <p>Par exemple le code (<em>input</em>) suivant :</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">21</span>
@@ -416,7 +429,7 @@ Si à la place vous appuyez sur <code class="docutils literal notranslate"><span
 </div>
 </section>
 <section id="cellules-markdown">
-<h3>Cellules Markdown<a class="headerlink" href="#cellules-markdown" title="Lien permanent vers ce titre">#</a></h3>
+<h3>Cellules Markdown<a class="headerlink" href="#cellules-markdown" title="Lien permanent vers cette rubrique">#</a></h3>
 <p>Il est possible de changer une cellule de « code » en cellule « markdown » en sélectionnant <em>Markdown</em> dans la liste déroulante de la barre d’outils.
 Le <a class="reference external" href="https://en.wikipedia.org/wiki/Markdown">Markdown</a> est aussi un langage informatique, mais il sert à mettre en forme du texte (par exemple en écrivant des titres, des listes, des équations…).
 Cela peut être utile pour ajouter des notes et commenter votre code et ses résultats.</p>
@@ -462,7 +475,7 @@ où :
 </section>
 </section>
 <section id="ecrire-un-programme-python">
-<span id="c-python-python"></span><h2>Écrire un programme Python<a class="headerlink" href="#ecrire-un-programme-python" title="Lien permanent vers ce titre">#</a></h2>
+<span id="c-python-python"></span><h2>Écrire un programme Python<a class="headerlink" href="#ecrire-un-programme-python" title="Lien permanent vers cette rubrique">#</a></h2>
 <p>Le cœur du langage Python ne dispose pas de toutes les fonctions utiles pour la programmation scientifique, et en particulier le traitement du signal.
 Il est donc nécessaire d’importer des modules dans votre code (normalement, ces modules sont installés avec Anaconda).
 En général, nous n’utiliserons que deux modules :</p>

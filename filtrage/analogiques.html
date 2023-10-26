@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Filtres analogiques &#8212; Traitement du signal 2</title>
   
@@ -46,6 +46,7 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -63,8 +64,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'filtrage/analogiques';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Recherche" href="../search.html" />
@@ -161,10 +162,10 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../revisions/tp.html">Exercices sur machine</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc1.html">✐ Représentation d’un signal</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc2.html">✐ Transformée de Fourier discrète</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc3.html">✐ Analyse spectrale</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc4.html">✐ Produit de convolution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc1.html">Représentation d’un signal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc2.html">Transformée de Fourier discrète</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc3.html">Analyse spectrale</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc4.html">Produit de convolution</a></li>
 </ul>
 </li>
 </ul>
@@ -181,8 +182,20 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Filtres analogiques</a></li>
-<li class="toctree-l1"><a class="reference internal" href="td.html">Exercices sur feuille</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="td.html">Exercices sur feuille</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="tdc.html">Corrections</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="tp.html">Exercices sur machine</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Modulation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../modulation/intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulation/analogique.html">Modulation analogique</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulation/bande-de-base.html">Modulation en bande de base</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulation/porteuse.html">Modulation sur porteuse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulation/td.html">Excercices sur feuille</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulation/tp.html">Exercices sur machine</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Traitement statistique du signal</span></p>
 <ul class="nav bd-sidenav">
@@ -357,7 +370,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="filtres-analogiques">
-<span id="c-filtrage-analogiques"></span><h1>Filtres analogiques<a class="headerlink" href="#filtres-analogiques" title="Lien permanent vers ce titre">#</a></h1>
+<span id="c-filtrage-analogiques"></span><h1>Filtres analogiques<a class="headerlink" href="#filtres-analogiques" title="Lien permanent vers cette rubrique">#</a></h1>
 <p>Malgré le développement incontestable du traitement numérique du signal, le filtrage analogique reste incontournable.
 En effet, les signaux à filtrer peuvent être analogiques,
 mais on peut également citer les filtres anti-repliement pour réduire la bande passante d’un signal analogique,
@@ -365,7 +378,7 @@ ou le fait que la conception de certains filtres numériques nécessite de défi
 <p>Les premiers développements de filtres analogiques sont expérimentaux et datent du début du XX<sup>e</sup> siècle avec la téléphonie.
 Les premières théories ont été développées dans les années 1930–1940.</p>
 <section id="synthese-des-filtres-analogiques">
-<h2>Synthèse des filtres analogiques<a class="headerlink" href="#synthese-des-filtres-analogiques" title="Lien permanent vers ce titre">#</a></h2>
+<h2>Synthèse des filtres analogiques<a class="headerlink" href="#synthese-des-filtres-analogiques" title="Lien permanent vers cette rubrique">#</a></h2>
 <p>Comme on l’a vu précédemment (cf. <a class="reference internal" href="laplace.html#s-laplace-inverse"><span class="std std-ref">Transformée de Laplace inverse</span></a>), on ne peut pas construire de filtre idéal pour une application temps réel.
 Les fonctions de transfert des filtres analogiques classiques s’écrivent sous la forme d’une fraction rationnelle
 et ne peuvent qu’approximer le gain d’un filtre idéal :</p>
@@ -417,7 +430,7 @@ et la transformation était effectuée à l’aide de calculs.
 Désormais, des programmes déterminent directement les coefficients du filtre attendus à partir du gabarit souhaité.</p>
 </section>
 <section id="reponses-standards">
-<h2>Réponses standards<a class="headerlink" href="#reponses-standards" title="Lien permanent vers ce titre">#</a></h2>
+<h2>Réponses standards<a class="headerlink" href="#reponses-standards" title="Lien permanent vers cette rubrique">#</a></h2>
 <p>Outre la définition du gabarit, il reste à choisir la famille du filtre à synthétiser.
 Les cinq principales familles sont détaillées ci-après,
 à noter qu’il existe deux types de filtre de Tchebychev (Chebyshev en anglais) : le type I et le type II.</p>

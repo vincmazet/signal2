@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Corrections &#8212; Traitement du signal 2</title>
   
@@ -46,6 +46,7 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -63,8 +64,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'revisions/tdc';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Recherche" href="../search.html" />
@@ -161,10 +162,10 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="tp.html">Exercices sur machine</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="tpc1.html">✐ Représentation d’un signal</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tpc2.html">✐ Transformée de Fourier discrète</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tpc3.html">✐ Analyse spectrale</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tpc4.html">✐ Produit de convolution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tpc1.html">Représentation d’un signal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tpc2.html">Transformée de Fourier discrète</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tpc3.html">Analyse spectrale</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tpc4.html">Produit de convolution</a></li>
 </ul>
 </li>
 </ul>
@@ -181,8 +182,20 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../filtrage/analogiques.html">Filtres analogiques</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../filtrage/td.html">Exercices sur feuille</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../filtrage/td.html">Exercices sur feuille</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../filtrage/tdc.html">Corrections</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../filtrage/tp.html">Exercices sur machine</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Modulation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../modulation/intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulation/analogique.html">Modulation analogique</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulation/bande-de-base.html">Modulation en bande de base</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulation/porteuse.html">Modulation sur porteuse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulation/td.html">Excercices sur feuille</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulation/tp.html">Exercices sur machine</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Traitement statistique du signal</span></p>
 <ul class="nav bd-sidenav">
@@ -377,11 +390,11 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="corrections">
-<h1>Corrections<a class="headerlink" href="#corrections" title="Lien permanent vers ce titre">#</a></h1>
+<h1>Corrections<a class="headerlink" href="#corrections" title="Lien permanent vers cette rubrique">#</a></h1>
 <section id="signaux-elementaires">
-<h2>Signaux élémentaires<a class="headerlink" href="#signaux-elementaires" title="Lien permanent vers ce titre">#</a></h2>
+<h2>Signaux élémentaires<a class="headerlink" href="#signaux-elementaires" title="Lien permanent vers cette rubrique">#</a></h2>
 <section id="exercice-1">
-<h3>Exercice 1<a class="headerlink" href="#exercice-1" title="Lien permanent vers ce titre">#</a></h3>
+<h3>Exercice 1<a class="headerlink" href="#exercice-1" title="Lien permanent vers cette rubrique">#</a></h3>
 <ul class="simple">
 <li><p>Exemples de signal échantillonné :
 la température de l’air au lever du soleil
@@ -404,13 +417,13 @@ ou tout autre signal numérique.</p></li>
 </ul>
 </section>
 <section id="exercice-2">
-<h3>Exercice 2<a class="headerlink" href="#exercice-2" title="Lien permanent vers ce titre">#</a></h3>
+<h3>Exercice 2<a class="headerlink" href="#exercice-2" title="Lien permanent vers cette rubrique">#</a></h3>
 <p>Un <a class="reference external" href="https://vincmazet.github.io/signal1/notions/proprietes-des-signaux.html#causalite">signal causal</a>
 st un signal <span class="math notranslate nohighlight">\(x(t)\)</span> nul pour <span class="math notranslate nohighlight">\(t&lt;0\)</span>.
 La propriété est équivalente pour les signaux numériques.</p>
 </section>
 <section id="exercice-3">
-<h3>Exercice 3<a class="headerlink" href="#exercice-3" title="Lien permanent vers ce titre">#</a></h3>
+<h3>Exercice 3<a class="headerlink" href="#exercice-3" title="Lien permanent vers cette rubrique">#</a></h3>
 <p>Échelon (ou fonction de Heaviside) :</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -451,21 +464,21 @@ La propriété est équivalente pour les signaux numériques.</p>
 <img alt="../_images/peigne.svg" src="../_images/peigne.svg" /></figure>
 </section>
 <section id="exercice-4">
-<h3>Exercice 4<a class="headerlink" href="#exercice-4" title="Lien permanent vers ce titre">#</a></h3>
+<h3>Exercice 4<a class="headerlink" href="#exercice-4" title="Lien permanent vers cette rubrique">#</a></h3>
 <figure class="align-default">
 <img alt="../_images/signal-x.svg" src="../_images/signal-x.svg" /></figure>
 <figure class="align-default">
 <img alt="../_images/signal-y.svg" src="../_images/signal-y.svg" /></figure>
 </section>
 <section id="exercice-5">
-<h3>Exercice 5<a class="headerlink" href="#exercice-5" title="Lien permanent vers ce titre">#</a></h3>
+<h3>Exercice 5<a class="headerlink" href="#exercice-5" title="Lien permanent vers cette rubrique">#</a></h3>
 <p>A est un sinus cardinal.</p>
 </section>
 </section>
 <section id="produit-de-convolution">
-<h2>Produit de convolution<a class="headerlink" href="#produit-de-convolution" title="Lien permanent vers ce titre">#</a></h2>
+<h2>Produit de convolution<a class="headerlink" href="#produit-de-convolution" title="Lien permanent vers cette rubrique">#</a></h2>
 <section id="exercice-6">
-<h3>Exercice 6<a class="headerlink" href="#exercice-6" title="Lien permanent vers ce titre">#</a></h3>
+<h3>Exercice 6<a class="headerlink" href="#exercice-6" title="Lien permanent vers cette rubrique">#</a></h3>
 <p>D’après la définition du produit de convolution,
 et comme le signal <span class="math notranslate nohighlight">\(x\)</span> est nul presque partout (sauf aux échantillons <span class="math notranslate nohighlight">\(n=1\)</span> et <span class="math notranslate nohighlight">\(n=-1\)</span>),
 alors :</p>
@@ -525,7 +538,7 @@ Ainsi :</p>
 \end{split}\]</div>
 </section>
 <section id="exercice-7">
-<h3>Exercice 7<a class="headerlink" href="#exercice-7" title="Lien permanent vers ce titre">#</a></h3>
+<h3>Exercice 7<a class="headerlink" href="#exercice-7" title="Lien permanent vers cette rubrique">#</a></h3>
 <ul class="simple">
 <li><p>A :</p></li>
 </ul>
@@ -546,7 +559,7 @@ Ainsi :</p>
 </figure>
 </section>
 <section id="exercice-8">
-<h3>Exercice 8<a class="headerlink" href="#exercice-8" title="Lien permanent vers ce titre">#</a></h3>
+<h3>Exercice 8<a class="headerlink" href="#exercice-8" title="Lien permanent vers cette rubrique">#</a></h3>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\((x*d_0)(t) = x(t) * \delta(t-\tau) = x(t-\tau)\)</span>.</p></li>
 <li><p><span class="math notranslate nohighlight">\((d_1*d_2)(t) = \delta(t+t_1) * \delta(t+t_2) = \delta(t+t_1+t_2)\)</span>.</p></li>
@@ -554,9 +567,9 @@ Ainsi :</p>
 </section>
 </section>
 <section id="analyse-de-fourier">
-<h2>Analyse de Fourier<a class="headerlink" href="#analyse-de-fourier" title="Lien permanent vers ce titre">#</a></h2>
+<h2>Analyse de Fourier<a class="headerlink" href="#analyse-de-fourier" title="Lien permanent vers cette rubrique">#</a></h2>
 <section id="exercice-9">
-<h3>Exercice 9<a class="headerlink" href="#exercice-9" title="Lien permanent vers ce titre">#</a></h3>
+<h3>Exercice 9<a class="headerlink" href="#exercice-9" title="Lien permanent vers cette rubrique">#</a></h3>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 X(f) &amp;= \int_{-\infty}^{+\infty} A\,\mathrm{rect}(2t/T) e^{-j2\pi f t} \,dt \\
@@ -571,7 +584,7 @@ X(f) &amp;= \int_{-\infty}^{+\infty} A\,\mathrm{rect}(2t/T) e^{-j2\pi f t} \,dt 
 \end{split}\]</div>
 </section>
 <section id="exercice-10">
-<h3>Exercice 10<a class="headerlink" href="#exercice-10" title="Lien permanent vers ce titre">#</a></h3>
+<h3>Exercice 10<a class="headerlink" href="#exercice-10" title="Lien permanent vers cette rubrique">#</a></h3>
 <p>Un signal constant est équivalent à une unique exponentielle complexe de fréquence nulle.
 Son spectre est donc une unique impulsion de Dirac à la fréquence nulle.</p>
 <p>Par dualité, le spectre d’une impulsion de Dirac centrée en 0 et un spectre constant.</p>
@@ -579,12 +592,12 @@ Son spectre est donc une unique impulsion de Dirac à la fréquence nulle.</p>
 donc en puissances égales.</p>
 </section>
 <section id="exercice-11">
-<h3>Exercice 11<a class="headerlink" href="#exercice-11" title="Lien permanent vers ce titre">#</a></h3>
+<h3>Exercice 11<a class="headerlink" href="#exercice-11" title="Lien permanent vers cette rubrique">#</a></h3>
 <p>La transformée de Fourier discrète est périodique, à support discret et valeurs complexes.
 Elle peut être réelle dans le cas particulier ou le signal temporel est pair.</p>
 </section>
 <section id="exercice-12">
-<h3>Exercice 12<a class="headerlink" href="#exercice-12" title="Lien permanent vers ce titre">#</a></h3>
+<h3>Exercice 12<a class="headerlink" href="#exercice-12" title="Lien permanent vers cette rubrique">#</a></h3>
 <p>Puisque <span class="math notranslate nohighlight">\(\cos(t) = (e^{jt}+e^{-jt})/2\)</span> (forume d’Euler),
 alors son spectre (qui rappelons-le est la décomposition en exponentielles complexes du signal)
 est :</p>
@@ -593,7 +606,7 @@ est :</p>
 </figure>
 </section>
 <section id="exercice-13">
-<h3>Exercice 13<a class="headerlink" href="#exercice-13" title="Lien permanent vers ce titre">#</a></h3>
+<h3>Exercice 13<a class="headerlink" href="#exercice-13" title="Lien permanent vers cette rubrique">#</a></h3>
 <p>Le théorème de l’échantillonnage dit que,
 pour qu’un signal à temps continu <span class="math notranslate nohighlight">\(x(t)\)</span> soit déterminé de manière unique par les échantillons <span class="math notranslate nohighlight">\(x[n] = x(nT_e)\)</span>,
 il faut que <span class="math notranslate nohighlight">\(f_e &gt; 2 f_\mathrm{max}\)</span>

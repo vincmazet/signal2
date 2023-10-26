@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Filtres RIF &#8212; Traitement du signal 2</title>
   
@@ -46,6 +46,7 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -63,8 +64,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'filtrage/rif';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Recherche" href="../search.html" />
@@ -161,10 +162,10 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../revisions/tp.html">Exercices sur machine</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc1.html">✐ Représentation d’un signal</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc2.html">✐ Transformée de Fourier discrète</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc3.html">✐ Analyse spectrale</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc4.html">✐ Produit de convolution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc1.html">Représentation d’un signal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc2.html">Transformée de Fourier discrète</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc3.html">Analyse spectrale</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc4.html">Produit de convolution</a></li>
 </ul>
 </li>
 </ul>
@@ -181,8 +182,20 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="analogiques.html">Filtres analogiques</a></li>
-<li class="toctree-l1"><a class="reference internal" href="td.html">Exercices sur feuille</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="td.html">Exercices sur feuille</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="tdc.html">Corrections</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="tp.html">Exercices sur machine</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Modulation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../modulation/intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulation/analogique.html">Modulation analogique</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulation/bande-de-base.html">Modulation en bande de base</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulation/porteuse.html">Modulation sur porteuse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulation/td.html">Excercices sur feuille</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulation/tp.html">Exercices sur machine</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Traitement statistique du signal</span></p>
 <ul class="nav bd-sidenav">
@@ -362,9 +375,9 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="filtres-rif">
-<span id="c-filtrage-rif"></span><h1>Filtres RIF<a class="headerlink" href="#filtres-rif" title="Lien permanent vers ce titre">#</a></h1>
+<span id="c-filtrage-rif"></span><h1>Filtres RIF<a class="headerlink" href="#filtres-rif" title="Lien permanent vers cette rubrique">#</a></h1>
 <section id="reponse-impulsionnelle">
-<h2>Réponse impulsionnelle<a class="headerlink" href="#reponse-impulsionnelle" title="Lien permanent vers ce titre">#</a></h2>
+<h2>Réponse impulsionnelle<a class="headerlink" href="#reponse-impulsionnelle" title="Lien permanent vers cette rubrique">#</a></h2>
 <p>Un filtre RIF a pour réponse impulsionnelle :</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -378,7 +391,7 @@ b_n &amp;\text{si}\, n \in \{0,\dots,N\}, \\
 on dit que le filtre est de longueur <span class="math notranslate nohighlight">\(N+1\)</span>, ou d’ordre <span class="math notranslate nohighlight">\(N\)</span>.</p>
 </section>
 <section id="fonction-de-transfert">
-<h2>Fonction de transfert<a class="headerlink" href="#fonction-de-transfert" title="Lien permanent vers ce titre">#</a></h2>
+<h2>Fonction de transfert<a class="headerlink" href="#fonction-de-transfert" title="Lien permanent vers cette rubrique">#</a></h2>
 <p>La transformée en Z de <span class="math notranslate nohighlight">\(h\)</span> donne la fonction de transfert :</p>
 <div class="math notranslate nohighlight">
 \[
@@ -391,7 +404,7 @@ et comme ils ne risquent pas d’avoir de pôles à l’extérieur du cercle uni
 Les filtres RIF sont parfois appelés filtres à moyenne mobile ou MA (<em>moving average</em>).</p>
 </section>
 <section id="schema-bloc">
-<h2>Schéma bloc<a class="headerlink" href="#schema-bloc" title="Lien permanent vers ce titre">#</a></h2>
+<h2>Schéma bloc<a class="headerlink" href="#schema-bloc" title="Lien permanent vers cette rubrique">#</a></h2>
 <p>Les filtres numériques sont souvent représentés sous forme d’un schéma bloc,
 qui illustre graphiquement les relations entre l’entrée et la sortie du filtre.
 Pour cela, il convient d’exprimer la sortie en fonction de l’entrée.
@@ -429,7 +442,7 @@ Par conséquent, la sortie ne peut pas être réinjectée indéfiniment dans le 
 empêchant toute instabilité.</p>
 </section>
 <section id="linearite-de-la-phase">
-<h2>Linéarité de la phase<a class="headerlink" href="#linearite-de-la-phase" title="Lien permanent vers ce titre">#</a></h2>
+<h2>Linéarité de la phase<a class="headerlink" href="#linearite-de-la-phase" title="Lien permanent vers cette rubrique">#</a></h2>
 <p>La linéarité de la phase est souvent un critère souhaité.
 Les filtres RIF sont à phase linéaire si leur réponse impulsionnelle est symétrique
 (attention, symétrique ne veut pas dire paire ici !) ou antisymétrique, c’est-à-dire :</p>
@@ -448,7 +461,7 @@ Les filtres RIF sont à phase linéaire si leur réponse impulsionnelle est sym�
 <p>Notons que les filtres de type II, III et IV ne sont pas adaptés pour synthétiser des filtres passe-haut.</p>
 </section>
 <section id="une-methode-toute-simple-pour-synthetiser-un-rif">
-<h2>Une méthode toute simple pour synthétiser un RIF<a class="headerlink" href="#une-methode-toute-simple-pour-synthetiser-un-rif" title="Lien permanent vers ce titre">#</a></h2>
+<h2>Une méthode toute simple pour synthétiser un RIF<a class="headerlink" href="#une-methode-toute-simple-pour-synthetiser-un-rif" title="Lien permanent vers cette rubrique">#</a></h2>
 <!-- [Méthode des fenêtres](https://vincmazet.github.io/signal2/_static/files/rif.pdf) -->
 <p>Une idée toute simple pour obtenir un filtre RIF est de tronquer la réponse impulsionnelle d’un filtre idéal.</p>
 <p>Prenons l’exemple d’un filtre passe-bas, tel qu’on l’a vu dans la section <a class="reference internal" href="ideaux.html#s-filtre-intro-pbas"><span class="std std-ref">Filtre passe bas</span></a>.
@@ -536,7 +549,7 @@ Obtenir des bandes de transition très faibles oblige donc à augmenter considé
 résultant alors dans un filtre à réponse impulsionnelle pas tant finie que ça…</p>
 </section>
 <section id="methode-des-fenetres">
-<span id="s-methode-des-fenetres"></span><h2>Méthode des fenêtres<a class="headerlink" href="#methode-des-fenetres" title="Lien permanent vers ce titre">#</a></h2>
+<span id="s-methode-des-fenetres"></span><h2>Méthode des fenêtres<a class="headerlink" href="#methode-des-fenetres" title="Lien permanent vers cette rubrique">#</a></h2>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <p>Et oui, en traitement du signal, la porte peut servir de fenêtre ! 🤔</p>
@@ -548,12 +561,12 @@ pour choisir entre une bande de transition réduite, des osccillations en bande 
 et une atténuation suffisante, tout en ayant un ordre réduit.</p>
 <p>Le tableau ci-dessous donne les propriétés des réponses fréquentielles obtenues pour plusieurs fenêtres
 (la fréquence réduite est la fréquence divisée par <span class="math notranslate nohighlight">\(f_e\)</span>).</p>
-<table class="colwidths-auto table">
+<table class="table">
 <thead>
-<tr class="row-odd"><th class="text-left head"><p>Fenêtre</p></th>
+<tr class="row-odd"><th class="head text-left"><p>Fenêtre</p></th>
 <th class="head"><p>Largeur de transition (fréquence réduite)</p></th>
 <th class="head"><p>Ondulation en bande passante (dB)</p></th>
-<th class="text-right head"><p>Atténuation minimale (dB)</p></th>
+<th class="head text-right"><p>Atténuation minimale (dB)</p></th>
 </tr>
 </thead>
 <tbody>
@@ -608,7 +621,7 @@ pour des fenêtres classiques de taille <span class="math notranslate nohighligh
 -->
 </section>
 <section id="autres-methodes-de-synthese">
-<h2>Autres méthodes de synthèse<a class="headerlink" href="#autres-methodes-de-synthese" title="Lien permanent vers ce titre">#</a></h2>
+<h2>Autres méthodes de synthèse<a class="headerlink" href="#autres-methodes-de-synthese" title="Lien permanent vers cette rubrique">#</a></h2>
 <p>La méthode des fenêtres peut donner des ordres de filtres surévalués.
 D’autres méthodes de synthèse existent, comme par exemple la méthode de Parks-McClellan
 qui ajuste les coefficients de manière itérative pour que l’écart au filtre idéal soit inférieure à une valeur limite.

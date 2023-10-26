@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Exercices sur feuille &#8212; Traitement du signal 2</title>
   
@@ -46,6 +46,7 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -63,12 +64,12 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'filtrage/td';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Recherche" href="../search.html" />
-    <link rel="next" title="Exercices sur machine" href="tp.html" />
+    <link rel="next" title="Corrections" href="tdc.html" />
     <link rel="prev" title="Filtres analogiques" href="analogiques.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="fr"/>
@@ -161,10 +162,10 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../revisions/tp.html">Exercices sur machine</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc1.html">✐ Représentation d’un signal</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc2.html">✐ Transformée de Fourier discrète</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc3.html">✐ Analyse spectrale</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc4.html">✐ Produit de convolution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc1.html">Représentation d’un signal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc2.html">Transformée de Fourier discrète</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc3.html">Analyse spectrale</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc4.html">Produit de convolution</a></li>
 </ul>
 </li>
 </ul>
@@ -181,8 +182,20 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="analogiques.html">Filtres analogiques</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Exercices sur feuille</a></li>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Exercices sur feuille</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="tdc.html">Corrections</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="tp.html">Exercices sur machine</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Modulation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../modulation/intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulation/analogique.html">Modulation analogique</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulation/bande-de-base.html">Modulation en bande de base</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulation/porteuse.html">Modulation sur porteuse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulation/td.html">Excercices sur feuille</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulation/tp.html">Exercices sur machine</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Traitement statistique du signal</span></p>
 <ul class="nav bd-sidenav">
@@ -387,11 +400,11 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="exercices-sur-feuille">
-<span id="c-filtrage-td"></span><h1>Exercices sur feuille<a class="headerlink" href="#exercices-sur-feuille" title="Lien permanent vers ce titre">#</a></h1>
+<span id="c-filtrage-td"></span><h1>Exercices sur feuille<a class="headerlink" href="#exercices-sur-feuille" title="Lien permanent vers cette rubrique">#</a></h1>
 <section id="systeme-lineaire-invariant">
-<h2>Système linéaire invariant<a class="headerlink" href="#systeme-lineaire-invariant" title="Lien permanent vers ce titre">#</a></h2>
+<h2>Système linéaire invariant<a class="headerlink" href="#systeme-lineaire-invariant" title="Lien permanent vers cette rubrique">#</a></h2>
 <section id="exercice-1">
-<h3>Exercice 1<a class="headerlink" href="#exercice-1" title="Lien permanent vers ce titre">#</a></h3>
+<h3>Exercice 1<a class="headerlink" href="#exercice-1" title="Lien permanent vers cette rubrique">#</a></h3>
 <p>Dans le cas de signaux à temps discrets, montrez que la sortie d’un système linéaire invariant
 s’exprime comme la convolution de l’entrée par la réponse impulsionnelle du système.
 Pour cela, utilisez le fait que l’entrée peut s’écrire comme une somme d’impulsions.</p>
@@ -401,7 +414,7 @@ Indiquez si les systèmes suivant sont invariants/linéaires/stables :
 -->
 </section>
 <section id="exercice-2">
-<h3>Exercice 2<a class="headerlink" href="#exercice-2" title="Lien permanent vers ce titre">#</a></h3>
+<h3>Exercice 2<a class="headerlink" href="#exercice-2" title="Lien permanent vers cette rubrique">#</a></h3>
 <p>Représentez la réponse fréquentielle d’un système de réponse impulsionnelle</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -414,19 +427,19 @@ e^{-t} &amp;\text{si } t\geq 0,\\
 </section>
 </section>
 <section id="conception-d-un-gabarit">
-<h2>Conception d’un gabarit<a class="headerlink" href="#conception-d-un-gabarit" title="Lien permanent vers ce titre">#</a></h2>
+<h2>Conception d’un gabarit<a class="headerlink" href="#conception-d-un-gabarit" title="Lien permanent vers cette rubrique">#</a></h2>
 <section id="exercice-3">
-<h3>Exercice 3<a class="headerlink" href="#exercice-3" title="Lien permanent vers ce titre">#</a></h3>
+<h3>Exercice 3<a class="headerlink" href="#exercice-3" title="Lien permanent vers cette rubrique">#</a></h3>
 <p>Représentez le gabarit d’un filtre passe-bas de largeur de transition 20 Hz,
 de bande passante 100 Hz, d’ondulation maximale en bande passante 1 dB et d’atténuation minimale 30 dB.</p>
 </section>
 <section id="exercice-4">
-<h3>Exercice 4<a class="headerlink" href="#exercice-4" title="Lien permanent vers ce titre">#</a></h3>
+<h3>Exercice 4<a class="headerlink" href="#exercice-4" title="Lien permanent vers cette rubrique">#</a></h3>
 <p>Représentez le gabarit d’un filtre qui atténue d’au moins 60 dB les fréquences inférieures à 10 kHz
 et d’au plus 3 dB les fréquences supérieures à 15 kHz.</p>
 </section>
 <section id="exercice-5">
-<h3>Exercice 5<a class="headerlink" href="#exercice-5" title="Lien permanent vers ce titre">#</a></h3>
+<h3>Exercice 5<a class="headerlink" href="#exercice-5" title="Lien permanent vers cette rubrique">#</a></h3>
 <p>La capture d’écran ci-dessous est tirée de l’outil de conception de filtres analogiques d’Analog Devices.
 Représentez le gabarit correspondant.</p>
 <figure class="align-default">
@@ -434,7 +447,7 @@ Représentez le gabarit correspondant.</p>
 </figure>
 </section>
 <section id="exercice-6">
-<h3>Exercice 6<a class="headerlink" href="#exercice-6" title="Lien permanent vers ce titre">#</a></h3>
+<h3>Exercice 6<a class="headerlink" href="#exercice-6" title="Lien permanent vers cette rubrique">#</a></h3>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <p>L”<a class="reference external" href="http://en.wikipedia.org/wiki/Magnetic_particle_imaging">imagerie des particules magnétiques</a>
@@ -457,9 +470,9 @@ Le filtre doit répondre à des critères supplémentaires :</p>
 </section>
 </section>
 <section id="transformees-de-laplace-et-en-z">
-<h2>Transformées de Laplace et en Z<a class="headerlink" href="#transformees-de-laplace-et-en-z" title="Lien permanent vers ce titre">#</a></h2>
+<h2>Transformées de Laplace et en Z<a class="headerlink" href="#transformees-de-laplace-et-en-z" title="Lien permanent vers cette rubrique">#</a></h2>
 <section id="exercice-7">
-<h3>Exercice 7<a class="headerlink" href="#exercice-7" title="Lien permanent vers ce titre">#</a></h3>
+<h3>Exercice 7<a class="headerlink" href="#exercice-7" title="Lien permanent vers cette rubrique">#</a></h3>
 <p>Pour chacun des diagrammes pôles-zéros ci-dessous :</p>
 <ul class="simple">
 <li><p>donnez les pôles et zéros,</p></li>
@@ -487,7 +500,7 @@ Le filtre doit répondre à des critères supplémentaires :</p>
 </div>
 </section>
 <section id="exercice-8">
-<h3>Exercice 8<a class="headerlink" href="#exercice-8" title="Lien permanent vers ce titre">#</a></h3>
+<h3>Exercice 8<a class="headerlink" href="#exercice-8" title="Lien permanent vers cette rubrique">#</a></h3>
 <!-- Oppenheim 9.2, 9.3, 10.2, 10.4 -->
 <!-- Oppenheim 9.4 -->
 <p>On considère les deux filtres analogiques de réponses impulsionnelles :</p>
@@ -506,7 +519,7 @@ h_2(t) = e^{-t} \cos(3t) \, u(t).
 </ul>
 </section>
 <section id="exercice-9">
-<h3>Exercice 9<a class="headerlink" href="#exercice-9" title="Lien permanent vers ce titre">#</a></h3>
+<h3>Exercice 9<a class="headerlink" href="#exercice-9" title="Lien permanent vers cette rubrique">#</a></h3>
 <!-- Oppenheim 10.3 + 10.4 -->
 <p>On considère les deux filtres numériques de réponses impulsionnelles :</p>
 <div class="math notranslate nohighlight">
@@ -526,7 +539,7 @@ h_2[n] = 2^n \sin\left(\frac{\pi}{4}n\right) \, u[n].
 <!-- h[n] = \left(\frac{1}{3}\right)^n \sin\left(\frac{\pi}{4}n\right) \, u[n] -->
 </section>
 <section id="exercice-10">
-<h3>Exercice 10<a class="headerlink" href="#exercice-10" title="Lien permanent vers ce titre">#</a></h3>
+<h3>Exercice 10<a class="headerlink" href="#exercice-10" title="Lien permanent vers cette rubrique">#</a></h3>
 <p>Calculez les transformées de Laplace inverse de :</p>
 <div class="math notranslate nohighlight">
 \[
@@ -536,7 +549,7 @@ H_2(s) = \frac{s-3}{s^2+2}.
 \]</div>
 </section>
 <section id="exercice-11">
-<h3>Exercice 11<a class="headerlink" href="#exercice-11" title="Lien permanent vers ce titre">#</a></h3>
+<h3>Exercice 11<a class="headerlink" href="#exercice-11" title="Lien permanent vers cette rubrique">#</a></h3>
 <p>Calculez les transformées en Z inverse de :</p>
 <div class="math notranslate nohighlight">
 \[
@@ -546,7 +559,7 @@ H_2(z) = \frac{4z}{(z-2)^2}.
 \]</div>
 </section>
 <section id="exercice-12">
-<h3>Exercice 12<a class="headerlink" href="#exercice-12" title="Lien permanent vers ce titre">#</a></h3>
+<h3>Exercice 12<a class="headerlink" href="#exercice-12" title="Lien permanent vers cette rubrique">#</a></h3>
 <p>Deux filtres <span class="math notranslate nohighlight">\(H_1(s)\)</span> et <span class="math notranslate nohighlight">\(H_2(s)\)</span> sont mis en série.
 Leurs fonctions de transfert sont :</p>
 <div class="math notranslate nohighlight">
@@ -563,9 +576,9 @@ H_2(s) = \frac{1}{b_1s + b_0}
 </section>
 </section>
 <section id="filtres-numeriques">
-<h2>Filtres numériques<a class="headerlink" href="#filtres-numeriques" title="Lien permanent vers ce titre">#</a></h2>
+<h2>Filtres numériques<a class="headerlink" href="#filtres-numeriques" title="Lien permanent vers cette rubrique">#</a></h2>
 <section id="exercice-13">
-<h3>Exercice 13<a class="headerlink" href="#exercice-13" title="Lien permanent vers ce titre">#</a></h3>
+<h3>Exercice 13<a class="headerlink" href="#exercice-13" title="Lien permanent vers cette rubrique">#</a></h3>
 <!-- Oppenheim 9.29, 9.30, 10.29, 10.30 -->
 <p>Représentez la forme directe 1 des fonctions de transfert ci-dessous.</p>
 <div class="math notranslate nohighlight">
@@ -575,7 +588,7 @@ H_2(s) = \frac{1}{b_1s + b_0}
 \]</div>
 </section>
 <section id="exercice-14">
-<h3>Exercice 14<a class="headerlink" href="#exercice-14" title="Lien permanent vers ce titre">#</a></h3>
+<h3>Exercice 14<a class="headerlink" href="#exercice-14" title="Lien permanent vers cette rubrique">#</a></h3>
 <!-- il reste dans le TD filtre des images en PNG à remplacer par du SVG -->
 <p>Déterminez les fonctions de transfert des formes directes ci-dessous,
 puis calculez leur réponse impulsionnelle.</p>
@@ -587,7 +600,7 @@ puis calculez leur réponse impulsionnelle.</p>
 </figure>
 </section>
 <section id="exercice-15">
-<h3>Exercice 15<a class="headerlink" href="#exercice-15" title="Lien permanent vers ce titre">#</a></h3>
+<h3>Exercice 15<a class="headerlink" href="#exercice-15" title="Lien permanent vers cette rubrique">#</a></h3>
 <p>On souhaite réaliser avec la méthode des fenêtres un filtre numérique passe-bas de bande passante 20 Hz et de bande de transition 10 Hz.
 Les atténuations limites des bandes passante et atténuée sont respectivement de 0,1 dB et 40 dB.
 La fréquence d’échantillonnage est égale à 120 Hz</p>
@@ -601,10 +614,10 @@ La fréquence d’échantillonnage est égale à 120 Hz</p>
 </section>
 </section>
 <section id="filtres-analogiques">
-<h2>Filtres analogiques<a class="headerlink" href="#filtres-analogiques" title="Lien permanent vers ce titre">#</a></h2>
+<h2>Filtres analogiques<a class="headerlink" href="#filtres-analogiques" title="Lien permanent vers cette rubrique">#</a></h2>
 <!-- il reste dans le TD filtre des images en PNG à remplacer par du SVG -->
 <section id="exercice-16">
-<h3>Exercice 16<a class="headerlink" href="#exercice-16" title="Lien permanent vers ce titre">#</a></h3>
+<h3>Exercice 16<a class="headerlink" href="#exercice-16" title="Lien permanent vers cette rubrique">#</a></h3>
 <p>Identifiez le type de filtre correspondant à la réponse fréquentielle ci-dessous.
 Précisez également la bande passante du filtre (les fréquences sont données en hertz).</p>
 <figure class="align-default">
@@ -615,7 +628,7 @@ Précisez également la bande passante du filtre (les fréquences sont données 
 </figure>
 </section>
 <section id="exercice-17">
-<h3>Exercice 17<a class="headerlink" href="#exercice-17" title="Lien permanent vers ce titre">#</a></h3>
+<h3>Exercice 17<a class="headerlink" href="#exercice-17" title="Lien permanent vers cette rubrique">#</a></h3>
 <p>Identifiez le type de filtre correspondant à la réponse fréquentielle ci-dessous.
 Précisez également la bande passante du filtre (les fréquences sont données en hertz).</p>
 <figure class="align-default">
@@ -626,6 +639,8 @@ Précisez également la bande passante du filtre (les fréquences sont données 
 </figure>
 </section>
 </section>
+<div class="toctree-wrapper compound">
+</div>
 </section>
 
     <script type="text/x-thebe-config">
@@ -669,11 +684,11 @@ Précisez également la bande passante du filtre (les fréquences sont données 
       </div>
     </a>
     <a class="right-next"
-       href="tp.html"
+       href="tdc.html"
        title="page suivante">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">suivant</p>
-        <p class="prev-next-title">Exercices sur machine</p>
+        <p class="prev-next-title">Corrections</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

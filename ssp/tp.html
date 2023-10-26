@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Exercices sur machine &#8212; Traitement du signal 2</title>
   
@@ -46,6 +46,7 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -63,8 +64,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'ssp/tp';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Recherche" href="../search.html" />
@@ -161,10 +162,10 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../revisions/tp.html">Exercices sur machine</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc1.html">✐ Représentation d’un signal</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc2.html">✐ Transformée de Fourier discrète</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc3.html">✐ Analyse spectrale</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc4.html">✐ Produit de convolution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc1.html">Représentation d’un signal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc2.html">Transformée de Fourier discrète</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc3.html">Analyse spectrale</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc4.html">Produit de convolution</a></li>
 </ul>
 </li>
 </ul>
@@ -181,8 +182,20 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../filtrage/analogiques.html">Filtres analogiques</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../filtrage/td.html">Exercices sur feuille</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../filtrage/td.html">Exercices sur feuille</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../filtrage/tdc.html">Corrections</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../filtrage/tp.html">Exercices sur machine</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Modulation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../modulation/intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulation/analogique.html">Modulation analogique</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulation/bande-de-base.html">Modulation en bande de base</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulation/porteuse.html">Modulation sur porteuse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulation/td.html">Excercices sur feuille</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulation/tp.html">Exercices sur machine</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Traitement statistique du signal</span></p>
 <ul class="current nav bd-sidenav">
@@ -364,9 +377,9 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="exercices-sur-machine">
-<span id="c-tp-ssp"></span><h1>Exercices sur machine<a class="headerlink" href="#exercices-sur-machine" title="Lien permanent vers ce titre">#</a></h1>
+<span id="c-tp-ssp"></span><h1>Exercices sur machine<a class="headerlink" href="#exercices-sur-machine" title="Lien permanent vers cette rubrique">#</a></h1>
 <section id="detection-de-motifs-par-filtrage-adapte">
-<h2>Détection de motifs par filtrage adapté<a class="headerlink" href="#detection-de-motifs-par-filtrage-adapte" title="Lien permanent vers ce titre">#</a></h2>
+<h2>Détection de motifs par filtrage adapté<a class="headerlink" href="#detection-de-motifs-par-filtrage-adapte" title="Lien permanent vers cette rubrique">#</a></h2>
 <p>Le codage Manchester est une norme de transmission de messages binaires,
 utilisée notamment dans certaines communications Ethernet.
 Les bits du message binaire sont transmis les uns à la suite des autres.
@@ -387,7 +400,7 @@ h(t) =
 <li><p>un récepteur dont l’objectif est de décoder le signal reçu.</p></li>
 </ol>
 <section id="creation-du-signal-par-l-emetteur">
-<h3>Création du signal par l’émetteur<a class="headerlink" href="#creation-du-signal-par-l-emetteur" title="Lien permanent vers ce titre">#</a></h3>
+<h3>Création du signal par l’émetteur<a class="headerlink" href="#creation-du-signal-par-l-emetteur" title="Lien permanent vers cette rubrique">#</a></h3>
 <ul class="simple">
 <li><p>Créez le motif <span class="math notranslate nohighlight">\(h\)</span> de durée <span class="math notranslate nohighlight">\(T=10^{-7}\)</span> s et échantillonné à <span class="math notranslate nohighlight">\(10^{9}\)</span> Hz.
 Au préalable, définissez un vecteur des abscisses qui permettra de générer <span class="math notranslate nohighlight">\(h\)</span>.</p></li>
@@ -397,7 +410,7 @@ Pensez à définir un nouveau vecteur de temps pour afficher le signal.</p></li>
 </ul>
 </section>
 <section id="simulation-du-canal-de-transmission">
-<h3>Simulation du canal de transmission<a class="headerlink" href="#simulation-du-canal-de-transmission" title="Lien permanent vers ce titre">#</a></h3>
+<h3>Simulation du canal de transmission<a class="headerlink" href="#simulation-du-canal-de-transmission" title="Lien permanent vers cette rubrique">#</a></h3>
 <ul class="simple">
 <li><p>Ajoutez un bruit gaussien (<code class="docutils literal notranslate"><span class="pre">numpy.random.normal</span></code>) à ce signal de sorte à obtenir un RSB de 10 dB
 (utilisez le résultat de l’exercice 3 du TD pour obtenir le lien entre le RSB et l’écart-type du bruit).
@@ -406,7 +419,7 @@ Vérifiez notamment que le niveau de bruit évolue conformément à la valeur du
 </ul>
 </section>
 <section id="decodage-du-signal-par-le-recepteur">
-<h3>Décodage du signal par le récepteur<a class="headerlink" href="#decodage-du-signal-par-le-recepteur" title="Lien permanent vers ce titre">#</a></h3>
+<h3>Décodage du signal par le récepteur<a class="headerlink" href="#decodage-du-signal-par-le-recepteur" title="Lien permanent vers cette rubrique">#</a></h3>
 <p>On se place maintenant au niveau du récepteur :
 un filtre adapté est utilisé pour retrouver la séquence binaire à partir du signal bruité.</p>
 <ul class="simple">
@@ -419,7 +432,7 @@ Comment retrouver la séquence binaire à partir de ce signal ?</p></li>
 </ul>
 </section>
 <section id="etude-des-performances-du-filtrage-adapte">
-<h3>Étude des performances du filtrage adapté<a class="headerlink" href="#etude-des-performances-du-filtrage-adapte" title="Lien permanent vers ce titre">#</a></h3>
+<h3>Étude des performances du filtrage adapté<a class="headerlink" href="#etude-des-performances-du-filtrage-adapte" title="Lien permanent vers cette rubrique">#</a></h3>
 <ul class="simple">
 <li><p>Évaluez la robustesse du filtrage adapté en fonction du niveau de bruit :
 comment se comporte cette méthode lorsque le RSB évolue ?</p></li>
@@ -431,7 +444,7 @@ sachant que la norme ASCII a été utilisée.</p></li>
 </section>
 </section>
 <section id="lissage-par-filtre-moyenneur">
-<h2>Lissage par filtre moyenneur<a class="headerlink" href="#lissage-par-filtre-moyenneur" title="Lien permanent vers ce titre">#</a></h2>
+<h2>Lissage par filtre moyenneur<a class="headerlink" href="#lissage-par-filtre-moyenneur" title="Lien permanent vers cette rubrique">#</a></h2>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <p>Source : NASA/GISS, <a class="reference external" href="https://climate.nasa.gov/vital-signs/global-temperature/">climate.nasa.gov/vital-signs/global-temperature</a>.</p>
@@ -448,7 +461,7 @@ qui est le choix traditionnel pour ces données.</p></li>
 </ul>
 </section>
 <section id="approximation-par-moindres-carres">
-<h2>Approximation par moindres carrés<a class="headerlink" href="#approximation-par-moindres-carres" title="Lien permanent vers ce titre">#</a></h2>
+<h2>Approximation par moindres carrés<a class="headerlink" href="#approximation-par-moindres-carres" title="Lien permanent vers cette rubrique">#</a></h2>
 <!-- supprimer la 1re partie + ajouter des questions d'analyse et de compréhension ? -->
 <p>À la place d’un filtre moyenneur, on souhaite effectuer une approximation de l’évolution des températures par une parabole.</p>
 <ul>

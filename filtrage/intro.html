@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Introduction &#8212; Traitement du signal 2</title>
   
@@ -46,6 +46,7 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -63,13 +64,13 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'filtrage/intro';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Recherche" href="../search.html" />
     <link rel="next" title="Filtres idéaux" href="ideaux.html" />
-    <link rel="prev" title="✐ Produit de convolution" href="../revisions/tpc4.html" />
+    <link rel="prev" title="Produit de convolution" href="../revisions/tpc4.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="fr"/>
   </head>
@@ -161,10 +162,10 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../revisions/tp.html">Exercices sur machine</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc1.html">✐ Représentation d’un signal</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc2.html">✐ Transformée de Fourier discrète</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc3.html">✐ Analyse spectrale</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc4.html">✐ Produit de convolution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc1.html">Représentation d’un signal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc2.html">Transformée de Fourier discrète</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc3.html">Analyse spectrale</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc4.html">Produit de convolution</a></li>
 </ul>
 </li>
 </ul>
@@ -181,8 +182,20 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="analogiques.html">Filtres analogiques</a></li>
-<li class="toctree-l1"><a class="reference internal" href="td.html">Exercices sur feuille</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="td.html">Exercices sur feuille</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="tdc.html">Corrections</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="tp.html">Exercices sur machine</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Modulation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../modulation/intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulation/analogique.html">Modulation analogique</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulation/bande-de-base.html">Modulation en bande de base</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulation/porteuse.html">Modulation sur porteuse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulation/td.html">Excercices sur feuille</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulation/tp.html">Exercices sur machine</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Traitement statistique du signal</span></p>
 <ul class="nav bd-sidenav">
@@ -365,7 +378,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="introduction">
-<span id="c-filtrage-intro"></span><h1>Introduction<a class="headerlink" href="#introduction" title="Lien permanent vers ce titre">#</a></h1>
+<span id="c-filtrage-intro"></span><h1>Introduction<a class="headerlink" href="#introduction" title="Lien permanent vers cette rubrique">#</a></h1>
 <p>Ce chapitre sur le filtrage se divise en plusieurs parties.</p>
 <p>Tout d’abord, et c’est l’objet de cette page,
 la notin de filtre est définie,
@@ -381,7 +394,7 @@ la <a class="reference internal" href="laplace.html#c-filtrage-laplace"><span cl
 et la <a class="reference internal" href="z.html#c-filtrage-z"><span class="std std-ref">transformée en Z</span></a> (qui s’applique sur les systèmes numériques).</p>
 <p>Enfin la quatrième partie présentent des tehcniques pour synthétiser des filtres numériques (<a class="reference internal" href="rii.html#c-filtrage-rii"><span class="std std-ref">RII</span></a> ou <a class="reference internal" href="rif.html#c-filtrage-rif"><span class="std std-ref">RIF</span></a>) et <a class="reference internal" href="analogiques.html#c-filtrage-analogiques"><span class="std std-ref">analogiques</span></a>.</p>
 <section id="systeme">
-<h2>Système<a class="headerlink" href="#systeme" title="Lien permanent vers ce titre">#</a></h2>
+<h2>Système<a class="headerlink" href="#systeme" title="Lien permanent vers cette rubrique">#</a></h2>
 <p>Un filtre est un <em>système</em>, c’est-à-dire un processus qui transforme un signal d’entrée <span class="math notranslate nohighlight">\(x\)</span> en un signal de sortie <span class="math notranslate nohighlight">\(y\)</span>.
 On utilise souvent une représentation en schéma-bloc dans ce contexte.</p>
 <figure class="align-default">
@@ -413,7 +426,7 @@ Avec l'avènement de l'automatique et des calculateurs numériques,
 le filtrage est devenu une théorie à part entière du traitement du signal. -->
 </section>
 <section id="systeme-lineaire">
-<h2>Système linéaire<a class="headerlink" href="#systeme-lineaire" title="Lien permanent vers ce titre">#</a></h2>
+<h2>Système linéaire<a class="headerlink" href="#systeme-lineaire" title="Lien permanent vers cette rubrique">#</a></h2>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <p>Attention, le fait qu’un système soit linéaire ou non n’est pas du tout lié à la possible linéarité de sa phase !</p>
@@ -435,7 +448,7 @@ Dans ce cas, on ne peut plus le considérer comme étant linéaire.</p>
 <!-- Trouver d'autres exemples parlants -->
 </section>
 <section id="systeme-invariant">
-<h2>Système invariant<a class="headerlink" href="#systeme-invariant" title="Lien permanent vers ce titre">#</a></h2>
+<h2>Système invariant<a class="headerlink" href="#systeme-invariant" title="Lien permanent vers cette rubrique">#</a></h2>
 <p>Un système est invariant dans le temps si son comportement et ses caractéristiques n’évoluent pas.
 Aussi, si <span class="math notranslate nohighlight">\(y\)</span> est la sortie du sytème à une entrée <span class="math notranslate nohighlight">\(x\)</span>,
 ce sera toujours le cas quel que soit l’instant <span class="math notranslate nohighlight">\(n_0\)</span> auquel apparaît <span class="math notranslate nohighlight">\(x\)</span> :</p>
@@ -456,7 +469,7 @@ ou si l’un des composants est modifié (potentiomètre par exemple).</p>
 <!-- Trouver d'autres exemples parlants -->
 </section>
 <section id="systeme-lineaire-invariant">
-<h2>Système linéaire invariant<a class="headerlink" href="#systeme-lineaire-invariant" title="Lien permanent vers ce titre">#</a></h2>
+<h2>Système linéaire invariant<a class="headerlink" href="#systeme-lineaire-invariant" title="Lien permanent vers cette rubrique">#</a></h2>
 <p>Les systèmes à la fois linéaires et invariants jouent un rôle important en traitement du signal.
 On parle de systèmes linéaires invariant (<em>linear-time invariant system</em> ou <em>LTI system</em>).
 En effet, la linéarité et l’invariance ont un rôle fondamental pour trois raisons :</p>
@@ -470,7 +483,7 @@ avec la <a class="reference internal" href="#s-filtrage-ri"><span class="std std
 <p><a class="exercise btn btn-light" href="td.html#exercice-1" role="button">1</a></p>
 </section>
 <section id="systeme-stable">
-<h2>Système stable<a class="headerlink" href="#systeme-stable" title="Lien permanent vers ce titre">#</a></h2>
+<h2>Système stable<a class="headerlink" href="#systeme-stable" title="Lien permanent vers cette rubrique">#</a></h2>
 <p>Un système est stable si une petite modification de son entrée ne fait pas diverger sa sortie,
 c’est-à-dire qu’elle revient à son état initial où ne s’en éloigne pas indéfiniment
 (elle atteint toujours une valeur limite).
@@ -488,7 +501,7 @@ un petit déséquilibre de sa position intiale le fait tendre vers une position 
 </div>
 </section>
 <section id="reponse-impulsionnelle">
-<span id="s-filtrage-ri"></span><h2>Réponse impulsionnelle<a class="headerlink" href="#reponse-impulsionnelle" title="Lien permanent vers ce titre">#</a></h2>
+<span id="s-filtrage-ri"></span><h2>Réponse impulsionnelle<a class="headerlink" href="#reponse-impulsionnelle" title="Lien permanent vers cette rubrique">#</a></h2>
 <p>Un filtre est caractérisé par sa réponse impulsionnelle (<em>impulse response</em>) <span class="math notranslate nohighlight">\(h\)</span>.
 Elle correspond à la sortie du filtre lorsque l’entrée est une impulsion <span class="math notranslate nohighlight">\(\delta\)</span>.</p>
 <figure class="align-default">
@@ -508,7 +521,7 @@ Elle correspond à la sortie du filtre lorsque l’entrée est une impulsion <sp
 </figure>
 </section>
 <section id="reponse-frequentielle">
-<h2>Réponse fréquentielle<a class="headerlink" href="#reponse-frequentielle" title="Lien permanent vers ce titre">#</a></h2>
+<h2>Réponse fréquentielle<a class="headerlink" href="#reponse-frequentielle" title="Lien permanent vers cette rubrique">#</a></h2>
 <p>La réponse fréquentielle (<em>frequency response</em>) est la transformée de Fourier de la réponse impulsionnelle.
 Elle représente les modifications apportées au signal d’entrée en fonction de la fréquence.</p>
 <p>Comme la sortie <span class="math notranslate nohighlight">\(y\)</span> du filtre est la convolution de l’entrée <span class="math notranslate nohighlight">\(x\)</span> avec la réponse impulsionnelle <span class="math notranslate nohighlight">\(h\)</span>,
@@ -524,7 +537,7 @@ avec la réponse fréquentielle <span class="math notranslate nohighlight">\(H\)
 Pour simplifier son analyse on étudiera plutôt son gain, sa phase et son retard de groupe.</p>
 </section>
 <section id="gain">
-<h2>Gain<a class="headerlink" href="#gain" title="Lien permanent vers ce titre">#</a></h2>
+<h2>Gain<a class="headerlink" href="#gain" title="Lien permanent vers cette rubrique">#</a></h2>
 <p>Le gain (<em>magnitude</em>) <span class="math notranslate nohighlight">\(G\)</span> d’un filtre est le module de sa réponse fréquentielle <span class="math notranslate nohighlight">\(H\)</span> :</p>
 <div class="math notranslate nohighlight">
 \[
@@ -543,7 +556,7 @@ Pour simplifier son analyse on étudiera plutôt son gain, sa phase et son retar
 </figure>
 </section>
 <section id="phase">
-<h2>Phase<a class="headerlink" href="#phase" title="Lien permanent vers ce titre">#</a></h2>
+<h2>Phase<a class="headerlink" href="#phase" title="Lien permanent vers cette rubrique">#</a></h2>
 <p>La phase (<em>phase</em>) <span class="math notranslate nohighlight">\(\varphi\)</span> d’un filtre est l’argument de la réponse fréquentielle :</p>
 <div class="math notranslate nohighlight">
 \[
@@ -558,7 +571,7 @@ Pour simplifier son analyse on étudiera plutôt son gain, sa phase et son retar
 </figure>
 </section>
 <section id="retard-de-groupe">
-<h2>Retard de groupe<a class="headerlink" href="#retard-de-groupe" title="Lien permanent vers ce titre">#</a></h2>
+<h2>Retard de groupe<a class="headerlink" href="#retard-de-groupe" title="Lien permanent vers cette rubrique">#</a></h2>
 <p>Une autre représentation importante est le retard de groupe (<em>group delay</em>) <span class="math notranslate nohighlight">\(\tau\)</span> défini comme la dérivée de la phase :</p>
 <div class="math notranslate nohighlight">
 \[
@@ -630,7 +643,7 @@ La figure suivante illustre l’effet du gain, de la phase et du retard de group
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">précédent</p>
-        <p class="prev-next-title">✐ Produit de convolution</p>
+        <p class="prev-next-title">Produit de convolution</p>
       </div>
     </a>
     <a class="right-next"

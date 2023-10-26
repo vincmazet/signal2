@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Filtres réalisables &#8212; Traitement du signal 2</title>
   
@@ -46,6 +46,7 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -63,8 +64,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'filtrage/realisables';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Recherche" href="../search.html" />
@@ -161,10 +162,10 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../revisions/tp.html">Exercices sur machine</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc1.html">✐ Représentation d’un signal</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc2.html">✐ Transformée de Fourier discrète</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc3.html">✐ Analyse spectrale</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc4.html">✐ Produit de convolution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc1.html">Représentation d’un signal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc2.html">Transformée de Fourier discrète</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc3.html">Analyse spectrale</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc4.html">Produit de convolution</a></li>
 </ul>
 </li>
 </ul>
@@ -181,8 +182,20 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="analogiques.html">Filtres analogiques</a></li>
-<li class="toctree-l1"><a class="reference internal" href="td.html">Exercices sur feuille</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="td.html">Exercices sur feuille</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="tdc.html">Corrections</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="tp.html">Exercices sur machine</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Modulation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../modulation/intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulation/analogique.html">Modulation analogique</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulation/bande-de-base.html">Modulation en bande de base</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulation/porteuse.html">Modulation sur porteuse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulation/td.html">Excercices sur feuille</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulation/tp.html">Exercices sur machine</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Traitement statistique du signal</span></p>
 <ul class="nav bd-sidenav">
@@ -358,7 +371,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="filtres-realisables">
-<span id="c-filtrage-realisables"></span><h1>Filtres réalisables<a class="headerlink" href="#filtres-realisables" title="Lien permanent vers ce titre">#</a></h1>
+<span id="c-filtrage-realisables"></span><h1>Filtres réalisables<a class="headerlink" href="#filtres-realisables" title="Lien permanent vers cette rubrique">#</a></h1>
 <p>Comme on l’a vu dans la section <a class="reference internal" href="ideaux.html#c-filtrage-ideaux"><span class="std std-ref">Filtres idéaux</span></a>,
 il est impossible de réaliser des filtres idéaux (en temps réel en tout cas).
 Par conséquent, les filtres réalisables ne sont que des approximations des filtres idéaux :</p>
@@ -384,7 +397,7 @@ qui précise la zone dans laquelle devra se situer la réponse fréquentielle.</
 </figcaption>
 </figure>
 <section id="gabarit-d-un-filtre">
-<h2>Gabarit d’un filtre<a class="headerlink" href="#gabarit-d-un-filtre" title="Lien permanent vers ce titre">#</a></h2>
+<h2>Gabarit d’un filtre<a class="headerlink" href="#gabarit-d-un-filtre" title="Lien permanent vers cette rubrique">#</a></h2>
 <p>Par conséquent, la définition des caractéristiques d’un filtre nécessite au préalable la définition d’un gabarit
 (<em>filter specification</em>) qui définit :</p>
 <ul class="simple">
@@ -397,7 +410,7 @@ que l’on souhaite la plus étroite possible.</p></li>
 ce qui implique une fonction de transfert d’ordre le plus faible possible (on le verra plus loin).</p>
 </section>
 <section id="frequence-de-coupure">
-<h2>Fréquence de coupure<a class="headerlink" href="#frequence-de-coupure" title="Lien permanent vers ce titre">#</a></h2>
+<h2>Fréquence de coupure<a class="headerlink" href="#frequence-de-coupure" title="Lien permanent vers cette rubrique">#</a></h2>
 <p>Par ailleurs, la transition entre les bandes passante et atténuée n’étant plus instantanée,
 il faut redéfinir la fréquence de coupure.
 Généralement, la fréquence de coupure est définie comme la fréquence
@@ -425,7 +438,7 @@ P(f) &amp;= \frac{1}{2} P_\mathrm{max} \\
 </div>
 </details></section>
 <section id="conception-d-un-filtre">
-<h2>Conception d’un filtre<a class="headerlink" href="#conception-d-un-filtre" title="Lien permanent vers ce titre">#</a></h2>
+<h2>Conception d’un filtre<a class="headerlink" href="#conception-d-un-filtre" title="Lien permanent vers cette rubrique">#</a></h2>
 <p>Pour résumer, la conception d’un filtre commence par la définition d’un gabarit,
 puis le choix d’une méthode de conception qui génère un filtre dont la réponse fréquentielle vérifie le gabarit souhaité.
 Les sections <a class="reference internal" href="numeriques.html#c-filtrage-numeriques"><span class="std std-ref">Filtres numériques</span></a> et <a class="reference internal" href="analogiques.html#c-filtrage-analogiques"><span class="std std-ref">Filtres analogiques</span></a> présenteront des méthodes pour cela.</p>
