@@ -187,7 +187,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../filtrage/tp.html">Exercices sur machine</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../filtrage/tpc.html">✐ Filtrage numérique</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../filtrage/tpc.html">Filtrage numérique</a></li>
 </ul>
 </li>
 </ul>
@@ -390,8 +390,7 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="traitement-des-signaux-bruites">
 <span id="c-ssp-traitement"></span><h1>Traitement des signaux bruités<a class="headerlink" href="#traitement-des-signaux-bruites" title="Lien permanent vers cette rubrique">#</a></h1>
-<p>Nous présentons différentes techniques de traitement de signaux bruités.
-Ces techniques sont regroupées en trois parties :</p>
+<p>Nous présentons trois types de techniques de traitement de signaux bruités :</p>
 <ul class="simple">
 <li><p>la détection de signal, c’est-à-dire déterminer si un signal particulier est présent dans des données bruitées,</p></li>
 <li><p>le débruitage, c’est-à-dire réduire le plus possible le bruit présent dans un signal,</p></li>
@@ -481,6 +480,7 @@ Seules les corrélations de <span class="math notranslate nohighlight">\(x\)</sp
 ce qui indique la présence du motif à cet instant.</span><a class="headerlink" href="#f-ssp-filtre-adapte" title="Lien permanent vers cette image">#</a></p>
 </figcaption>
 </figure>
+<p><a class="exercise btn btn-light" href="td.html#exercice-4" role="button">4</a></p>
 </section>
 </section>
 <section id="debruitage-de-signaux">
@@ -542,6 +542,10 @@ Mais la forme du signal d’intérêt <span class="math notranslate nohighlight"
 <p>Le filtre moyenneur est une très bonne première approche pour débruiter un signal.
 Elle reste néanmoins limitée (parce qu’elle a tendance à lisser le signal lui-même),
 et il faut parfois recourir à des techniques plus évoluées.</p>
+<p>Le filtre moyenneur étant un filtre passe-bas, il peut aussi être utilisé avant de sous-échantillonner un signal.
+Cela est bien pratique pour afficher par exemple un signal de mesure contenant beaucoup d’échantillons
+sur un graphique ou un écran très petit.</p>
+<p><a class="exercise btn btn-light" href="td.html#exercice-5" role="button">5</a></p>
 </section>
 <section id="debruitage-de-plusieurs-realisations-d-un-meme-signal">
 <h3>Débruitage de plusieurs réalisations d’un même signal<a class="headerlink" href="#debruitage-de-plusieurs-realisations-d-un-meme-signal" title="Lien permanent vers cette rubrique">#</a></h3>
@@ -562,6 +566,7 @@ l’une d’elle est en bleu pour être visible.</span><a class="headerlink" hre
 <p>En photographie, le moyennage de plusieurs images d’une même scène permet de réduire le bruit présent dans la photographie.
 En astronomie par exemple, il n’est pas rare de produire des images qui sont le moyennage de plusieurs dizaines d’observations,
 elle-même acquises avec un temps de pose très long (plusieurs dizaines de minutes).</p>
+<p><a class="exercise btn btn-light" href="td.html#exercice-6" role="button">6</a></p>
 </section>
 </section>
 <section id="approximation-par-moindres-carres">
@@ -696,6 +701,7 @@ C’est la somme de ces différences qui est minimisée par la méthode des moin
 <p><span class="caption-number">Fig. 41 </span><span class="caption-text">Mise en évidence des erreurs à minimiser.</span><a class="headerlink" href="#f-ssp-moindres-carres-differences" title="Lien permanent vers cette image">#</a></p>
 </figcaption>
 </figure>
+<p><a class="exercise btn btn-light" href="td.html#exercice-7" role="button">7</a></p>
 </section>
 </section>
 </section>

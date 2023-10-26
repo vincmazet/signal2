@@ -187,7 +187,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../filtrage/tp.html">Exercices sur machine</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../filtrage/tpc.html">✐ Filtrage numérique</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../filtrage/tpc.html">Filtrage numérique</a></li>
 </ul>
 </li>
 </ul>
@@ -413,7 +413,7 @@ Nous allons donc commencer par quelques rappels de probabilités.</p>
 <h2>Rappels de probabilité<a class="headerlink" href="#rappels-de-probabilite" title="Lien permanent vers cette rubrique">#</a></h2>
 <p>Une <em>variable aléatoire</em> est une variable mathématique dont la valeur n’est pas fixée.
 Lors d’une expérience ou après l’acquisition d’un signal,
-on dispose des mesures de la variable aléatoire sous forme de valeurs numériques :
+on dispose de mesures de la variable aléatoire sous forme de valeurs numériques :
 c’est ce qu’on appelle des <em>réalisations</em>.</p>
 <p>Les valeurs possibles d’une variable aléatoire n’ont pas forcément la même probabilité d’apparaître :
 la distribution des probabilités d’apparition des valeurs est appelée <em>densité de probabilité</em>
@@ -513,7 +513,10 @@ qui est plus simple à manipuler mathématiquement.</p>
 <p class="sidebar-title"></p>
 <p>L’accent <span class="math notranslate nohighlight">\(\hat{\cdot}\)</span> signifie « estimation ».</p>
 </aside>
-<p>Lorsqu’on dispose de <span class="math notranslate nohighlight">\(N\)</span> réalisations <span class="math notranslate nohighlight">\(x[n]\)</span>, l’espérance peut être estimée ainsi :</p>
+<p>L’espérance est le
+<a class="reference external" href="https://fr.wikipedia.org/wiki/Moment_(probabilit%C3%A9s)#Moment_ordinaire">moment d’ordre 1</a>
+de la variable aléatoire <span class="math notranslate nohighlight">\(x\)</span>.
+Lorsqu’on dispose de <span class="math notranslate nohighlight">\(N\)</span> réalisations <span class="math notranslate nohighlight">\(x[n]\)</span>, l’espérance peut être estimée ainsi :</p>
 <div class="math notranslate nohighlight">
 \[
   \hat{\mathbb{E}}[x] = \frac{1}{N} \sum_{n=0}^{N-1} x[n].
@@ -527,7 +530,10 @@ correspond à une mesure de la dispersion des réalisations autour de la moyenne
                  &amp;= \mathbb{E} \Big( \big(x-\mathbb{E}(x)\big)^2 \Big) \\
                  &amp;= \mathbb{E}(x^2) - \mathbb{E}(x)^2.
   \end{split}\]</div>
-<p>Lorsqu’on dispose de <span class="math notranslate nohighlight">\(N\)</span> réalisations <span class="math notranslate nohighlight">\(x[n]\)</span>, la variance peut être estimée ainsi :</p>
+<p>La variance est le
+<a class="reference external" href="https://fr.wikipedia.org/wiki/Moment_(probabilit%C3%A9s)#Moment_centr%C3%A9">moment centré d’ordre 2</a>
+de la variable aléatoire <span class="math notranslate nohighlight">\(x\)</span>.
+Lorsqu’on dispose de <span class="math notranslate nohighlight">\(N\)</span> réalisations <span class="math notranslate nohighlight">\(x[n]\)</span>, la variance peut être estimée ainsi :</p>
 <div class="math notranslate nohighlight">
 \[
   \hat{\mathbb{V}}[x] = \frac{1}{N} \sum_{n=0}^{N-1} \big(x[n]-\hat{\mathbb{E}}[x]\big)^2.
@@ -541,20 +547,29 @@ C’est la racine carrée de la variance :</p>
   \]</div>
 </li>
 </ul>
+<p><a class="exercise btn btn-light" href="td.html#exercice-1" role="button">1</a>
+<a class="exercise btn btn-light" href="td.html#exercice-2" role="button">2</a></p>
 </section>
 </section>
 <section id="le-bruit-dans-les-signaux">
 <h2>Le bruit dans les signaux<a class="headerlink" href="#le-bruit-dans-les-signaux" title="Lien permanent vers cette rubrique">#</a></h2>
 <p>On appelle <em>bruit</em> les modifications non souhaitées (et en général inconnues)
-que subit un signal lors de son acquisition, de son enregistrement, de son traitement ou de sa transmission.
-Le bruit est donc un signal qui va perturber le signal original.
+que subit un signal lors de son acquisition, de son enregistrement, de son traitement ou de sa transmission.</p>
+<p>Ce qu’on appelle bruit dépend très fortement du contexte <a class="reference internal" href="../annexes/refs.html#c-refs"><span class="std std-ref">[Jutten 2018]</span></a>.
+Par exemple, pour l’opérateur sonar d’un sous-marin militaire,
+le signal utile est émis par les navires alors que les bancs de poissons
+émettent des signaux qui sont des perturbations pour le signal utile, donc du bruits.
+À l’inverse, pour l’opérateur sonar d’un navire de pêche,
+le signal utile est celui émis par les bancs de poissons
+et les autres signaux sont des perturbations et constituent du bruit.</p>
+<p>Le bruit est donc un signal qui va perturber le signal original.
 Comme les modifications apportées par le bruit sont inconnues,
 alors ce dernier est modélisé par un signal aléatoire dont les amplitudes sont des variables aléatoires.
 La densité de probabilité du bruit peut être gaussienne, uniforme, de Poisson, etc.</p>
 <section id="le-bruit-blanc">
 <h3>Le bruit blanc<a class="headerlink" href="#le-bruit-blanc" title="Lien permanent vers cette rubrique">#</a></h3>
 <p>Un bruit <span class="math notranslate nohighlight">\(b[n]\)</span> <em>blanc</em> est un signal aléatoire qui contient toutes les fréquences
-et que cellez-ci ont toute la même puissance.
+et que celles-ci ont toutes la même puissance.
 Cela signifie que la puissance du signal se répartit de façon uniforme sur l’ensemble des fréquences et que son espérance est nulle.</p>
 <!-- Par définition un bruit blanc est de densité spectrale de puissance constante
 (et pas de transformée de Fourier constante).
@@ -648,24 +663,25 @@ et est généralement exprimé en décibels :</p>
 Ces signaux sont de puissances :</p>
 <div class="math notranslate nohighlight">
 \[
-P_x = \frac{1}{N} \sum_n |x[n]|^2
+P_x = \frac{1}{N} \sum_{n=0}^N |x[n]|^2
 \quad\text{et}\quad
-P_b = \frac{1}{N} \sum_n |b[n]|^2.
+P_b = \frac{1}{N} \sum_{n=0}^N |b[n]|^2.
 \]</div>
 <p>Notez que dans le cas d’un bruit blanc, la puissance du bruit <span class="math notranslate nohighlight">\(P_b\)</span> est égale à la variance du bruit.</p>
 <figure class="align-default" id="f-ssp-rsb">
-<a class="reference internal image-reference" href="../_images/rsb.svg"><img alt="../_images/rsb.svg" src="../_images/rsb.svg" width="600px" /></a>
+<a class="reference internal image-reference" href="../_images/rsb.svg"><img alt="../_images/rsb.svg" src="../_images/rsb.svg" width="100%" /></a>
 <figcaption>
 <p><span class="caption-number">Fig. 33 </span><span class="caption-text">Exemples d’une même sinusoïde bruitée à différents RSB.</span><a class="headerlink" href="#f-ssp-rsb" title="Lien permanent vers cette image">#</a></p>
 </figcaption>
 </figure>
 <p>Le RSB n’est bien évidemment pas utilisé dans un traitement réel,
 puisque le bruit <span class="math notranslate nohighlight">\(b\)</span> n’est pas connu.
-Le RSB est utilisé pendant la phase de développement de la méthode de traitement appropriée.
+Le RSB est utilisé pendant la phase de développement d’une méthode de traitement du signal.
 En effet, les tests effectués durant cette phase de développement
 nécessitent d’avoir à disposition le signal non bruité et le bruit.
 Il est alors possible de calculer le RSB,
 ce qui permet de comparer les performances du traitement réalisé avec d’autres méthodes.</p>
+<p><a class="exercise btn btn-light" href="td.html#exercice-3" role="button">3</a></p>
 </section>
 </section>
 </section>

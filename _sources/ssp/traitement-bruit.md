@@ -2,8 +2,7 @@
 # Traitement des signaux bruités
 
 
-Nous présentons différentes techniques de traitement de signaux bruités.
-Ces techniques sont regroupées en trois parties :
+Nous présentons trois types de techniques de traitement de signaux bruités :
 * la détection de signal, c'est-à-dire déterminer si un signal particulier est présent dans des données bruitées,
 * le débruitage, c'est-à-dire réduire le plus possible le bruit présent dans un signal,
 * l'approximation, c'est-à-dire estimer le signal sous-jacent dans des données bruitées.
@@ -111,6 +110,8 @@ Seules les corrélations de $x$ avec $x$ et $y$ présentent un maximum clair,
 ce qui indique la présence du motif à cet instant.
 ```
 
+<a class="exercise btn btn-light" href="td.html#exercice-4" role="button">4</a>
+
 
 ## Débruitage de signaux
 
@@ -188,6 +189,12 @@ Le filtre moyenneur est une très bonne première approche pour débruiter un si
 Elle reste néanmoins limitée (parce qu'elle a tendance à lisser le signal lui-même),
 et il faut parfois recourir à des techniques plus évoluées.
 
+Le filtre moyenneur étant un filtre passe-bas, il peut aussi être utilisé avant de sous-échantillonner un signal.
+Cela est bien pratique pour afficher par exemple un signal de mesure contenant beaucoup d'échantillons
+sur un graphique ou un écran très petit.
+
+<a class="exercise btn btn-light" href="td.html#exercice-5" role="button">5</a>
+
 
 ### Débruitage de plusieurs réalisations d'un même signal
 
@@ -213,6 +220,8 @@ l'une d'elle est en bleu pour être visible.
 En photographie, le moyennage de plusieurs images d'une même scène permet de réduire le bruit présent dans la photographie.
 En astronomie par exemple, il n'est pas rare de produire des images qui sont le moyennage de plusieurs dizaines d'observations,
 elle-même acquises avec un temps de pose très long (plusieurs dizaines de minutes).
+
+<a class="exercise btn btn-light" href="td.html#exercice-6" role="button">6</a>
 
 
 ## Approximation par moindres carrés
@@ -368,3 +377,5 @@ name: F:ssp:moindres-carres-differences
 ---
 Mise en évidence des erreurs à minimiser.
 ```
+
+<a class="exercise btn btn-light" href="td.html#exercice-7" role="button">7</a>
