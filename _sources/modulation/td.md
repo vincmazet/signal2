@@ -1,7 +1,9 @@
 # Excercices sur feuille
 
 
-## Exercice 1
+## Modulation analogique
+
+### Exercice 1
 
 <!-- Source : Oppenheim exo 8.3 -->
 
@@ -23,14 +25,14 @@ où le filtre passe-bas $h(t)$ est idéal, de gain 2 et de fréquence de coupure
 Déterminez $y(t)$.
 
 
-## Exercice 2
+### Exercice 2
 
 Un message $m(t)$ est modulé en amplitude avec une porteuse de fréquence $f_p$ et de phase nulle.
 Le signal $y(t)$ est issu d'une démodulation cohérente avec une porteuse de fréquence $f_q$.
 Calculez la transformée de Fourier de $y(t)$ lorsque $f_q \neq f_p$.
 
 
-## Exercice 3
+### Exercice 3
 
 <!-- ancien chiffrement du son Canal+ -->
 <!-- Source : Ventre exo 2.1 -->
@@ -45,7 +47,7 @@ Proposez une technique pour réaliser cette opération.
 ```
 
 
-## Exercice 4
+### Exercice 4
 
 <!-- Ventre exo 2.5 -->
 
@@ -66,12 +68,14 @@ enfin, une sous-porteuse à 19 kHz est également transmise pour faciliter la sy
 1. Donnez un schéma de décodeur utilisant une démodulation cohérente et des filtres.
 
 
-## Exercice 5
+## Modulation numérique
+
+### Exercice 5
 
 Représentez la séquence binaire <code>01011</code> modulée en NRZ bipolaire, Manchester et AMI.
 
 
-## Exercice 6
+### Exercice 6
 
 Représentez les constellations des modulations suivantes :
 
@@ -84,7 +88,7 @@ Représentez les constellations des modulations suivantes :
 * 2-PSK (appelée aussi BPSK pour _binary PSK_) ;
 * 8-QAM.
 
-## Exercice 7
+### Exercice 7
 
 * Représentez la forme d'onde $h_1(t)$ :
 

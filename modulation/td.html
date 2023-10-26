@@ -186,7 +186,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../filtrage/tdc.html">Corrections</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../filtrage/tp.html">Exercices sur machine</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../filtrage/tp.html">Exercices sur machine</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../filtrage/tpc.html">✐ Filtrage numérique</a></li>
+</ul>
+</li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Modulation</span></p>
 <ul class="current nav bd-sidenav">
@@ -356,13 +359,19 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-1">Exercice 1</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-2">Exercice 2</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-3">Exercice 3</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-4">Exercice 4</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-5">Exercice 5</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-6">Exercice 6</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-7">Exercice 7</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modulation-analogique">Modulation analogique</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-1">Exercice 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-2">Exercice 2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-3">Exercice 3</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-4">Exercice 4</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modulation-numerique">Modulation numérique</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-5">Exercice 5</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-6">Exercice 6</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-7">Exercice 7</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -376,8 +385,10 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="excercices-sur-feuille">
 <h1>Excercices sur feuille<a class="headerlink" href="#excercices-sur-feuille" title="Lien permanent vers cette rubrique">#</a></h1>
+<section id="modulation-analogique">
+<h2>Modulation analogique<a class="headerlink" href="#modulation-analogique" title="Lien permanent vers cette rubrique">#</a></h2>
 <section id="exercice-1">
-<h2>Exercice 1<a class="headerlink" href="#exercice-1" title="Lien permanent vers cette rubrique">#</a></h2>
+<h3>Exercice 1<a class="headerlink" href="#exercice-1" title="Lien permanent vers cette rubrique">#</a></h3>
 <!-- Source : Oppenheim exo 8.3 -->
 <p>Le signal <span class="math notranslate nohighlight">\(m(t)\)</span> est à bande limitée : <span class="math notranslate nohighlight">\(M(f)=0\)</span> pour <span class="math notranslate nohighlight">\(|f|&gt;1\)</span> kHz.
 Il est modulé en amplitude par une porteuse sinusoïdale de fréquence <span class="math notranslate nohighlight">\(f_p=1\)</span> kHz :</p>
@@ -391,13 +402,13 @@ Il est modulé en amplitude par une porteuse sinusoïdale de fréquence <span cl
 Déterminez <span class="math notranslate nohighlight">\(y(t)\)</span>.</p>
 </section>
 <section id="exercice-2">
-<h2>Exercice 2<a class="headerlink" href="#exercice-2" title="Lien permanent vers cette rubrique">#</a></h2>
+<h3>Exercice 2<a class="headerlink" href="#exercice-2" title="Lien permanent vers cette rubrique">#</a></h3>
 <p>Un message <span class="math notranslate nohighlight">\(m(t)\)</span> est modulé en amplitude avec une porteuse de fréquence <span class="math notranslate nohighlight">\(f_p\)</span> et de phase nulle.
 Le signal <span class="math notranslate nohighlight">\(y(t)\)</span> est issu d’une démodulation cohérente avec une porteuse de fréquence <span class="math notranslate nohighlight">\(f_q\)</span>.
 Calculez la transformée de Fourier de <span class="math notranslate nohighlight">\(y(t)\)</span> lorsque <span class="math notranslate nohighlight">\(f_q \neq f_p\)</span>.</p>
 </section>
 <section id="exercice-3">
-<h2>Exercice 3<a class="headerlink" href="#exercice-3" title="Lien permanent vers cette rubrique">#</a></h2>
+<h3>Exercice 3<a class="headerlink" href="#exercice-3" title="Lien permanent vers cette rubrique">#</a></h3>
 <!-- ancien chiffrement du son Canal+ -->
 <!-- Source : Ventre exo 2.1 -->
 <p>Lorsque Canal+ émettait encore en analogique,
@@ -406,7 +417,7 @@ Proposez une technique pour réaliser cette opération.</p>
 <a class="reference internal image-reference" href="../_images/canalplus.svg"><img alt="../_images/canalplus.svg" class="align-center" src="../_images/canalplus.svg" width="600px" /></a>
 </section>
 <section id="exercice-4">
-<h2>Exercice 4<a class="headerlink" href="#exercice-4" title="Lien permanent vers cette rubrique">#</a></h2>
+<h3>Exercice 4<a class="headerlink" href="#exercice-4" title="Lien permanent vers cette rubrique">#</a></h3>
 <!-- Ventre exo 2.5 -->
 <p>Un enregistrement stéréo est composé des voies gauche <span class="math notranslate nohighlight">\(g(t)\)</span> et droite <span class="math notranslate nohighlight">\(d(t)\)</span>.
 Le signal composite stéréo <span class="math notranslate nohighlight">\(x(t)\)</span> est défini spectralement sur la figure ci-après (seule la partie positive est représentée) :
@@ -421,12 +432,15 @@ enfin, une sous-porteuse à 19 kHz est également transmise pour faciliter la sy
 <li><p>Donnez un schéma de décodeur utilisant une démodulation cohérente et des filtres.</p></li>
 </ol>
 </section>
+</section>
+<section id="modulation-numerique">
+<h2>Modulation numérique<a class="headerlink" href="#modulation-numerique" title="Lien permanent vers cette rubrique">#</a></h2>
 <section id="exercice-5">
-<h2>Exercice 5<a class="headerlink" href="#exercice-5" title="Lien permanent vers cette rubrique">#</a></h2>
+<h3>Exercice 5<a class="headerlink" href="#exercice-5" title="Lien permanent vers cette rubrique">#</a></h3>
 <p>Représentez la séquence binaire <code>01011</code> modulée en NRZ bipolaire, Manchester et AMI.</p>
 </section>
 <section id="exercice-6">
-<h2>Exercice 6<a class="headerlink" href="#exercice-6" title="Lien permanent vers cette rubrique">#</a></h2>
+<h3>Exercice 6<a class="headerlink" href="#exercice-6" title="Lien permanent vers cette rubrique">#</a></h3>
 <p>Représentez les constellations des modulations suivantes :</p>
 <ul>
 <li><p>OOK (<em>on-off keying</em>) définie dans <a class="reference external" href="https://en.wikipedia.org/w/index.php?title=On-off_keying&amp;oldid=669950443">Wikipédia</a> par :</p>
@@ -443,7 +457,7 @@ while its absence for the same duration represents a binary zero.</p>
 </ul>
 </section>
 <section id="exercice-7">
-<h2>Exercice 7<a class="headerlink" href="#exercice-7" title="Lien permanent vers cette rubrique">#</a></h2>
+<h3>Exercice 7<a class="headerlink" href="#exercice-7" title="Lien permanent vers cette rubrique">#</a></h3>
 <ul class="simple">
 <li><p>Représentez la forme d’onde <span class="math notranslate nohighlight">\(h_1(t)\)</span> :</p></li>
 </ul>
@@ -468,6 +482,7 @@ h_2(t) =
   0       &amp;\text{sinon}.
 \end{cases}
 \end{split}\]</div>
+</section>
 </section>
 </section>
 
@@ -538,13 +553,19 @@ h_2(t) =
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-1">Exercice 1</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-2">Exercice 2</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-3">Exercice 3</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-4">Exercice 4</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-5">Exercice 5</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-6">Exercice 6</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-7">Exercice 7</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modulation-analogique">Modulation analogique</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-1">Exercice 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-2">Exercice 2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-3">Exercice 3</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-4">Exercice 4</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modulation-numerique">Modulation numérique</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-5">Exercice 5</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-6">Exercice 6</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-7">Exercice 7</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
