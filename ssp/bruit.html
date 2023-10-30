@@ -663,9 +663,9 @@ et est généralement exprimé en décibels :</p>
 Ces signaux sont de puissances :</p>
 <div class="math notranslate nohighlight">
 \[
-P_x = \frac{1}{N} \sum_{n=0}^N |x[n]|^2
+P_x = \frac{1}{N} \sum_{n=0}^{N-1} |x[n]|^2
 \quad\text{et}\quad
-P_b = \frac{1}{N} \sum_{n=0}^N |b[n]|^2.
+P_b = \frac{1}{N} \sum_{n=0}^{N-1} |b[n]|^2.
 \]</div>
 <p>Notez que dans le cas d’un bruit blanc, la puissance du bruit <span class="math notranslate nohighlight">\(P_b\)</span> est égale à la variance du bruit.</p>
 <figure class="align-default" id="f-ssp-rsb">
