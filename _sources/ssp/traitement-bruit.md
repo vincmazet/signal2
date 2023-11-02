@@ -280,7 +280,7 @@ $$
 \begin{cases}
 y[n_1] = \theta_0 + \theta_1 n_1 + \theta_2 n_1^2 + \dots + \theta_M n_1^M + b[n_1] \\
 \quad\vdots \\
-y[n_N] = \theta_0 + \theta_1 n_N + \theta_2 n_N^2 + \dots + \theta_M n_N^M + b[n_2]
+y[n_N] = \theta_0 + \theta_1 n_N + \theta_2 n_N^2 + \dots + \theta_M n_N^M + b[n_N]
 \end{cases}
 $$
 

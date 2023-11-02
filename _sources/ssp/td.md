@@ -76,9 +76,11 @@ où les bruits $b_i$ sont supposés blancs gaussiens additifs.
 
 * Déterminez le polynôme de degré 0 (une constante, donc...) qui approxime au mieux
   les données d'abscisses $n=[0,\ 1]^T$ et d'ordonnées $y=[2,\ 3]^T$.
+  Calculez l'erreur $\mathcal{J}$.
 
 * Déterminez le polynôme de degré 1 (une droite affine) qui approxime au mieux
   les données d'abscisses $n=[0,\ 1,\ 2]^T$ et d'ordonnées $y=[2,\ 4,\ 4]^T$.
+  Calculez l'erreur $\mathcal{J}$.
 
 On rappelle que l'inverse d'une matrice $2\times2$ $\begin{pmatrix} a & b \\ c & d \end{pmatrix}$
 est égale à $\displaystyle\frac{1}{ad-bc} \begin{pmatrix} d & -b \\ -c & a \end{pmatrix}$.
