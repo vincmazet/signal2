@@ -64,6 +64,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'modulation/tp';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Recherche" href="../search.html" />
@@ -185,7 +187,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../filtrage/tp.html">Exercices sur machine</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../filtrage/tpc.html">✐ Filtrage numérique</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../filtrage/tpc.html">Filtrage numérique</a></li>
 </ul>
 </li>
 </ul>
@@ -334,7 +336,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -350,6 +354,17 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contenu </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creation-du-signal-par-l-emetteur">Création du signal par l’émetteur</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulation-du-canal-de-transmission">Simulation du canal de transmission</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#decodage-du-signal-par-le-recepteur">Décodage du signal par le récepteur</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#etude-des-performances-du-filtrage-adapte">Étude des performances du filtrage adapté</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -361,6 +376,57 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="exercices-sur-machine">
 <h1>Exercices sur machine<a class="headerlink" href="#exercices-sur-machine" title="Lien permanent vers cette rubrique">#</a></h1>
+<p>L’objectif de ce TP est de simuler la démodulation d’un message numérique modulé en bande de base.</p>
+<p>Le codage Manchester est une norme de transmission de messages binaires,
+utilisée notamment dans certaines communications Ethernet.
+La forme d’onde et la table de correspondance sont définies dans le cours.
+Dans cet exercice, nous reproduisons la chaîne de communication avec :</p>
+<ol class="arabic simple">
+<li><p>un émetteur qui crée un message binaire codé en Manchester,</p></li>
+<li><p>un canal de transmission où s’ajoute du bruit au signal émis,</p></li>
+<li><p>un récepteur dont l’objectif est de décoder le signal reçu.</p></li>
+</ol>
+<section id="creation-du-signal-par-l-emetteur">
+<h2>Création du signal par l’émetteur<a class="headerlink" href="#creation-du-signal-par-l-emetteur" title="Lien permanent vers cette rubrique">#</a></h2>
+<ul class="simple">
+<li><p>Créez et affichez le motif <span class="math notranslate nohighlight">\(h\)</span> de durée <span class="math notranslate nohighlight">\(T=10^{-7}\)</span> s et échantillonné à <span class="math notranslate nohighlight">\(10^{9}\)</span> Hz.</p></li>
+<li><p>En concaténant plusieurs motifs (par exemple avec <code class="docutils literal notranslate"><span class="pre">numpy.concatenate</span></code>),
+créez le signal correspondant à la séquence binaire <span class="math notranslate nohighlight">\(1\ 0\ 1\ 1\)</span>.
+Pensez à définir un nouveau vecteur de temps pour afficher ce signal.</p></li>
+</ul>
+</section>
+<section id="simulation-du-canal-de-transmission">
+<h2>Simulation du canal de transmission<a class="headerlink" href="#simulation-du-canal-de-transmission" title="Lien permanent vers cette rubrique">#</a></h2>
+<ul class="simple">
+<li><p>Ajoutez un bruit gaussien (<code class="docutils literal notranslate"><span class="pre">numpy.random.normal</span></code>) à ce signal de sorte à obtenir un RSB de 10 dB
+(utilisez le résultat de l’exercice 3 du TD pour obtenir le lien entre le RSB et l’écart-type du bruit).
+La norme peut être calculée avec <code class="docutils literal notranslate"><span class="pre">np.linalg.norm</span></code>.
+Vérifiez notamment que le niveau de bruit évolue conformément au RSB.</p></li>
+</ul>
+</section>
+<section id="decodage-du-signal-par-le-recepteur">
+<h2>Décodage du signal par le récepteur<a class="headerlink" href="#decodage-du-signal-par-le-recepteur" title="Lien permanent vers cette rubrique">#</a></h2>
+<p>On se place maintenant au niveau du récepteur :
+un filtre adapté est utilisé pour retrouver la séquence binaire à partir du signal bruité.</p>
+<ul class="simple">
+<li><p>On a vu en cours que le filtre adapté peut s’implémenter comme la convolution entre le signal bruité
+et une réponse impulsionnelle.
+Quelle est cette réponse impulsionnelle ?</p></li>
+<li><p>Appliquez le filtre adapté en calculant une convolution sur le signal bruité.
+Décrivez le signal obtenu.
+Comment retrouver la séquence binaire à partir de ce signal ?</p></li>
+</ul>
+</section>
+<section id="etude-des-performances-du-filtrage-adapte">
+<h2>Étude des performances du filtrage adapté<a class="headerlink" href="#etude-des-performances-du-filtrage-adapte" title="Lien permanent vers cette rubrique">#</a></h2>
+<ul class="simple">
+<li><p>Évaluez la robustesse du filtrage adapté en fonction du niveau de bruit :
+comment se comporte cette méthode lorsque le RSB évolue ?</p></li>
+<li><p>Appliquez le filtre adapté sur le signal <a class="reference external" href="https://vincmazet.github.io/signal2/_static/manchester.csv">manchester.csv</a>
+pour décoder la séquence binaire correspondante
+(la durée <span class="math notranslate nohighlight">\(T\)</span> du motif et la fréquence d’échantillonnage restant les mêmes que dans les questions précédentes),
+sachant que la norme ASCII a été utilisée.</p></li>
+</ul>
 <!-- ```{note}
 Dans la réalité, les signaux qui circulent sur le canal sont analogiques car le canal de communication est physique.
 Comme la chaîne de communications est ici simulée, l'ordinateur traite en fait des signaux numériques !
@@ -482,6 +548,7 @@ La détection est alors perturbée même s'il n'y a pas de bruit.
 -->
 <!-- Répartition optimale du filtrage entre l'émission et la réception ? -->
 <!-- Probabilité d'erreur minimale sur un canal à bande limitée ? --></section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -541,6 +608,23 @@ La détection est alors perturbée même s'il n'y a pas de bruit.
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contenu
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creation-du-signal-par-l-emetteur">Création du signal par l’émetteur</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulation-du-canal-de-transmission">Simulation du canal de transmission</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#decodage-du-signal-par-le-recepteur">Décodage du signal par le récepteur</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#etude-des-performances-du-filtrage-adapte">Étude des performances du filtrage adapté</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

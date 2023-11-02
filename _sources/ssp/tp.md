@@ -2,69 +2,6 @@
 # Exercices sur machine
 
 
-## Détection de motifs par filtrage adapté
-
-Le codage Manchester est une norme de transmission de messages binaires,
-utilisée notamment dans certaines communications Ethernet.
-Les bits du message binaire sont transmis les uns à la suite des autres.
-un 1 logique est représenté par le motif $h$,
-tandis qu'un 0 logique est représenté par $-h$ où
-
-$$
-h(t) =
-\begin{cases}
-1  &\text{ si } t \in [0,T/2[, \\
--1 &\text{ si } t \in [T/2,T[,
-\end{cases}
-$$
-
-Dans cet exercice, nous reproduisons la chaîne de communication avec :
-1. un émetteur qui crée un message binaire codé en Manchester,
-1. un canal de transmission où s'ajoute du bruit au signal émis,
-1. un récepteur dont l'objectif est de décoder le signal reçu.
-
-
-### Création du signal par l'émetteur
-
-* Créez le motif $h$ de durée $T=10^{-7}$ s et échantillonné à $10^{9}$ Hz.
-  Au préalable, définissez un vecteur des abscisses qui permettra de générer $h$.
-
-* En concaténant plusieurs motifs (par exemple avec `numpy.concatenate`),
-  créez le signal correspondant à la séquence binaire $1\ 0\ 1\ 1$.
-  Pensez à définir un nouveau vecteur de temps pour afficher le signal.
-
-
-### Simulation du canal de transmission
-
-* Ajoutez un bruit gaussien (`numpy.random.normal`) à ce signal de sorte à obtenir un RSB de 10 dB
-  (utilisez le résultat de l'exercice 3 du TD pour obtenir le lien entre le RSB et l'écart-type du bruit).
-  La norme peut être calculée avec `np.linalg.norm`.
-  Vérifiez notamment que le niveau de bruit évolue conformément à la valeur du RSB.
-
-
-### Décodage du signal par le récepteur
-  
-On se place maintenant au niveau du récepteur :
-un filtre adapté est utilisé pour retrouver la séquence binaire à partir du signal bruité.
-
-* On a vu en cours que le filtre adapté peut s'implémenter comme la convolution entre le signal bruité
-  et une réponse impulsionnelle.
-  Quelle est cette réponse impulsionnelle ?
-
-* Appliquez le filtre adapté en calculant une convolution sur le signal bruité.
-  Décrivez le signal obtenu.
-  Comment retrouver la séquence binaire à partir de ce signal ?  
-
-
-### Étude des performances du filtrage adapté
-
-* Évaluez la robustesse du filtrage adapté en fonction du niveau de bruit :
-  comment se comporte cette méthode lorsque le RSB évolue ?
-
-* Appliquez le filtre adapté sur le signal <a href="_static/files/manchester.csv">manchester.csv</a>
-  pour décoder la séquence binaire correspondante
-  (la durée $T$ du motif et la fréquence d'échantillonnage restant les mêmes que dans les questions précédentes),
-  sachant que la norme ASCII a été utilisée.
 
 
 ## Lissage par filtre moyenneur
@@ -73,12 +10,12 @@ un filtre adapté est utilisé pour retrouver la séquence binaire à partir du 
 Source : NASA/GISS, [climate.nasa.gov/vital-signs/global-temperature](https://climate.nasa.gov/vital-signs/global-temperature/).
 ```
 
-Le fichier <a href="_static/files/temperatures.csv">temperatures.csv</a> regroupe l'ensemble des températures moyennes à la surface de la Terre
+Le fichier [temperatures.csv](https://vincmazet.github.io/signal2/_static/temperatures.csv) regroupe l'ensemble des températures moyennes à la surface de la Terre
 pour chaque année depuis 1880.
 Les températures sont données par rapport à la moyenne des températures relevées sur la période de référence 1951–1980.
 Ces données illustrent la hausse de températures mondiales.
 
-* Chargez le fichier <a href="_static/files/temperatures.csv">temperatures.csv</a> et affichez les données.
+* Chargez le fichier [temperatures.csv](https://vincmazet.github.io/signal2/_static/temperatures.csv) et affichez les données.
 
 * Appliquez un filtre moyenneur sur les données pour obtenir une courbe plus lisse.
   Choisissez le filtre de sorte à obtenir des températures lissées sur une fenêtre de 5 ans,
@@ -92,7 +29,7 @@ Ces données illustrent la hausse de températures mondiales.
 À la place d'un filtre moyenneur, on souhaite effectuer une approximation de l'évolution des températures par une parabole.
 
 * Calculez l'approximation des températures
-  (<a href="_static/files/temperatures.csv">temperatures.csv</a> ) par une parabole.
+  ([temperatures.csv](https://vincmazet.github.io/signal2/_static/temperatures.csv)) par une parabole.
   Pour cela :
   - normalisez les abscisses entre 0 et 1 pour éviter les problèmes numériques ;
   - la transposée est obtenue avec `numpy.transpose` ;
