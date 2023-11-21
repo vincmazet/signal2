@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Modulation en bande de base &#8212; Traitement du signal 2</title>
+    <title>Corrections &#8212; Traitement du signal 2</title>
   
   
   
@@ -66,11 +66,11 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'modulation/bande-de-base';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'modulation/tdc';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Recherche" href="../search.html" />
-    <link rel="next" title="Modulation sur porteuse" href="porteuse.html" />
-    <link rel="prev" title="Modulation analogique" href="analogique.html" />
+    <link rel="next" title="Exercices sur machine" href="tp.html" />
+    <link rel="prev" title="Excercices sur feuille" href="td.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="fr"/>
   </head>
@@ -195,10 +195,10 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="analogique.html">Modulation analogique</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Modulation en bande de base</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bande-de-base.html">Modulation en bande de base</a></li>
 <li class="toctree-l1"><a class="reference internal" href="porteuse.html">Modulation sur porteuse</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="td.html">Excercices sur feuille</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="tdc.html">Corrections</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="td.html">Excercices sur feuille</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Corrections</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="tp.html">Exercices sur machine</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -280,7 +280,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../_sources/modulation/bande-de-base.md" target="_blank"
+      <li><a href="../_sources/modulation/tdc.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Télécharger le fichier source"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -362,7 +362,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Modulation en bande de base</h1>
+    <h1>Corrections</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -372,13 +372,19 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modulation">Modulation</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#code-nrz-bipolaire">Code NRZ bipolaire</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#code-manchester">Code Manchester</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#code-ami">Code AMI</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modulation-analogique">Modulation analogique</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-1">Exercice 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-2">Exercice 2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-3">Exercice 3</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-4">Exercice 4</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#demodulation-en-presence-de-bruit">Démodulation en présence de bruit</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modulation-numerique">Modulation numérique</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-5">Exercice 5</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-6">Exercice 6</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-7">Exercice 7</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -390,192 +396,85 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="modulation-en-bande-de-base">
-<h1>Modulation en bande de base<a class="headerlink" href="#modulation-en-bande-de-base" title="Lien permanent vers cette rubrique">#</a></h1>
-<section id="modulation">
-<h2>Modulation<a class="headerlink" href="#modulation" title="Lien permanent vers cette rubrique">#</a></h2>
-<p>Le signal analogique <span class="math notranslate nohighlight">\(x(t)\)</span> modulé en bande de base à partir d’un message <span class="math notranslate nohighlight">\(m\)</span> s’obtient grâce à l’équation :</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="corrections">
+<h1>Corrections<a class="headerlink" href="#corrections" title="Lien permanent vers cette rubrique">#</a></h1>
+<section id="modulation-analogique">
+<h2>Modulation analogique<a class="headerlink" href="#modulation-analogique" title="Lien permanent vers cette rubrique">#</a></h2>
+<section id="exercice-1">
+<h3>Exercice 1<a class="headerlink" href="#exercice-1" title="Lien permanent vers cette rubrique">#</a></h3>
+<p>Le signal modulé <span class="math notranslate nohighlight">\(x\)</span> a pour transformée de Fourier :</p>
 <div class="math notranslate nohighlight">
 \[
-x(t) = \sum_{k=-\infty}^{+\infty} \alpha_k h(t-kd)
+X(f) = M(f) * \frac{1}{2j} \left[ \delta(f-f_p) - \delta(f+f_p) \right]
 \]</div>
-<p>où <span class="math notranslate nohighlight">\(h\)</span> est un signal prédéfini appelé forme d’onde et les <span class="math notranslate nohighlight">\(\alpha_k\)</span> sont les amplitudes de la forme d’onde et elles dépendent du message.
-Notez que la somme est écrite avec une infinité de termes car le message peut être considéré, en toute généralité, de taille infinie.</p>
-<p>Le choix de la forme d’onde <span class="math notranslate nohighlight">\(h\)</span> et du lien entre le message <span class="math notranslate nohighlight">\(m\)</span> et les amplitudes <span class="math notranslate nohighlight">\(\alpha\)</span> défini un code en ligne.
-Il existe beaucoup de codes en ligne, quelques exemples sont donnés ci-après.
-En général, le lien entre le message et les amplitudes se fait par l’intermédiaire d’une table de correspondance,
-c’est-à-dire que pour chaque symbole de l’alphabet correspond une amplitude particulière.</p>
-<section id="code-nrz-bipolaire">
-<h3>Code NRZ bipolaire<a class="headerlink" href="#code-nrz-bipolaire" title="Lien permanent vers cette rubrique">#</a></h3>
-<p>Le code NRZ (non retour à zéro) bipolaire est défini par la table de correspondance et la forme d’onde ci-dessous :</p>
-<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
-<div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-1 sd-row-cols-md-1 sd-row-cols-lg-2 sd-g-3 sd-g-xs-3 sd-g-sm-3 sd-g-md-3 sd-g-lg-3 docutils">
-<div class="sd-col sd-d-flex-row docutils">
-<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
-<div class="sd-card-body docutils">
-<div class="sd-card-title sd-font-weight-bold docutils">
-Forme d’onde</div>
+<p>Au niveau du démodulateur, le signal modulé <span class="math notranslate nohighlight">\(w\)</span> a pour transformée de Fourier :</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
-h(t) =
-\begin{cases}
-  V &amp;\text{si } t \in [0,d], \\
-  0 &amp;\text{sinon}
-\end{cases}
+W(f) &amp;= W(f) * \frac{1}{2} \left[ \delta(f-f_p) + \delta(f+f_p) \right] \\
+     &amp;= M(f) * \frac{1}{4j} \left[ \delta(f-2f_p) - \delta(f) + \delta(f) - \delta(f+2f_p) \right] \\
+     &amp;= \frac{1}{4j} \left[ M(f-2f_p) - M(f+2f_p) \right] \\
 \end{split}\]</div>
-<a class="reference internal image-reference" href="../_images/code-nrz.svg"><img alt="../_images/code-nrz.svg" class="align-center" src="../_images/code-nrz.svg" width="70%" /></a>
-</div>
-</div>
-</div>
-<div class="sd-col sd-d-flex-row docutils">
-<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
-<div class="sd-card-body docutils">
-<div class="sd-card-title sd-font-weight-bold docutils">
-Amplitudes</div>
-<table class="table">
-<thead>
-<tr class="row-odd"><th class="head"><p class="sd-card-text"><span class="math notranslate nohighlight">\(m_k\)</span></p></th>
-<th class="head"><p class="sd-card-text"><span class="math notranslate nohighlight">\(\alpha_k\)</span></p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p class="sd-card-text"><span class="math notranslate nohighlight">\(0\)</span></p></td>
-<td><p class="sd-card-text"><span class="math notranslate nohighlight">\(-1\)</span></p></td>
-</tr>
-<tr class="row-odd"><td><p class="sd-card-text"><span class="math notranslate nohighlight">\(1\)</span></p></td>
-<td><p class="sd-card-text"><span class="math notranslate nohighlight">\(+1\)</span></p></td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-</div>
-</div>
+<p>Le filtre passe-bas étant de fréquence de coupure <span class="math notranslate nohighlight">\(f_c=f_p\)</span>, les deux termes <span class="math notranslate nohighlight">\(M(f-2f_p)\)</span> et <span class="math notranslate nohighlight">\(M(f+2f_p)\)</span> sont atténués.
+Finalement, le signal en sortie du filtre est nul.</p>
 </section>
-<section id="code-manchester">
-<h3>Code Manchester<a class="headerlink" href="#code-manchester" title="Lien permanent vers cette rubrique">#</a></h3>
-<p>Le code Manchester est utilisé pour le protocole Ethernet.</p>
-<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
-<div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-1 sd-row-cols-md-1 sd-row-cols-lg-2 sd-g-3 sd-g-xs-3 sd-g-sm-3 sd-g-md-3 sd-g-lg-3 docutils">
-<div class="sd-col sd-d-flex-row docutils">
-<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
-<div class="sd-card-body docutils">
-<div class="sd-card-title sd-font-weight-bold docutils">
-Forme d’onde</div>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-h(t) =
-\begin{cases}
-  V  &amp;\text{si } t \in [0,d/2], \\
-  -V &amp;\text{si } t \in [d/2,d], \\
-  0  &amp;\text{sinon}
-\end{cases}
-\end{split}\]</div>
-<a class="reference internal image-reference" href="../_images/code-manchester.svg"><img alt="../_images/code-manchester.svg" class="align-center" src="../_images/code-manchester.svg" width="70%" /></a>
-</div>
-</div>
-</div>
-<div class="sd-col sd-d-flex-row docutils">
-<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
-<div class="sd-card-body docutils">
-<div class="sd-card-title sd-font-weight-bold docutils">
-Amplitudes</div>
-<table class="table">
-<thead>
-<tr class="row-odd"><th class="head"><p class="sd-card-text"><span class="math notranslate nohighlight">\(m_k\)</span></p></th>
-<th class="head"><p class="sd-card-text"><span class="math notranslate nohighlight">\(\alpha_k\)</span></p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p class="sd-card-text"><span class="math notranslate nohighlight">\(0\)</span></p></td>
-<td><p class="sd-card-text"><span class="math notranslate nohighlight">\(-1\)</span></p></td>
-</tr>
-<tr class="row-odd"><td><p class="sd-card-text"><span class="math notranslate nohighlight">\(1\)</span></p></td>
-<td><p class="sd-card-text"><span class="math notranslate nohighlight">\(+1\)</span></p></td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="code-ami">
-<h3>Code AMI<a class="headerlink" href="#code-ami" title="Lien permanent vers cette rubrique">#</a></h3>
-<p>Le code AMI (<em>alternate mark inversion</em>) a été utilisé dans certaines communications téléphoniques.</p>
-<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
-<div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-1 sd-row-cols-md-1 sd-row-cols-lg-2 sd-g-3 sd-g-xs-3 sd-g-sm-3 sd-g-md-3 sd-g-lg-3 docutils">
-<div class="sd-col sd-d-flex-row docutils">
-<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
-<div class="sd-card-body docutils">
-<div class="sd-card-title sd-font-weight-bold docutils">
-Forme d’onde</div>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-h(t) =
-\begin{cases}
-  V &amp;\text{si } t \in [0,d], \\
-  0 &amp;\text{sinon}
-\end{cases}
-\end{split}\]</div>
-<a class="reference internal image-reference" href="../_images/code-ami.svg"><img alt="../_images/code-ami.svg" class="align-center" src="../_images/code-ami.svg" width="70%" /></a>
-</div>
-</div>
-</div>
-<div class="sd-col sd-d-flex-row docutils">
-<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
-<div class="sd-card-body docutils">
-<div class="sd-card-title sd-font-weight-bold docutils">
-Amplitudes</div>
-<table class="table">
-<thead>
-<tr class="row-odd"><th class="head"><p class="sd-card-text"><span class="math notranslate nohighlight">\(m_k\)</span></p></th>
-<th class="head"><p class="sd-card-text"><span class="math notranslate nohighlight">\(\alpha_k\)</span></p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p class="sd-card-text"><span class="math notranslate nohighlight">\(0\)</span></p></td>
-<td><p class="sd-card-text"><span class="math notranslate nohighlight">\(0\)</span></p></td>
-</tr>
-<tr class="row-odd"><td><p class="sd-card-text"><span class="math notranslate nohighlight">\(1\)</span></p></td>
-<td><p class="sd-card-text"><span class="math notranslate nohighlight">\(\pm1\)</span> alternativement</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-</div>
-</div>
-<p><a class="exercise btn btn-light" href="td.html#exercice-5" role="button">5</a></p>
-</section>
-</section>
-<section id="demodulation-en-presence-de-bruit">
-<h2>Démodulation en présence de bruit<a class="headerlink" href="#demodulation-en-presence-de-bruit" title="Lien permanent vers cette rubrique">#</a></h2>
-<p>Dans le cas où le canal est bruité et de bande passante infinie, le signal reçu <span class="math notranslate nohighlight">\(y(t)\)</span> est égal à</p>
+<section id="exercice-2">
+<h3>Exercice 2<a class="headerlink" href="#exercice-2" title="Lien permanent vers cette rubrique">#</a></h3>
+<p>Le signal modulé est <span class="math notranslate nohighlight">\(x(t) = m(t) \sin(2\pi f-p t)\)</span> et le signal modulé est <span class="math notranslate nohighlight">\(y(t) = m(t) \sin(2\pi f_q t)\)</span>.
+En conséquence, le spectre du signal modulé est :</p>
 <div class="math notranslate nohighlight">
 \[
-y(t) = x(t) + b(t) = \sum_{k=-\infty}^{+\infty} \alpha_k h(t-kd) + b(t)
+Y(f) = M(f) * \frac{1}{(2j)^2} \left[ \delta(f-f_p-f_q) - \delta(f-f_p+f_q) - \delta(f+f_p-f_q) + \delta(f+f_p+f_q) \right]
 \]</div>
-<p>où <span class="math notranslate nohighlight">\(b(t)\)</span> et le bruit.</p>
-<p>Pour retrouver la séquence binaire que représente ce signal, il faut déterminer les amplitudes <span class="math notranslate nohighlight">\(\alpha_k\)</span> des formes d’onde <span class="math notranslate nohighlight">\(h(t-kd)\)</span>.
-Cela revient à chercher en chaque instant <span class="math notranslate nohighlight">\(kd\)</span> la ressemblance du signal reçu <span class="math notranslate nohighlight">\(y\)</span> avec la forme d’onde <span class="math notranslate nohighlight">\(h\)</span> :
-une intecorrélation entre le signal reçu <span class="math notranslate nohighlight">\(y(t)\)</span> et la forme d’onde <span class="math notranslate nohighlight">\(h(t)\)</span> est donc effectuée ;
-cette technique est appelée filtre adapté (<em>matched filter</em>).</p>
-<p>Ensuite, le signal filtré est échantillonné tous les <span class="math notranslate nohighlight">\(d\)</span> puis comparé à un seuil pour décider du symbole émis.</p>
-<p>Schématiquement, la démodulation est représentée <a class="reference internal" href="#f-demodulation-bruit-bb"><span class="std std-numref">Fig. 27</span></a> :</p>
-<figure class="align-default" id="f-demodulation-bruit-bb">
-<a class="reference internal image-reference" href="../_images/demodulation-bruit-bb.svg"><img alt="../_images/demodulation-bruit-bb.svg" src="../_images/demodulation-bruit-bb.svg" width="500px" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 27 </span><span class="caption-text">Démodulation d’un signal en bande de base avec un canal idéal.</span><a class="headerlink" href="#f-demodulation-bruit-bb" title="Lien permanent vers cette image">#</a></p>
-</figcaption>
-</figure>
-<p>Le filtre de réception est le filtre adapté <span class="math notranslate nohighlight">\(r(t)=h(-t)\)</span> et <span class="math notranslate nohighlight">\(d\)</span> est la durée d’un symbole.
-Quant au seuil, sa valeur optimale dépend du nombre de symboles dans l’alphabet et de la probabilité d’émettre les bits <span class="math notranslate nohighlight">\(0\)</span> et <span class="math notranslate nohighlight">\(1\)</span>.
-Dans le cas d’une communication binaire et lorsque les probabilités sont égales, alors le seuil optimal est la moyenne des amplitudes associées à ces deux bits.</p>
-<!-- Dans le cas $M$-aire, il y a plusieurs seuils, chacun étant situé au milieu de l'intervalle défini par les amplitudes de deux symboles consécutifs. -->
+<p>On remarque que lorsque <span class="math notranslate nohighlight">\(f_q \neq f_p\)</span> alors la démodulation ne fonctionne pas puisqu’on ne retrouve pas, dans les basses fréquences, le spectre original du signal <span class="math notranslate nohighlight">\(m\)</span>.</p>
+</section>
+<section id="exercice-3">
+<h3>Exercice 3<a class="headerlink" href="#exercice-3" title="Lien permanent vers cette rubrique">#</a></h3>
+<p>La technique de chiffrage du son consistait en deux étapes :</p>
+<ul class="simple">
+<li><p>modulation d’amplitude du signal à la fréquence <span class="math notranslate nohighlight">\(f_\text{max}\)</span> ;</p></li>
+<li><p>filtrage passe-bas avec une fréquence de coupure égale à <span class="math notranslate nohighlight">\(f_\text{max}\)</span>.</p></li>
+</ul>
+</section>
+<section id="exercice-4">
+<h3>Exercice 4<a class="headerlink" href="#exercice-4" title="Lien permanent vers cette rubrique">#</a></h3>
+<ol class="arabic">
+<li><p>La présence d’un spectre représentant <span class="math notranslate nohighlight">\(g(t)+d(t)\)</span> permet d’avoir facilement accès à l’enregistrement en mono, avec une fréquence maximale de 15 kHz.
+Le spectre de <span class="math notranslate nohighlight">\(g(t)-d(t)\)</span> permet de fabriquer l’enregistrement stéréo.
+L’impulsion de Dirac en 19 kHz, qui correspond à la moité de 38 kHz, permet au récepteur de se caler sur cette fréquence de 38 kHz.</p></li>
+<li><p>On peut écrire le signal <span class="math notranslate nohighlight">\(x\)</span> comme :</p>
+<div class="math notranslate nohighlight">
+\[
+   x(t) = x_1(t) + x_2(t) + x_3(t)
+   \]</div>
+<p>où</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+   x_1(t) &amp;= g(t)+d(t) \\
+   x_2(t) &amp;= \cos(2\pi f_p/2 t) \\
+   x_3t() &amp;= (g(t)-d(t)) \cos(2\pi f_p t)
+   \end{split}\]</div>
+<p>où <span class="math notranslate nohighlight">\(f_p=38\)</span> kHz.</p>
+</li>
+<li></li>
+</ol>
+<a class="reference internal image-reference" href="../_images/mod4.png"><img alt="../_images/mod4.png" class="align-center" src="../_images/mod4.png" style="width: 100%;" /></a>
+</section>
+</section>
+<section id="modulation-numerique">
+<h2>Modulation numérique<a class="headerlink" href="#modulation-numerique" title="Lien permanent vers cette rubrique">#</a></h2>
+<section id="exercice-5">
+<h3>Exercice 5<a class="headerlink" href="#exercice-5" title="Lien permanent vers cette rubrique">#</a></h3>
+<a class="reference internal image-reference" href="../_images/mod5.png"><img alt="../_images/mod5.png" class="align-center" src="../_images/mod5.png" style="width: 400px;" /></a>
+<p>Figure extraite de <a class="reference external" href="https://vincmazet.github.io/spetsi/modulations-binaires.html">cet outil de simulation</a>.</p>
+</section>
+<section id="exercice-6">
+<h3>Exercice 6<a class="headerlink" href="#exercice-6" title="Lien permanent vers cette rubrique">#</a></h3>
+<a class="reference internal image-reference" href="../_images/mod6.png"><img alt="../_images/mod6.png" class="align-center" src="../_images/mod6.png" style="width: 100%;" /></a>
+</section>
+<section id="exercice-7">
+<h3>Exercice 7<a class="headerlink" href="#exercice-7" title="Lien permanent vers cette rubrique">#</a></h3>
+<a class="reference internal image-reference" href="../_images/mod7.png"><img alt="../_images/mod7.png" class="align-center" src="../_images/mod7.png" style="width: 100%;" /></a>
+</section>
 </section>
 </section>
 
@@ -611,20 +510,20 @@ Dans le cas d’une communication binaire et lorsque les probabilités sont éga
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="analogique.html"
+       href="td.html"
        title="page précédente">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">précédent</p>
-        <p class="prev-next-title">Modulation analogique</p>
+        <p class="prev-next-title">Excercices sur feuille</p>
       </div>
     </a>
     <a class="right-next"
-       href="porteuse.html"
+       href="tp.html"
        title="page suivante">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">suivant</p>
-        <p class="prev-next-title">Modulation sur porteuse</p>
+        <p class="prev-next-title">Exercices sur machine</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -646,13 +545,19 @@ Dans le cas d’une communication binaire et lorsque les probabilités sont éga
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modulation">Modulation</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#code-nrz-bipolaire">Code NRZ bipolaire</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#code-manchester">Code Manchester</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#code-ami">Code AMI</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modulation-analogique">Modulation analogique</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-1">Exercice 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-2">Exercice 2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-3">Exercice 3</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-4">Exercice 4</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#demodulation-en-presence-de-bruit">Démodulation en présence de bruit</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modulation-numerique">Modulation numérique</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-5">Exercice 5</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-6">Exercice 6</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-7">Exercice 7</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
