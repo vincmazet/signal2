@@ -1,21 +1,23 @@
+(C:modulation:bande-de-base)=
 # Modulation en bande de base
 
 
 ## Modulation
 
-Le signal analogique $x(t)$ modulé en bande de base à partir d'un message $m$ s'obtient grâce à l'équation :
+Le signal analogique $x(t)$ modulé en bande de base à partir d'un message $m$ s'obtient grâce à l'équation 
+(notez que la somme est écrite avec une infinité de termes car le message peut être considéré, en toute généralité, de taille infinie) :
 
 $$
 x(t) = \sum_{k=-\infty}^{+\infty} \alpha_k h(t-kd)
 $$
 
-où $h$ est un signal prédéfini appelé forme d'onde et les $\alpha_k$ sont les amplitudes de la forme d'onde et elles dépendent du message.
-Notez que la somme est écrite avec une infinité de termes car le message peut être considéré, en toute généralité, de taille infinie.
-
-Le choix de la forme d'onde $h$ et du lien entre le message $m$ et les amplitudes $\alpha$ défini un code en ligne.
-Il existe beaucoup de codes en ligne, quelques exemples sont donnés ci-après.
+où $h$ est un signal prédéfini appelé forme d'onde et les $\alpha_k$ sont les amplitudes de la forme d'onde qui dépendent du message.
 En général, le lien entre le message et les amplitudes se fait par l'intermédiaire d'une table de correspondance,
 c'est-à-dire que pour chaque symbole de l'alphabet correspond une amplitude particulière.
+
+Le choix de la forme d'onde $h$ et de la table de correspondance entre $m_k$ et les amplitudes $\alpha_k$ défini ce qu'on appelle un _code en ligne_.
+Il existe beaucoup de codes en ligne, quelques exemples sont donnés ci-après.
+
 
 
 ### Code NRZ bipolaire
@@ -120,7 +122,9 @@ $$
 
 ## Démodulation en présence de bruit
 
-Dans le cas où le canal est bruité et de bande passante infinie, le signal reçu $y(t)$ est égal à
+Considérons le cas où le canal est de bande passante infinie
+(le cas inverse est plus compliqué à traiter et dépasse le cadre de ce cours).
+Le signal reçu $y(t)$ est donc égal à
 
 $$
 y(t) = x(t) + b(t) = \sum_{k=-\infty}^{+\infty} \alpha_k h(t-kd) + b(t)
@@ -132,7 +136,6 @@ Pour retrouver la séquence binaire que représente ce signal, il faut détermin
 Cela revient à chercher en chaque instant $kd$ la ressemblance du signal reçu $y$ avec la forme d'onde $h$ :
 une intecorrélation entre le signal reçu $y(t)$ et la forme d'onde $h(t)$ est donc effectuée ;
 cette technique est appelée filtre adapté (_matched filter_).
-
 Ensuite, le signal filtré est échantillonné tous les $d$ puis comparé à un seuil pour décider du symbole émis.
 
 Schématiquement, la démodulation est représentée {numref}`F:demodulation-bruit-bb` :

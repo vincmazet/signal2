@@ -14,7 +14,7 @@ Calculez l'espérance et l'écart-type d'une variable aléatoire distribuée sui
 Calculez une estimation de l'espérance et de l'écart-type de la série de $N=4$ échantillons ci-dessous :
 
 $$
-  x = \begin{bmatrix} 0,\!81 & 0,\!90 & 0,\!12 & 0,\!91 \end{bmatrix}.
+  x = \begin{bmatrix} 18 & 13 & 12 & 15 \end{bmatrix}.
 $$
 
 

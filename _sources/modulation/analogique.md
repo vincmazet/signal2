@@ -1,10 +1,41 @@
+(C:modulation:analogique)=
 # Modulation analogique
 
 
+La modulation analogique consiste à transmettre une porteuse (une sinusoïde de fréquence $f_p$)
+dont l'un des paramètres (amplitude, phase ou fréquence instantanée) évolue dans le temps en fonction du message $m(t)$.
+* Un signal modulé en amplitude (AM pour _amplitude modulation_) a pour expression :
+
+  $$
+  x(t) = m(t) \sin(2\pi f_p t) ;
+  $$
+  
+* Un signal modulé en phase (PM pour phase modulation_) a pour expression :
+
+  $$
+  x(t) = a \sin(2\pi f_p t + \varphi(t))
+  $$
+
+  où $\varphi(t)$ est une fonction de $m(t)$ ;
+
+* Un signal modulé en fréquence (FM pour _frequency modulation_) a pour expression :
+
+  $$
+  x(t) = a \sin(2\pi f(t) t)
+  $$
+
+  où $f(t)$ est une fonction de $m(t)$.
+
+Nous détaillons ci-après la modulation en amplitude qui est la technique la plus simple.
+En pratique, la modulation d'amplitude est utilisée par exemple en radio
+(grandes ondes, ondes moyennes ou ondes courtes),
+en particulier dans le cas de communications longues distances
+(dans le secteur militaire, maritime voire aéronautique).
+
 ## Modulation
 
-La transmission d'un signal $m(t)$ avec une modulation en amplitude consiste à transmettre le signal $x(t)$
-qui est le produit du message $m(t)$ par une porteuse sinusoïdale :
+La transmission d'un signal $m(t)$ en modulation en amplitude consiste à transmettre le signal $x(t)$
+qui est le produit du message $m(t)$ par une porteuse sinusoïdale de fréquence $f_p$ :
 
 $$
 x(t) = m(t) \sin(2\pi f_p t)
@@ -18,7 +49,8 @@ $$
 
 On peut considérer le signal $m(t)$ comme un signal à bande limité,
 c'est-à-dire que son spectre est nul au delà d'une certaine fréquence.
-D'un point de vue fréquentiel, la modulation correspond à un décalage du spectre du message :
+D'un point de vue fréquentiel, la modulation correspond à un décalage du spectre du message
+autour de $-f_p$ et $+f_p$ :
 
 $$
 X(f)
@@ -36,13 +68,15 @@ $$
 Attention, ce problème n'est pas du repliement spectral car il n'y a pas de fréquence d'échantillonnage ici.
 ```
 
-Il n'y a pas de chevauchement tant que $f_p>f_\text{max}$.
-Au contraire, si $f_p<f_\text{max}$ alors on ne pourrait pas démoduler le message.
+Il convient de faire attention à éviter qu'il n'y ait pas de chevauchement
+entre les deux parties du spectre, donc il faut faire en sorte que $f_p>f_\text{max}$.
+Si cette condition n'est pas remplie, alors la démodulation n'est pas en mesure de retrouver le message original.
+
 
 ## Démodulation
 
 Il existe plusieurs techniques de démodulation.
-la plus efficace, bien que délicate à mettre en pratique, est la _démodulation cohérente_.
+La plus efficace, bien que délicate à mettre en pratique, est la _démodulation cohérente_.
 Cela consiste dans un premier temps à multiplier le signal reçu $y(t)$ par la porteuse :
 
 $$
@@ -66,8 +100,17 @@ $$
 :align: center
 ```
 
-Un filtre passe-bas permet dans un deuxième temps de filtrer les hautes fréquences
-pour retrouver le spectre original, et donc le signal $m(t)$.
+Le résultat de cette multiplication par la porteuse produit un spectre
+contenant trois occurrences du spectre du message :
+* une occurrence centrée sur $0$ dont l'amplitude est divisée par 2,
+* une occurrence centrée sur $-2f_p$ dont l'amplitude est divisée par 4,
+* une occurrence centrée sur $+2f_p$ dont l'amplitude est divisée par 4.
+
+Pour récupérer l'occurrence en basse fréquence et supprimer les occurrences
+dans les hautes fréquences, il suffit d'appliquer un filtre passe-bas
+de fréquence de coupure $f_p$.
+Un gain appliqué sur la sortie du filtre permet de retrouver le message $m(t)$
+avec une amplitude convenable.
 
 
 <a class="exercise btn btn-light" href="td.html#exercice-1" role="button">1</a>

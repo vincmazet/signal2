@@ -95,7 +95,7 @@ Représentez les constellations des modulations suivantes :
 $$
 h_1(t) =
 \begin{cases}
-  1       &\text{si $t\in[0,\,T[$}, \\
+  1       &\text{si $t\in[0,\,d[$}, \\
   0       &\text{sinon}.
 \end{cases}
 $$
@@ -107,7 +107,7 @@ $$
 $$
 h_2(t) =
 \begin{cases}
-  1       &\text{si $t\in[0,\,T/2[$}, \\
+  1       &\text{si $t\in[0,\,d/2[$}, \\
   0       &\text{sinon}.
 \end{cases}
 $$

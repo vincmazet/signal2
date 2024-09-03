@@ -1,3 +1,4 @@
+(C:modulation:porteuse)=
 # Modulation sur porteuse
 
 
@@ -7,14 +8,14 @@ dont la bande passante est presque entièrement incluse dans une bande de fréqu
 
 ## Modulation
 
-Les modulations sur porteuse linéaires affectent à chaque symbole du message une sinusoïde de fréquence $f_p$
+Les modulations sur porteuse linéaires affectent à chaque symbole du message une forme d'onde $h$ multipliée par une sinusoïde de fréquence $f_p$
 dont l'amplitude $a_k$ et la phase $\varphi_k$ dépendent du symbole $k$ :
 
 $$
 x(t) = \sum_{k=-\infty}^{+\infty} a_k h(t-kd) \cos(2\pi f_p t + \varphi_k).
 $$
 
-Ce signal est la partie réelle d'un signal complexe $\bar{x}(t)$ tel que :
+Ce signal est la partie réelle du signal complexe $\bar{x}(t)$ :
 
 $$
 \bar{x}(t) &= \sum_{k=-\infty}^{+\infty} a_k h(t-kd) \exp\big(j(2\pi f_p t + \varphi_k)\big) \\
@@ -22,8 +23,8 @@ $$
            &= \sum_{k=-\infty}^{+\infty} A_k h(t-kd) \exp(j2\pi f_p t)
 $$
 
-où $A_k = a_k \exp(j\varphi_k)$.
-C'est l'amplitude complexe de la modulation, qui peut se noter également sous forme cartésienne $A_k = \alpha_k + j\beta_k$.
+où $A_k = a_k \exp(j\varphi_k)$ est l'amplitude complexe de la modulation,
+qui peut se noter également sous forme cartésienne $A_k = \alpha_k + j\beta_k$.
 On peut alors montrer que la modulation sur porteuse revient à deux modulations en bande de base multipliées
 par des porteuses sinusoïdales de même fréquence $f_p$ en quadrature de phase :
 

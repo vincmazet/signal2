@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="fr" >
+<html lang="fr" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Exercices sur feuille &#8212; Traitement du signal 2</title>
   
@@ -15,61 +14,58 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=109105fe" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=949a1ff5" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/jbvinc.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/jbvinc.css?v=3f2bdf1d" />
     <link rel="stylesheet" type="text/css" href="../_static/.ipynb_checkpoints/jbvinc-checkpoint.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/documentation_options.js?v=72dce1d2"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=ff8fa330"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js"></script>
-    <script src="../_static/translations.js"></script>
+    <script src="../_static/togglebutton.js?v=bcf87968"></script>
+    <script src="../_static/translations.js?v=041d0952"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'filtrage/td';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Recherche" href="../search.html" />
-    <link rel="next" title="Corrections" href="tdc.html" />
+    <link rel="next" title="Exercices sur machine" href="tp.html" />
     <link rel="prev" title="Filtres analogiques" href="analogiques.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="fr"/>
@@ -80,19 +76,23 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Passer au contenu principal</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Passer au contenu principal</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Haut de page</button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -114,12 +114,20 @@ const thebe_selector_output = ".output, .cell_output"
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -134,6 +142,9 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
+  
+    
   
 
 <a class="navbar-brand logo" href="../index.html">
@@ -142,10 +153,22 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   
+  
     <p class="title logo__title">Traitement du signal 2</p>
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Recherche" aria-label="Recherche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Recherche</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -157,17 +180,8 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Révisions</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../revisions/td.html">Exercices sur feuille</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../revisions/tdc.html">Corrections</a></li>
-</ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../revisions/tp.html">Exercices sur machine</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc1.html">Représentation d’un signal</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc2.html">Transformée de Fourier discrète</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc3.html">Analyse spectrale</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc4.html">Produit de convolution</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="../revisions/td.html">Exercices sur feuille</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../revisions/tp.html">Exercices sur machine</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Filtrage</span></p>
 <ul class="current nav bd-sidenav">
@@ -176,20 +190,14 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="realisables.html">Filtres réalisables</a></li>
 <li class="toctree-l1"><a class="reference internal" href="laplace.html">Transformée de Laplace</a></li>
 <li class="toctree-l1"><a class="reference internal" href="z.html">Transformée en Z</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="numeriques.html">Filtres numériques</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="numeriques.html">Filtres numériques</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="rif.html">Filtres RIF</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rii.html">Filtres RII</a></li>
-</ul>
-</li>
+</ul><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary>
+</details></li>
 <li class="toctree-l1"><a class="reference internal" href="analogiques.html">Filtres analogiques</a></li>
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Exercices sur feuille</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="tdc.html">Corrections</a></li>
-</ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="tp.html">Exercices sur machine</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="tpc.html">Filtrage numérique</a></li>
-</ul>
-</li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Exercices sur feuille</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tp.html">Exercices sur machine</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Modulation</span></p>
 <ul class="nav bd-sidenav">
@@ -197,28 +205,15 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../modulation/analogique.html">Modulation analogique</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../modulation/bande-de-base.html">Modulation en bande de base</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../modulation/porteuse.html">Modulation sur porteuse</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../modulation/td.html">Excercices sur feuille</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../modulation/tdc.html">Corrections</a></li>
-</ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../modulation/tp.html">Exercices sur machine</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../modulation/tpc.html">Démodulation d’un message numérique modulé en bande de base</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="../modulation/td.html">Excercices sur feuille</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulation/tp.html">Exercices sur machine</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Traitement statistique du signal</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../ssp/bruit.html">Bruit dans les signaux</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ssp/traitement-bruit.html">Traitement des signaux bruités</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../ssp/td.html">Exercices sur feuille</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../ssp/tdc.html">Corrections</a></li>
-</ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../ssp/tp.html">Exercices sur machine</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../ssp/tpc1.html">Lissage par filtre moyenneur</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../ssp/tpc2.html">Approximation et extrapolation par moindres carrés</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="../ssp/td.html">Exercices sur feuille</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ssp/tp.html">Exercices sur machine</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Annexes</span></p>
 <ul class="nav bd-sidenav">
@@ -241,7 +236,7 @@ const thebe_selector_output = ".output, .cell_output"
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -250,14 +245,14 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -332,26 +327,28 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="clair/sombre" aria-label="clair/sombre" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="clair/sombre" aria-label="clair/sombre" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Recherche" aria-label="Recherche" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Recherche" aria-label="Recherche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -397,11 +394,12 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-13">Exercice 13</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-14">Exercice 14</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-15">Exercice 15</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-16">Exercice 16</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filtres-analogiques">Filtres analogiques</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-16">Exercice 16</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-17">Exercice 17</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-18">Exercice 18</a></li>
 </ul>
 </li>
 </ul>
@@ -413,14 +411,14 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="exercices-sur-feuille">
-<span id="c-filtrage-td"></span><h1>Exercices sur feuille<a class="headerlink" href="#exercices-sur-feuille" title="Lien permanent vers cette rubrique">#</a></h1>
+<span id="c-filtrage-td"></span><h1>Exercices sur feuille<a class="headerlink" href="#exercices-sur-feuille" title="Lien vers cette rubrique">#</a></h1>
 <section id="systeme-lineaire-invariant">
-<h2>Système linéaire invariant<a class="headerlink" href="#systeme-lineaire-invariant" title="Lien permanent vers cette rubrique">#</a></h2>
+<h2>Système linéaire invariant<a class="headerlink" href="#systeme-lineaire-invariant" title="Lien vers cette rubrique">#</a></h2>
 <section id="exercice-1">
-<h3>Exercice 1<a class="headerlink" href="#exercice-1" title="Lien permanent vers cette rubrique">#</a></h3>
+<h3>Exercice 1<a class="headerlink" href="#exercice-1" title="Lien vers cette rubrique">#</a></h3>
 <p>Dans le cas de signaux à temps discrets, montrez que la sortie d’un système linéaire invariant
 s’exprime comme la convolution de l’entrée par la réponse impulsionnelle du système.
 Pour cela, utilisez le fait que l’entrée peut s’écrire comme une somme d’impulsions.</p>
@@ -430,7 +428,7 @@ Indiquez si les systèmes suivant sont invariants/linéaires/stables :
 -->
 </section>
 <section id="exercice-2">
-<h3>Exercice 2<a class="headerlink" href="#exercice-2" title="Lien permanent vers cette rubrique">#</a></h3>
+<h3>Exercice 2<a class="headerlink" href="#exercice-2" title="Lien vers cette rubrique">#</a></h3>
 <p>Représentez la réponse fréquentielle d’un système de réponse impulsionnelle</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -443,19 +441,20 @@ e^{-t} &amp;\text{si } t\geq 0,\\
 </section>
 </section>
 <section id="conception-d-un-gabarit">
-<h2>Conception d’un gabarit<a class="headerlink" href="#conception-d-un-gabarit" title="Lien permanent vers cette rubrique">#</a></h2>
+<h2>Conception d’un gabarit<a class="headerlink" href="#conception-d-un-gabarit" title="Lien vers cette rubrique">#</a></h2>
 <section id="exercice-3">
-<h3>Exercice 3<a class="headerlink" href="#exercice-3" title="Lien permanent vers cette rubrique">#</a></h3>
+<h3>Exercice 3<a class="headerlink" href="#exercice-3" title="Lien vers cette rubrique">#</a></h3>
 <p>Représentez le gabarit d’un filtre passe-bas de largeur de transition 20 Hz,
 de bande passante 100 Hz, d’ondulation maximale en bande passante 1 dB et d’atténuation minimale 30 dB.</p>
 </section>
 <section id="exercice-4">
-<h3>Exercice 4<a class="headerlink" href="#exercice-4" title="Lien permanent vers cette rubrique">#</a></h3>
-<p>Représentez le gabarit d’un filtre qui atténue d’au moins 60 dB les fréquences inférieures à 10 kHz
-et d’au plus 3 dB les fréquences supérieures à 15 kHz.</p>
+<h3>Exercice 4<a class="headerlink" href="#exercice-4" title="Lien vers cette rubrique">#</a></h3>
+<p>Représentez le gabarit d’un filtre numérique qui atténue d’au moins 60 dB les fréquences inférieures à 10 kHz
+et d’au plus 3 dB les fréquences supérieures à 15 kHz.
+La fréquence d’échantillonnage est de 100 Hz.</p>
 </section>
 <section id="exercice-5">
-<h3>Exercice 5<a class="headerlink" href="#exercice-5" title="Lien permanent vers cette rubrique">#</a></h3>
+<h3>Exercice 5<a class="headerlink" href="#exercice-5" title="Lien vers cette rubrique">#</a></h3>
 <p>La capture d’écran ci-dessous est tirée de l’outil de conception de filtres analogiques d’Analog Devices.
 Représentez le gabarit correspondant.</p>
 <figure class="align-default">
@@ -463,7 +462,7 @@ Représentez le gabarit correspondant.</p>
 </figure>
 </section>
 <section id="exercice-6">
-<h3>Exercice 6<a class="headerlink" href="#exercice-6" title="Lien permanent vers cette rubrique">#</a></h3>
+<h3>Exercice 6<a class="headerlink" href="#exercice-6" title="Lien vers cette rubrique">#</a></h3>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <p>L”<a class="reference external" href="http://en.wikipedia.org/wiki/Magnetic_particle_imaging">imagerie des particules magnétiques</a>
@@ -486,9 +485,9 @@ Le filtre doit répondre à des critères supplémentaires :</p>
 </section>
 </section>
 <section id="transformees-de-laplace-et-en-z">
-<h2>Transformées de Laplace et en Z<a class="headerlink" href="#transformees-de-laplace-et-en-z" title="Lien permanent vers cette rubrique">#</a></h2>
+<h2>Transformées de Laplace et en Z<a class="headerlink" href="#transformees-de-laplace-et-en-z" title="Lien vers cette rubrique">#</a></h2>
 <section id="exercice-7">
-<h3>Exercice 7<a class="headerlink" href="#exercice-7" title="Lien permanent vers cette rubrique">#</a></h3>
+<h3>Exercice 7<a class="headerlink" href="#exercice-7" title="Lien vers cette rubrique">#</a></h3>
 <p>Pour chacun des diagrammes pôles-zéros ci-dessous :</p>
 <ul class="simple">
 <li><p>donnez les pôles et zéros,</p></li>
@@ -499,24 +498,24 @@ Le filtre doit répondre à des critères supplémentaires :</p>
 <div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-2 sd-row-cols-md-1 sd-row-cols-lg-3 sd-g-0 sd-g-xs-0 sd-g-sm-0 sd-g-md-0 sd-g-lg-0 docutils">
 <div class="sd-col sd-d-flex-column docutils">
 <figure class="align-default">
-<a class="reference internal image-reference" href="../_images/pz1.svg"><img alt="../_images/pz1.svg" height="300px" src="../_images/pz1.svg" /></a>
+<a class="reference internal image-reference" href="../_images/pz1.svg"><img alt="../_images/pz1.svg" src="../_images/pz1.svg" style="height: 300px;" /></a>
 </figure>
 </div>
 <div class="sd-col sd-d-flex-column docutils">
 <figure class="align-default">
-<a class="reference internal image-reference" href="../_images/pz2.svg"><img alt="../_images/pz2.svg" height="300px" src="../_images/pz2.svg" /></a>
+<a class="reference internal image-reference" href="../_images/pz2.svg"><img alt="../_images/pz2.svg" src="../_images/pz2.svg" style="height: 300px;" /></a>
 </figure>
 </div>
 <div class="sd-col sd-d-flex-column docutils">
 <figure class="align-default">
-<a class="reference internal image-reference" href="../_images/pz3.svg"><img alt="../_images/pz3.svg" height="300px" src="../_images/pz3.svg" /></a>
+<a class="reference internal image-reference" href="../_images/pz3.svg"><img alt="../_images/pz3.svg" src="../_images/pz3.svg" style="height: 300px;" /></a>
 </figure>
 </div>
 </div>
 </div>
 </section>
 <section id="exercice-8">
-<h3>Exercice 8<a class="headerlink" href="#exercice-8" title="Lien permanent vers cette rubrique">#</a></h3>
+<h3>Exercice 8<a class="headerlink" href="#exercice-8" title="Lien vers cette rubrique">#</a></h3>
 <!-- Oppenheim 9.2, 9.3, 10.2, 10.4 -->
 <!-- Oppenheim 9.4 -->
 <p>On considère les deux filtres analogiques de réponses impulsionnelles :</p>
@@ -535,7 +534,7 @@ h_2(t) = e^{-t} \cos(3t) \, u(t).
 </ul>
 </section>
 <section id="exercice-9">
-<h3>Exercice 9<a class="headerlink" href="#exercice-9" title="Lien permanent vers cette rubrique">#</a></h3>
+<h3>Exercice 9<a class="headerlink" href="#exercice-9" title="Lien vers cette rubrique">#</a></h3>
 <!-- Oppenheim 10.3 + 10.4 -->
 <p>On considère les deux filtres numériques de réponses impulsionnelles :</p>
 <div class="math notranslate nohighlight">
@@ -555,7 +554,7 @@ h_2[n] = 2^n \sin\left(\frac{\pi}{4}n\right) \, u[n].
 <!-- h[n] = \left(\frac{1}{3}\right)^n \sin\left(\frac{\pi}{4}n\right) \, u[n] -->
 </section>
 <section id="exercice-10">
-<h3>Exercice 10<a class="headerlink" href="#exercice-10" title="Lien permanent vers cette rubrique">#</a></h3>
+<h3>Exercice 10<a class="headerlink" href="#exercice-10" title="Lien vers cette rubrique">#</a></h3>
 <p>Calculez les transformées de Laplace inverse de :</p>
 <div class="math notranslate nohighlight">
 \[
@@ -565,7 +564,7 @@ H_2(s) = \frac{s-3}{s^2+2}.
 \]</div>
 </section>
 <section id="exercice-11">
-<h3>Exercice 11<a class="headerlink" href="#exercice-11" title="Lien permanent vers cette rubrique">#</a></h3>
+<h3>Exercice 11<a class="headerlink" href="#exercice-11" title="Lien vers cette rubrique">#</a></h3>
 <p>Calculez les transformées en Z inverse de :</p>
 <div class="math notranslate nohighlight">
 \[
@@ -575,7 +574,7 @@ H_2(z) = \frac{4z}{(z-2)^2}.
 \]</div>
 </section>
 <section id="exercice-12">
-<h3>Exercice 12<a class="headerlink" href="#exercice-12" title="Lien permanent vers cette rubrique">#</a></h3>
+<h3>Exercice 12<a class="headerlink" href="#exercice-12" title="Lien vers cette rubrique">#</a></h3>
 <p>Deux filtres <span class="math notranslate nohighlight">\(H_1(s)\)</span> et <span class="math notranslate nohighlight">\(H_2(s)\)</span> sont mis en série.
 Leurs fonctions de transfert sont :</p>
 <div class="math notranslate nohighlight">
@@ -592,31 +591,42 @@ H_2(s) = \frac{1}{b_1s + b_0}
 </section>
 </section>
 <section id="filtres-numeriques">
-<h2>Filtres numériques<a class="headerlink" href="#filtres-numeriques" title="Lien permanent vers cette rubrique">#</a></h2>
+<h2>Filtres numériques<a class="headerlink" href="#filtres-numeriques" title="Lien vers cette rubrique">#</a></h2>
 <section id="exercice-13">
-<h3>Exercice 13<a class="headerlink" href="#exercice-13" title="Lien permanent vers cette rubrique">#</a></h3>
+<h3>Exercice 13<a class="headerlink" href="#exercice-13" title="Lien vers cette rubrique">#</a></h3>
+<!-- Oppenheim 9.29, 9.30, 10.29, 10.30 -->
+<p>Montrez que le filtre de fonction de transfert</p>
+<div class="math notranslate nohighlight">
+\[
+  H(z) = \frac{1}{\frac{1}{2}-4z^{-1}}
+\]</div>
+<p>peut se représenter sous la forme directe 1 ci-dessous :</p>
+<p>XXX</p>
+</section>
+<section id="exercice-14">
+<h3>Exercice 14<a class="headerlink" href="#exercice-14" title="Lien vers cette rubrique">#</a></h3>
 <!-- Oppenheim 9.29, 9.30, 10.29, 10.30 -->
 <p>Représentez la forme directe 1 des fonctions de transfert ci-dessous.</p>
 <div class="math notranslate nohighlight">
 \[
-  H_1(z) = \frac{1}{\frac{1}{2}-4z^{-1}} \qquad\qquad
-  H_2(z) = \frac{1-2z^{-1}}{1-\frac{1}{4}z^{-1}}
+  H_1(z) = \frac{1-2z^{-1}}{1-\frac{1}{4}z^{-1}}\qquad\qquad
+  H_2(z) = XXX
 \]</div>
 </section>
-<section id="exercice-14">
-<h3>Exercice 14<a class="headerlink" href="#exercice-14" title="Lien permanent vers cette rubrique">#</a></h3>
+<section id="exercice-15">
+<h3>Exercice 15<a class="headerlink" href="#exercice-15" title="Lien vers cette rubrique">#</a></h3>
 <!-- il reste dans le TD filtre des images en PNG à remplacer par du SVG -->
 <p>Déterminez les fonctions de transfert des formes directes ci-dessous,
 puis calculez leur réponse impulsionnelle.</p>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../_images/forme-directe-sys1.svg"><img alt="../_images/forme-directe-sys1.svg" height="250px" src="../_images/forme-directe-sys1.svg" /></a>
+<a class="reference internal image-reference" href="../_images/forme-directe-sys1.svg"><img alt="../_images/forme-directe-sys1.svg" src="../_images/forme-directe-sys1.svg" style="height: 250px;" /></a>
 </figure>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../_images/forme-directe-sys2.svg"><img alt="../_images/forme-directe-sys2.svg" height="250px" src="../_images/forme-directe-sys2.svg" /></a>
+<a class="reference internal image-reference" href="../_images/forme-directe-sys2.svg"><img alt="../_images/forme-directe-sys2.svg" src="../_images/forme-directe-sys2.svg" style="height: 250px;" /></a>
 </figure>
 </section>
-<section id="exercice-15">
-<h3>Exercice 15<a class="headerlink" href="#exercice-15" title="Lien permanent vers cette rubrique">#</a></h3>
+<section id="exercice-16">
+<h3>Exercice 16<a class="headerlink" href="#exercice-16" title="Lien vers cette rubrique">#</a></h3>
 <p>On souhaite réaliser avec la méthode des fenêtres un filtre numérique passe-bas de bande passante 20 Hz et de bande de transition 10 Hz.
 Les atténuations limites des bandes passante et atténuée sont respectivement de 0,1 dB et 40 dB.
 La fréquence d’échantillonnage est égale à 120 Hz</p>
@@ -630,10 +640,10 @@ La fréquence d’échantillonnage est égale à 120 Hz</p>
 </section>
 </section>
 <section id="filtres-analogiques">
-<h2>Filtres analogiques<a class="headerlink" href="#filtres-analogiques" title="Lien permanent vers cette rubrique">#</a></h2>
+<h2>Filtres analogiques<a class="headerlink" href="#filtres-analogiques" title="Lien vers cette rubrique">#</a></h2>
 <!-- il reste dans le TD filtre des images en PNG à remplacer par du SVG -->
-<section id="exercice-16">
-<h3>Exercice 16<a class="headerlink" href="#exercice-16" title="Lien permanent vers cette rubrique">#</a></h3>
+<section id="exercice-17">
+<h3>Exercice 17<a class="headerlink" href="#exercice-17" title="Lien vers cette rubrique">#</a></h3>
 <p>Identifiez le type de filtre correspondant à la réponse fréquentielle ci-dessous.
 Précisez également la bande passante du filtre (les fréquences sont données en hertz).</p>
 <figure class="align-default">
@@ -643,8 +653,8 @@ Précisez également la bande passante du filtre (les fréquences sont données 
 <a class="reference internal image-reference" href="../_images/fana-filtre1-phase.png"><img alt="../_images/fana-filtre1-phase.png" src="../_images/fana-filtre1-phase.png" style="width: 500px;" /></a>
 </figure>
 </section>
-<section id="exercice-17">
-<h3>Exercice 17<a class="headerlink" href="#exercice-17" title="Lien permanent vers cette rubrique">#</a></h3>
+<section id="exercice-18">
+<h3>Exercice 18<a class="headerlink" href="#exercice-18" title="Lien vers cette rubrique">#</a></h3>
 <p>Identifiez le type de filtre correspondant à la réponse fréquentielle ci-dessous.
 Précisez également la bande passante du filtre (les fréquences sont données en hertz).</p>
 <figure class="align-default">
@@ -655,8 +665,6 @@ Précisez également la bande passante du filtre (les fréquences sont données 
 </figure>
 </section>
 </section>
-<div class="toctree-wrapper compound">
-</div>
 </section>
 
     <script type="text/x-thebe-config">
@@ -684,11 +692,10 @@ Précisez également la bande passante du filtre (les fréquences sont données 
 
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer d-print-none">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="analogiques.html"
@@ -700,18 +707,15 @@ Précisez également la bande passante du filtre (les fréquences sont données 
       </div>
     </a>
     <a class="right-next"
-       href="tdc.html"
+       href="tp.html"
        title="page suivante">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">suivant</p>
-        <p class="prev-next-title">Corrections</p>
+        <p class="prev-next-title">Exercices sur machine</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -719,6 +723,7 @@ Précisez également la bande passante du filtre (les fréquences sont données 
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -751,11 +756,12 @@ Précisez également la bande passante du filtre (les fréquences sont données 
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-13">Exercice 13</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-14">Exercice 14</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-15">Exercice 15</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-16">Exercice 16</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filtres-analogiques">Filtres analogiques</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-16">Exercice 16</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-17">Exercice 17</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-18">Exercice 18</a></li>
 </ul>
 </li>
 </ul>
@@ -779,9 +785,10 @@ Par Vincent Mazet (Université de Strasbourg, France)
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
-      © Copyright 2023-2024.
+      © Copyright 2024-2025.
       <br/>
     
   </p>
@@ -795,7 +802,7 @@ Par Vincent Mazet (Université de Strasbourg, France)
   <div class="footer-item">
     
 <div class="extra_footer">
-  Traitement du signal 2 &mdash; Vincent Mazet (Université de Strasbourg), 2020-2024 &mdash; <a href='licence.html'>CC BY-NC 4.0</a>.
+  Traitement du signal 2 &mdash; Vincent Mazet (Université de Strasbourg), 2020-2025 &mdash; <a href='licence.html'>CC BY-NC 4.0</a>.
 </div>
   </div>
   
@@ -808,8 +815,8 @@ Par Vincent Mazet (Université de Strasbourg, France)
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>
