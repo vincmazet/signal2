@@ -2,9 +2,15 @@
 # Modulation en bande de base
 
 
+La modulation en bande de base est une modulation numérique :
+le signal $m$ est donc discret et ses valeurs sont des symboles binaires (0 ou 1)
+ou $M$-aires ($M=16$ en hexadécimal par exemple).
+
 ## Modulation
 
-Le signal analogique $x(t)$ modulé en bande de base à partir d'un message $m$ s'obtient grâce à l'équation 
+Le signal transmis $x(t)$ est une suite de formes d'onde $h(t)$ de durée $d$
+multipliées par une amplitude $\alpha_k$, celle-ci étant directement liée aux symboles $m_k$.
+Ainsi, le signal analogique $x(t)$ s'obtient grâce à l'équation 
 (notez que la somme est écrite avec une infinité de termes car le message peut être considéré, en toute généralité, de taille infinie) :
 
 $$

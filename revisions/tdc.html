@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="fr" >
+<html lang="fr" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Corrections &#8212; Traitement du signal 2</title>
   
@@ -15,55 +14,52 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/jbvinc.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=109105fe" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=949a1ff5" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/jbvinc.css?v=3f2bdf1d" />
     <link rel="stylesheet" type="text/css" href="../_static/.ipynb_checkpoints/jbvinc-checkpoint.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/documentation_options.js?v=72dce1d2"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=ff8fa330"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js"></script>
-    <script src="../_static/translations.js"></script>
+    <script src="../_static/togglebutton.js?v=bcf87968"></script>
+    <script src="../_static/translations.js?v=041d0952"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'revisions/tdc';</script>
@@ -80,19 +76,23 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Passer au contenu principal</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Passer au contenu principal</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Haut de page</button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -114,12 +114,20 @@ const thebe_selector_output = ".output, .cell_output"
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -134,6 +142,9 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
+  
+    
   
 
 <a class="navbar-brand logo" href="../index.html">
@@ -142,10 +153,22 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   
+  
     <p class="title logo__title">Traitement du signal 2</p>
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Recherche" aria-label="Recherche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Recherche</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -157,17 +180,11 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Révisions</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="td.html">Exercices sur feuille</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="td.html">Exercices sur feuille</a><ul class="current">
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Corrections</a></li>
-</ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="tp.html">Exercices sur machine</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="tpc1.html">Représentation d’un signal</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tpc2.html">Transformée de Fourier discrète</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tpc3.html">Analyse spectrale</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tpc4.html">Produit de convolution</a></li>
-</ul>
-</li>
+</ul><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="tp.html">Exercices sur machine</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Filtrage</span></p>
 <ul class="nav bd-sidenav">
@@ -176,20 +193,21 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../filtrage/realisables.html">Filtres réalisables</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../filtrage/laplace.html">Transformée de Laplace</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../filtrage/z.html">Transformée en Z</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../filtrage/numeriques.html">Filtres numériques</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../filtrage/numeriques.html">Filtres numériques</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../filtrage/rif.html">Filtres RIF</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../filtrage/rii.html">Filtres RII</a></li>
-</ul>
-</li>
+</ul><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary>
+</details></li>
 <li class="toctree-l1"><a class="reference internal" href="../filtrage/analogiques.html">Filtres analogiques</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../filtrage/td.html">Exercices sur feuille</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../filtrage/tdc.html">Corrections</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../filtrage/td.html">Exercices sur feuille</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../filtrage/tp.html">Exercices sur machine</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../filtrage/tp.html">Exercices sur machine</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../filtrage/tpc.html">Filtrage numérique</a></li>
-</ul>
-</li>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Traitement statistique du signal</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../ssp/bruit.html">Bruit dans les signaux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ssp/traitement-bruit.html">Traitement des signaux bruités</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ssp/td.html">Exercices sur feuille</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ssp/tp.html">Exercices sur machine</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Modulation</span></p>
 <ul class="nav bd-sidenav">
@@ -197,28 +215,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../modulation/analogique.html">Modulation analogique</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../modulation/bande-de-base.html">Modulation en bande de base</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../modulation/porteuse.html">Modulation sur porteuse</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../modulation/td.html">Excercices sur feuille</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../modulation/tdc.html">Corrections</a></li>
-</ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../modulation/tp.html">Exercices sur machine</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../modulation/tpc.html">Démodulation d’un message numérique modulé en bande de base</a></li>
-</ul>
-</li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Traitement statistique du signal</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../ssp/bruit.html">Bruit dans les signaux</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ssp/traitement-bruit.html">Traitement des signaux bruités</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../ssp/td.html">Exercices sur feuille</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../ssp/tdc.html">Corrections</a></li>
-</ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../ssp/tp.html">Exercices sur machine</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../ssp/tpc1.html">Lissage par filtre moyenneur</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../ssp/tpc2.html">Approximation et extrapolation par moindres carrés</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="../modulation/td.html">Excercices sur feuille</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulation/tp.html">Exercices sur machine</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Annexes</span></p>
 <ul class="nav bd-sidenav">
@@ -241,7 +239,7 @@ const thebe_selector_output = ".output, .cell_output"
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -250,14 +248,14 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -332,26 +330,28 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="clair/sombre" aria-label="clair/sombre" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="clair/sombre" aria-label="clair/sombre" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Recherche" aria-label="Recherche" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Recherche" aria-label="Recherche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -403,14 +403,14 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="corrections">
-<h1>Corrections<a class="headerlink" href="#corrections" title="Lien permanent vers cette rubrique">#</a></h1>
+<h1>Corrections<a class="headerlink" href="#corrections" title="Lien vers cette rubrique">#</a></h1>
 <section id="signaux-elementaires">
-<h2>Signaux élémentaires<a class="headerlink" href="#signaux-elementaires" title="Lien permanent vers cette rubrique">#</a></h2>
+<h2>Signaux élémentaires<a class="headerlink" href="#signaux-elementaires" title="Lien vers cette rubrique">#</a></h2>
 <section id="exercice-1">
-<h3>Exercice 1<a class="headerlink" href="#exercice-1" title="Lien permanent vers cette rubrique">#</a></h3>
+<h3>Exercice 1<a class="headerlink" href="#exercice-1" title="Lien vers cette rubrique">#</a></h3>
 <ul class="simple">
 <li><p>Exemples de signal échantillonné :
 la température de l’air au lever du soleil
@@ -433,13 +433,13 @@ ou tout autre signal numérique.</p></li>
 </ul>
 </section>
 <section id="exercice-2">
-<h3>Exercice 2<a class="headerlink" href="#exercice-2" title="Lien permanent vers cette rubrique">#</a></h3>
+<h3>Exercice 2<a class="headerlink" href="#exercice-2" title="Lien vers cette rubrique">#</a></h3>
 <p>Un <a class="reference external" href="https://vincmazet.github.io/signal1/notions/proprietes-des-signaux.html#causalite">signal causal</a>
 st un signal <span class="math notranslate nohighlight">\(x(t)\)</span> nul pour <span class="math notranslate nohighlight">\(t&lt;0\)</span>.
 La propriété est équivalente pour les signaux numériques.</p>
 </section>
 <section id="exercice-3">
-<h3>Exercice 3<a class="headerlink" href="#exercice-3" title="Lien permanent vers cette rubrique">#</a></h3>
+<h3>Exercice 3<a class="headerlink" href="#exercice-3" title="Lien vers cette rubrique">#</a></h3>
 <p>Échelon (ou fonction de Heaviside) :</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -450,7 +450,8 @@ La propriété est équivalente pour les signaux numériques.</p>
   \end{cases}
 \end{split}\]</div>
 <figure class="align-default">
-<img alt="../_images/echelon.svg" src="../_images/echelon.svg" /></figure>
+<img alt="../_images/echelon.svg" src="../_images/echelon.svg" />
+</figure>
 <p>Impulsion de Dirac :</p>
 <div class="math notranslate nohighlight">
 \[
@@ -459,7 +460,8 @@ La propriété est équivalente pour les signaux numériques.</p>
   \int \delta(t) dt = 1
 \]</div>
 <figure class="align-default">
-<img alt="../_images/dirac.svg" src="../_images/dirac.svg" /></figure>
+<img alt="../_images/dirac.svg" src="../_images/dirac.svg" />
+</figure>
 <p>Impulsion discrète :</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -470,31 +472,35 @@ La propriété est équivalente pour les signaux numériques.</p>
   \end{cases}
 \end{split}\]</div>
 <figure class="align-default">
-<img alt="../_images/kronecker.svg" src="../_images/kronecker.svg" /></figure>
+<img alt="../_images/kronecker.svg" src="../_images/kronecker.svg" />
+</figure>
 <p>Peigne de Dirac (<span class="math notranslate nohighlight">\(T &gt; 0\)</span>) :</p>
 <div class="math notranslate nohighlight">
 \[
   Ш_T(t) = \sum_{k=-\infty}^{+\infty} \delta(t-kT)
 \]</div>
 <figure class="align-default">
-<img alt="../_images/peigne.svg" src="../_images/peigne.svg" /></figure>
+<img alt="../_images/peigne.svg" src="../_images/peigne.svg" />
+</figure>
 </section>
 <section id="exercice-4">
-<h3>Exercice 4<a class="headerlink" href="#exercice-4" title="Lien permanent vers cette rubrique">#</a></h3>
+<h3>Exercice 4<a class="headerlink" href="#exercice-4" title="Lien vers cette rubrique">#</a></h3>
 <figure class="align-default">
-<img alt="../_images/signal-x.svg" src="../_images/signal-x.svg" /></figure>
+<img alt="../_images/signal-x.svg" src="../_images/signal-x.svg" />
+</figure>
 <figure class="align-default">
-<img alt="../_images/signal-y.svg" src="../_images/signal-y.svg" /></figure>
+<img alt="../_images/signal-y.svg" src="../_images/signal-y.svg" />
+</figure>
 </section>
 <section id="exercice-5">
-<h3>Exercice 5<a class="headerlink" href="#exercice-5" title="Lien permanent vers cette rubrique">#</a></h3>
+<h3>Exercice 5<a class="headerlink" href="#exercice-5" title="Lien vers cette rubrique">#</a></h3>
 <p>A est un sinus cardinal.</p>
 </section>
 </section>
 <section id="produit-de-convolution">
-<h2>Produit de convolution<a class="headerlink" href="#produit-de-convolution" title="Lien permanent vers cette rubrique">#</a></h2>
+<h2>Produit de convolution<a class="headerlink" href="#produit-de-convolution" title="Lien vers cette rubrique">#</a></h2>
 <section id="exercice-6">
-<h3>Exercice 6<a class="headerlink" href="#exercice-6" title="Lien permanent vers cette rubrique">#</a></h3>
+<h3>Exercice 6<a class="headerlink" href="#exercice-6" title="Lien vers cette rubrique">#</a></h3>
 <p>D’après la définition du produit de convolution,
 et comme le signal <span class="math notranslate nohighlight">\(x\)</span> est nul presque partout (sauf aux échantillons <span class="math notranslate nohighlight">\(n=1\)</span> et <span class="math notranslate nohighlight">\(n=-1\)</span>),
 alors :</p>
@@ -506,7 +512,7 @@ alors :</p>
 \end{split}\]</div>
 <p>Les valeurs de <span class="math notranslate nohighlight">\(x[-1]\)</span> et <span class="math notranslate nohighlight">\(x[1]\)</span> sont données par la définition de <span class="math notranslate nohighlight">\(x\)</span>, donc :</p>
 <div class="math notranslate nohighlight" id="equation-e-rev-convolution">
-<span class="eqno">(1)<a class="headerlink" href="#equation-e-rev-convolution" title="Lien permanent vers cette équation">#</a></span>\[
+<span class="eqno">(1)<a class="headerlink" href="#equation-e-rev-convolution" title="Lien vers cette équation">#</a></span>\[
 (x*y)[n] = -y[n+1] + y[n-1].
 \]</div>
 <p>D’après la définition de <span class="math notranslate nohighlight">\(y\)</span>, on a d’une part :</p>
@@ -537,8 +543,8 @@ y[n-1] =
 \end{split}\]</div>
 <p>D’après l’équation <a class="reference internal" href="#equation-e-rev-convolution">(1)</a>,
 on peut finalement définir la valeur de tous les échantillons de <span class="math notranslate nohighlight">\((x*y)\)</span>.
-Il n’y a qu’en <span class="math notranslate nohighlight">\(n=0\)</span> que les deux signaux <span class="math notranslate nohighlight">\(y[n+1]\)</span> et <span class="math notranslate nohighlight">\(y[n-1]\)</span> sont non nuls
-(ils valent <span class="math notranslate nohighlight">\(a\)</span>).
+Il n’y a qu’en <span class="math notranslate nohighlight">\(n=0\)</span> que les deux signaux <span class="math notranslate nohighlight">\(y[n+1]\)</span> et <span class="math notranslate nohighlight">\(y[n-1]\)</span>
+sont tous les deux non nuls (ils valent <span class="math notranslate nohighlight">\(a\)</span>).
 Ainsi :</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -554,28 +560,28 @@ Ainsi :</p>
 \end{split}\]</div>
 </section>
 <section id="exercice-7">
-<h3>Exercice 7<a class="headerlink" href="#exercice-7" title="Lien permanent vers cette rubrique">#</a></h3>
+<h3>Exercice 7<a class="headerlink" href="#exercice-7" title="Lien vers cette rubrique">#</a></h3>
 <ul class="simple">
 <li><p>A :</p></li>
 </ul>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../_images/conv-1-result.svg"><img alt="../_images/conv-1-result.svg" src="../_images/conv-1-result.svg" width="300px" /></a>
+<a class="reference internal image-reference" href="../_images/conv-1-result.svg"><img alt="../_images/conv-1-result.svg" src="../_images/conv-1-result.svg" style="width: 300px;" /></a>
 </figure>
 <ul class="simple">
 <li><p>B :</p></li>
 </ul>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../_images/conv-2-result.svg"><img alt="../_images/conv-2-result.svg" src="../_images/conv-2-result.svg" width="300px" /></a>
+<a class="reference internal image-reference" href="../_images/conv-2-result.svg"><img alt="../_images/conv-2-result.svg" src="../_images/conv-2-result.svg" style="width: 300px;" /></a>
 </figure>
 <ul class="simple">
 <li><p>C :</p></li>
 </ul>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../_images/conv-3-result.svg"><img alt="../_images/conv-3-result.svg" src="../_images/conv-3-result.svg" width="300px" /></a>
+<a class="reference internal image-reference" href="../_images/conv-3-result.svg"><img alt="../_images/conv-3-result.svg" src="../_images/conv-3-result.svg" style="width: 300px;" /></a>
 </figure>
 </section>
 <section id="exercice-8">
-<h3>Exercice 8<a class="headerlink" href="#exercice-8" title="Lien permanent vers cette rubrique">#</a></h3>
+<h3>Exercice 8<a class="headerlink" href="#exercice-8" title="Lien vers cette rubrique">#</a></h3>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\((x*d_0)(t) = x(t) * \delta(t-\tau) = x(t-\tau)\)</span>.</p></li>
 <li><p><span class="math notranslate nohighlight">\((d_1*d_2)(t) = \delta(t+t_1) * \delta(t+t_2) = \delta(t+t_1+t_2)\)</span>.</p></li>
@@ -583,9 +589,12 @@ Ainsi :</p>
 </section>
 </section>
 <section id="analyse-de-fourier">
-<h2>Analyse de Fourier<a class="headerlink" href="#analyse-de-fourier" title="Lien permanent vers cette rubrique">#</a></h2>
+<h2>Analyse de Fourier<a class="headerlink" href="#analyse-de-fourier" title="Lien vers cette rubrique">#</a></h2>
 <section id="exercice-9">
-<h3>Exercice 9<a class="headerlink" href="#exercice-9" title="Lien permanent vers cette rubrique">#</a></h3>
+<h3>Exercice 9<a class="headerlink" href="#exercice-9" title="Lien vers cette rubrique">#</a></h3>
+<p>Le signal <span class="math notranslate nohighlight">\(x(t)\)</span> est continu car il dépend de la variable <span class="math notranslate nohighlight">\(t\)</span> (généralement continue),
+et il est apériodique (c’est une porte).
+La transformation de Fourier associée est donc la transformée de Fourier.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 X(f) &amp;= \int_{-\infty}^{+\infty} A\,\mathrm{rect}(2t/T) e^{-j2\pi f t} \,dt \\
@@ -600,33 +609,55 @@ X(f) &amp;= \int_{-\infty}^{+\infty} A\,\mathrm{rect}(2t/T) e^{-j2\pi f t} \,dt 
 \end{split}\]</div>
 </section>
 <section id="exercice-10">
-<h3>Exercice 10<a class="headerlink" href="#exercice-10" title="Lien permanent vers cette rubrique">#</a></h3>
-<p>Un signal constant est équivalent à une unique exponentielle complexe de fréquence nulle.
-Son spectre est donc une unique impulsion de Dirac à la fréquence nulle.</p>
-<p>Par dualité, le spectre d’une impulsion de Dirac centrée en 0 et un spectre constant.</p>
-<p>Cela implique qu’une impulsion de Dirac contient toutes les fréquences en amplitudes égales,
-donc en puissances égales.</p>
+<h3>Exercice 10<a class="headerlink" href="#exercice-10" title="Lien vers cette rubrique">#</a></h3>
+<ul>
+<li><p>Le théorème de l’échantillonnage peut s’énoncer ainsi :
+si un signal analogique <span class="math notranslate nohighlight">\(x(t)\)</span> de fréquence maximale <span class="math notranslate nohighlight">\(f_\mathrm{max}\)</span>
+est échantillonné à une fréquence <span class="math notranslate nohighlight">\(f_e &gt; 2f_\mathrm{max}\)</span>,
+alors <span class="math notranslate nohighlight">\(x(t)\)</span> peut être exactement reconstruit à partir de ses échantillons
+(à l’aide d’une interpolation par sinus cardinal).
+Dit autrement, un signal à temps continu <span class="math notranslate nohighlight">\(x(t)\)</span> est déterminé de manière unique
+par les échantillons <span class="math notranslate nohighlight">\(x[n] = x(nT_e)\)</span> à condition que <span class="math notranslate nohighlight">\(f_e &gt; 2 f_\mathrm{max}\)</span>.</p></li>
+<li><p>Ainsi, la fréquence d’échantillonnage pour un signal dans la bande <span class="math notranslate nohighlight">\([0, 100]\)</span> Hz
+doit être supérieure à <span class="math notranslate nohighlight">\(2 \times 100 = 200\)</span> Hz.</p></li>
+<li><p>De même, la fréquence d’échantillonnage pour un signal dans la bande <span class="math notranslate nohighlight">\([30, 150]\)</span> Hz
+doit être supérieure à <span class="math notranslate nohighlight">\(2 \times 150 = 300\)</span> Hz.</p></li>
+<li><p>Dans le cas d’une sinusoïde de fréquence <span class="math notranslate nohighlight">\(320\)</span> Hz échantillonnée à <span class="math notranslate nohighlight">\(600\)</span> Hz,
+la condition <span class="math notranslate nohighlight">\(f_e &gt; 2f_\mathrm{max}\)</span> n’est pas respectée.
+Une représentation graphique permet d’identifier le signal obtenu
+après échantillonnage.
+On sait que l’échantillonnage d’un signal à la fréquence <span class="math notranslate nohighlight">\(f_e\)</span>
+produit une périodisation de son spectre à la période <span class="math notranslate nohighlight">\(f_e\)</span>.
+Graphiquement, on obtient donc :</p>
+<figure class="align-default">
+<a class="reference internal image-reference" href="../_images/spectre-sampling.svg"><img alt="../_images/spectre-sampling.svg" src="../_images/spectre-sampling.svg" style="width: 100%;" /></a>
+</figure>
+</li>
+</ul>
 </section>
 <section id="exercice-11">
-<h3>Exercice 11<a class="headerlink" href="#exercice-11" title="Lien permanent vers cette rubrique">#</a></h3>
+<h3>Exercice 11<a class="headerlink" href="#exercice-11" title="Lien vers cette rubrique">#</a></h3>
+<p>Un signal constant est équivalent
+à une unique exponentielle complexe de fréquence nulle.
+Son spectre est donc une unique impulsion de Dirac à la fréquence nulle.</p>
+<p>Par dualité, le spectre d’une impulsion de Dirac centrée en 0 et un spectre constant.</p>
+<p>Cela implique qu’une impulsion de Dirac contient toutes les fréquences
+en amplitudes égales, donc en puissances égales.</p>
+</section>
+<section id="exercice-12">
+<h3>Exercice 12<a class="headerlink" href="#exercice-12" title="Lien vers cette rubrique">#</a></h3>
 <p>La transformée de Fourier discrète est périodique, à support discret et valeurs complexes.
 Elle peut être réelle dans le cas particulier ou le signal temporel est pair.</p>
 </section>
-<section id="exercice-12">
-<h3>Exercice 12<a class="headerlink" href="#exercice-12" title="Lien permanent vers cette rubrique">#</a></h3>
-<p>Puisque <span class="math notranslate nohighlight">\(\cos(t) = (e^{jt}+e^{-jt})/2\)</span> (forume d’Euler),
-alors son spectre (qui rappelons-le est la décomposition en exponentielles complexes du signal)
-est :</p>
-<figure class="align-default">
-<a class="reference internal image-reference" href="../_images/spectre-cos.svg"><img alt="../_images/spectre-cos.svg" src="../_images/spectre-cos.svg" width="500px" /></a>
-</figure>
-</section>
 <section id="exercice-13">
-<h3>Exercice 13<a class="headerlink" href="#exercice-13" title="Lien permanent vers cette rubrique">#</a></h3>
-<p>Le théorème de l’échantillonnage dit que,
-pour qu’un signal à temps continu <span class="math notranslate nohighlight">\(x(t)\)</span> soit déterminé de manière unique par les échantillons <span class="math notranslate nohighlight">\(x[n] = x(nT_e)\)</span>,
-il faut que <span class="math notranslate nohighlight">\(f_e &gt; 2 f_\mathrm{max}\)</span>
-où <span class="math notranslate nohighlight">\(f_\mathrm{max}\)</span> est la fréquence maximaule de <span class="math notranslate nohighlight">\(x\)</span>.</p>
+<h3>Exercice 13<a class="headerlink" href="#exercice-13" title="Lien vers cette rubrique">#</a></h3>
+<p>Grâce à la formule d’Euler, on sait que <span class="math notranslate nohighlight">\(\cos(t) = (e^{jt}+e^{-jt})/2\)</span>.
+Comme le spectre est la représentation graphique
+de la décomposition en exponentielles complexes du signal,
+alors le spectre de <span class="math notranslate nohighlight">\(\cos(t)\)</span> n’est non nul qu’aux fréquences <span class="math notranslate nohighlight">\(1\)</span> et <span class="math notranslate nohighlight">\(-1\)</span> :</p>
+<figure class="align-default">
+<a class="reference internal image-reference" href="../_images/spectre-cos.svg"><img alt="../_images/spectre-cos.svg" src="../_images/spectre-cos.svg" style="width: 500px;" /></a>
+</figure>
 </section>
 </section>
 </section>
@@ -656,11 +687,10 @@ où <span class="math notranslate nohighlight">\(f_\mathrm{max}\)</span> est la 
 
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer d-print-none">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="td.html"
@@ -680,10 +710,7 @@ où <span class="math notranslate nohighlight">\(f_\mathrm{max}\)</span> est la 
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -691,6 +718,7 @@ où <span class="math notranslate nohighlight">\(f_\mathrm{max}\)</span> est la 
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -741,9 +769,10 @@ Par Vincent Mazet (Université de Strasbourg, France)
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
-      © Copyright 2023-2024.
+      © Copyright 2024-2025.
       <br/>
     
   </p>
@@ -757,7 +786,7 @@ Par Vincent Mazet (Université de Strasbourg, France)
   <div class="footer-item">
     
 <div class="extra_footer">
-  Traitement du signal 2 &mdash; Vincent Mazet (Université de Strasbourg), 2020-2024 &mdash; <a href='licence.html'>CC BY-NC 4.0</a>.
+  Traitement du signal 2 &mdash; Vincent Mazet (Université de Strasbourg), 2020-2025 &mdash; <a href='licence.html'>CC BY-NC 4.0</a>.
 </div>
   </div>
   
@@ -770,8 +799,8 @@ Par Vincent Mazet (Université de Strasbourg, France)
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>
