@@ -35,7 +35,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
-    <link rel="stylesheet" type="text/css" href="../_static/jbvinc.css?v=3f2bdf1d" />
+    <link rel="stylesheet" type="text/css" href="../_static/jbvinc.css?v=8dc5e944" />
     <link rel="stylesheet" type="text/css" href="../_static/.ipynb_checkpoints/jbvinc-checkpoint.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -399,10 +399,10 @@ document.write(`
 <span id="c-filtrage-laplace"></span><h1>Transformée de Laplace<a class="headerlink" href="#transformee-de-laplace" title="Lien vers cette rubrique">#</a></h1>
 <p>Il n’est pas toujours possible de calculer une transformée de Fourier car dans certains cas,
 son intégrale ne converge pas vers une valeur finie.
-C’est le cas par exemple d’un signal constant (sur <span class="math notranslate nohighlight">\([-\infty,+\infty]\)</span>)
+C’est le cas par exemple d’un signal constant sur <span class="math notranslate nohighlight">\([-\infty,+\infty]\)</span>
 ou de la réponse impulsionnelle d’un système instable (qui peut tendre vers l’infini).
 Dans ce cas, la transformée de Laplace est utile car elle prolonge la définition de la transformée de Fourier.
-Elle peut alors analyser la stabilité d’un système.</p>
+Elle permet alors d’analyser la stabilité d’un système.</p>
 <section id="definition">
 <h2>Définition<a class="headerlink" href="#definition" title="Lien vers cette rubrique">#</a></h2>
 <p>La transformée de Laplace d’un signal à temps continu <span class="math notranslate nohighlight">\(x(t)\)</span> est :</p>
@@ -430,6 +430,8 @@ d’une variable complexe (<span class="math notranslate nohighlight">\(s\)</spa
 Pour la représenter, il faudrait donc quatre dimensions !
 C’est bien sûr trop compliqué.
 D’ailleurs, il n’y aurait pas de réel intérêt à la représenter.</p>
+<div class="exemple admonition">
+<p class="admonition-title">Exemple</p>
 <p>Juste pour la curiosité, la transformée de Laplace de <span class="math notranslate nohighlight">\(e^{-at} \cos(bt) u(t)\)</span> est représentée <a class="reference internal" href="#f-laplace-laplace4d"><span class="std std-numref">Fig. 14</span></a>.
 Vous conviendrez que ce n’est pas simple à interpréter !</p>
 <figure class="align-default" id="f-laplace-laplace4d">
@@ -439,6 +441,7 @@ Vous conviendrez que ce n’est pas simple à interpréter !</p>
 (ici, <span class="math notranslate nohighlight">\(a=1\)</span> et <span class="math notranslate nohighlight">\(b=2\pi\)</span>).</span><a class="headerlink" href="#f-laplace-laplace4d" title="Lien vers cette image">#</a></p>
 </figcaption>
 </figure>
+</div>
 <p>À la place, on utilise une représentation schématique de la transformée de Laplace : le diagramme pôles–zéros (<em>pole–zero plot</em>).
 Celui-ci est une représentation des singularités de la transformée de Laplace :</p>
 <ul class="simple">
@@ -574,15 +577,15 @@ Donc l’exponentielle <span class="math notranslate nohighlight">\(e^{-t(s+c)}\
 e^{-t(s+c)} = e^{-t(\sigma+j\omega+c)} = e^{-t(\sigma+c)} e^{-j\omega t}.
 \]</div>
 <p>Lorsque <span class="math notranslate nohighlight">\(t\)</span> tend vers l’infini, <span class="math notranslate nohighlight">\(e^{-j\omega t}\)</span> ne diverge pas
-(souvenez-vous que <a class="reference external" href="https://vincmazet.github.io/signal1/notions/signaux-elementaires.html#exponentielle-complexe">l’expontielle complexe a une forme de tire-bouchon</a>).
-En ce qui concerne l’exponentielle réelle <span class="math notranslate nohighlight">\(e^{-t(\sigma+c)}\)</span>, trois cas sont possibles :</p>
+(souvenez-vous que <a class="reference external" href="https://vincmazet.github.io/signal1/elementaire/signaux-elementaires.html#exponentielle-complexe">l’expontielle complexe a une forme de tire-bouchon</a>).</p>
+<p>En ce qui concerne l’exponentielle réelle <span class="math notranslate nohighlight">\(e^{-t(\sigma+c)}\)</span>, trois cas sont possibles :</p>
 <ul class="simple">
 <li><p>si <span class="math notranslate nohighlight">\(\sigma+c &gt; 0\)</span> alors <span class="math notranslate nohighlight">\(e^{-t(\sigma+c)}\)</span> est une exponentielle décroissante et tend vers 0,</p></li>
 <li><p>si <span class="math notranslate nohighlight">\(\sigma+c = 0\)</span> alors <span class="math notranslate nohighlight">\(e^{-t(\sigma+c)}\)</span> est une constante égale à 1,</p></li>
 <li><p>si <span class="math notranslate nohighlight">\(\sigma+c &lt; 0\)</span> alors <span class="math notranslate nohighlight">\(e^{-t(\sigma+c)}\)</span> est une exponentielle croissante et tend vers l’infini.</p></li>
 </ul>
-<p>En combinant les limites des deux exponentielles, il advient que si et seulement si <span class="math notranslate nohighlight">\(\sigma+c &gt; 0\)</span>
-alors <span class="math notranslate nohighlight">\(e^{-t(s+c)}\)</span> converge (vers zéro).
+<p>En combinant les limites des deux exponentielles, il advient que
+<span class="math notranslate nohighlight">\(e^{-t(s+c)}\)</span> converge (vers zéro) si et seulement si <span class="math notranslate nohighlight">\(\sigma+c &gt; 0\)</span>.
 On peut donc continuer le calcul de la fonction de transfert, uniquement dans le cas <span class="math notranslate nohighlight">\(\sigma+c &gt; 0\)</span> :</p>
 <div class="math notranslate nohighlight">
 \[

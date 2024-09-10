@@ -35,7 +35,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
-    <link rel="stylesheet" type="text/css" href="../_static/jbvinc.css?v=3f2bdf1d" />
+    <link rel="stylesheet" type="text/css" href="../_static/jbvinc.css?v=8dc5e944" />
     <link rel="stylesheet" type="text/css" href="../_static/.ipynb_checkpoints/jbvinc-checkpoint.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -424,7 +424,12 @@ qui est le produit du message <span class="math notranslate nohighlight">\(m(t)\
 \[
 x(t) = m(t) \sin(2\pi f_p t)
 \]</div>
-<a class="reference internal image-reference" href="../_images/mod1.png"><img alt="../_images/mod1.png" class="align-center" src="../_images/mod1.png" style="width: 400px;" /></a>
+<figure class="align-default" id="f-analogique-1">
+<a class="reference internal image-reference" href="../_images/modulation-analogique-1.svg"><img alt="../_images/modulation-analogique-1.svg" src="../_images/modulation-analogique-1.svg" style="width: 500px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 40 </span><span class="caption-text">Exemple de modulation d’amplitude du signal <span class="math notranslate nohighlight">\(m(t)\)</span> avec une porteuse de fréquence <span class="math notranslate nohighlight">\(f_p = 10\)</span> Hz.</span><a class="headerlink" href="#f-analogique-1" title="Lien vers cette image">#</a></p>
+</figcaption>
+</figure>
 <p>On peut considérer le signal <span class="math notranslate nohighlight">\(m(t)\)</span> comme un signal à bande limité,
 c’est-à-dire que son spectre est nul au delà d’une certaine fréquence.
 D’un point de vue fréquentiel, la modulation correspond à un décalage du spectre du message
@@ -436,7 +441,12 @@ X(f)
 &amp;= M(f) * \frac{1}{2j}\left[\delta(f-f_p)-\delta(f+f_p)\right] \\
 &amp;= \frac{1}{2j}\left[M(f-f_p)-M(f+f_p)\right]
 \end{split}\]</div>
-<a class="reference internal image-reference" href="../_images/mod2.png"><img alt="../_images/mod2.png" class="align-center" src="../_images/mod2.png" style="width: 400px;" /></a>
+<figure class="align-default" id="f-analogique-2">
+<a class="reference internal image-reference" href="../_images/modulation-analogique-2.svg"><img alt="../_images/modulation-analogique-2.svg" src="../_images/modulation-analogique-2.svg" style="width: 500px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 41 </span><span class="caption-text">Effet de la modulation sur le spectre.</span><a class="headerlink" href="#f-analogique-2" title="Lien vers cette image">#</a></p>
+</figcaption>
+</figure>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <p>Attention, ce problème n’est pas du repliement spectral car il n’y a pas de fréquence d’échantillonnage ici.</p>
@@ -465,7 +475,12 @@ W(f)
 &amp;= -\frac{1}{4} M(f-2f_p) + \frac{1}{2} M(f) - \frac{1}{4} (f+2f_p)
 \end{split}\]</div>
 </div>
-<a class="reference internal image-reference" href="../_images/mod3.png"><img alt="../_images/mod3.png" class="align-center" src="../_images/mod3.png" style="width: 400px;" /></a>
+<figure class="align-default" id="f-analogique-3">
+<a class="reference internal image-reference" href="../_images/modulation-analogique-3.svg"><img alt="../_images/modulation-analogique-3.svg" src="../_images/modulation-analogique-3.svg" style="width: 500px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 42 </span><span class="caption-text">Effet de la multiplication du signal modulé par la porteuse.</span><a class="headerlink" href="#f-analogique-3" title="Lien vers cette image">#</a></p>
+</figcaption>
+</figure>
 <p>Le résultat de cette multiplication par la porteuse produit un spectre
 contenant trois occurrences du spectre du message :</p>
 <ul class="simple">

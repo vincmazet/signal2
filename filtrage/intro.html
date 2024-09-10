@@ -35,7 +35,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
-    <link rel="stylesheet" type="text/css" href="../_static/jbvinc.css?v=3f2bdf1d" />
+    <link rel="stylesheet" type="text/css" href="../_static/jbvinc.css?v=8dc5e944" />
     <link rel="stylesheet" type="text/css" href="../_static/.ipynb_checkpoints/jbvinc-checkpoint.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -396,9 +396,7 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="introduction">
 <span id="c-filtrage-intro"></span><h1>Introduction<a class="headerlink" href="#introduction" title="Lien vers cette rubrique">#</a></h1>
 <p>Ce chapitre sur le filtrage se divise en plusieurs parties.</p>
-<p>Tout d’abord, et c’est l’objet de cette page,
-la notin de filtre est définie,
-ainsi que la notion de système linéaire invariant.
+<p>Nous commençons par définir les notions de <em>filtre</em> et de <em>système linéaire invariant</em>.
 Nous introduisons ensuite la notion de stabilité d’un système,
 et nous terminons par ce qui caractérise un filtre,
 en particulier sa réponse impulsionnelle et sa réponse fréquentielle.</p>
@@ -408,11 +406,11 @@ ne peut être qu”<a class="reference internal" href="realisables.html#c-filtra
 <p>La troisième partie ouvre une parenthèse en présentant
 la <a class="reference internal" href="laplace.html#c-filtrage-laplace"><span class="std std-ref">transformée de Laplace</span></a> (qui s’applique sur les systèmes analogiques)
 et la <a class="reference internal" href="z.html#c-filtrage-z"><span class="std std-ref">transformée en Z</span></a> (qui s’applique sur les systèmes numériques).</p>
-<p>Enfin la quatrième partie présentent des tehcniques pour synthétiser des filtres numériques (<a class="reference internal" href="rii.html#c-filtrage-rii"><span class="std std-ref">RII</span></a> ou <a class="reference internal" href="rif.html#c-filtrage-rif"><span class="std std-ref">RIF</span></a>) et <a class="reference internal" href="analogiques.html#c-filtrage-analogiques"><span class="std std-ref">analogiques</span></a>.</p>
+<p>Enfin, la quatrième partie présentent des tehcniques pour synthétiser des filtres numériques (<a class="reference internal" href="rii.html#c-filtrage-rii"><span class="std std-ref">RII</span></a> ou <a class="reference internal" href="rif.html#c-filtrage-rif"><span class="std std-ref">RIF</span></a>) et <a class="reference internal" href="analogiques.html#c-filtrage-analogiques"><span class="std std-ref">analogiques</span></a>.</p>
 <section id="systeme">
 <h2>Système<a class="headerlink" href="#systeme" title="Lien vers cette rubrique">#</a></h2>
 <p>Un filtre est un <em>système</em>, c’est-à-dire un processus qui transforme un signal d’entrée <span class="math notranslate nohighlight">\(x\)</span> en un signal de sortie <span class="math notranslate nohighlight">\(y\)</span>.
-On utilise souvent une représentation en schéma-bloc dans ce contexte.</p>
+On utilise souvent une représentation en schéma-bloc pour le représenter :</p>
 <figure class="align-default">
 <a class="reference internal image-reference" href="../_images/systeme1.svg"><img alt="../_images/systeme1.svg" src="../_images/systeme1.svg" style="width: 350px;" /></a>
 </figure>
@@ -420,7 +418,7 @@ On utilise souvent une représentation en schéma-bloc dans ce contexte.</p>
 \[
 y = \mathcal{S}(x)
 \]</div>
-<p>Nous ne considérons dans le cours que des filtres <em>linéaires</em> et <em>invariants</em>.
+<p>Nous ne considérons dans ce cours que des filtres <em>linéaires</em> et <em>invariants</em>.
 Ces filtres permettent de modifier un signal d’entrée en atténuant ou en amplifiant certaines de ses fréquences.</p>
 <div class="exemple admonition">
 <p class="admonition-title">Exemple</p>
@@ -455,13 +453,15 @@ alors sa sortie est la somme pondérée des réponses du système à <span class
 \]</div>
 <div class="exemple admonition">
 <p class="admonition-title">Exemple</p>
-<p>Un élastique a, dans des conditions d’utilisation normale, un comportement linéaire :
-plus on le tend (<span class="math notranslate nohighlight">\(\alpha\)</span> augmente),
-plus il s’agrandit (et cela, de manière proportionnelle à <span class="math notranslate nohighlight">\(\alpha\)</span>).
-Cependant, si la tension est trop forte, alors il casse et ne s’agrandit plus de manière proportionnelle à <span class="math notranslate nohighlight">\(\alpha\)</span>.
+<p>Un élastique a, dans des conditions d’utilisation normale, un comportement linéaire :</p>
+<ul class="simple">
+<li><p>plus le poids qui lui est accroché est grand (<span class="math notranslate nohighlight">\(\alpha\)</span> augmente),
+plus il s’agrandit (de manière proportionnelle à <span class="math notranslate nohighlight">\(\alpha\)</span>) ;</p></li>
+<li><p>lorqu’on y accroche deux poids <span class="math notranslate nohighlight">\(x\)</span> et <span class="math notranslate nohighlight">\(y\)</span> différents, sa déformation sera égale à la somme des déformations qu’il aura eu pour chacun des deux poids.</p></li>
+</ul>
+<p>Cependant, si la tension est trop forte, alors il casse et ne s’agrandit plus de manière proportionnelle à <span class="math notranslate nohighlight">\(\alpha\)</span>.
 Dans ce cas, on ne peut plus le considérer comme étant linéaire.</p>
 </div>
-<!-- Trouver d'autres exemples parlants -->
 </section>
 <section id="systeme-invariant">
 <h2>Système invariant<a class="headerlink" href="#systeme-invariant" title="Lien vers cette rubrique">#</a></h2>
@@ -602,7 +602,7 @@ Pour simplifier son analyse on étudiera plutôt son gain, sa phase et son retar
 </figure>
 <div class="exemple admonition">
 <p class="admonition-title">Exemple</p>
-<p>Trois sinusoïdes de fréquences 2, 4 ou 6 Hz, fenêtrées par une fenêtre de Hamming,
+<p>Trois sinusoïdes de fréquences 2, 4 et 6 Hz, fenêtrées par une fenêtre de Hamming,
 sont mises en entrée du filtre représenté figure <a class="reference internal" href="#f-filtrage-intro-repimp"><span class="std std-numref">Fig. 1</span></a>.
 La figure suivante illustre l’effet du gain, de la phase et du retard de groupe sur ces signaux.</p>
 <figure class="align-default" id="id4">
@@ -611,11 +611,19 @@ La figure suivante illustre l’effet du gain, de la phase et du retard de group
 <p><span class="caption-number">Fig. 5 </span><span class="caption-text">Filtrage de signaux de fréquence différente.</span><a class="headerlink" href="#id4" title="Lien vers cette image">#</a></p>
 </figcaption>
 </figure>
-<p>Cet exemple illustre bien les concepts de gain, de déphasage et de retard de groupe subit par un signal dans un filtre. En effet :</p>
 <ul class="simple">
-<li><p>dans la bande passante, le signal d’entrée n’est presque pas modifié ;</p></li>
-<li><p>à la limite de la bande passante, le signal est d’une part légèrement atténué mais également déphasé et rallongé, ce qui indique un retard de groupe conséquent (le maximum du signal intervient avec un décalage plus important que pour le premier signal) ;</p></li>
-<li><p>enfin, dans la bande atténuée, le signal est dortement atténué ; il n’est même plus nécessaire de discuter d’un éventuel déphasage ou d’un retard de groupe.</p></li>
+<li><p>Dans la bande passante, le signal d’entrée (sinusoïde de fréquence 2 Hz)
+n’est presque pas modifié.</p></li>
+<li><p>À la limite de la bande passante, le signal
+(sinusoïde de fréquence 4 Hz) est légèrement atténué (effet du gain)
+mais aussi déphasé et rallongé,
+ce qui indique un retard de groupe conséquent
+car le maximum du signal intervient avec un décalage plus important
+que pour le premier signal).</p></li>
+<li><p>Enfin, dans la bande atténuée, le signal (sinusoïde de fréquence 6 Hz)
+est fortement atténué ;
+il n’est même plus nécessaire de discuter d’un éventuel déphasage
+ou d’un retard de groupe.</p></li>
 </ul>
 </div>
 <p><a class="exercise btn btn-light" href="td.html#exercice-2" role="button">2</a></p>

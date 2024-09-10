@@ -41,10 +41,12 @@ $$
 x(t) = m(t) \sin(2\pi f_p t)
 $$
 
-
-```{image} mod1.png
-:width: 400px
-:align: center
+```{figure} modulation-analogique-1.svg
+---
+name: F:analogique:1
+width: 500px
+---
+Exemple de modulation d'amplitude du signal $m(t)$ avec une porteuse de fréquence $f_p = 10$ Hz.
 ```
 
 On peut considérer le signal $m(t)$ comme un signal à bande limité,
@@ -59,9 +61,12 @@ X(f)
 &= \frac{1}{2j}\left[M(f-f_p)-M(f+f_p)\right]
 $$
 
-```{image} mod2.png
-:width: 400px
-:align: center
+```{figure} modulation-analogique-2.svg
+---
+name: F:analogique:2
+width: 500px
+---
+Effet de la modulation sur le spectre.
 ```
 
 ```{margin}
@@ -95,9 +100,12 @@ W(f)
 $$
 ```
 
-```{image} mod3.png
-:width: 400px
-:align: center
+```{figure} modulation-analogique-3.svg
+---
+name: F:analogique:3
+width: 500px
+---
+Effet de la multiplication du signal modulé par la porteuse.
 ```
 
 Le résultat de cette multiplication par la porteuse produit un spectre

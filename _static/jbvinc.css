@@ -69,6 +69,17 @@ table p { margin-bottom: 0 }
 
 a {text-decoration: none;}
 
+.prev-next-area a         p.prev-next-title,
+.prev-next-area a:hover   p.prev-next-title,
+.prev-next-area a:visited p.prev-next-title {text-decoration:none;}
+
+nav.bd-links li>a:active,
+nav.bd-links li>a:hover {text-decoration:none;}
+
+.toc-entry a.nav-link:active,
+.toc-entry a.nav-link:hover,
+.toc-entry a.nav-link.active:hover {text-decoration:none;}
+
 /* Cadre exemple */
 
 .example {
@@ -107,6 +118,10 @@ a.exercise {
 
 a.exercise::before {
     content: "➜ Exercice ";
+}
+
+a.exercise:visited, a.exercise:visited, a.exercise:active {
+    color: var(--pst-color-text-base);
 }
 
 /* Fond pour les tabs */
