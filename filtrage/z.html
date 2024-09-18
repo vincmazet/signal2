@@ -447,9 +447,13 @@ car les transformées en Z s’expriment sous forme d’une fraction rationnelle
 <div class="math notranslate nohighlight">
 \[
 H(z) = \frac{ \sum_{m=0}^{M} b_m z^{-m} }{ \sum_{n=0}^{N} a_n z^{-n} }
-     = k \frac{ \prod_{m=0}^{M} (1-z_mz^{-1}) }{ \prod_{n=0}^{N} (1-p_nz^{-1}) }
 \]</div>
-<p>La fonction de transfert est donc définie par ses coefficients <span class="math notranslate nohighlight">\(b_m\)</span> et <span class="math notranslate nohighlight">\(a_n\)</span>, ou par ses zéros <span class="math notranslate nohighlight">\(z_m\)</span>, pôles <span class="math notranslate nohighlight">\(p_n\)</span> et gain <span class="math notranslate nohighlight">\(k\)</span>.</p>
+<p>La fonction de transfert est donc définie par ses coefficients <span class="math notranslate nohighlight">\(b_m\)</span> et <span class="math notranslate nohighlight">\(a_n\)</span>,
+miq on peut également la définir avec ses zéros <span class="math notranslate nohighlight">\(z_m\)</span>, pôles <span class="math notranslate nohighlight">\(p_n\)</span> et gain <span class="math notranslate nohighlight">\(k\)</span> :</p>
+<div class="math notranslate nohighlight">
+\[
+H(z) = k \frac{ \prod_{m=0}^{M} (z-z_m) }{ \prod_{n=0}^{N} (z-p_n) }
+\]</div>
 </section>
 <section id="proprietes">
 <h2>Propriétés<a class="headerlink" href="#proprietes" title="Lien vers cette rubrique">#</a></h2>
@@ -506,9 +510,9 @@ H(z) = \frac{1-\lim_{n \to +\infty} (az^{-1})^n}{1-az^{-1}}
 <p>Si la condition <span class="math notranslate nohighlight">\(|az^{-1}|&lt;1\)</span> est respectée, alors la limite <span class="math notranslate nohighlight">\(\lim_{n \to +\infty} (az^{-1})^n\)</span> tend vers 0 et finalement :</p>
 <div class="math notranslate nohighlight">
 \[
-H(z) = \frac{1}{1-az^{-1}}.
+H(z) = \frac{1}{1-az^{-1}} = \frac{z}{z-a}.
 \]</div>
-<p>Cette fonction de transfert n’a pas de zéro et un seul pôle <span class="math notranslate nohighlight">\(z=a\)</span>.</p>
+<p>Cette fonction de transfert au seul zéro (<span class="math notranslate nohighlight">\(z=0\)</span>) et un seul pôle (<span class="math notranslate nohighlight">\(z=a\)</span>).</p>
 <p>La condition précédente est équivalente à <span class="math notranslate nohighlight">\(|z| &gt; |a|\)</span> et elle définit la région de convergence du système.
 On peut donc représenter le diagramme pôles–zéros (<a class="reference internal" href="#f-z-pz"><span class="std std-numref">Fig. 18</span></a>).</p>
 <figure class="align-default" id="f-z-pz">

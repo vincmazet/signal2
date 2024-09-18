@@ -628,17 +628,41 @@ et une atténuation suffisante, tout en ayant un ordre réduit.</p>
 </tbody>
 </table>
 </div>
-<figure class="align-default" id="f-rif-fenetres">
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Paramètres de la fenêtre de Kaiser</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<!-- Oppenheim 1989, chapitre 7 section 5.3 (p. 566) -->
+<p class="sd-card-text">Pour la fenêtre de Kaiser, la largeur de transition <span class="math notranslate nohighlight">\(\Delta_f\)</span>,
+l’atténuation minimale <span class="math notranslate nohighlight">\(A\)</span> et l’ordre du filtre <span class="math notranslate nohighlight">\(N\)</span> sont liés par l’équation [<a class="reference internal" href="../annexes/refs.html#b-oppenheim1989"><span class="std std-ref">Oppenheim 1989</span></a>] :</p>
+<div class="math notranslate nohighlight">
+\[
+A = 4,57\,\pi\Delta_fN + 8.
+\]</div>
+<p class="sd-card-text">Quant au paramètre <span class="math notranslate nohighlight">\(\beta\)</span>, il se déduit de l’atténuation minimale <span class="math notranslate nohighlight">\(A\)</span> [<a class="reference internal" href="../annexes/refs.html#b-oppenheim1989"><span class="std std-ref">Oppenheim 1989</span></a>] :</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\beta =
+\begin{cases}
+  0,1102(A-8,7)                        &amp;\quad\text{si } A&gt;50, \\
+  0,5842(A-21)^{0,4} + 0,07886(A-21)   &amp;\quad\text{si } 21 \leq A \leq 50, \\
+  0                                    &amp;\quad\text{si } A&lt;21.
+\end{cases}
+\end{split}\]</div>
+</div>
+</details><p>Les figures ci-après permettent de comparer les différentes fenêtres en termes de
+réponse impulsionnelle (<a class="reference internal" href="#f-rif-fenetres-ri"><span class="std std-numref">Fig. 23</span></a>)
+et gain (<a class="reference internal" href="#f-rif-fenetres-gain"><span class="std std-numref">Fig. 24</span></a>).</p>
+<figure class="align-default" id="f-rif-fenetres-ri">
 <a class="reference internal image-reference" href="../_images/rif-windows.svg"><img alt="../_images/rif-windows.svg" src="../_images/rif-windows.svg" style="width: 600px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 23 </span><span class="caption-text">Fenêtres classiques de taille <span class="math notranslate nohighlight">\(N=20\)</span>.</span><a class="headerlink" href="#f-rif-fenetres" title="Lien vers cette image">#</a></p>
+<p><span class="caption-number">Fig. 23 </span><span class="caption-text">Fenêtres classiques de longueur <span class="math notranslate nohighlight">\(N+1=21\)</span>.</span><a class="headerlink" href="#f-rif-fenetres-ri" title="Lien vers cette image">#</a></p>
 </figcaption>
 </figure>
-<figure class="align-default" id="f-rif-reponses-impulsionnelles">
+<figure class="align-default" id="f-rif-fenetres-gain">
 <a class="reference internal image-reference" href="../_images/rif-window-method.svg"><img alt="../_images/rif-window-method.svg" src="../_images/rif-window-method.svg" style="width: 600px;" /></a>
 <figcaption>
 <p><span class="caption-number">Fig. 24 </span><span class="caption-text">Gain de filtres passe-bas de fréquence de coupure <span class="math notranslate nohighlight">\(f_e/5\)</span>
-pour des fenêtres classiques de taille <span class="math notranslate nohighlight">\(N=20\)</span>.</span><a class="headerlink" href="#f-rif-reponses-impulsionnelles" title="Lien vers cette image">#</a></p>
+pour des fenêtres classiques de taille <span class="math notranslate nohighlight">\(N=20\)</span>.</span><a class="headerlink" href="#f-rif-fenetres-gain" title="Lien vers cette image">#</a></p>
 </figcaption>
 </figure>
 <!--

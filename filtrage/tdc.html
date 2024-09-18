@@ -184,7 +184,13 @@
 <li class="toctree-l2"><a class="reference internal" href="../revisions/tdc.html">Corrections</a></li>
 </ul><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary>
 </details></li>
-<li class="toctree-l1"><a class="reference internal" href="../revisions/tp.html">Exercices sur machine</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../revisions/tp.html">Exercices sur machine</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc1.html">Représentation d’un signal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc2.html">Transformée de Fourier discrète</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc3.html">Analyse spectrale</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc4.html">Produit de convolution</a></li>
+</ul><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Filtrage</span></p>
 <ul class="current nav bd-sidenav">
@@ -400,11 +406,12 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-13">Exercice 13</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-14">Exercice 14</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-15">Exercice 15</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-16">Exercice 16</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filtres-analogiques">Filtres analogiques</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-16">Exercice 16</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-17">Exercice 17</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-18">Exercice 18</a></li>
 </ul>
 </li>
 </ul>
@@ -460,7 +467,7 @@ H(f) = \frac{1}{1+j2\pi f}
 \]</div>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../_images/ecb6c0ba64923f217008e8c7e192bc02a486f85a8c0b08e0f1e7fa8d04af5b44.png" src="../_images/ecb6c0ba64923f217008e8c7e192bc02a486f85a8c0b08e0f1e7fa8d04af5b44.png" />
+<img alt="../_images/e7271929f0e874e08cd3cfbe220ec4b5905d618c4990e15c9e2f911b8a005e9a.png" src="../_images/e7271929f0e874e08cd3cfbe220ec4b5905d618c4990e15c9e2f911b8a005e9a.png" />
 </div>
 </div>
 </section>
@@ -470,25 +477,28 @@ H(f) = \frac{1}{1+j2\pi f}
 <section id="exercice-3">
 <h3>Exercice 3<a class="headerlink" href="#exercice-3" title="Lien vers cette rubrique">#</a></h3>
 <figure class="align-default">
-<img alt="../_images/figs-ex3.png" src="../_images/figs-ex3.png" />
+<img alt="../_images/figs-ex3.svg" src="../_images/figs-ex3.svg" />
 </figure>
 </section>
 <section id="exercice-4">
 <h3>Exercice 4<a class="headerlink" href="#exercice-4" title="Lien vers cette rubrique">#</a></h3>
 <figure class="align-default">
-<img alt="../_images/figs-ex4.png" src="../_images/figs-ex4.png" />
+<img alt="../_images/figs-ex4.svg" src="../_images/figs-ex4.svg" />
 </figure>
 </section>
 <section id="exercice-5">
 <h3>Exercice 5<a class="headerlink" href="#exercice-5" title="Lien vers cette rubrique">#</a></h3>
 <figure class="align-default">
-<img alt="../_images/figs-ex5.png" src="../_images/figs-ex5.png" />
+<img alt="../_images/figs-ex5.svg" src="../_images/figs-ex5.svg" />
 </figure>
 </section>
 <section id="exercice-6">
 <h3>Exercice 6<a class="headerlink" href="#exercice-6" title="Lien vers cette rubrique">#</a></h3>
+<p>Les spécifications du filtre à mettre en place ne sont données que pour certaines plages de fréquences.
+Nous choisissons de réaliser un filtre passe-haut (plutôt qu’un filtre passe-bande par exemple) afin de minimiser l’ordre du filtre réalisé.
+Les lignes en tirets sont des choix effectués pour obtenir le gabarit d’un filtre passe-haut.</p>
 <figure class="align-default">
-<img alt="../_images/figs-ex6.png" src="../_images/figs-ex6.png" />
+<img alt="../_images/figs-ex6.svg" src="../_images/figs-ex6.svg" />
 </figure>
 </section>
 </section>
@@ -514,19 +524,19 @@ le cercle unité correspond à un système numérique.</p>
 <tr class="row-even"><td><p>A</p></td>
 <td><p><span class="math notranslate nohighlight">\(-3-4j\)</span> <br/> <span class="math notranslate nohighlight">\(-3+4j\)</span></p></td>
 <td><p>Aucun zéro</p></td>
-<td><p>2</p></td>
+<td><p><span class="math notranslate nohighlight">\(2\)</span></p></td>
 <td><p>Analogique</p></td>
 </tr>
 <tr class="row-odd"><td><p>B</p></td>
 <td><p><span class="math notranslate nohighlight">\(-\frac{1}{2}j\)</span> <br/> <span class="math notranslate nohighlight">\(+\frac{1}{2}j\)</span></p></td>
-<td><p>-2</p></td>
-<td><p>2</p></td>
+<td><p><span class="math notranslate nohighlight">\(-2\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(2\)</span></p></td>
 <td><p>Numérique</p></td>
 </tr>
 <tr class="row-even"><td><p>C</p></td>
 <td><p><span class="math notranslate nohighlight">\(0,81+1,05j\)</span> <br/> <span class="math notranslate nohighlight">\(0,81-1,05j\)</span> <br/> <span class="math notranslate nohighlight">\(-0,25+0,48j\)</span> <br/> <span class="math notranslate nohighlight">\(-0,25-0,48j\)</span> <br/> <span class="math notranslate nohighlight">\(-1,11\)</span></p></td>
 <td><p><span class="math notranslate nohighlight">\(0,18+0,86j\)</span> <br/> <span class="math notranslate nohighlight">\(0,18-0,86j\)</span> <br/> <span class="math notranslate nohighlight">\(-0,43\)</span> <br/> <span class="math notranslate nohighlight">\(-6\)</span></p></td>
-<td><p>5</p></td>
+<td><p><span class="math notranslate nohighlight">\(5\)</span></p></td>
 <td><p>Numérique</p></td>
 </tr>
 </tbody>
@@ -568,11 +578,14 @@ alors la condition la plus forte définit le plan de convergence, où la transfo
 <div class="math notranslate nohighlight">
 \[H_1(z) = \frac{7}{1-\frac{1}{3}z^{-1}} \quad\text{si}\; |z|&gt;\frac{1}{3}\]</div>
 <p>La région de convergence correspond au plan complexe où le module de <span class="math notranslate nohighlight">\(z\)</span> est supérieur à <span class="math notranslate nohighlight">\(\frac{1}{3}\)</span>.
-<span class="math notranslate nohighlight">\(H_1\)</span> possède un seul pôle (<span class="math notranslate nohighlight">\(1/3\)</span>) et aucun zéro.
+<span class="math notranslate nohighlight">\(H_1\)</span> possède un zéro (<span class="math notranslate nohighlight">\(0\)</span>) et un pôle (<span class="math notranslate nohighlight">\(1/3\)</span>).
 Le pôle est dans le cercle unité : le système est donc stable.</p>
 <p>Réponse impulsionnelle <span class="math notranslate nohighlight">\(h_2\)</span> :</p>
 <div class="math notranslate nohighlight">
-\[H_2(z) = \frac{1}{2j}\frac{1}{1-2e^{j\pi/4}z^{-1}} - \frac{1}{2j}\frac{1}{1-2e^{-j\pi/4}z^{-1}} \quad\text{si}\; |z|&gt;2\]</div>
+\[\begin{split}
+H_2(z) &amp;= \frac{1}{2j}\frac{1}{1-2e^{j\pi/4}z^{-1}} - \frac{1}{2j}\frac{1}{1-2e^{-j\pi/4}z^{-1}} \quad\text{si}\; |z|&gt;2 \\
+       &amp;= \frac{ 2\sin(\pi/4) z }{(z-2e^{j\pi/4})(z-2e^{-j\pi/4})} \quad\text{si}\; |z|&gt;2
+\end{split}\]</div>
 <p>La région de convergence correspond au plan complexe où le module de <span class="math notranslate nohighlight">\(z\)</span> est supérieur à <span class="math notranslate nohighlight">\(2\)</span>.
 <span class="math notranslate nohighlight">\(H_2\)</span> possède deux pôles (<span class="math notranslate nohighlight">\(2e^{j\pi/4}\)</span> et <span class="math notranslate nohighlight">\(2e^{-j\pi/4}\)</span>) et un zéro (<span class="math notranslate nohighlight">\(0\)</span>).
 Les pôles sont en dehors du cercle unité : le système est donc instable.</p>
@@ -609,15 +622,34 @@ h_2[n] = 2n2^n u[n].
 <h2>Filtres numériques<a class="headerlink" href="#filtres-numeriques" title="Lien vers cette rubrique">#</a></h2>
 <section id="exercice-13">
 <h3>Exercice 13<a class="headerlink" href="#exercice-13" title="Lien vers cette rubrique">#</a></h3>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+  &amp;H(z) = \frac{Y[z]}{X[z]} = \frac{1}{\frac{1}{2}-4z^{-1}} \\
+  \Leftightarrow\qquad
+  &amp;Y[z] \left( \frac{1}{2}-4z^{-1} \right) = X[z] \\
+\end{split}\]</div>
+<p>Comme la transformée en Z est linéaire et que <span class="math notranslate nohighlight">\(z^{-1}\)</span> correspond à un retard,
+on aboutit à la relation temporelle suivante :</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+  &amp;\frac{1}{2}y[n] - 4y[n-1] = x[n] \\
+  \Leftightarrow\qquad
+  &amp;y[n] = 2x[n] + 8y[n-1]
+\end{split}\]</div>
+<p>Le signal <span class="math notranslate nohighlight">\(y\)</span> est donc la somme du signal <span class="math notranslate nohighlight">\(x\)</span> (avec un gain de 2)
+et du signal <span class="math notranslate nohighlight">\(y\)</span> (retardé d’un échantillon et avec un gain de 8) :</p>
 <figure class="align-default">
 <a class="reference internal image-reference" href="../_images/forme-directe-sys3.svg"><img alt="../_images/forme-directe-sys3.svg" src="../_images/forme-directe-sys3.svg" style="width: 450px;" /></a>
-</figure>
-<figure class="align-default">
-<a class="reference internal image-reference" href="../_images/forme-directe-sys4.svg"><img alt="../_images/forme-directe-sys4.svg" src="../_images/forme-directe-sys4.svg" style="width: 100%;" /></a>
 </figure>
 </section>
 <section id="exercice-14">
 <h3>Exercice 14<a class="headerlink" href="#exercice-14" title="Lien vers cette rubrique">#</a></h3>
+<figure class="align-default">
+<a class="reference internal image-reference" href="../_images/forme-directe-sys4.svg"><img alt="../_images/forme-directe-sys4.svg" src="../_images/forme-directe-sys4.svg" style="width: 100%;" /></a>
+</figure>
+</section>
+<section id="exercice-15">
+<h3>Exercice 15<a class="headerlink" href="#exercice-15" title="Lien vers cette rubrique">#</a></h3>
 <div class="math notranslate nohighlight">
 \[
   H_1(s) = \frac{ 1 + 2z^{-1} z^{-2} }{ 1 + z^{-1} }
@@ -627,10 +659,10 @@ h_2[n] = 2n2^n u[n].
   H_2(z) = \frac{ 1 - \frac{7}{4}z^{-1} - \frac{1}{2}z^{-2} }{ 1 + \frac{1}{4}z^{-1} - \frac{1}{8}z^{-2} }
 \]</div>
 </section>
-<section id="exercice-15">
-<h3>Exercice 15<a class="headerlink" href="#exercice-15" title="Lien vers cette rubrique">#</a></h3>
+<section id="exercice-16">
+<h3>Exercice 16<a class="headerlink" href="#exercice-16" title="Lien vers cette rubrique">#</a></h3>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../_images/figs-ex15.jpg"><img alt="../_images/figs-ex15.jpg" src="../_images/figs-ex15.jpg" style="width: 100%;" /></a>
+<img alt="../_images/figs-ex16.svg" src="../_images/figs-ex16.svg" />
 </figure>
 <p>Le filtre étant synthétisé avec la méthode des fenêtres, c’est un filtre RIF et il est donc forcément stable.</p>
 <p>Les fenêtres envisageables sont les fenêtres de Hamming, Blackman et Kaiser.</p>
@@ -641,15 +673,15 @@ on obtient donc un ordre <span class="math notranslate nohighlight">\(N=36\)</sp
 </section>
 <section id="filtres-analogiques">
 <h2>Filtres analogiques<a class="headerlink" href="#filtres-analogiques" title="Lien vers cette rubrique">#</a></h2>
-<section id="exercice-16">
-<h3>Exercice 16<a class="headerlink" href="#exercice-16" title="Lien vers cette rubrique">#</a></h3>
+<section id="exercice-17">
+<h3>Exercice 17<a class="headerlink" href="#exercice-17" title="Lien vers cette rubrique">#</a></h3>
 <p>Ce filtre est un passe-bas.
 Il n’y a pas d’oscillation ni en bande passante ni en bande atténuée :
 c’est un filtre de Butterworth ou de Bessel.
 Sa fréquence de couure est de 0,2 Hz.</p>
 </section>
-<section id="exercice-17">
-<h3>Exercice 17<a class="headerlink" href="#exercice-17" title="Lien vers cette rubrique">#</a></h3>
+<section id="exercice-18">
+<h3>Exercice 18<a class="headerlink" href="#exercice-18" title="Lien vers cette rubrique">#</a></h3>
 <p>Ce filtre est un passe-bande.
 Il y a des oscillations en bande passante mais pas en bande atténuée :
 c’est un filtre de Tchebychev de type I.
@@ -747,11 +779,12 @@ Ses fréquences de couure sont 0,5 et 15 Hz.</p>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-13">Exercice 13</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-14">Exercice 14</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-15">Exercice 15</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-16">Exercice 16</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filtres-analogiques">Filtres analogiques</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-16">Exercice 16</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-17">Exercice 17</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-18">Exercice 18</a></li>
 </ul>
 </li>
 </ul>

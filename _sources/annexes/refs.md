@@ -17,7 +17,8 @@
   Univ. Grenoble Alpes - Polytech Grenoble, 2018.
   [Téléchargeable librement](https://www.gipsa-lab.grenoble-inp.fr/~christian.jutten/mescours/Cours_Theorie_Signal_2018.pdf)
 
-* [Oppenheim 1989]
+* (B:Oppenheim1989)=
+  [Oppenheim 1989]
   A.V. Oppenheim, R.W. Schafer et J.R. Buck.
   _Discrete-Time Signal Processing_.
   Prentice Hall, 2e édition, 1989.
@@ -69,7 +70,7 @@
 * Doc Sciences : entre les hommes et les machines, automatique et traitement du signal, n<sup>o</sup> 15, 2013.
   Disponible en demandant gentiment à votre professeur préféré.
 
-* [Gretsi](http://www.gretsi.fr/). Groupe de recherche en traitement du signal et des images.
+* [Gretsi](https://gretsi.fr/historique). Articles sur l'histoire du traitement du signal et des images.
 
 * [Cours de l'école d'été sur le traitement du signal et des images](http://gretsi.fr/archives/peyresq) organisée par le Gretsi.
 
