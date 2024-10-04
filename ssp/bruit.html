@@ -385,6 +385,11 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#caracteristiques-statistiques-d-une-variable-aleatoire">Caractéristiques statistiques d’une variable aléatoire</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#densite-spectrale-de-puissance">Densité spectrale de puissance</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#autocorrelation-statistique">Autocorrélation statistique</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Densité spectrale de puissance</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#le-bruit-dans-les-signaux">Le bruit dans les signaux</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#le-bruit-blanc">Le bruit blanc</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#le-bruit-blanc-i-i-d">Le bruit blanc i.i.d.</a></li>
@@ -426,8 +431,8 @@ Lorsqu’on parle de signal aléatoire, c’est en fait le phénomène avant la 
 Ce qui nous intéresse ici, c’est de concevoir un traitement
 sur un signal qui n’a pas encore été mesuré et qui est donc considéré aléatoire.</p>
 <p>Pour analyser et traiter ces signaux, on se base sur leurs propriétés statistiques,
-telles que leur moyenne ou une distribution de probabilité.
-Nous allons donc commencer par quelques rappels de probabilités.</p>
+telles que leur moyenne ou une distribution de probabilité : nous allons donc commencer par quelques rappels de probabilités.
+Enfin, nous ne considérons que les signaux discrets dans ce chapitre pour simplifier le propos.</p>
 <section id="rappels-de-probabilite">
 <h2>Rappels de probabilité<a class="headerlink" href="#rappels-de-probabilite" title="Lien vers cette rubrique">#</a></h2>
 <p>Une <em>variable aléatoire</em> est une variable mathématique dont la valeur n’est pas fixée.
@@ -537,25 +542,61 @@ qui est plus simple à manipuler mathématiquement.</p>
 </aside>
 <p>L’espérance est le
 <a class="reference external" href="https://fr.wikipedia.org/wiki/Moment_(probabilit%C3%A9s)#Moment_ordinaire">moment d’ordre 1</a>
-de la variable aléatoire <span class="math notranslate nohighlight">\(x\)</span>.
-Lorsqu’on dispose de <span class="math notranslate nohighlight">\(N\)</span> réalisations <span class="math notranslate nohighlight">\(x[n]\)</span>, l’espérance peut être estimée ainsi :</p>
+de la variable aléatoire <span class="math notranslate nohighlight">\(x\)</span>.</p>
+<p>Lorsqu’on dispose de <span class="math notranslate nohighlight">\(N\)</span> réalisations <span class="math notranslate nohighlight">\(x[n]\)</span> l’espérance peut être estimée ainsi :</p>
 <div class="math notranslate nohighlight">
 \[
   \hat{\mathbb{E}}[x] = \frac{1}{N} \sum_{n=0}^{N-1} x[n].
   \]</div>
 </li>
-<li><p>La <em>variance</em> d’une variable aléatoire <span class="math notranslate nohighlight">\(x\)</span>, notée <span class="math notranslate nohighlight">\(\mathbb{V}[x]\)</span>,
-correspond à une mesure de la dispersion des réalisations autour de la moyenne :</p>
+<li><aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<p>Pourquoi la dispersion est considérée comme le carré de la différence
+et pas simplement la différence ?
+La raison est que le carré permet d’avoir des erreurs qui ne peuvent pas être négatives
+tout en facilitant la manipulation lors des calculs, contrairement à la valeur absolue.</p>
+</aside>
+<p>La <em>variance</em> d’une variable aléatoire <span class="math notranslate nohighlight">\(x\)</span>, notée <span class="math notranslate nohighlight">\(\mathbb{V}[x]\)</span>,
+correspond à l’espérance de la dispersion des réalisations <span class="math notranslate nohighlight">\(x\)</span>
+autour de la moyenne <span class="math notranslate nohighlight">\(\mathbb{E}[x]\)</span>.
+Cette dispersion est définie comme le carré de la différence, ainsi :</p>
+<div class="math notranslate nohighlight">
+\[
+  \mathbb{V}[x] = \mathbb{E} \Big[ \big(x-\mathbb{E}(x)\big)^2 \Big].
+  \]</div>
+<p>On peut montrer que la variance s’écrit également :</p>
+<div class="math notranslate nohighlight">
+\[
+  \mathbb{V}[x] = \mathbb{E}(x^2) - \mathbb{E}(x)^2.
+  \]</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Démonstration</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">En appliquant la définition de l’espérance puis en développant l’expression :</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
-  \mathbb{V}[x] &amp;= \int \big(x-\mathbb{E}(x)\big)^2 p(x) dx \\
-                 &amp;= \mathbb{E} \Big( \big(x-\mathbb{E}(x)\big)^2 \Big) \\
-                 &amp;= \mathbb{E}(x^2) - \mathbb{E}(x)^2.
-  \end{split}\]</div>
-<p>La variance est le
+\mathbb{V}[x] &amp;= \mathbb{E} \Big[ \big(x-\mathbb{E}(x)\big)^2 \Big] \\
+              &amp;= \int \big(x-\mathbb{E}(x)\big)^2 p(x) dx \\
+              &amp;= \int \big(x^2 - 2x\mathbb{E}(x) + \mathbb{E}(x)^2\big) p(x) dx.
+\end{split}\]</div>
+<p class="sd-card-text">L’intégrale étant linéaire,
+et comme en plus <span class="math notranslate nohighlight">\(\mathbb{E}(x)\)</span> est une constante par rapport à <span class="math notranslate nohighlight">\(x\)</span>, alors :</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbb{V}[x] = \underbrace{\int x^2 p(x) dx}_{\mathbb{E}(x^2)}
+               - 2\mathbb{E}(x) \underbrace{\int x p(x) dx}_{\mathbb{E}(x)}
+               + \mathbb{E}(x)^2 \underbrace{\int p(x) dx}_{1}
+\]</div>
+<p class="sd-card-text">En simplifiant l’expression, on trouve bien :</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbb{V}[x] = \mathbb{E}(x^2) - \mathbb{E}(x)^2.
+\]</div>
+</div>
+</details><p>La variance est le
 <a class="reference external" href="https://fr.wikipedia.org/wiki/Moment_(probabilit%C3%A9s)#Moment_centr%C3%A9">moment centré d’ordre 2</a>
-de la variable aléatoire <span class="math notranslate nohighlight">\(x\)</span>.
-Lorsqu’on dispose de <span class="math notranslate nohighlight">\(N\)</span> réalisations <span class="math notranslate nohighlight">\(x[n]\)</span>, la variance peut être estimée ainsi :</p>
+de la variable aléatoire <span class="math notranslate nohighlight">\(x\)</span>.</p>
+<p>Lorsqu’on dispose de <span class="math notranslate nohighlight">\(N\)</span> réalisations <span class="math notranslate nohighlight">\(x[n]\)</span>, la variance peut être estimée ainsi :</p>
 <div class="math notranslate nohighlight">
 \[
   \hat{\mathbb{V}}[x] = \frac{1}{N} \sum_{n=0}^{N-1} \big(x[n]-\hat{\mathbb{E}}[x]\big)^2.
@@ -573,14 +614,63 @@ C’est la racine carrée de la variance :</p>
 <a class="exercise btn btn-light" href="td.html#exercice-2" role="button">2</a></p>
 </section>
 </section>
+<section id="densite-spectrale-de-puissance">
+<h2>Densité spectrale de puissance<a class="headerlink" href="#densite-spectrale-de-puissance" title="Lien vers cette rubrique">#</a></h2>
+<section id="autocorrelation-statistique">
+<h3>Autocorrélation statistique<a class="headerlink" href="#autocorrelation-statistique" title="Lien vers cette rubrique">#</a></h3>
+<p>L’autocorrélation statistique adapte l”<a class="reference external" href="https://vincmazet.github.io/signal1/xcorr/intercorrelation.html#autocorrelation">autocorrélation temporelle</a> au caractère statistique d’un signal aléatoire.
+Ainsi pour un signal aléatoire <span class="math notranslate nohighlight">\(x\)</span>, son autocorrélation statistique s’écrit :</p>
+<div class="math notranslate nohighlight">
+\[
+R_x[m] = \mathbb{E}\Big[ x[n+m] x[n] \Big].
+\]</div>
+</section>
+<section id="id1">
+<h3>Densité spectrale de puissance<a class="headerlink" href="#id1" title="Lien vers cette rubrique">#</a></h3>
+<p>La densité spectrale de puissance (<em>power spectral density</em>) est la transformée de Fourier à temps discret de l’autocorrélation statistique :</p>
+<div class="math notranslate nohighlight">
+\[
+S_x(f) = \mathcal{F} \left[ R_x \right](f) = \sum_{m=-\infty}^{+\infty} R_x[m] e^{-j 2 \pi m f}.
+\]</div>
+<p>La densité spectrale de puissance est définie pour <span class="math notranslate nohighlight">\(f\in\left[-\frac{1}{2},+\frac{1}{2}\right]\)</span>.
+Elle indique comment la puissance du signal aléatoire se localise en fonction des fréquences.</p>
+<!-- Si la vraie définition est que la dsp est la puissance répartie sur les fréquences, comment faire le lien avec la transformée de Fourier de l'autocorrélation ? -->
+<!-- (EXEMPLES) -->
+<p>La densité spectrale de puissance a les propriétés suivantes.</p>
+<ul>
+<li><p>La densité spectrale de puissance est une fonction réelle : <span class="math notranslate nohighlight">\(S_x(f) \in \mathbb{R}\)</span>.</p></li>
+<li><p>La densité spectrale de puissance est une fonction positive : <span class="math notranslate nohighlight">\(S_x(f) \geq 0\)</span>.</p></li>
+<li><p>L’intégrale de la densité spectrale de puissance est égale à l’autocorrélation en 0 mais aussi à la puissance du signal :</p>
+<div class="math notranslate nohighlight">
+\[
+  \int_{-1/2}^{+1/2} S_x(f) df = R_x(0) = P_x
+  \]</div>
+</li>
+<li><p>La densité spectrale de puissance ne caractérise pas entièrement un signal aléatoire : deux signaux aléatoires différents peuvent avoir la même densité spectrale de puissance !</p></li>
+</ul>
+<!-- 
+Démo
+
+$$
+\int_{-1/2}^{+1/2} S_x(f) df
+= \int_{-1/2}^{+1/2}  e^{+j2 \pi 0 f} df
+= \mathcal{F}^{-1} \left[ S_x \right](0)
+= R_x(0)
+$$
+
+Utiliser Parseval pour faire le lien avec P_x,
+en notant qu'en intégrant la densité (de puissance), on obtient le tout (la puissance).
+
+--></section>
+</section>
 <section id="le-bruit-dans-les-signaux">
 <h2>Le bruit dans les signaux<a class="headerlink" href="#le-bruit-dans-les-signaux" title="Lien vers cette rubrique">#</a></h2>
-<p>On appelle <em>bruit</em> les modifications non souhaitées (et en général inconnues)
+<p>On appelle <em>bruit</em> les modifications non souhaitées et inconnues
 que subit un signal lors de son acquisition, de son enregistrement, de son traitement ou de sa transmission.</p>
 <p>Ce qu’on appelle bruit dépend très fortement du contexte <a class="reference internal" href="../annexes/refs.html#c-refs"><span class="std std-ref">[Jutten 2018]</span></a>.
 Par exemple, pour l’opérateur sonar d’un sous-marin militaire,
 le signal utile est émis par les navires alors que les bancs de poissons
-émettent des signaux qui sont des perturbations pour le signal utile, donc du bruits.
+émettent des signaux qui sont des perturbations pour le signal utile, donc du bruit.
 À l’inverse, pour l’opérateur sonar d’un navire de pêche,
 le signal utile est celui émis par les bancs de poissons
 et les autres signaux sont des perturbations et constituent du bruit.</p>
@@ -590,16 +680,25 @@ alors ce dernier est modélisé par un signal aléatoire dont les amplitudes son
 La densité de probabilité du bruit peut être gaussienne, uniforme, de Poisson, etc.</p>
 <section id="le-bruit-blanc">
 <h3>Le bruit blanc<a class="headerlink" href="#le-bruit-blanc" title="Lien vers cette rubrique">#</a></h3>
-<p>Un bruit <span class="math notranslate nohighlight">\(b[n]\)</span> <em>blanc</em> est un signal aléatoire qui contient toutes les fréquences
-et que celles-ci ont toutes la même puissance.
-Cela signifie que la puissance du signal se répartit de façon uniforme sur l’ensemble des fréquences et que son espérance est nulle.</p>
-<!-- Par définition un bruit blanc est de densité spectrale de puissance constante
-(et pas de transformée de Fourier constante).
-En 0 : dsp = puissance du signal égale (\sigma^2)
-       TF = moyenne du signal égale (mu)
-Donc blanc => moyenne nulle
-Rappel : La densité spectrale de puissance d'un signal est la transformée de Fourier de la fonction d'autocorrélation
--->
+<p>Un bruit <span class="math notranslate nohighlight">\(b[n]\)</span> <em>blanc</em> est un signal aléatoire d’espérance nulle et de densité spectrale de puissance constante.
+Cela implique que la puissance du bruit est répartie de manière uniforme sur les fréquences, justifiant l’appelation de « blanc » par analogie avec la lumière.</p>
+<p>En notant <span class="math notranslate nohighlight">\(\sigma_b^2\)</span> la valeur constante de la densité spectrale de puissance,
+l’autocorrélation du bruit blanc <span class="math notranslate nohighlight">\(b\)</span> est nulle partout sauf en <span class="math notranslate nohighlight">\(0\)</span> :</p>
+<div class="math notranslate nohighlight">
+\[
+S_b(f) = \sigma_b^2
+\quad\Leftrightarrow\quad
+R_b[m] = \sigma_b^2 \delta[m].
+\]</div>
+<p>Ce résultat implique que les échantillons d’un bruit blanc sont décorrélés.</p>
+<p>La valeur de l’autocorrélation en <span class="math notranslate nohighlight">\(0\)</span> étant égale à la puissance du signal,
+le bruit blanc a pour puissance <span class="math notranslate nohighlight">\(\sigma_b^2\)</span>.</p>
+<p>Cette valeur <span class="math notranslate nohighlight">\(\sigma_b^2\)</span> est la variance du signal <span class="math notranslate nohighlight">\(b\)</span> puisque <span class="math notranslate nohighlight">\(R_b[0] = \sigma_b^2 \delta[0]\)</span>
+et que, sachant que <span class="math notranslate nohighlight">\(\mathbb{E}[b] = 0\)</span> on a :</p>
+<div class="math notranslate nohighlight">
+\[
+R_b[0] = \mathbb{E}\Big[ b[n+0] b[n] \Big] = \mathbb{E}\Big[ b^2 \Big] = \mathbb{V}\Big[ b \Big].
+\]</div>
 </section>
 <section id="le-bruit-blanc-i-i-d">
 <h3>Le bruit blanc i.i.d.<a class="headerlink" href="#le-bruit-blanc-i-i-d" title="Lien vers cette rubrique">#</a></h3>
@@ -675,14 +774,13 @@ et peuvent être écoutés ci-après.</p>
 <section id="rapport-signal-a-bruit">
 <h3>Rapport signal à bruit<a class="headerlink" href="#rapport-signal-a-bruit" title="Lien vers cette rubrique">#</a></h3>
 <p>Le rapport signal-à-bruit (RSB, ou en anglais SNR : <em>signal-to-noise ratio</em>) est une mesure de l’intensité du bruit dans un signal.
-Il correspond au rapport entre la puissance du signal et la puissance du bruit,
+Il correspond au rapport entre la puissance du signal <span class="math notranslate nohighlight">\(x\)</span> et la puissance du bruit <span class="math notranslate nohighlight">\(b\)</span>
 et est généralement exprimé en décibels :</p>
 <div class="math notranslate nohighlight">
 \[
 \text{RSB} = 10 \log_{10} \left(\frac{P_x}{P_b}\right)
 \]</div>
-<p>où <span class="math notranslate nohighlight">\(x\)</span> et <span class="math notranslate nohighlight">\(b\)</span> sont respectivement le signal non bruité.
-Ces signaux sont de puissances :</p>
+<p>où les puissances s’expriment :</p>
 <div class="math notranslate nohighlight">
 \[
 P_x = \frac{1}{N} \sum_{n=0}^{N-1} |x[n]|^2
@@ -777,6 +875,11 @@ ce qui permet de comparer les performances du traitement réalisé avec d’autr
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#densite-de-probabilite-uniforme">Densité de probabilité uniforme</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#loi-de-poisson">Loi de Poisson</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#caracteristiques-statistiques-d-une-variable-aleatoire">Caractéristiques statistiques d’une variable aléatoire</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#densite-spectrale-de-puissance">Densité spectrale de puissance</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#autocorrelation-statistique">Autocorrélation statistique</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Densité spectrale de puissance</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#le-bruit-dans-les-signaux">Le bruit dans les signaux</a><ul class="nav section-nav flex-column">

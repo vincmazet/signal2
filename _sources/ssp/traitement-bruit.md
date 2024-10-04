@@ -105,7 +105,7 @@ Elle est notamment utilisé dans des applications radar ou en communications num
 name: F:ssp:filtre-adapte
 ---
 Le motif $x$ est une porte et le signal observé $y$ correspond à $x$ décalé de $k=60$ échantillons
-et bruité par un bruit blanc gaussien de RSB 20 dB.
+et bruité par un bruit blanc gaussien de RSB 15 dB.
 Seules les corrélations de $x$ avec $x$ et $y$ présentent un maximum clair,
 ce qui indique la présence du motif à cet instant.
 ```

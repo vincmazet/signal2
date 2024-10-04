@@ -6,7 +6,8 @@
 
 ### Exercice 1
 
-Calculez l'espérance et l'écart-type d'une variable aléatoire distribuée suivant une loi uniforme $\ \mathcal{U}[0\ ; 1]$.
+* Représenter la densité de probabilité $\mathcal{U}[0\ ; 1]$.
+* Calculez l'espérance et l'écart-type d'une variable aléatoire distribuée suivant une loi uniforme $\ \mathcal{U}[0\ ; 1]$.
 
 
 ### Exercice 2
