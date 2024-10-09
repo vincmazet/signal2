@@ -209,7 +209,10 @@
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Corrections</a></li>
 </ul><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary>
 </details></li>
-<li class="toctree-l1"><a class="reference internal" href="tp.html">Exercices sur machine</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="tp.html">Exercices sur machine</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tpc.html">Filtrage numérique</a></li>
+</ul><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Traitement statistique du signal</span></p>
 <ul class="nav bd-sidenav">
@@ -625,7 +628,7 @@ h_2[n] = 2n2^n u[n].
 <div class="math notranslate nohighlight">
 \[\begin{split}
   &amp;H(z) = \frac{Y[z]}{X[z]} = \frac{1}{\frac{1}{2}-4z^{-1}} \\
-  \Leftightarrow\qquad
+  \Leftrightarrow\qquad
   &amp;Y[z] \left( \frac{1}{2}-4z^{-1} \right) = X[z] \\
 \end{split}\]</div>
 <p>Comme la transformée en Z est linéaire et que <span class="math notranslate nohighlight">\(z^{-1}\)</span> correspond à un retard,
@@ -633,7 +636,7 @@ on aboutit à la relation temporelle suivante :</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
   &amp;\frac{1}{2}y[n] - 4y[n-1] = x[n] \\
-  \Leftightarrow\qquad
+  \Leftrightarrow\qquad
   &amp;y[n] = 2x[n] + 8y[n-1]
 \end{split}\]</div>
 <p>Le signal <span class="math notranslate nohighlight">\(y\)</span> est donc la somme du signal <span class="math notranslate nohighlight">\(x\)</span> (avec un gain de 2)
@@ -678,14 +681,14 @@ on obtient donc un ordre <span class="math notranslate nohighlight">\(N=36\)</sp
 <p>Ce filtre est un passe-bas.
 Il n’y a pas d’oscillation ni en bande passante ni en bande atténuée :
 c’est un filtre de Butterworth ou de Bessel.
-Sa fréquence de couure est de 0,2 Hz.</p>
+Sa fréquence de coupure est de 0,2 Hz.</p>
 </section>
 <section id="exercice-18">
 <h3>Exercice 18<a class="headerlink" href="#exercice-18" title="Lien vers cette rubrique">#</a></h3>
 <p>Ce filtre est un passe-bande.
 Il y a des oscillations en bande passante mais pas en bande atténuée :
 c’est un filtre de Tchebychev de type I.
-Ses fréquences de couure sont 0,5 et 15 Hz.</p>
+Ses fréquences de coupure sont 0,5 et 15 Hz.</p>
 </section>
 </section>
 </section>
