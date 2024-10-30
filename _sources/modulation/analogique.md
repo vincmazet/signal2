@@ -7,10 +7,12 @@ dont l'un des paramètres (amplitude, phase ou fréquence instantanée) évolue 
 * Un signal modulé en amplitude (AM pour _amplitude modulation_) a pour expression :
 
   $$
-  x(t) = m(t) \sin(2\pi f_p t) ;
+  x(t) = A(t) \sin(2\pi f_p t) ;
   $$
+
+  où $A(t)$ est une fonction de $m(t)$ ;
   
-* Un signal modulé en phase (PM pour phase modulation_) a pour expression :
+* Un signal modulé en phase (PM pour _phase modulation_) a pour expression :
 
   $$
   x(t) = a \sin(2\pi f_p t + \varphi(t))
@@ -35,7 +37,8 @@ en particulier dans le cas de communications longues distances
 ## Modulation
 
 La transmission d'un signal $m(t)$ en modulation en amplitude consiste à transmettre le signal $x(t)$
-qui est le produit du message $m(t)$ par une porteuse sinusoïdale de fréquence $f_p$ :
+qui est le produit d'un signal $A(t)$ (dépendant du message $m(t)$) par une porteuse sinusoïdale de fréquence $f_p$.
+La modulation d'amplitude la plus simple est lorsque $A(t) = m(t)$ :
 
 $$
 x(t) = m(t) \sin(2\pi f_p t)

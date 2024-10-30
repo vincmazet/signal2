@@ -405,10 +405,11 @@ dont l’un des paramètres (amplitude, phase ou fréquence instantanée) évolu
 <li><p>Un signal modulé en amplitude (AM pour <em>amplitude modulation</em>) a pour expression :</p>
 <div class="math notranslate nohighlight">
 \[
-  x(t) = m(t) \sin(2\pi f_p t) ;
+  x(t) = A(t) \sin(2\pi f_p t) ;
   \]</div>
+<p>où <span class="math notranslate nohighlight">\(A(t)\)</span> est une fonction de <span class="math notranslate nohighlight">\(m(t)\)</span> ;</p>
 </li>
-<li><p>Un signal modulé en phase (PM pour phase modulation_) a pour expression :</p>
+<li><p>Un signal modulé en phase (PM pour <em>phase modulation</em>) a pour expression :</p>
 <div class="math notranslate nohighlight">
 \[
   x(t) = a \sin(2\pi f_p t + \varphi(t))
@@ -431,7 +432,8 @@ en particulier dans le cas de communications longues distances
 <section id="modulation">
 <h2>Modulation<a class="headerlink" href="#modulation" title="Lien vers cette rubrique">#</a></h2>
 <p>La transmission d’un signal <span class="math notranslate nohighlight">\(m(t)\)</span> en modulation en amplitude consiste à transmettre le signal <span class="math notranslate nohighlight">\(x(t)\)</span>
-qui est le produit du message <span class="math notranslate nohighlight">\(m(t)\)</span> par une porteuse sinusoïdale de fréquence <span class="math notranslate nohighlight">\(f_p\)</span> :</p>
+qui est le produit d’un signal <span class="math notranslate nohighlight">\(A(t)\)</span> (dépendant du message <span class="math notranslate nohighlight">\(m(t)\)</span>) par une porteuse sinusoïdale de fréquence <span class="math notranslate nohighlight">\(f_p\)</span>.
+La modulation d’amplitude la plus simple est lorsque <span class="math notranslate nohighlight">\(A(t) = m(t)\)</span> :</p>
 <div class="math notranslate nohighlight">
 \[
 x(t) = m(t) \sin(2\pi f_p t)

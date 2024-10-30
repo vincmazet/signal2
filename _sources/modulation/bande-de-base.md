@@ -152,9 +152,18 @@ name: F:demodulation-bruit-bb
 width: 500px
 ---
 Démodulation d'un signal en bande de base avec un canal idéal.
+Les points en couleur correspondent aux informations de la {numref}`F:demodulation-bb-signaux`.
 ```
 
 Le filtre de réception est le filtre adapté $r(t)=h(-t)$ et $d$ est la durée d'un symbole.
 Quant au seuil, sa valeur optimale dépend du nombre de symboles dans l'alphabet et de la probabilité d'émettre les bits $0$ et $1$.
 Dans le cas d'une communication binaire et lorsque les probabilités sont égales, alors le seuil optimal est la moyenne des amplitudes associées à ces deux bits.
 <!-- Dans le cas $M$-aire, il y a plusieurs seuils, chacun étant situé au milieu de l'intervalle défini par les amplitudes de deux symboles consécutifs. -->
+
+```{figure} demodulation-bb-signaux.svg
+---
+name: F:demodulation-bb-signaux
+width: 100%
+---
+Illustration de la démodulation d'un signal en bande de base (code Manchester) pour le message 10011010.
+```

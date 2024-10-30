@@ -591,13 +591,20 @@ Ensuite, le signal filtré est échantillonné tous les <span class="math notran
 <figure class="align-default" id="f-demodulation-bruit-bb">
 <a class="reference internal image-reference" href="../_images/demodulation-bruit-bb.svg"><img alt="../_images/demodulation-bruit-bb.svg" src="../_images/demodulation-bruit-bb.svg" style="width: 500px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 43 </span><span class="caption-text">Démodulation d’un signal en bande de base avec un canal idéal.</span><a class="headerlink" href="#f-demodulation-bruit-bb" title="Lien vers cette image">#</a></p>
+<p><span class="caption-number">Fig. 43 </span><span class="caption-text">Démodulation d’un signal en bande de base avec un canal idéal.
+Les points en couleur correspondent aux informations de la <a class="reference internal" href="#f-demodulation-bb-signaux"><span class="std std-numref">Fig. 44</span></a>.</span><a class="headerlink" href="#f-demodulation-bruit-bb" title="Lien vers cette image">#</a></p>
 </figcaption>
 </figure>
 <p>Le filtre de réception est le filtre adapté <span class="math notranslate nohighlight">\(r(t)=h(-t)\)</span> et <span class="math notranslate nohighlight">\(d\)</span> est la durée d’un symbole.
 Quant au seuil, sa valeur optimale dépend du nombre de symboles dans l’alphabet et de la probabilité d’émettre les bits <span class="math notranslate nohighlight">\(0\)</span> et <span class="math notranslate nohighlight">\(1\)</span>.
 Dans le cas d’une communication binaire et lorsque les probabilités sont égales, alors le seuil optimal est la moyenne des amplitudes associées à ces deux bits.</p>
 <!-- Dans le cas $M$-aire, il y a plusieurs seuils, chacun étant situé au milieu de l'intervalle défini par les amplitudes de deux symboles consécutifs. -->
+<figure class="align-default" id="f-demodulation-bb-signaux">
+<a class="reference internal image-reference" href="../_images/demodulation-bb-signaux.svg"><img alt="../_images/demodulation-bb-signaux.svg" src="../_images/demodulation-bb-signaux.svg" style="width: 100%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 44 </span><span class="caption-text">Illustration de la démodulation d’un signal en bande de base (code Manchester) pour le message 10011010.</span><a class="headerlink" href="#f-demodulation-bb-signaux" title="Lien vers cette image">#</a></p>
+</figcaption>
+</figure>
 </section>
 </section>
 
