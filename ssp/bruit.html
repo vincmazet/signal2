@@ -615,10 +615,16 @@ et comme en plus <span class="math notranslate nohighlight">\(\mathbb{E}(x)\)</s
 </details><p>La variance est le
 <a class="reference external" href="https://fr.wikipedia.org/wiki/Moment_(probabilit%C3%A9s)#Moment_centr%C3%A9">moment centré d’ordre 2</a>
 de la variable aléatoire <span class="math notranslate nohighlight">\(x\)</span>.</p>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<p>Il existe plusieurs estimateur de la variance,
+celui-ci est le plus courant :
+c’est l’estimateur non biaisé de la variance.</p>
+</aside>
 <p>Lorsqu’on dispose de <span class="math notranslate nohighlight">\(N\)</span> réalisations <span class="math notranslate nohighlight">\(x[n]\)</span>, la variance peut être estimée ainsi :</p>
 <div class="math notranslate nohighlight">
 \[
-  \hat{\mathbb{V}}[x] = \frac{1}{N} \sum_{n=0}^{N-1} \big(x[n]-\hat{\mathbb{E}}[x]\big)^2.
+  \hat{\mathbb{V}}[x] = \frac{1}{N-1} \sum_{n=0}^{N-1} \big(x[n]-\hat{\mathbb{E}}[x]\big)^2.
   \]</div>
 </li>
 <li><p>L”<em>écart type</em> d’une variable aléatoire <span class="math notranslate nohighlight">\(x\)</span> est la moyenne des écarts des réalisations à la moyenne.
