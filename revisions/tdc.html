@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Excercices sur feuille &#8212; Traitement du signal 2</title>
+    <title>Corrections &#8212; Traitement du signal 2</title>
   
   
   
@@ -62,11 +62,11 @@
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'modulation/td';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'revisions/tdc';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Recherche" href="../search.html" />
     <link rel="next" title="Exercices sur machine" href="tp.html" />
-    <link rel="prev" title="Modulation sur porteuse" href="porteuse.html" />
+    <link rel="prev" title="Exercices sur feuille" href="td.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="fr"/>
   </head>
@@ -179,12 +179,12 @@
             </li>
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Révisions</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../revisions/td.html">Exercices sur feuille</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../revisions/tdc.html">Corrections</a></li>
-</ul><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="td.html">Exercices sur feuille</a><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Corrections</a></li>
+</ul><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary>
 </details></li>
-<li class="toctree-l1"><a class="reference internal" href="../revisions/tp.html">Exercices sur machine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tp.html">Exercices sur machine</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Filtrage</span></p>
 <ul class="nav bd-sidenav">
@@ -208,13 +208,13 @@
 <li class="toctree-l1"><a class="reference internal" href="../ssp/tp.html">Exercices sur machine</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Modulation</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="analogique.html">Modulation analogique</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bande-de-base.html">Modulation en bande de base</a></li>
-<li class="toctree-l1"><a class="reference internal" href="porteuse.html">Modulation sur porteuse</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Excercices sur feuille</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tp.html">Exercices sur machine</a></li>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../modulation/intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulation/analogique.html">Modulation analogique</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulation/bande-de-base.html">Modulation en bande de base</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulation/porteuse.html">Modulation sur porteuse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulation/td.html">Excercices sur feuille</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulation/tp.html">Exercices sur machine</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Annexes</span></p>
 <ul class="nav bd-sidenav">
@@ -276,7 +276,7 @@
       
       
       
-      <li><a href="../_sources/modulation/td.md" target="_blank"
+      <li><a href="../_sources/revisions/tdc.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Télécharger le fichier source"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -286,7 +286,7 @@
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.md</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -360,7 +360,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Excercices sur feuille</h1>
+    <h1>Corrections</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -370,17 +370,27 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modulation-analogique">Modulation analogique</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#signaux-elementaires">Signaux élémentaires</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-1">Exercice 1</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-2">Exercice 2</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-3">Exercice 3</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-4">Exercice 4</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-5">Exercice 5</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modulation-numerique">Modulation numérique</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-5">Exercice 5</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#produit-de-convolution">Produit de convolution</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-6">Exercice 6</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-7">Exercice 7</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-8">Exercice 8</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analyse-de-fourier">Analyse de Fourier</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-9">Exercice 9</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-10">Exercice 10</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-11">Exercice 11</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-12">Exercice 12</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-13">Exercice 13</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-14">Exercice 14</a></li>
 </ul>
 </li>
 </ul>
@@ -394,105 +404,265 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="excercices-sur-feuille">
-<h1>Excercices sur feuille<a class="headerlink" href="#excercices-sur-feuille" title="Lien vers cette rubrique">#</a></h1>
-<section id="modulation-analogique">
-<h2>Modulation analogique<a class="headerlink" href="#modulation-analogique" title="Lien vers cette rubrique">#</a></h2>
+  <section class="tex2jax_ignore mathjax_ignore" id="corrections">
+<h1>Corrections<a class="headerlink" href="#corrections" title="Lien vers cette rubrique">#</a></h1>
+<section id="signaux-elementaires">
+<h2>Signaux élémentaires<a class="headerlink" href="#signaux-elementaires" title="Lien vers cette rubrique">#</a></h2>
 <section id="exercice-1">
 <h3>Exercice 1<a class="headerlink" href="#exercice-1" title="Lien vers cette rubrique">#</a></h3>
-<!-- Source : Oppenheim exo 8.3 -->
-<p>Le signal <span class="math notranslate nohighlight">\(m(t)\)</span> est à bande limitée : <span class="math notranslate nohighlight">\(M(f)=0\)</span> pour <span class="math notranslate nohighlight">\(|f|&gt;1\)</span> kHz.
-Il est modulé en amplitude par une porteuse sinusoïdale de fréquence <span class="math notranslate nohighlight">\(f_p=1\)</span> kHz :</p>
-<div class="math notranslate nohighlight">
-\[
-  x(t) = m(t) \sin(2\pi f_p t)
-\]</div>
-<p>Sa démodulation est effectuée par le dispositif suivant :</p>
-<a class="reference internal image-reference" href="../_images/chaine-modulation.svg"><img alt="../_images/chaine-modulation.svg" class="align-center" src="../_images/chaine-modulation.svg" style="width: 300px;" /></a>
-<p>où le filtre passe-bas <span class="math notranslate nohighlight">\(h(t)\)</span> est idéal, de gain 2 et de fréquence de coupure <span class="math notranslate nohighlight">\(f_c=1\)</span> kHz.
-Déterminez <span class="math notranslate nohighlight">\(y(t)\)</span>.</p>
+<ul class="simple">
+<li><p>Exemples de signal échantillonné :
+la température de l’air au lever du soleil
+(le soleil se levant avec une fréquence de 1 jour<span class="math notranslate nohighlight">\(^{-1} = 0,278\)</span> mHz,
+la mesure de la température au lever du soleil est forcément à temps discret,
+tout en étant une mesure continue de la température).</p></li>
+<li><p>Exemple de signal à temps continu :
+tout signal analogique.</p></li>
+<li><p>Exemple de signal quantifié :
+le nombre de personnes dans une pièce en fonction du temps
+(qui a une valeur forcément entière et qui dépend du temps, variable continue).</p></li>
+<li><p>Exemples de signal analogique :
+le son émis par une personne qui parle,
+la température effective sur un objet
+ou tout autre signal naturel.</p></li>
+<li><p>Exemples de signal numérique :
+le signal sonore contenu dans une musique en <em>streaming</em>,
+l’enregistrement numérique d’un capteur
+ou tout autre signal numérique.</p></li>
+</ul>
 </section>
 <section id="exercice-2">
 <h3>Exercice 2<a class="headerlink" href="#exercice-2" title="Lien vers cette rubrique">#</a></h3>
-<p>Un message <span class="math notranslate nohighlight">\(m(t)\)</span> est modulé en amplitude avec une porteuse de fréquence <span class="math notranslate nohighlight">\(f_p\)</span> et de phase nulle.
-Le signal <span class="math notranslate nohighlight">\(y(t)\)</span> est issu d’une démodulation cohérente avec une porteuse de fréquence <span class="math notranslate nohighlight">\(f_q\)</span>.
-Calculez la transformée de Fourier de <span class="math notranslate nohighlight">\(y(t)\)</span> lorsque <span class="math notranslate nohighlight">\(f_q \neq f_p\)</span>.</p>
+<p>Un <a class="reference external" href="https://vincmazet.github.io/signal1/notions/proprietes-des-signaux.html#causalite">signal causal</a>
+st un signal <span class="math notranslate nohighlight">\(x(t)\)</span> nul pour <span class="math notranslate nohighlight">\(t&lt;0\)</span>.
+La propriété est équivalente pour les signaux numériques.</p>
 </section>
 <section id="exercice-3">
 <h3>Exercice 3<a class="headerlink" href="#exercice-3" title="Lien vers cette rubrique">#</a></h3>
-<!-- ancien chiffrement du son Canal+ -->
-<!-- Source : Ventre exo 2.1 -->
-<p>Lorsque Canal+ émettait encore en analogique,
-le son <span class="math notranslate nohighlight">\(s(t)\)</span> était chiffré en inversant son spectre comme schématisé ci-dessous.
-Proposez une technique pour réaliser cette opération.</p>
-<a class="reference internal image-reference" href="../_images/canalplus.svg"><img alt="../_images/canalplus.svg" class="align-center" src="../_images/canalplus.svg" style="width: 600px;" /></a>
+<p>Échelon (ou fonction de Heaviside) :</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+  u(t) =
+  \begin{cases}
+    0 &amp;\text{si}\quad t &lt; 0 \\
+    1 &amp;\text{si}\quad t \geq 0
+  \end{cases}
+\end{split}\]</div>
+<figure class="align-default">
+<img alt="../_images/echelon.svg" src="../_images/echelon.svg" />
+</figure>
+<p>Impulsion de Dirac :</p>
+<div class="math notranslate nohighlight">
+\[
+  \delta(t) = 0 \;\text{si}\; t \neq 0
+  \qquad\text{et}\qquad
+  \int \delta(t) dt = 1
+\]</div>
+<figure class="align-default">
+<img alt="../_images/dirac.svg" src="../_images/dirac.svg" />
+</figure>
+<p>Impulsion discrète :</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+  \delta[n] =
+  \begin{cases}
+      0 \;\text{si}\; n \neq 0 \\
+      1 \;\text{si}\; n = 0
+  \end{cases}
+\end{split}\]</div>
+<figure class="align-default">
+<img alt="../_images/kronecker.svg" src="../_images/kronecker.svg" />
+</figure>
+<p>Peigne de Dirac (<span class="math notranslate nohighlight">\(T &gt; 0\)</span>) :</p>
+<div class="math notranslate nohighlight">
+\[
+  Ш_T(t) = \sum_{k=-\infty}^{+\infty} \delta(t-kT)
+\]</div>
+<figure class="align-default">
+<img alt="../_images/peigne.svg" src="../_images/peigne.svg" />
+</figure>
 </section>
 <section id="exercice-4">
 <h3>Exercice 4<a class="headerlink" href="#exercice-4" title="Lien vers cette rubrique">#</a></h3>
-<!-- Ventre exo 2.5 -->
-<p>Un enregistrement stéréo est composé des voies gauche <span class="math notranslate nohighlight">\(g(t)\)</span> et droite <span class="math notranslate nohighlight">\(d(t)\)</span>.
-Le signal composite stéréo <span class="math notranslate nohighlight">\(x(t)\)</span> est défini spectralement sur la figure ci-après (seule la partie positive est représentée) :
-les voies gauche et droite sont transmises par multiplexage fréquentiel.
-La somme <span class="math notranslate nohighlight">\(g(t)+d(t)\)</span> est transmise en bande de base (c’est-à-dire autour de 0 Hz) ;
-la différence <span class="math notranslate nohighlight">\(g(t)-d(t)\)</span> est transmise à la fréquence <span class="math notranslate nohighlight">\(f_p=38\)</span> kHz ; <!-- (en modulation double bande sans porteuse) -->
-enfin, une sous-porteuse à 19 kHz est également transmise pour faciliter la synchronisation du démodulateur.</p>
-<a class="reference internal image-reference" href="../_images/composite-stereo.svg"><img alt="../_images/composite-stereo.svg" class="align-center" src="../_images/composite-stereo.svg" style="width: 400px;" /></a>
-<ol class="arabic simple">
-<li><p>Justifiez les choix utilisés.</p></li>
-<li><p>Donnez l’expression de <span class="math notranslate nohighlight">\(x(t)\)</span>.</p></li>
-<li><p>Donnez un schéma de décodeur utilisant une démodulation cohérente et des filtres.</p></li>
-</ol>
+<figure class="align-default">
+<img alt="../_images/signal-x.svg" src="../_images/signal-x.svg" />
+</figure>
+<figure class="align-default">
+<img alt="../_images/signal-y.svg" src="../_images/signal-y.svg" />
+</figure>
 </section>
-</section>
-<section id="modulation-numerique">
-<h2>Modulation numérique<a class="headerlink" href="#modulation-numerique" title="Lien vers cette rubrique">#</a></h2>
 <section id="exercice-5">
 <h3>Exercice 5<a class="headerlink" href="#exercice-5" title="Lien vers cette rubrique">#</a></h3>
-<p>Représentez la séquence binaire <code>01011</code> modulée en NRZ bipolaire, Manchester et AMI.</p>
+<p>A est un sinus cardinal.</p>
 </section>
+</section>
+<section id="produit-de-convolution">
+<h2>Produit de convolution<a class="headerlink" href="#produit-de-convolution" title="Lien vers cette rubrique">#</a></h2>
 <section id="exercice-6">
 <h3>Exercice 6<a class="headerlink" href="#exercice-6" title="Lien vers cette rubrique">#</a></h3>
-<p>Représentez les constellations des modulations suivantes :</p>
-<ul>
-<li><p>OOK (<em>on-off keying</em>) définie dans <a class="reference external" href="https://en.wikipedia.org/w/index.php?title=On-off_keying&amp;amp;oldid=669950443">Wikipédia</a> par :</p>
-<blockquote>
-<div><p>On-off keying (OOK) denotes the simplest form of amplitude-shift keying (ASK) modulation
-that represents digital data as the presence or absence of a carrier wave.
-In its simplest form, the presence of a carrier for a specific duration represents a binary one,
-while its absence for the same duration represents a binary zero.</p>
-</div></blockquote>
-</li>
-<li><p>4-ASK ;</p></li>
-<li><p>2-PSK (appelée aussi BPSK pour <em>binary PSK</em>) ;</p></li>
-<li><p>8-QAM.</p></li>
-</ul>
+<p>D’après la définition du produit de convolution,
+et comme le signal <span class="math notranslate nohighlight">\(x\)</span> est nul presque partout (sauf aux échantillons <span class="math notranslate nohighlight">\(n=1\)</span> et <span class="math notranslate nohighlight">\(n=-1\)</span>),
+alors :</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+(x*y)[n]
+&amp;= \sum_{m=-\infty}^{+\infty} x[m] y[n-m] \\
+&amp;= x[-1] y[n+1] + x[1] y[n-1]
+\end{split}\]</div>
+<p>Les valeurs de <span class="math notranslate nohighlight">\(x[-1]\)</span> et <span class="math notranslate nohighlight">\(x[1]\)</span> sont données par la définition de <span class="math notranslate nohighlight">\(x\)</span>, donc :</p>
+<div class="math notranslate nohighlight" id="equation-e-rev-convolution">
+<span class="eqno">(1)<a class="headerlink" href="#equation-e-rev-convolution" title="Lien vers cette équation">#</a></span>\[
+(x*y)[n] = -y[n+1] + y[n-1].
+\]</div>
+<p>D’après la définition de <span class="math notranslate nohighlight">\(y\)</span>, on a d’une part :</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+y[n+1] =
+\begin{cases}
+  a &amp;\text{pour } |n+1| \leq 1, \\
+  0 &amp;\text{ailleurs}
+\end{cases} =
+\begin{cases}
+  a &amp;\text{pour } -2 \leq n \leq 0, \\
+  0 &amp;\text{ailleurs}
+\end{cases}
+\end{split}\]</div>
+<p>et d’autre part :</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+y[n-1] =
+\begin{cases}
+  a &amp;\text{pour } |n-1| \leq 1, \\
+  0 &amp;\text{ailleurs}
+\end{cases} =
+\begin{cases}
+  a &amp;\text{pour } 0 \leq n \leq 2, \\
+  0 &amp;\text{ailleurs}
+\end{cases}.
+\end{split}\]</div>
+<p>D’après l’équation <a class="reference internal" href="#equation-e-rev-convolution">(1)</a>,
+on peut finalement définir la valeur de tous les échantillons de <span class="math notranslate nohighlight">\((x*y)\)</span>.
+Il n’y a qu’en <span class="math notranslate nohighlight">\(n=0\)</span> que les deux signaux <span class="math notranslate nohighlight">\(y[n+1]\)</span> et <span class="math notranslate nohighlight">\(y[n-1]\)</span>
+sont tous les deux non nuls (ils valent <span class="math notranslate nohighlight">\(a\)</span>).
+Ainsi :</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+(x*y) =
+\begin{cases}
+  -a &amp;\text{pour } n = -2 \\
+  -a &amp;\text{pour } n = -1 \\
+  0 &amp;\text{pour } n = 0 \\
+  a &amp;\text{pour } n = 1 \\
+  a &amp;\text{pour } n = 2 \\
+  0 &amp;\text{ailleurs}
+\end{cases}
+\end{split}\]</div>
 </section>
 <section id="exercice-7">
 <h3>Exercice 7<a class="headerlink" href="#exercice-7" title="Lien vers cette rubrique">#</a></h3>
 <ul class="simple">
-<li><p>Représentez la forme d’onde <span class="math notranslate nohighlight">\(h_1(t)\)</span> :</p></li>
+<li><p>A :</p></li>
 </ul>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-h_1(t) =
-\begin{cases}
-  1       &amp;\text{si $t\in[0,\,d[$}, \\
-  0       &amp;\text{sinon}.
-\end{cases}
-\end{split}\]</div>
+<figure class="align-default">
+<a class="reference internal image-reference" href="../_images/conv-1-result.svg"><img alt="../_images/conv-1-result.svg" src="../_images/conv-1-result.svg" style="width: 300px;" /></a>
+</figure>
 <ul class="simple">
-<li><p>Quelle est la réponse impulsionnelle du filtre de réception associé à <span class="math notranslate nohighlight">\(h_1(t)\)</span> ?</p></li>
-<li><p>Calculez le signal en sortie du filtre lorsque l’entrée est <span class="math notranslate nohighlight">\(h_1(t)\)</span>.</p></li>
-<li><p>Mêmes questions pour la forme d’onde</p></li>
+<li><p>B :</p></li>
 </ul>
+<figure class="align-default">
+<a class="reference internal image-reference" href="../_images/conv-2-result.svg"><img alt="../_images/conv-2-result.svg" src="../_images/conv-2-result.svg" style="width: 300px;" /></a>
+</figure>
+<ul class="simple">
+<li><p>C :</p></li>
+</ul>
+<figure class="align-default">
+<a class="reference internal image-reference" href="../_images/conv-3-result.svg"><img alt="../_images/conv-3-result.svg" src="../_images/conv-3-result.svg" style="width: 300px;" /></a>
+</figure>
+</section>
+<section id="exercice-8">
+<h3>Exercice 8<a class="headerlink" href="#exercice-8" title="Lien vers cette rubrique">#</a></h3>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\((x*d_0)(t) = x(t) * \delta(t-\tau) = x(t-\tau)\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\((d_1*d_2)(t) = \delta(t+t_1) * \delta(t+t_2) = \delta(t+t_1+t_2)\)</span>.</p></li>
+</ul>
+</section>
+</section>
+<section id="analyse-de-fourier">
+<h2>Analyse de Fourier<a class="headerlink" href="#analyse-de-fourier" title="Lien vers cette rubrique">#</a></h2>
+<section id="exercice-9">
+<h3>Exercice 9<a class="headerlink" href="#exercice-9" title="Lien vers cette rubrique">#</a></h3>
+<p>Le signal <span class="math notranslate nohighlight">\(x(t)\)</span> est continu car il dépend de la variable <span class="math notranslate nohighlight">\(t\)</span> (généralement continue),
+et il est apériodique (c’est une porte).
+La transformation de Fourier associée est donc la transformée de Fourier.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
-h_2(t) =
-\begin{cases}
-  1       &amp;\text{si $t\in[0,\,d/2[$}, \\
-  0       &amp;\text{sinon}.
-\end{cases}
+X(f) &amp;= \int_{-\infty}^{+\infty} A\,\mathrm{rect}(2t/T) e^{-j2\pi f t} \,dt \\
+     &amp;= A \int_{-\frac{T}{4}}^{+\frac{T}{4}} e^{-j2\pi f t} \,dt \\
+     &amp;= A \left[ \frac{e^{-j2\pi f t}}{-j2\pi f} \right]_{-\frac{T}{4}}^{+\frac{T}{4}} \\
+     &amp;= A \left( \frac{e^{-j2\pi f \frac{T}{4}}}{-j2\pi f} - \frac{e^{+j2\pi f \frac{T}{4}}}{-j2\pi f} \right) \\
+     &amp;= A \frac{1}{j2\pi f} \left( e^{+j2\pi f \frac{T}{4}} - e^{-j2\pi f \frac{T}{4}} \right) \\
+     &amp;= A \frac{1}{j2\pi f} 2j \sin(2\pi f \frac{T}{4}) \\
+     &amp;= A \frac{1}{\pi f} \sin(\pi f \frac{T}{2}) \\
+     &amp;= A \frac{\frac{T}{2}}{\pi f\frac{T}{2}} \sin(\pi f \frac{T}{2}) \\
+     &amp;= \frac{AT}{2} \mathrm{sinc}(f \frac{T}{2}) \\
 \end{split}\]</div>
+</section>
+<section id="exercice-10">
+<h3>Exercice 10<a class="headerlink" href="#exercice-10" title="Lien vers cette rubrique">#</a></h3>
+<ul>
+<li><p>Le théorème de l’échantillonnage peut s’énoncer ainsi :
+si un signal analogique <span class="math notranslate nohighlight">\(x(t)\)</span> de fréquence maximale <span class="math notranslate nohighlight">\(f_\mathrm{max}\)</span>
+est échantillonné à une fréquence <span class="math notranslate nohighlight">\(f_e &gt; 2f_\mathrm{max}\)</span>,
+alors <span class="math notranslate nohighlight">\(x(t)\)</span> peut être exactement reconstruit à partir de ses échantillons
+(à l’aide d’une interpolation par sinus cardinal).
+Dit autrement, un signal à temps continu <span class="math notranslate nohighlight">\(x(t)\)</span> est déterminé de manière unique
+par les échantillons <span class="math notranslate nohighlight">\(x[n] = x(nT_e)\)</span> à condition que <span class="math notranslate nohighlight">\(f_e &gt; 2 f_\mathrm{max}\)</span>.</p></li>
+<li><p>Ainsi, la fréquence d’échantillonnage pour un signal dans la bande <span class="math notranslate nohighlight">\([0, 100]\)</span> Hz
+doit être supérieure à <span class="math notranslate nohighlight">\(2 \times 100 = 200\)</span> Hz.</p></li>
+<li><p>De même, la fréquence d’échantillonnage pour un signal dans la bande <span class="math notranslate nohighlight">\([30, 150]\)</span> Hz
+doit être supérieure à <span class="math notranslate nohighlight">\(2 \times 150 = 300\)</span> Hz.</p></li>
+<li><p>Dans le cas d’une sinusoïde de fréquence <span class="math notranslate nohighlight">\(320\)</span> Hz échantillonnée à <span class="math notranslate nohighlight">\(600\)</span> Hz,
+la condition <span class="math notranslate nohighlight">\(f_e &gt; 2f_\mathrm{max}\)</span> n’est pas respectée.
+Une représentation graphique permet d’identifier le signal obtenu
+après échantillonnage.
+On sait que l’échantillonnage d’un signal à la fréquence <span class="math notranslate nohighlight">\(f_e\)</span>
+produit une périodisation de son spectre à la période <span class="math notranslate nohighlight">\(f_e\)</span>.
+Graphiquement, on obtient donc :</p>
+<figure class="align-default">
+<a class="reference internal image-reference" href="../_images/spectre-sampling.svg"><img alt="../_images/spectre-sampling.svg" src="../_images/spectre-sampling.svg" style="width: 100%;" /></a>
+</figure>
+</li>
+</ul>
+</section>
+<section id="exercice-11">
+<h3>Exercice 11<a class="headerlink" href="#exercice-11" title="Lien vers cette rubrique">#</a></h3>
+<p>Un signal constant est équivalent
+à une unique exponentielle complexe de fréquence nulle.
+Son spectre est donc une unique impulsion de Dirac à la fréquence nulle.</p>
+<p>Par dualité, le spectre d’une impulsion de Dirac centrée en 0 et un spectre constant.</p>
+<p>Cela implique qu’une impulsion de Dirac contient toutes les fréquences
+en amplitudes égales, donc en puissances égales.</p>
+</section>
+<section id="exercice-12">
+<h3>Exercice 12<a class="headerlink" href="#exercice-12" title="Lien vers cette rubrique">#</a></h3>
+<p>La transformée de Fourier discrète est périodique, à support discret et valeurs complexes.
+Elle peut être réelle dans le cas particulier ou le signal temporel est pair.</p>
+</section>
+<section id="exercice-13">
+<h3>Exercice 13<a class="headerlink" href="#exercice-13" title="Lien vers cette rubrique">#</a></h3>
+<p>Grâce à la formule d’Euler, on sait que <span class="math notranslate nohighlight">\(\cos(t) = (e^{jt}+e^{-jt})/2\)</span>.
+Comme le spectre est la représentation graphique
+de la décomposition en exponentielles complexes du signal,
+alors le spectre de <span class="math notranslate nohighlight">\(\cos(t)\)</span> n’est non nul qu’aux fréquences <span class="math notranslate nohighlight">\(1\)</span> et <span class="math notranslate nohighlight">\(-1\)</span> :</p>
+<figure class="align-default">
+<a class="reference internal image-reference" href="../_images/spectre-cos.svg"><img alt="../_images/spectre-cos.svg" src="../_images/spectre-cos.svg" style="width: 500px;" /></a>
+</figure>
+</section>
+<section id="exercice-14">
+<h3>Exercice 14<a class="headerlink" href="#exercice-14" title="Lien vers cette rubrique">#</a></h3>
+<p>Une fréquence <span class="math notranslate nohighlight">\(f=12,37\)</span> an<span class="math notranslate nohighlight">\(^{-1}\)</span> correspond à un phénomène qui apparaît de façon périodique 12,37 fois par an.
+Sa péridicité est donc <span class="math notranslate nohighlight">\(1/f = 80,84 \cdot 10^{-3}\)</span> ans soit <span class="math notranslate nohighlight">\(1/f \times 365 = 29,5\)</span> jours environ.
+Il peut donc s’agir par exemple de la luminosité de la Lune qui tourne avec une période de 29,5 jours autour de la Terre.</p>
 </section>
 </section>
 </section>
@@ -510,7 +680,7 @@ h_2(t) =
         },
         kernelOptions: {
             name: "python3",
-            path: "./modulation"
+            path: "./revisions"
         },
         predefinedOutput: true
     }
@@ -528,12 +698,12 @@ h_2(t) =
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="porteuse.html"
+       href="td.html"
        title="page précédente">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">précédent</p>
-        <p class="prev-next-title">Modulation sur porteuse</p>
+        <p class="prev-next-title">Exercices sur feuille</p>
       </div>
     </a>
     <a class="right-next"
@@ -561,17 +731,27 @@ h_2(t) =
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modulation-analogique">Modulation analogique</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#signaux-elementaires">Signaux élémentaires</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-1">Exercice 1</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-2">Exercice 2</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-3">Exercice 3</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-4">Exercice 4</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-5">Exercice 5</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modulation-numerique">Modulation numérique</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-5">Exercice 5</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#produit-de-convolution">Produit de convolution</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-6">Exercice 6</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-7">Exercice 7</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-8">Exercice 8</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analyse-de-fourier">Analyse de Fourier</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-9">Exercice 9</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-10">Exercice 10</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-11">Exercice 11</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-12">Exercice 12</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-13">Exercice 13</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-14">Exercice 14</a></li>
 </ul>
 </li>
 </ul>
