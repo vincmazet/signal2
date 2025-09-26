@@ -1,12 +1,13 @@
 
+
 <!DOCTYPE html>
 
 
-<html lang="fr" data-content_root="../" >
+<html lang="fr" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Filtres RII &#8212; Traitement du signal 2</title>
   
@@ -28,14 +29,14 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=109105fe" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=949a1ff5" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
-    <link rel="stylesheet" type="text/css" href="../_static/jbvinc.css?v=8dc5e944" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.4cbf315f70debaebd550c87a6162cf0f.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/jbvinc.css" />
     <link rel="stylesheet" type="text/css" href="../_static/.ipynb_checkpoints/jbvinc-checkpoint.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -43,23 +44,21 @@
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../_static/documentation_options.js?v=72dce1d2"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
-    <script src="../_static/copybutton.js?v=ff8fa330"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js?v=bcf87968"></script>
-    <script src="../_static/translations.js?v=041d0952"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/translations.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'filtrage/rii';</script>
@@ -180,11 +179,17 @@
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Révisions</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../revisions/td.html">Exercices sur feuille</a><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../revisions/td.html">Exercices sur feuille</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../revisions/tdc.html">Corrections</a></li>
-</ul><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary>
+</ul>
 </details></li>
-<li class="toctree-l1"><a class="reference internal" href="../revisions/tp.html">Exercices sur machine</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../revisions/tp.html">Exercices sur machine</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc1.html">Représentation d’un signal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc2.html">Transformée de Fourier discrète</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc3.html">Analyse spectrale</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc4.html">Produit de convolution</a></li>
+</ul>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Filtrage</span></p>
 <ul class="current nav bd-sidenav">
@@ -386,9 +391,9 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="filtres-rii">
-<span id="c-filtrage-rii"></span><h1>Filtres RII<a class="headerlink" href="#filtres-rii" title="Lien vers cette rubrique">#</a></h1>
+<span id="c-filtrage-rii"></span><h1>Filtres RII<a class="headerlink" href="#filtres-rii" title="Lien permanent vers cette rubrique">#</a></h1>
 <section id="reponse-impulsionnelle">
-<h2>Réponse impulsionnelle<a class="headerlink" href="#reponse-impulsionnelle" title="Lien vers cette rubrique">#</a></h2>
+<h2>Réponse impulsionnelle<a class="headerlink" href="#reponse-impulsionnelle" title="Lien permanent vers cette rubrique">#</a></h2>
 <p>Un filtre RII a une réponse impulsionnelle qui ne s’annule jamais au délà d’un certain échantillon :</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -400,7 +405,7 @@ c_n &amp;\text{si}\, n \geq 0, \\
 \end{split}\]</div>
 </section>
 <section id="fonction-de-transfert">
-<h2>Fonction de transfert<a class="headerlink" href="#fonction-de-transfert" title="Lien vers cette rubrique">#</a></h2>
+<h2>Fonction de transfert<a class="headerlink" href="#fonction-de-transfert" title="Lien permanent vers cette rubrique">#</a></h2>
 <p>La fonction de transfert d’un filtre RII est de la forme:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -414,7 +419,8 @@ H(z) = \frac{ \sum_{m=0}^M b_m z^{-m} }{ \sum_{n=0}^N a_n z^{-n} }.
 </ul>
 </section>
 <section id="schema-bloc">
-<h2>Schéma bloc<a class="headerlink" href="#schema-bloc" title="Lien vers cette rubrique">#</a></h2>
+<h2>Schéma bloc<a class="headerlink" href="#schema-bloc" title="Lien permanent vers cette rubrique">#</a></h2>
+<p><a class="exercise btn btn-light" href="td.html#exercice-15" role="button">15</a></p>
 <p>Comme pour les filtres RIF, il est possible de représenter les filtres RII sous forme d’un schéma bloc.
 À partir de la fonction de transfert, on peut écrire la sortie en fonction de l’entrée :</p>
 <div class="math notranslate nohighlight">
@@ -438,20 +444,20 @@ et de <span class="math notranslate nohighlight">\(N\)</span> échantillons de l
 le tout multiplié par <span class="math notranslate nohighlight">\(\frac{1}{a_0}\)</span>.
 On peut donc représenter graphiquement cette équation (rappel : le bloc <span class="math notranslate nohighlight">\(z^{-1}\)</span> indique un retard) :</p>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../_images/filtre-rii.svg"><img alt="../_images/filtre-rii.svg" src="../_images/filtre-rii.svg" style="height: 400px;" /></a>
+<a class="reference internal image-reference" href="../_images/filtre-rii.svg"><img alt="../_images/filtre-rii.svg" height="400px" src="../_images/filtre-rii.svg" /></a>
 </figure>
 <p>Remarquez qu’à l’inverse des filtres RIF, les filtres RII possèdent une boucle de retour (partie récursive).
 À cause de cette boucle, les filtres RII peuvent être instables :
 le signal étant indéfiniment réinjecté dans le filtre, la sortie peut être de plus en plus grande.</p>
 </section>
 <section id="transformation-bilineaire">
-<h2>Transformation bilinéaire<a class="headerlink" href="#transformation-bilineaire" title="Lien vers cette rubrique">#</a></h2>
+<h2>Transformation bilinéaire<a class="headerlink" href="#transformation-bilineaire" title="Lien permanent vers cette rubrique">#</a></h2>
 <p>La transformation bilinéaire est la méthode la plus simple pour concevoir un filtre RII.
 Elle s’applique sur un filtre analogique pour le transformer en filtre numérique.
 De ce fait, l’application de la transformation bilinéaire suit les étapes ci-dessous,
 en partant d’un gabarit numérique.</p>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../_images/schema-tansf-bilineaire.svg"><img alt="../_images/schema-tansf-bilineaire.svg" src="../_images/schema-tansf-bilineaire.svg" style="height: 180px;" /></a>
+<a class="reference internal image-reference" href="../_images/schema-tansf-bilineaire.svg"><img alt="../_images/schema-tansf-bilineaire.svg" height="180px" src="../_images/schema-tansf-bilineaire.svg" /></a>
 </figure>
 <ol class="arabic">
 <li><p>Les fréquences <span class="math notranslate nohighlight">\(f_n\)</span> du gabarit numérique sont remplacées par de nouvelles valeurs <span class="math notranslate nohighlight">\(f_a\)</span> qui définissent un gabarit analogique.
@@ -483,18 +489,19 @@ z = \frac{1+T_e/2s}{1-T_e/2s}.
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <p>Ces deux vidéos illustrent également l’effet de la transformation bilinéaire :</p>
-<iframe width="200" height="112" src="https://www.youtube.com/embed/4PV6ikgBShw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-<iframe width="200" height="112" src="https://www.youtube.com/embed/acQecd6dmxw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="200" height="112" src="https://www.youtube.com/embed/4PV6ikgBShw" frameborder="0" allow="autoplay; encrypted-media;" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="200" height="112" src="https://www.youtube.com/embed/acQecd6dmxw" frameborder="0" allow="autoplay; encrypted-media;" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </aside>
 <p>La <a class="reference internal" href="#f-num-tbilin"><span class="std std-numref">Fig. 25</span></a> illustre cette transformation.</p>
 <figure class="align-default" id="f-num-tbilin">
-<a class="reference internal image-reference" href="../_images/tbilineaire.svg"><img alt="../_images/tbilineaire.svg" src="../_images/tbilineaire.svg" style="width: 500px;" /></a>
+<a class="reference internal image-reference" href="../_images/tbilineaire.svg"><img alt="../_images/tbilineaire.svg" src="../_images/tbilineaire.svg" width="500px" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 25 </span><span class="caption-text">Transformée bilinéaire.</span><a class="headerlink" href="#f-num-tbilin" title="Lien vers cette image">#</a></p>
+<p><span class="caption-number">Fig. 25 </span><span class="caption-text">Transformée bilinéaire.</span><a class="headerlink" href="#f-num-tbilin" title="Lien permanent vers cette image">#</a></p>
 </figcaption>
 </figure>
 <p>Ainsi, la stabilité du filtre analogique est conservée pour le filtre numérique
 puisque les pôles à partie réelle négative du plan en <span class="math notranslate nohighlight">\(s\)</span> se retrouvent dans le cercle unité du plan en <span class="math notranslate nohighlight">\(z\)</span>.</p>
+<p><a class="exercise btn btn-light" href="td.html#exercice-16" role="button">16</a></p>
 <!-- Lorsque l'ordre des filtres augmente (c'est-à-dire lorsque le nombre de coefficients augmentent) le filtre peut devenir instable à cause de la quantification des coefficients point. Une solution consiste à remplacer le filtre par une série de filtres d'ordre faible (un ou 2) 
 
 Filtres, bi-quad, biquadratique 

@@ -1,12 +1,13 @@
 
+
 <!DOCTYPE html>
 
 
-<html lang="fr" data-content_root="../" >
+<html lang="fr" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Transformée en Z &#8212; Traitement du signal 2</title>
   
@@ -28,14 +29,14 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=109105fe" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=949a1ff5" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
-    <link rel="stylesheet" type="text/css" href="../_static/jbvinc.css?v=8dc5e944" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.4cbf315f70debaebd550c87a6162cf0f.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/jbvinc.css" />
     <link rel="stylesheet" type="text/css" href="../_static/.ipynb_checkpoints/jbvinc-checkpoint.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -43,23 +44,21 @@
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../_static/documentation_options.js?v=72dce1d2"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
-    <script src="../_static/copybutton.js?v=ff8fa330"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js?v=bcf87968"></script>
-    <script src="../_static/translations.js?v=041d0952"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/translations.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'filtrage/z';</script>
@@ -180,11 +179,17 @@
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Révisions</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../revisions/td.html">Exercices sur feuille</a><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../revisions/td.html">Exercices sur feuille</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../revisions/tdc.html">Corrections</a></li>
-</ul><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary>
+</ul>
 </details></li>
-<li class="toctree-l1"><a class="reference internal" href="../revisions/tp.html">Exercices sur machine</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../revisions/tp.html">Exercices sur machine</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc1.html">Représentation d’un signal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc2.html">Transformée de Fourier discrète</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc3.html">Analyse spectrale</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc4.html">Produit de convolution</a></li>
+</ul>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Filtrage</span></p>
 <ul class="current nav bd-sidenav">
@@ -392,12 +397,12 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="transformee-en-z">
-<span id="c-filtrage-z"></span><h1>Transformée en Z<a class="headerlink" href="#transformee-en-z" title="Lien vers cette rubrique">#</a></h1>
+<span id="c-filtrage-z"></span><h1>Transformée en Z<a class="headerlink" href="#transformee-en-z" title="Lien permanent vers cette rubrique">#</a></h1>
 <p>La transformée en Z est l’équivalent discret de la transformée de Laplace.
 Contrairement à Fourier et Laplace,
 Z n’est pas un scientifique mais seulement le nom que l’on a donné à la variable de cette transformée.</p>
 <section id="definition">
-<h2>Définition<a class="headerlink" href="#definition" title="Lien vers cette rubrique">#</a></h2>
+<h2>Définition<a class="headerlink" href="#definition" title="Lien permanent vers cette rubrique">#</a></h2>
 <p>La transformée en Z d’un signal à temps discret <span class="math notranslate nohighlight">\(x[n]\)</span> est :</p>
 <div class="math notranslate nohighlight">
 \[
@@ -415,7 +420,7 @@ H(z) = \frac{Y(z)}{X(z)}.
 \]</div>
 </section>
 <section id="representation">
-<h2>Représentation<a class="headerlink" href="#representation" title="Lien vers cette rubrique">#</a></h2>
+<h2>Représentation<a class="headerlink" href="#representation" title="Lien permanent vers cette rubrique">#</a></h2>
 <p>De même que pour la transformée de Laplace, la transformée en Z est une fonction complexe d’une variable complexe
 et il serait difficile et inutile de la représenter.</p>
 <p>On utilise alors le diagramme pôles–zéros qui se construit de la même manière
@@ -426,7 +431,7 @@ En d’autres termes, la transformée de Fourier discrète est égale à la tran
 Cela correspond à un cercle de rayon 1 centré sur l’origine.</p>
 </section>
 <section id="transformee-inverse">
-<h2>Transformée inverse<a class="headerlink" href="#transformee-inverse" title="Lien vers cette rubrique">#</a></h2>
+<h2>Transformée inverse<a class="headerlink" href="#transformee-inverse" title="Lien permanent vers cette rubrique">#</a></h2>
 <p>La transformée en Z inverse de <span class="math notranslate nohighlight">\(X(z)\)</span> est :</p>
 <div class="math notranslate nohighlight">
 \[
@@ -448,12 +453,12 @@ H(z) = k \frac{ \prod_{m=0}^{M} (z-z_m) }{ \prod_{n=0}^{N} (z-p_n) }
 \]</div>
 </section>
 <section id="proprietes">
-<h2>Propriétés<a class="headerlink" href="#proprietes" title="Lien vers cette rubrique">#</a></h2>
+<h2>Propriétés<a class="headerlink" href="#proprietes" title="Lien permanent vers cette rubrique">#</a></h2>
 <p>Les propriétés de la transformée en Z sont similaires à celles des transformées de Fourier et de Laplace.
 On note <span class="math notranslate nohighlight">\(a\)</span> et <span class="math notranslate nohighlight">\(b\)</span> deux constantes, <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(x_1\)</span> et <span class="math notranslate nohighlight">\(x_2\)</span> des signaux
 et <span class="math notranslate nohighlight">\(X\)</span>, <span class="math notranslate nohighlight">\(X_1\)</span> et <span class="math notranslate nohighlight">\(X_2\)</span> leurs transformées en Z respectives.</p>
 <section id="linearite">
-<h3>Linéarité<a class="headerlink" href="#linearite" title="Lien vers cette rubrique">#</a></h3>
+<h3>Linéarité<a class="headerlink" href="#linearite" title="Lien permanent vers cette rubrique">#</a></h3>
 <div class="math notranslate nohighlight">
 \[
 ax_1[n] + bx_2[n]
@@ -462,7 +467,7 @@ a X_1(z) + b X_2(z)
 \]</div>
 </section>
 <section id="translation">
-<h3>Translation<a class="headerlink" href="#translation" title="Lien vers cette rubrique">#</a></h3>
+<h3>Translation<a class="headerlink" href="#translation" title="Lien permanent vers cette rubrique">#</a></h3>
 <div class="math notranslate nohighlight">
 \[
 x[n-N]
@@ -471,7 +476,7 @@ z^{-N} X(z)
 \]</div>
 </section>
 <section id="convolution">
-<h3>Convolution<a class="headerlink" href="#convolution" title="Lien vers cette rubrique">#</a></h3>
+<h3>Convolution<a class="headerlink" href="#convolution" title="Lien permanent vers cette rubrique">#</a></h3>
 <div class="math notranslate nohighlight">
 \[
 (x_1*x_2)[n]
@@ -481,7 +486,7 @@ X_1(z) \times X_2(z)
 </section>
 </section>
 <section id="region-de-convergence-et-stabilite">
-<h2>Région de convergence et stabilité<a class="headerlink" href="#region-de-convergence-et-stabilite" title="Lien vers cette rubrique">#</a></h2>
+<h2>Région de convergence et stabilité<a class="headerlink" href="#region-de-convergence-et-stabilite" title="Lien permanent vers cette rubrique">#</a></h2>
 <p>Comme pour la transformée de Laplace, on peut définir une région de convergence avec la transformée en Z
 qui indique les régions où la transformée en Z converge.</p>
 <p>Prenons l’exemple de la réponse impulsionnelle <span class="math notranslate nohighlight">\(h[n] = a^n u[n]\)</span>.
@@ -504,14 +509,13 @@ H(z) = \frac{1-\lim_{n \to +\infty} (az^{-1})^n}{1-az^{-1}}
 \[
 H(z) = \frac{1}{1-az^{-1}} = \frac{z}{z-a}.
 \]</div>
-<p>Cette fonction de transfert au seul zéro (<span class="math notranslate nohighlight">\(z=0\)</span>) et un seul pôle (<span class="math notranslate nohighlight">\(z=a\)</span>).</p>
+<p>Cette fonction de transfert a un seul zéro (<span class="math notranslate nohighlight">\(z=0\)</span>) et un seul pôle (<span class="math notranslate nohighlight">\(z=a\)</span>).</p>
 <p>La condition précédente est équivalente à <span class="math notranslate nohighlight">\(|z| &gt; |a|\)</span> et elle définit la région de convergence du système.
 On peut donc représenter le diagramme pôles–zéros (<a class="reference internal" href="#f-z-pz"><span class="std std-numref">Fig. 18</span></a>).</p>
 <figure class="align-default" id="f-z-pz">
-<img alt="../_images/roc-z.svg" src="../_images/roc-z.svg" />
-<figcaption>
+<img alt="../_images/roc-z.svg" src="../_images/roc-z.svg" /><figcaption>
 <p><span class="caption-number">Fig. 18 </span><span class="caption-text">Diagramme pôles–zéros et région de convergence (en bleu)
-du système de réponse impulsionnelle <span class="math notranslate nohighlight">\(h[n] = a^n u[n]\)</span> (ici, <span class="math notranslate nohighlight">\(a=0.7\)</span>).</span><a class="headerlink" href="#f-z-pz" title="Lien vers cette image">#</a></p>
+du système de réponse impulsionnelle <span class="math notranslate nohighlight">\(h[n] = a^n u[n]\)</span> (ici, <span class="math notranslate nohighlight">\(a=0.7\)</span>).</span><a class="headerlink" href="#f-z-pz" title="Lien permanent vers cette image">#</a></p>
 </figcaption>
 </figure>
 <p>Dans l’exemple de la <a class="reference internal" href="#f-z-pz"><span class="std std-numref">Fig. 18</span></a> où <span class="math notranslate nohighlight">\(a=0,7\)</span>,

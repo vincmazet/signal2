@@ -1,12 +1,13 @@
 
+
 <!DOCTYPE html>
 
 
-<html lang="fr" data-content_root="../" >
+<html lang="fr" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Filtres analogiques &#8212; Traitement du signal 2</title>
   
@@ -28,14 +29,14 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=109105fe" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=949a1ff5" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
-    <link rel="stylesheet" type="text/css" href="../_static/jbvinc.css?v=8dc5e944" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.4cbf315f70debaebd550c87a6162cf0f.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/jbvinc.css" />
     <link rel="stylesheet" type="text/css" href="../_static/.ipynb_checkpoints/jbvinc-checkpoint.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -43,23 +44,21 @@
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../_static/documentation_options.js?v=72dce1d2"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
-    <script src="../_static/copybutton.js?v=ff8fa330"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js?v=bcf87968"></script>
-    <script src="../_static/translations.js?v=041d0952"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/translations.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'filtrage/analogiques';</script>
@@ -180,11 +179,17 @@
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Révisions</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../revisions/td.html">Exercices sur feuille</a><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../revisions/td.html">Exercices sur feuille</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../revisions/tdc.html">Corrections</a></li>
-</ul><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary>
+</ul>
 </details></li>
-<li class="toctree-l1"><a class="reference internal" href="../revisions/tp.html">Exercices sur machine</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../revisions/tp.html">Exercices sur machine</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc1.html">Représentation d’un signal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc2.html">Transformée de Fourier discrète</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc3.html">Analyse spectrale</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc4.html">Produit de convolution</a></li>
+</ul>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Filtrage</span></p>
 <ul class="current nav bd-sidenav">
@@ -384,7 +389,7 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="filtres-analogiques">
-<span id="c-filtrage-analogiques"></span><h1>Filtres analogiques<a class="headerlink" href="#filtres-analogiques" title="Lien vers cette rubrique">#</a></h1>
+<span id="c-filtrage-analogiques"></span><h1>Filtres analogiques<a class="headerlink" href="#filtres-analogiques" title="Lien permanent vers cette rubrique">#</a></h1>
 <p>Malgré le développement incontestable du traitement numérique du signal, le filtrage analogique reste incontournable.
 En effet, les signaux à filtrer peuvent être analogiques,
 mais on peut également citer les filtres anti-repliement pour réduire la bande passante d’un signal analogique,
@@ -392,7 +397,7 @@ ou le fait que la conception de certains filtres numériques nécessite de défi
 <p>Les premiers développements de filtres analogiques sont expérimentaux et datent du début du XX<sup>e</sup> siècle avec la téléphonie.
 Les premières théories ont été développées dans les années 1930–1940.</p>
 <section id="synthese-des-filtres-analogiques">
-<h2>Synthèse des filtres analogiques<a class="headerlink" href="#synthese-des-filtres-analogiques" title="Lien vers cette rubrique">#</a></h2>
+<h2>Synthèse des filtres analogiques<a class="headerlink" href="#synthese-des-filtres-analogiques" title="Lien permanent vers cette rubrique">#</a></h2>
 <p>Comme on l’a vu précédemment (cf. <a class="reference internal" href="laplace.html#s-laplace-inverse"><span class="std std-ref">Transformée de Laplace inverse</span></a>), on ne peut pas construire de filtre idéal pour une application temps réel.
 Les fonctions de transfert des filtres analogiques classiques s’écrivent sous la forme d’une fraction rationnelle
 et ne peuvent qu’approximer le gain d’un filtre idéal :</p>
@@ -444,7 +449,7 @@ et la transformation était effectuée à l’aide de calculs.
 Désormais, des programmes déterminent directement les coefficients du filtre attendus à partir du gabarit souhaité.</p>
 </section>
 <section id="reponses-standards">
-<h2>Réponses standards<a class="headerlink" href="#reponses-standards" title="Lien vers cette rubrique">#</a></h2>
+<h2>Réponses standards<a class="headerlink" href="#reponses-standards" title="Lien permanent vers cette rubrique">#</a></h2>
 <p>Outre la définition du gabarit, il reste à choisir la famille du filtre à synthétiser.
 Les cinq principales familles sont détaillées ci-après,
 à noter qu’il existe deux types de filtre de Tchebychev (Chebyshev en anglais) : le type I et le type II.</p>
@@ -462,23 +467,19 @@ En tout cas, je n'ai pas réussi à faire fonctionner ipywidgets.
 <input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
 <label class="sd-tab-label" for="sd-tab-item-0">
 Gain</label><div class="sd-tab-content docutils">
-<img alt="../_images/fana-gain.svg" src="../_images/fana-gain.svg" />
-</div>
+<img alt="../_images/fana-gain.svg" src="../_images/fana-gain.svg" /></div>
 <input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
 <label class="sd-tab-label" for="sd-tab-item-1">
 Phase</label><div class="sd-tab-content docutils">
-<img alt="../_images/fana-phase.svg" src="../_images/fana-phase.svg" />
-</div>
+<img alt="../_images/fana-phase.svg" src="../_images/fana-phase.svg" /></div>
 <input id="sd-tab-item-2" name="sd-tab-set-0" type="radio">
 <label class="sd-tab-label" for="sd-tab-item-2">
 Réponse impulsionnelle</label><div class="sd-tab-content docutils">
-<img alt="../_images/fana-impulse.svg" src="../_images/fana-impulse.svg" />
-</div>
+<img alt="../_images/fana-impulse.svg" src="../_images/fana-impulse.svg" /></div>
 <input id="sd-tab-item-3" name="sd-tab-set-0" type="radio">
 <label class="sd-tab-label" for="sd-tab-item-3">
 Retard de groupe</label><div class="sd-tab-content docutils">
-<img alt="../_images/fana-gd.svg" src="../_images/fana-gd.svg" />
-</div>
+<img alt="../_images/fana-gd.svg" src="../_images/fana-gd.svg" /></div>
 </div>
 <p>Des résultats précédents, on peut en déduire les principales différences et caractéristiques des filtres.</p>
 <p>Le <strong>filtre de Butterworth</strong> est caractérisé par :</p>

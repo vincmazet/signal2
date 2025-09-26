@@ -1,12 +1,13 @@
 
+
 <!DOCTYPE html>
 
 
-<html lang="fr" data-content_root="../" >
+<html lang="fr" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Modulation sur porteuse &#8212; Traitement du signal 2</title>
   
@@ -28,14 +29,14 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=109105fe" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=949a1ff5" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
-    <link rel="stylesheet" type="text/css" href="../_static/jbvinc.css?v=8dc5e944" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.4cbf315f70debaebd550c87a6162cf0f.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/jbvinc.css" />
     <link rel="stylesheet" type="text/css" href="../_static/.ipynb_checkpoints/jbvinc-checkpoint.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -43,23 +44,21 @@
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../_static/documentation_options.js?v=72dce1d2"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
-    <script src="../_static/copybutton.js?v=ff8fa330"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js?v=bcf87968"></script>
-    <script src="../_static/translations.js?v=041d0952"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/translations.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'modulation/porteuse';</script>
@@ -180,11 +179,17 @@
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Révisions</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../revisions/td.html">Exercices sur feuille</a><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../revisions/td.html">Exercices sur feuille</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../revisions/tdc.html">Corrections</a></li>
-</ul><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary>
+</ul>
 </details></li>
-<li class="toctree-l1"><a class="reference internal" href="../revisions/tp.html">Exercices sur machine</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../revisions/tp.html">Exercices sur machine</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc1.html">Représentation d’un signal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc2.html">Transformée de Fourier discrète</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc3.html">Analyse spectrale</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc4.html">Produit de convolution</a></li>
+</ul>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Filtrage</span></p>
 <ul class="nav bd-sidenav">
@@ -389,11 +394,11 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="modulation-sur-porteuse">
-<span id="c-modulation-porteuse"></span><h1>Modulation sur porteuse<a class="headerlink" href="#modulation-sur-porteuse" title="Lien vers cette rubrique">#</a></h1>
+<span id="c-modulation-porteuse"></span><h1>Modulation sur porteuse<a class="headerlink" href="#modulation-sur-porteuse" title="Lien permanent vers cette rubrique">#</a></h1>
 <p>Une modulation sur porteuse permet de générer un signal
 dont la bande passante est presque entièrement incluse dans une bande de fréquence éloignée de 0 Hz.</p>
 <section id="modulation">
-<h2>Modulation<a class="headerlink" href="#modulation" title="Lien vers cette rubrique">#</a></h2>
+<h2>Modulation<a class="headerlink" href="#modulation" title="Lien permanent vers cette rubrique">#</a></h2>
 <p>Les modulations sur porteuse linéaires affectent à chaque symbole du message une forme d’onde <span class="math notranslate nohighlight">\(h\)</span> multipliée par une sinusoïde de fréquence <span class="math notranslate nohighlight">\(f_p\)</span>
 dont l’amplitude <span class="math notranslate nohighlight">\(a_k\)</span> et la phase <span class="math notranslate nohighlight">\(\varphi_k\)</span> dépendent du symbole <span class="math notranslate nohighlight">\(k\)</span> :</p>
 <div class="math notranslate nohighlight">
@@ -492,7 +497,7 @@ Les axes sont donc nommés <span class="math notranslate nohighlight">\(I\)</spa
 </table>
 </div>
 <p>La constellation associée est la suivante :</p>
-<a class="reference internal image-reference" href="../_images/code-4qam.svg"><img alt="../_images/code-4qam.svg" class="align-center" src="../_images/code-4qam.svg" style="width: 300px;" /></a>
+<a class="reference internal image-reference" href="../_images/code-4qam.svg"><img alt="../_images/code-4qam.svg" class="align-center" src="../_images/code-4qam.svg" width="300px" /></a>
 </div>
 <p>Chaque point de la constellation correspond à une amplitude des composantes en phase et en quadrature,
 lesquelles sont directement reliées à l’énergie du signal.
@@ -502,7 +507,7 @@ plus l’énergie nécessaire pour générer le signal modulé est importante.</
 </li>
 </ul>
 <section id="modulation-a-deplacement-d-amplitude">
-<h3>Modulation à déplacement d’amplitude<a class="headerlink" href="#modulation-a-deplacement-d-amplitude" title="Lien vers cette rubrique">#</a></h3>
+<h3>Modulation à déplacement d’amplitude<a class="headerlink" href="#modulation-a-deplacement-d-amplitude" title="Lien permanent vers cette rubrique">#</a></h3>
 <p>Dans une modulation à déplacement d’amplitude (ASK pour <em>amplitude shift keying</em>),
 tous les symboles sont associés à une sinusoïde de même phase.</p>
 <p>Ainsi, si <span class="math notranslate nohighlight">\(\alpha_k\)</span> varie et <span class="math notranslate nohighlight">\(\beta_k=0\)</span>, alors chaque symbole est codé par un cosinus.
@@ -513,13 +518,13 @@ En fait, toute constellation dont les points sont alignés sur une droite passan
 <p>La modulation représentée par la constellation ci-dessous est bien ASK puisque les points sont alignés.
 Comme il y a 4 points dans la constellation, alors la modulation est 4-aire.
 On parle alors de modulation 4-ASK.</p>
-<a class="reference internal image-reference" href="../_images/code-4ask.svg"><img alt="../_images/code-4ask.svg" class="align-center" src="../_images/code-4ask.svg" style="width: 300px;" /></a>
+<a class="reference internal image-reference" href="../_images/code-4ask.svg"><img alt="../_images/code-4ask.svg" class="align-center" src="../_images/code-4ask.svg" width="300px" /></a>
 <p>Le signal associé au message <code>013302</code> est donc :</p>
-<a class="reference internal image-reference" href="../_images/signal-4ask.svg"><img alt="../_images/signal-4ask.svg" class="align-center" src="../_images/signal-4ask.svg" style="width: 600px;" /></a>
+<a class="reference internal image-reference" href="../_images/signal-4ask.svg"><img alt="../_images/signal-4ask.svg" class="align-center" src="../_images/signal-4ask.svg" width="600px" /></a>
 </div>
 </section>
 <section id="modulation-a-deplacement-de-phase">
-<h3>Modulation à déplacement de phase<a class="headerlink" href="#modulation-a-deplacement-de-phase" title="Lien vers cette rubrique">#</a></h3>
+<h3>Modulation à déplacement de phase<a class="headerlink" href="#modulation-a-deplacement-de-phase" title="Lien permanent vers cette rubrique">#</a></h3>
 <p>Dans une modulation à déplacement de phase (PSK pour <em>phase shift keying</em>),
 tous les symboles sont associés à une sinusoïde de même ampliltude, mais de phase différente.</p>
 <p>Tous les points d’une constellation PSK sont répartis sur un cercle de centre l’origine.
@@ -528,13 +533,13 @@ mais aussi parce que l’amplitude complexe <span class="math notranslate nohigh
 où <span class="math notranslate nohighlight">\(a_k\)</span> est constant et <span class="math notranslate nohighlight">\(\varphi_k\)</span> varie.</p>
 <div class="exemple docutils">
 <p>Un exemple de modulation 4-PSK est représentée ci-dessous.</p>
-<a class="reference internal image-reference" href="../_images/code-4psk.svg"><img alt="../_images/code-4psk.svg" class="align-center" src="../_images/code-4psk.svg" style="width: 300px;" /></a>
+<a class="reference internal image-reference" href="../_images/code-4psk.svg"><img alt="../_images/code-4psk.svg" class="align-center" src="../_images/code-4psk.svg" width="300px" /></a>
 <p>Le signal associé au message <code>013302</code> est donc :</p>
-<a class="reference internal image-reference" href="../_images/signal-4psk.svg"><img alt="../_images/signal-4psk.svg" class="align-center" src="../_images/signal-4psk.svg" style="width: 600px;" /></a>
+<a class="reference internal image-reference" href="../_images/signal-4psk.svg"><img alt="../_images/signal-4psk.svg" class="align-center" src="../_images/signal-4psk.svg" width="600px" /></a>
 </div>
 </section>
 <section id="modulation-d-amplitude-en-quadrature">
-<h3>Modulation d’amplitude en quadrature<a class="headerlink" href="#modulation-d-amplitude-en-quadrature" title="Lien vers cette rubrique">#</a></h3>
+<h3>Modulation d’amplitude en quadrature<a class="headerlink" href="#modulation-d-amplitude-en-quadrature" title="Lien permanent vers cette rubrique">#</a></h3>
 <p>Lorsque le nombre de symboles <span class="math notranslate nohighlight">\(M\)</span> devient grand, les modulations ASK et PSK ne sont plus satisfaisantes
 pour utiliser efficacement l’énergie émise : elles occupent un espace trop important.
 En effet, si les points sont éloignés les uns des autres, alors l’énergie nécessaire pour fabriquer le signal augmente.
@@ -545,16 +550,15 @@ ou un cercle (comme la modulation PSK).</p>
 <p>La modulation d’amplitude en quadrature (QAM pour <em>quadrature amplitude modulation</em>) répond de façon simple à cette question.
 La <a class="reference internal" href="#f-qam"><span class="std std-numref">Fig. 45</span></a> donne quelques exemples de modulation QAM.</p>
 <figure class="align-default" id="f-qam">
-<img alt="../_images/code-qam.svg" src="../_images/code-qam.svg" />
-<figcaption>
-<p><span class="caption-number">Fig. 45 </span><span class="caption-text">Exemples de modulations QAM.</span><a class="headerlink" href="#f-qam" title="Lien vers cette image">#</a></p>
+<img alt="../_images/code-qam.svg" src="../_images/code-qam.svg" /><figcaption>
+<p><span class="caption-number">Fig. 45 </span><span class="caption-text">Exemples de modulations QAM.</span><a class="headerlink" href="#f-qam" title="Lien permanent vers cette image">#</a></p>
 </figcaption>
 </figure>
 <p><a class="exercise btn btn-light" href="td.html#exercice-6" role="button">6</a></p>
 </section>
 </section>
 <section id="demodulation-en-presence-de-bruit">
-<h2>Démodulation en présence de bruit<a class="headerlink" href="#demodulation-en-presence-de-bruit" title="Lien vers cette rubrique">#</a></h2>
+<h2>Démodulation en présence de bruit<a class="headerlink" href="#demodulation-en-presence-de-bruit" title="Lien permanent vers cette rubrique">#</a></h2>
 <p>On s’intéresse dans cette section à la réception d’un signal analogique lorsque le canal est bruité et de bande passante infinie.
 Le signal reçu est :</p>
 <div class="math notranslate nohighlight">

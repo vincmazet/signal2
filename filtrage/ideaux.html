@@ -1,12 +1,13 @@
 
+
 <!DOCTYPE html>
 
 
-<html lang="fr" data-content_root="../" >
+<html lang="fr" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Filtres idéaux &#8212; Traitement du signal 2</title>
   
@@ -28,14 +29,14 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=109105fe" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=949a1ff5" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
-    <link rel="stylesheet" type="text/css" href="../_static/jbvinc.css?v=8dc5e944" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.4cbf315f70debaebd550c87a6162cf0f.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/jbvinc.css" />
     <link rel="stylesheet" type="text/css" href="../_static/.ipynb_checkpoints/jbvinc-checkpoint.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -43,23 +44,21 @@
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../_static/documentation_options.js?v=72dce1d2"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
-    <script src="../_static/copybutton.js?v=ff8fa330"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js?v=bcf87968"></script>
-    <script src="../_static/translations.js?v=041d0952"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/translations.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'filtrage/ideaux';</script>
@@ -180,11 +179,17 @@
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Révisions</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../revisions/td.html">Exercices sur feuille</a><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../revisions/td.html">Exercices sur feuille</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../revisions/tdc.html">Corrections</a></li>
-</ul><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary>
+</ul>
 </details></li>
-<li class="toctree-l1"><a class="reference internal" href="../revisions/tp.html">Exercices sur machine</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../revisions/tp.html">Exercices sur machine</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc1.html">Représentation d’un signal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc2.html">Transformée de Fourier discrète</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc3.html">Analyse spectrale</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc4.html">Produit de convolution</a></li>
+</ul>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Filtrage</span></p>
 <ul class="current nav bd-sidenav">
@@ -387,9 +392,9 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="filtres-ideaux">
-<span id="c-filtrage-ideaux"></span><h1>Filtres idéaux<a class="headerlink" href="#filtres-ideaux" title="Lien vers cette rubrique">#</a></h1>
+<span id="c-filtrage-ideaux"></span><h1>Filtres idéaux<a class="headerlink" href="#filtres-ideaux" title="Lien permanent vers cette rubrique">#</a></h1>
 <section id="filtre-passe-bas">
-<span id="s-filtre-intro-pbas"></span><h2>Filtre passe bas<a class="headerlink" href="#filtre-passe-bas" title="Lien vers cette rubrique">#</a></h2>
+<span id="s-filtre-intro-pbas"></span><h2>Filtre passe bas<a class="headerlink" href="#filtre-passe-bas" title="Lien permanent vers cette rubrique">#</a></h2>
 <p>Un filtre passe-bas (<em>low-pass filter</em>) laisse passer les fréquences faibles et arrête les fréquences hautes.
 De manière générale, sa réponse fréquentielle s’écrit sous la forme :</p>
 <div class="math notranslate nohighlight">
@@ -413,9 +418,9 @@ le gain dans les hautes fréquences est nul, donc le filtre passe-bas supprimera
 Cette bande de fréquence est appelée « bande atténuée »,
 et la bande de fréquence pour laquelle le gain n’est pas nul est la « bande passante ».</p>
 <figure class="align-default" id="f-filtre-intro-pbas-ideal">
-<a class="reference internal image-reference" href="../_images/ideallowpass.svg"><img alt="../_images/ideallowpass.svg" src="../_images/ideallowpass.svg" style="width: 300px;" /></a>
+<a class="reference internal image-reference" href="../_images/ideallowpass.svg"><img alt="../_images/ideallowpass.svg" src="../_images/ideallowpass.svg" width="300px" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 6 </span><span class="caption-text">Gain d’un filtre passe-bas idéal.</span><a class="headerlink" href="#f-filtre-intro-pbas-ideal" title="Lien vers cette image">#</a></p>
+<p><span class="caption-number">Fig. 6 </span><span class="caption-text">Gain d’un filtre passe-bas idéal.</span><a class="headerlink" href="#f-filtre-intro-pbas-ideal" title="Lien permanent vers cette image">#</a></p>
 </figcaption>
 </figure>
 <p>Intéressons-nous à la réponse impulsionnelle de ce filtre,
@@ -444,9 +449,8 @@ h(t) &amp;= \mathcal{F}^{-1}\left[H(f)\right](t) \\
 </div>
 </details><p>La réponse impulsionnelle de l’équation précédente est représentée <a class="reference internal" href="#f-filtre-intro-ri-pbas"><span class="std std-numref">Fig. 7</span></a>.</p>
 <figure class="align-default" id="f-filtre-intro-ri-pbas">
-<img alt="../_images/ri-pbas.svg" src="../_images/ri-pbas.svg" />
-<figcaption>
-<p><span class="caption-number">Fig. 7 </span><span class="caption-text">Réponse impulsionnelle du filtre passe-bas idéal (ici : <span class="math notranslate nohighlight">\(K\)</span> = 0,9, <span class="math notranslate nohighlight">\(f_c\)</span> = 0,4, <span class="math notranslate nohighlight">\(a\)</span> = 0,7).</span><a class="headerlink" href="#f-filtre-intro-ri-pbas" title="Lien vers cette image">#</a></p>
+<img alt="../_images/ri-pbas.svg" src="../_images/ri-pbas.svg" /><figcaption>
+<p><span class="caption-number">Fig. 7 </span><span class="caption-text">Réponse impulsionnelle du filtre passe-bas idéal (ici : <span class="math notranslate nohighlight">\(K\)</span> = 0,9, <span class="math notranslate nohighlight">\(f_c\)</span> = 0,4, <span class="math notranslate nohighlight">\(a\)</span> = 0,7).</span><a class="headerlink" href="#f-filtre-intro-ri-pbas" title="Lien permanent vers cette image">#</a></p>
 </figcaption>
 </figure>
 <aside class="margin sidebar">
@@ -463,7 +467,7 @@ il aurait déjà fallu commencer le filtrage il y a très très longtemps, et le
 Bref, un filtre passe-bas idéal n’est pas réalisable pour une application en temps réel.</p>
 </section>
 <section id="filtre-passe-haut">
-<h2>Filtre passe-haut<a class="headerlink" href="#filtre-passe-haut" title="Lien vers cette rubrique">#</a></h2>
+<h2>Filtre passe-haut<a class="headerlink" href="#filtre-passe-haut" title="Lien permanent vers cette rubrique">#</a></h2>
 <p>Un filtre passe-haut (<em>high-pass filter</em>) laisse passer les fréquences hautes et arrête les fréquences faibles.
 Sa réponse fréquentielle s’écrit sous la forme suivante et son gain est représenté <a class="reference internal" href="#f-filtre-intro-phaut-ideal"><span class="std std-numref">Fig. 8</span></a>.
 Comme pour le filtre passe-bas idéal, il n’est pas réalisable.</p>
@@ -475,14 +479,14 @@ H(f) = \begin{cases}
 \end{cases}
 \end{split}\]</div>
 <figure class="align-default" id="f-filtre-intro-phaut-ideal">
-<a class="reference internal image-reference" href="../_images/idealhighpass.svg"><img alt="../_images/idealhighpass.svg" src="../_images/idealhighpass.svg" style="width: 300px;" /></a>
+<a class="reference internal image-reference" href="../_images/idealhighpass.svg"><img alt="../_images/idealhighpass.svg" src="../_images/idealhighpass.svg" width="300px" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 8 </span><span class="caption-text">Gain d’un filtre passe-haut idéal.</span><a class="headerlink" href="#f-filtre-intro-phaut-ideal" title="Lien vers cette image">#</a></p>
+<p><span class="caption-number">Fig. 8 </span><span class="caption-text">Gain d’un filtre passe-haut idéal.</span><a class="headerlink" href="#f-filtre-intro-phaut-ideal" title="Lien permanent vers cette image">#</a></p>
 </figcaption>
 </figure>
 </section>
 <section id="filtre-passe-bande">
-<h2>Filtre passe-bande<a class="headerlink" href="#filtre-passe-bande" title="Lien vers cette rubrique">#</a></h2>
+<h2>Filtre passe-bande<a class="headerlink" href="#filtre-passe-bande" title="Lien permanent vers cette rubrique">#</a></h2>
 <p>Un filtre passe-bande (<em>band-pass filter</em>) laisse passer les fréquences moyennes,
 entre deux fréquences de coupure <span class="math notranslate nohighlight">\(f_{c-}\)</span> et <span class="math notranslate nohighlight">\(f_{c+}\)</span>.
 Sa réponse fréquentielle s’écrit sous la forme suivante et son gain est représenté <a class="reference internal" href="#f-filtre-intro-pbande-ideal"><span class="std std-numref">Fig. 9</span></a>.
@@ -495,14 +499,14 @@ H(f) = \begin{cases}
 \end{cases}
 \end{split}\]</div>
 <figure class="align-default" id="f-filtre-intro-pbande-ideal">
-<a class="reference internal image-reference" href="../_images/idealbandpass.svg"><img alt="../_images/idealbandpass.svg" src="../_images/idealbandpass.svg" style="width: 300px;" /></a>
+<a class="reference internal image-reference" href="../_images/idealbandpass.svg"><img alt="../_images/idealbandpass.svg" src="../_images/idealbandpass.svg" width="300px" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 9 </span><span class="caption-text">Gain d’un filtre passe-bande idéal.</span><a class="headerlink" href="#f-filtre-intro-pbande-ideal" title="Lien vers cette image">#</a></p>
+<p><span class="caption-number">Fig. 9 </span><span class="caption-text">Gain d’un filtre passe-bande idéal.</span><a class="headerlink" href="#f-filtre-intro-pbande-ideal" title="Lien permanent vers cette image">#</a></p>
 </figcaption>
 </figure>
 </section>
 <section id="filtre-coupe-bande">
-<h2>Filtre coupe-bande<a class="headerlink" href="#filtre-coupe-bande" title="Lien vers cette rubrique">#</a></h2>
+<h2>Filtre coupe-bande<a class="headerlink" href="#filtre-coupe-bande" title="Lien permanent vers cette rubrique">#</a></h2>
 <p>Un filtre coupe-bande (<em>band-stop filter</em>, ou <em>notch filter</em> lorsque la bande atténuée est très étroite)
 ne supprime que les fréquences situées entre <span class="math notranslate nohighlight">\(f_{c-}\)</span> et <span class="math notranslate nohighlight">\(f_{c+}\)</span>.
 Sa réponse fréquentielle s’écrit sous la forme suivante et son gain est représenté <a class="reference internal" href="#f-filtre-intro-cbande-ideal"><span class="std std-numref">Fig. 10</span></a>.
@@ -515,14 +519,14 @@ H(f) = \begin{cases}
 \end{cases}
 \end{split}\]</div>
 <figure class="align-default" id="f-filtre-intro-cbande-ideal">
-<a class="reference internal image-reference" href="../_images/idealbandstop.svg"><img alt="../_images/idealbandstop.svg" src="../_images/idealbandstop.svg" style="width: 300px;" /></a>
+<a class="reference internal image-reference" href="../_images/idealbandstop.svg"><img alt="../_images/idealbandstop.svg" src="../_images/idealbandstop.svg" width="300px" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 10 </span><span class="caption-text">Gain d’un filtre coupe-bande idéal.</span><a class="headerlink" href="#f-filtre-intro-cbande-ideal" title="Lien vers cette image">#</a></p>
+<p><span class="caption-number">Fig. 10 </span><span class="caption-text">Gain d’un filtre coupe-bande idéal.</span><a class="headerlink" href="#f-filtre-intro-cbande-ideal" title="Lien permanent vers cette image">#</a></p>
 </figcaption>
 </figure>
 </section>
 <section id="filtre-passe-tout">
-<h2>Filtre passe-tout<a class="headerlink" href="#filtre-passe-tout" title="Lien vers cette rubrique">#</a></h2>
+<h2>Filtre passe-tout<a class="headerlink" href="#filtre-passe-tout" title="Lien permanent vers cette rubrique">#</a></h2>
 <p>Un filtre passe-tout (<em>all-pass filter</em>) laisse passer toutes les fréquences sans les atténuer, mais modifie leur phase.
 Il est utilisé pour linéariser la phase ou introduire des retards.
 Sa réponse fréquentielle s’écrit sous la forme suivante et son gain est représenté <a class="reference internal" href="#f-filtre-intro-ptout-ideal"><span class="std std-numref">Fig. 11</span></a>.
@@ -532,9 +536,9 @@ Comme tous les filtres idéaux précédents, il n’est pas réalisable, vous vo
 H(f) = K e^{-j 2\pi f a}.
 \]</div>
 <figure class="align-default" id="f-filtre-intro-ptout-ideal">
-<a class="reference internal image-reference" href="../_images/idealallpass.svg"><img alt="../_images/idealallpass.svg" src="../_images/idealallpass.svg" style="width: 300px;" /></a>
+<a class="reference internal image-reference" href="../_images/idealallpass.svg"><img alt="../_images/idealallpass.svg" src="../_images/idealallpass.svg" width="300px" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 11 </span><span class="caption-text">Gain d’un filtre passe-tout idéal.</span><a class="headerlink" href="#f-filtre-intro-ptout-ideal" title="Lien vers cette image">#</a></p>
+<p><span class="caption-number">Fig. 11 </span><span class="caption-text">Gain d’un filtre passe-tout idéal.</span><a class="headerlink" href="#f-filtre-intro-ptout-ideal" title="Lien permanent vers cette image">#</a></p>
 </figcaption>
 </figure>
 </section>

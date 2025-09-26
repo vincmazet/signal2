@@ -1,12 +1,13 @@
 
+
 <!DOCTYPE html>
 
 
-<html lang="fr" data-content_root="../" >
+<html lang="fr" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Introduction &#8212; Traitement du signal 2</title>
   
@@ -28,14 +29,14 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=109105fe" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=949a1ff5" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
-    <link rel="stylesheet" type="text/css" href="../_static/jbvinc.css?v=8dc5e944" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.4cbf315f70debaebd550c87a6162cf0f.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/jbvinc.css" />
     <link rel="stylesheet" type="text/css" href="../_static/.ipynb_checkpoints/jbvinc-checkpoint.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -43,30 +44,28 @@
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../_static/documentation_options.js?v=72dce1d2"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
-    <script src="../_static/copybutton.js?v=ff8fa330"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js?v=bcf87968"></script>
-    <script src="../_static/translations.js?v=041d0952"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/translations.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'filtrage/intro';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Recherche" href="../search.html" />
     <link rel="next" title="Filtres idéaux" href="ideaux.html" />
-    <link rel="prev" title="Exercices sur machine" href="../revisions/tp.html" />
+    <link rel="prev" title="Produit de convolution" href="../revisions/tpc4.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="fr"/>
   </head>
@@ -180,11 +179,17 @@
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Révisions</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../revisions/td.html">Exercices sur feuille</a><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../revisions/td.html">Exercices sur feuille</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../revisions/tdc.html">Corrections</a></li>
-</ul><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary>
+</ul>
 </details></li>
-<li class="toctree-l1"><a class="reference internal" href="../revisions/tp.html">Exercices sur machine</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../revisions/tp.html">Exercices sur machine</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc1.html">Représentation d’un signal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc2.html">Transformée de Fourier discrète</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc3.html">Analyse spectrale</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc4.html">Produit de convolution</a></li>
+</ul>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Filtrage</span></p>
 <ul class="current nav bd-sidenav">
@@ -392,7 +397,7 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="introduction">
-<span id="c-filtrage-intro"></span><h1>Introduction<a class="headerlink" href="#introduction" title="Lien vers cette rubrique">#</a></h1>
+<span id="c-filtrage-intro"></span><h1>Introduction<a class="headerlink" href="#introduction" title="Lien permanent vers cette rubrique">#</a></h1>
 <p>Ce chapitre sur le filtrage se divise en plusieurs parties.</p>
 <p>Nous commençons par définir les notions de <em>filtre</em> et de <em>système linéaire invariant</em>.
 Nous introduisons ensuite la notion de stabilité d’un système,
@@ -406,11 +411,11 @@ la <a class="reference internal" href="laplace.html#c-filtrage-laplace"><span cl
 et la <a class="reference internal" href="z.html#c-filtrage-z"><span class="std std-ref">transformée en Z</span></a> (qui s’applique sur les systèmes numériques).</p>
 <p>Enfin, la quatrième partie présentent des techniques pour synthétiser des filtres numériques (<a class="reference internal" href="rii.html#c-filtrage-rii"><span class="std std-ref">RII</span></a> ou <a class="reference internal" href="rif.html#c-filtrage-rif"><span class="std std-ref">RIF</span></a>) et <a class="reference internal" href="analogiques.html#c-filtrage-analogiques"><span class="std std-ref">analogiques</span></a>.</p>
 <section id="systeme">
-<h2>Système<a class="headerlink" href="#systeme" title="Lien vers cette rubrique">#</a></h2>
+<h2>Système<a class="headerlink" href="#systeme" title="Lien permanent vers cette rubrique">#</a></h2>
 <p>Un filtre est un <em>système</em>, c’est-à-dire un processus qui transforme un signal d’entrée <span class="math notranslate nohighlight">\(x\)</span> en un signal de sortie <span class="math notranslate nohighlight">\(y\)</span>.
 On utilise souvent une représentation en schéma-bloc pour le représenter :</p>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../_images/systeme1.svg"><img alt="../_images/systeme1.svg" src="../_images/systeme1.svg" style="width: 350px;" /></a>
+<a class="reference internal image-reference" href="../_images/systeme1.svg"><img alt="../_images/systeme1.svg" src="../_images/systeme1.svg" width="350px" /></a>
 </figure>
 <div class="math notranslate nohighlight">
 \[
@@ -438,7 +443,7 @@ Avec l'avènement de l'automatique et des calculateurs numériques,
 le filtrage est devenu une théorie à part entière du traitement du signal. -->
 </section>
 <section id="systeme-lineaire">
-<h2>Système linéaire<a class="headerlink" href="#systeme-lineaire" title="Lien vers cette rubrique">#</a></h2>
+<h2>Système linéaire<a class="headerlink" href="#systeme-lineaire" title="Lien permanent vers cette rubrique">#</a></h2>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <p>Attention, le fait qu’un système soit linéaire ou non n’est pas du tout lié à la possible linéarité de sa phase !</p>
@@ -462,7 +467,7 @@ Dans ce cas, on ne peut plus le considérer comme étant linéaire.</p>
 </div>
 </section>
 <section id="systeme-invariant">
-<h2>Système invariant<a class="headerlink" href="#systeme-invariant" title="Lien vers cette rubrique">#</a></h2>
+<h2>Système invariant<a class="headerlink" href="#systeme-invariant" title="Lien permanent vers cette rubrique">#</a></h2>
 <p>Un système est invariant dans le temps si son comportement et ses caractéristiques n’évoluent pas.
 Aussi, si <span class="math notranslate nohighlight">\(y\)</span> est la sortie du sytème à une entrée <span class="math notranslate nohighlight">\(x\)</span>,
 ce sera toujours le cas quel que soit l’instant <span class="math notranslate nohighlight">\(n_0\)</span> auquel apparaît <span class="math notranslate nohighlight">\(x\)</span> :</p>
@@ -483,7 +488,7 @@ ou si l’un des composants est modifié (potentiomètre par exemple).</p>
 <!-- Trouver d'autres exemples parlants -->
 </section>
 <section id="systeme-lineaire-invariant">
-<h2>Système linéaire invariant<a class="headerlink" href="#systeme-lineaire-invariant" title="Lien vers cette rubrique">#</a></h2>
+<h2>Système linéaire invariant<a class="headerlink" href="#systeme-lineaire-invariant" title="Lien permanent vers cette rubrique">#</a></h2>
 <p>Les systèmes à la fois linéaires et invariants jouent un rôle important en traitement du signal.
 On parle de systèmes linéaires invariant (<em>linear-time invariant system</em> ou <em>LTI system</em>).
 En effet, la linéarité et l’invariance ont un rôle fondamental pour trois raisons :</p>
@@ -497,7 +502,7 @@ avec la <a class="reference internal" href="#s-filtrage-ri"><span class="std std
 <p><a class="exercise btn btn-light" href="td.html#exercice-1" role="button">1</a></p>
 </section>
 <section id="systeme-stable">
-<h2>Système stable<a class="headerlink" href="#systeme-stable" title="Lien vers cette rubrique">#</a></h2>
+<h2>Système stable<a class="headerlink" href="#systeme-stable" title="Lien permanent vers cette rubrique">#</a></h2>
 <p>Un système est stable si une petite modification de son entrée ne fait pas diverger sa sortie,
 c’est-à-dire qu’elle revient à son état initial où ne s’en éloigne pas indéfiniment
 (elle atteint toujours une valeur limite).
@@ -515,11 +520,11 @@ un petit déséquilibre de sa position intiale le fait tendre vers une position 
 </div>
 </section>
 <section id="reponse-impulsionnelle">
-<span id="s-filtrage-ri"></span><h2>Réponse impulsionnelle<a class="headerlink" href="#reponse-impulsionnelle" title="Lien vers cette rubrique">#</a></h2>
+<span id="s-filtrage-ri"></span><h2>Réponse impulsionnelle<a class="headerlink" href="#reponse-impulsionnelle" title="Lien permanent vers cette rubrique">#</a></h2>
 <p>Un filtre est caractérisé par sa réponse impulsionnelle (<em>impulse response</em>) <span class="math notranslate nohighlight">\(h\)</span>.
 Elle correspond à la sortie du filtre lorsque l’entrée est une impulsion <span class="math notranslate nohighlight">\(\delta\)</span>.</p>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../_images/systeme2.svg"><img alt="../_images/systeme2.svg" src="../_images/systeme2.svg" style="width: 350px;" /></a>
+<a class="reference internal image-reference" href="../_images/systeme2.svg"><img alt="../_images/systeme2.svg" src="../_images/systeme2.svg" width="350px" /></a>
 </figure>
 <p>On montre que pour n’importe quelle entrée <span class="math notranslate nohighlight">\(x\)</span>, la sortie du filtre est la convolution entre <span class="math notranslate nohighlight">\(x\)</span> et <span class="math notranslate nohighlight">\(h\)</span> :</p>
 <div class="math notranslate nohighlight">
@@ -528,14 +533,14 @@ Elle correspond à la sortie du filtre lorsque l’entrée est une impulsion <sp
 \]</div>
 <p>Si l’entrée est une impulsion, la sortie correspond bien à la réponse impulsionnelle <span class="math notranslate nohighlight">\(h\)</span> puisque <span class="math notranslate nohighlight">\(y=h*x = h*\delta=h\)</span>.</p>
 <figure class="align-default" id="f-filtrage-intro-repimp">
-<a class="reference internal image-reference" href="../_images/intro-repimp.svg"><img alt="../_images/intro-repimp.svg" src="../_images/intro-repimp.svg" style="width: 450px;" /></a>
+<a class="reference internal image-reference" href="../_images/intro-repimp.svg"><img alt="../_images/intro-repimp.svg" src="../_images/intro-repimp.svg" width="450px" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 1 </span><span class="caption-text">Exemple de réponse impulsionnelle d’un filtre passe-bas.</span><a class="headerlink" href="#f-filtrage-intro-repimp" title="Lien vers cette image">#</a></p>
+<p><span class="caption-number">Fig. 1 </span><span class="caption-text">Exemple de réponse impulsionnelle d’un filtre passe-bas.</span><a class="headerlink" href="#f-filtrage-intro-repimp" title="Lien permanent vers cette image">#</a></p>
 </figcaption>
 </figure>
 </section>
 <section id="reponse-frequentielle">
-<h2>Réponse fréquentielle<a class="headerlink" href="#reponse-frequentielle" title="Lien vers cette rubrique">#</a></h2>
+<h2>Réponse fréquentielle<a class="headerlink" href="#reponse-frequentielle" title="Lien permanent vers cette rubrique">#</a></h2>
 <p>La réponse fréquentielle (<em>frequency response</em>) est la transformée de Fourier de la réponse impulsionnelle.
 Elle représente les modifications apportées au signal d’entrée en fonction de la fréquence.</p>
 <p>Comme la sortie <span class="math notranslate nohighlight">\(y\)</span> du filtre est la convolution de l’entrée <span class="math notranslate nohighlight">\(x\)</span> avec la réponse impulsionnelle <span class="math notranslate nohighlight">\(h\)</span>,
@@ -551,7 +556,7 @@ avec la réponse fréquentielle <span class="math notranslate nohighlight">\(H\)
 Pour simplifier son analyse on étudiera plutôt son gain, sa phase et son retard de groupe.</p>
 </section>
 <section id="gain">
-<h2>Gain<a class="headerlink" href="#gain" title="Lien vers cette rubrique">#</a></h2>
+<h2>Gain<a class="headerlink" href="#gain" title="Lien permanent vers cette rubrique">#</a></h2>
 <p>Le gain (<em>magnitude</em>) <span class="math notranslate nohighlight">\(G\)</span> d’un filtre est le module de sa réponse fréquentielle <span class="math notranslate nohighlight">\(H\)</span> :</p>
 <div class="math notranslate nohighlight">
 \[
@@ -563,14 +568,14 @@ Pour simplifier son analyse on étudiera plutôt son gain, sa phase et son retar
   G_\mathrm{dB}(f) = 20\,\log_{10} \left|H(f)\right|.
 \]</div>
 <figure class="align-default" id="id1">
-<a class="reference internal image-reference" href="../_images/intro-gain.svg"><img alt="../_images/intro-gain.svg" src="../_images/intro-gain.svg" style="width: 450px;" /></a>
+<a class="reference internal image-reference" href="../_images/intro-gain.svg"><img alt="../_images/intro-gain.svg" src="../_images/intro-gain.svg" width="450px" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 2 </span><span class="caption-text">Gain du filtre représenté figure <a class="reference internal" href="#f-filtrage-intro-repimp"><span class="std std-numref">Fig. 1</span></a>.</span><a class="headerlink" href="#id1" title="Lien vers cette image">#</a></p>
+<p><span class="caption-number">Fig. 2 </span><span class="caption-text">Gain du filtre représenté figure <a class="reference internal" href="#f-filtrage-intro-repimp"><span class="std std-numref">Fig. 1</span></a>.</span><a class="headerlink" href="#id1" title="Lien permanent vers cette image">#</a></p>
 </figcaption>
 </figure>
 </section>
 <section id="phase">
-<h2>Phase<a class="headerlink" href="#phase" title="Lien vers cette rubrique">#</a></h2>
+<h2>Phase<a class="headerlink" href="#phase" title="Lien permanent vers cette rubrique">#</a></h2>
 <p>La phase (<em>phase</em>) <span class="math notranslate nohighlight">\(\varphi\)</span> d’un filtre est l’argument de la réponse fréquentielle :</p>
 <div class="math notranslate nohighlight">
 \[
@@ -578,14 +583,14 @@ Pour simplifier son analyse on étudiera plutôt son gain, sa phase et son retar
 \]</div>
 <p>où <span class="math notranslate nohighlight">\(\mathrm{Arg}\)</span> est l’argument d’un nombre complexe.</p>
 <figure class="align-default" id="id2">
-<a class="reference internal image-reference" href="../_images/intro-phase.svg"><img alt="../_images/intro-phase.svg" src="../_images/intro-phase.svg" style="width: 450px;" /></a>
+<a class="reference internal image-reference" href="../_images/intro-phase.svg"><img alt="../_images/intro-phase.svg" src="../_images/intro-phase.svg" width="450px" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 3 </span><span class="caption-text">Phase du filtre représenté figure <a class="reference internal" href="#f-filtrage-intro-repimp"><span class="std std-numref">Fig. 1</span></a>.</span><a class="headerlink" href="#id2" title="Lien vers cette image">#</a></p>
+<p><span class="caption-number">Fig. 3 </span><span class="caption-text">Phase du filtre représenté figure <a class="reference internal" href="#f-filtrage-intro-repimp"><span class="std std-numref">Fig. 1</span></a>.</span><a class="headerlink" href="#id2" title="Lien permanent vers cette image">#</a></p>
 </figcaption>
 </figure>
 </section>
 <section id="retard-de-groupe">
-<h2>Retard de groupe<a class="headerlink" href="#retard-de-groupe" title="Lien vers cette rubrique">#</a></h2>
+<h2>Retard de groupe<a class="headerlink" href="#retard-de-groupe" title="Lien permanent vers cette rubrique">#</a></h2>
 <p>Une autre représentation importante est le retard de groupe (<em>group delay</em>) <span class="math notranslate nohighlight">\(\tau\)</span> défini comme la dérivée de la phase :</p>
 <div class="math notranslate nohighlight">
 \[
@@ -593,9 +598,9 @@ Pour simplifier son analyse on étudiera plutôt son gain, sa phase et son retar
 \]</div>
 <p>Une phase linéaire implique donc un retard de groupe constant.</p>
 <figure class="align-default" id="id3">
-<a class="reference internal image-reference" href="../_images/intro-retard-groupe.svg"><img alt="../_images/intro-retard-groupe.svg" src="../_images/intro-retard-groupe.svg" style="width: 450px;" /></a>
+<a class="reference internal image-reference" href="../_images/intro-retard-groupe.svg"><img alt="../_images/intro-retard-groupe.svg" src="../_images/intro-retard-groupe.svg" width="450px" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 4 </span><span class="caption-text">Retard de groupe du filtre représenté figure <a class="reference internal" href="#f-filtrage-intro-repimp"><span class="std std-numref">Fig. 1</span></a>.</span><a class="headerlink" href="#id3" title="Lien vers cette image">#</a></p>
+<p><span class="caption-number">Fig. 4 </span><span class="caption-text">Retard de groupe du filtre représenté figure <a class="reference internal" href="#f-filtrage-intro-repimp"><span class="std std-numref">Fig. 1</span></a>.</span><a class="headerlink" href="#id3" title="Lien permanent vers cette image">#</a></p>
 </figcaption>
 </figure>
 <div class="exemple admonition">
@@ -604,9 +609,9 @@ Pour simplifier son analyse on étudiera plutôt son gain, sa phase et son retar
 sont mises en entrée du filtre représenté figure <a class="reference internal" href="#f-filtrage-intro-repimp"><span class="std std-numref">Fig. 1</span></a>.
 La figure suivante illustre l’effet du gain, de la phase et du retard de groupe sur ces signaux.</p>
 <figure class="align-default" id="id4">
-<a class="reference internal image-reference" href="../_images/intro-filtrage.svg"><img alt="../_images/intro-filtrage.svg" src="../_images/intro-filtrage.svg" style="width: 100%;" /></a>
+<a class="reference internal image-reference" href="../_images/intro-filtrage.svg"><img alt="../_images/intro-filtrage.svg" src="../_images/intro-filtrage.svg" width="100%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 5 </span><span class="caption-text">Filtrage de signaux de fréquence différente.</span><a class="headerlink" href="#id4" title="Lien vers cette image">#</a></p>
+<p><span class="caption-number">Fig. 5 </span><span class="caption-text">Filtrage de signaux de fréquence différente.</span><a class="headerlink" href="#id4" title="Lien permanent vers cette image">#</a></p>
 </figcaption>
 </figure>
 <ul class="simple">
@@ -659,12 +664,12 @@ ou d’un retard de groupe.</p></li>
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../revisions/tp.html"
+       href="../revisions/tpc4.html"
        title="page précédente">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">précédent</p>
-        <p class="prev-next-title">Exercices sur machine</p>
+        <p class="prev-next-title">Produit de convolution</p>
       </div>
     </a>
     <a class="right-next"

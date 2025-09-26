@@ -1,12 +1,13 @@
 
+
 <!DOCTYPE html>
 
 
-<html lang="fr" data-content_root="../" >
+<html lang="fr" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Bruit dans les signaux &#8212; Traitement du signal 2</title>
   
@@ -28,14 +29,14 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=109105fe" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=949a1ff5" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
-    <link rel="stylesheet" type="text/css" href="../_static/jbvinc.css?v=8dc5e944" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.4cbf315f70debaebd550c87a6162cf0f.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/jbvinc.css" />
     <link rel="stylesheet" type="text/css" href="../_static/.ipynb_checkpoints/jbvinc-checkpoint.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -43,23 +44,21 @@
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../_static/documentation_options.js?v=72dce1d2"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
-    <script src="../_static/copybutton.js?v=ff8fa330"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js?v=bcf87968"></script>
-    <script src="../_static/translations.js?v=041d0952"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/translations.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'ssp/bruit';</script>
@@ -180,11 +179,17 @@
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Révisions</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../revisions/td.html">Exercices sur feuille</a><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../revisions/td.html">Exercices sur feuille</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../revisions/tdc.html">Corrections</a></li>
-</ul><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary>
+</ul>
 </details></li>
-<li class="toctree-l1"><a class="reference internal" href="../revisions/tp.html">Exercices sur machine</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../revisions/tp.html">Exercices sur machine</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc1.html">Représentation d’un signal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc2.html">Transformée de Fourier discrète</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc3.html">Analyse spectrale</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc4.html">Produit de convolution</a></li>
+</ul>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Filtrage</span></p>
 <ul class="nav bd-sidenav">
@@ -401,7 +406,7 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="bruit-dans-les-signaux">
-<span id="c-ssp-bruit"></span><h1>Bruit dans les signaux<a class="headerlink" href="#bruit-dans-les-signaux" title="Lien vers cette rubrique">#</a></h1>
+<span id="c-ssp-bruit"></span><h1>Bruit dans les signaux<a class="headerlink" href="#bruit-dans-les-signaux" title="Lien permanent vers cette rubrique">#</a></h1>
 <p>Jusqu’ici, on considérait les signaux comme étant déterministes, c’est à dire qu’on les connaissait de manière sûre.
 Ils étaient définis par une forme analytique (par exemple : <span class="math notranslate nohighlight">\(x[n] = \sin(2\pi f n)\)</span>)
 ou une suite d’échantillons (par exemple : <span class="math notranslate nohighlight">\(x[n] = [1, 2, 3, 4]\)</span>).</p>
@@ -426,7 +431,7 @@ sur un signal qui n’a pas encore été mesuré et qui est donc considéré al�
 telles que leur moyenne ou une distribution de probabilité : nous allons donc commencer par quelques rappels de probabilités.
 Enfin, nous ne considérons que les signaux discrets dans ce chapitre pour simplifier le propos.</p>
 <section id="rappels-de-probabilite">
-<h2>Rappels de probabilité<a class="headerlink" href="#rappels-de-probabilite" title="Lien vers cette rubrique">#</a></h2>
+<h2>Rappels de probabilité<a class="headerlink" href="#rappels-de-probabilite" title="Lien permanent vers cette rubrique">#</a></h2>
 <p>Une <em>variable aléatoire</em> est une variable mathématique dont la valeur n’est pas fixée.
 Lors d’une expérience ou après l’acquisition d’un signal,
 on dispose de mesures de la variable aléatoire sous forme de valeurs numériques :
@@ -436,7 +441,7 @@ la distribution des probabilités d’apparition des valeurs est appelée <em>de
 et elle est souvent notée <span class="math notranslate nohighlight">\(p\)</span>.
 Les densités de probabilité les plus courantes en traitement statistique du signal sont listées ci-dessous.</p>
 <section id="densite-de-probabilite-gaussienne">
-<h3>Densité de probabilité gaussienne<a class="headerlink" href="#densite-de-probabilite-gaussienne" title="Lien vers cette rubrique">#</a></h3>
+<h3>Densité de probabilité gaussienne<a class="headerlink" href="#densite-de-probabilite-gaussienne" title="Lien permanent vers cette rubrique">#</a></h3>
 <p>La densité de probabilité gaussienne, ou loi normale, est la bien connue « courbe en cloche ».
 En notant <span class="math notranslate nohighlight">\(x\)</span> la variable aléatoire, elle a pour expression :</p>
 <div class="math notranslate nohighlight">
@@ -453,16 +458,15 @@ les valeurs proches de <span class="math notranslate nohighlight">\(\mu\)</span>
 x \sim \mathcal{N}(\mu\ ;\sigma).
 \]</div>
 <figure class="align-default" id="f-ssp-normale">
-<img alt="../_images/loi-normale.svg" src="../_images/loi-normale.svg" />
-<figcaption>
+<img alt="../_images/loi-normale.svg" src="../_images/loi-normale.svg" /><figcaption>
 <p><span class="caption-number">Fig. 26 </span><span class="caption-text">Densités de probabilité gaussiennes et 500 réalisations
-(à gauche : <span class="math notranslate nohighlight">\(\mathcal{N}(0\ ;1)\)</span>, à droite : <span class="math notranslate nohighlight">\(\mathcal{N}(1\ ;0,3)\)</span>).</span><a class="headerlink" href="#f-ssp-normale" title="Lien vers cette image">#</a></p>
+(à gauche : <span class="math notranslate nohighlight">\(\mathcal{N}(0\ ;1)\)</span>, à droite : <span class="math notranslate nohighlight">\(\mathcal{N}(1\ ;0,3)\)</span>).</span><a class="headerlink" href="#f-ssp-normale" title="Lien permanent vers cette image">#</a></p>
 </figcaption>
 </figure>
 <p>La densité de probabilité gaussienne est un très bon modèle pour la plupart des bruits courants.</p>
 </section>
 <section id="densite-de-probabilite-uniforme">
-<h3>Densité de probabilité uniforme<a class="headerlink" href="#densite-de-probabilite-uniforme" title="Lien vers cette rubrique">#</a></h3>
+<h3>Densité de probabilité uniforme<a class="headerlink" href="#densite-de-probabilite-uniforme" title="Lien permanent vers cette rubrique">#</a></h3>
 <p>Une variable aléatoire <span class="math notranslate nohighlight">\(x\)</span> distribuée suivant la densité de probabilité uniforme
 peut prendre n’importe quelle valeur sur un intervalle <span class="math notranslate nohighlight">\([a,b]\)</span>, et aucune valeur de cet intervalle n’est privilégiée par rapport à une autre.
 Elle a pour expression :</p>
@@ -480,10 +484,9 @@ p(x) =
 x \sim \mathcal{U}[a\ ;b].
 \]</div>
 <figure class="align-default" id="f-ssp-uniforme">
-<img alt="../_images/loi-uniforme.svg" src="../_images/loi-uniforme.svg" />
-<figcaption>
+<img alt="../_images/loi-uniforme.svg" src="../_images/loi-uniforme.svg" /><figcaption>
 <p><span class="caption-number">Fig. 27 </span><span class="caption-text">Densités de probabilité uniformes et 500 réalisations
-(à gauche : <span class="math notranslate nohighlight">\(\mathcal{U}[0\ ;1]\)</span>, à droite : <span class="math notranslate nohighlight">\(\mathcal{U}[-2\ ;2]\)</span>).</span><a class="headerlink" href="#f-ssp-uniforme" title="Lien vers cette image">#</a></p>
+(à gauche : <span class="math notranslate nohighlight">\(\mathcal{U}[0\ ;1]\)</span>, à droite : <span class="math notranslate nohighlight">\(\mathcal{U}[-2\ ;2]\)</span>).</span><a class="headerlink" href="#f-ssp-uniforme" title="Lien permanent vers cette image">#</a></p>
 </figcaption>
 </figure>
 <p>La distribution de probabilité uniforme a le mérite d’être très simple,
@@ -492,7 +495,7 @@ Si la variable aléatoire uniforme prend des valeurs discrètes,
 sa distribution de probabilité peut modéliser des bruits de quantification.</p>
 </section>
 <section id="loi-de-poisson">
-<h3>Loi de Poisson<a class="headerlink" href="#loi-de-poisson" title="Lien vers cette rubrique">#</a></h3>
+<h3>Loi de Poisson<a class="headerlink" href="#loi-de-poisson" title="Lien permanent vers cette rubrique">#</a></h3>
 <p>Enfin, la loi de <a class="reference external" href="https://fr.wikipedia.org/wiki/Sim%C3%A9on_Denis_Poisson">Poisson</a>
 modélise un processus de comptage (par exemple un nombre de photons sur les pixels d’un capteur CCD).
 Elle a pour expression :</p>
@@ -507,10 +510,9 @@ p(x) = \frac{\lambda^x}{x!} e^{-\lambda}
 x \sim \mathcal{P}(\lambda).
 \]</div>
 <figure class="align-default" id="f-ssp-poisson">
-<img alt="../_images/loi-poisson.svg" src="../_images/loi-poisson.svg" />
-<figcaption>
+<img alt="../_images/loi-poisson.svg" src="../_images/loi-poisson.svg" /><figcaption>
 <p><span class="caption-number">Fig. 28 </span><span class="caption-text">Loi de Poisson et 500 réalisations
-(à gauche : <span class="math notranslate nohighlight">\(\mathcal{P}(1)\)</span>, à droite : <span class="math notranslate nohighlight">\(\mathcal{P}(5)\)</span>).</span><a class="headerlink" href="#f-ssp-poisson" title="Lien vers cette image">#</a></p>
+(à gauche : <span class="math notranslate nohighlight">\(\mathcal{P}(1)\)</span>, à droite : <span class="math notranslate nohighlight">\(\mathcal{P}(5)\)</span>).</span><a class="headerlink" href="#f-ssp-poisson" title="Lien permanent vers cette image">#</a></p>
 </figcaption>
 </figure>
 <p>La loi de Poisson est généralement utilisée lors d’un comptage d’objets
@@ -521,7 +523,7 @@ le bruit peut être modélisé par une distribution de probabilité gaussienne,
 qui est plus simple à manipuler mathématiquement.</p>
 </section>
 <section id="caracteristiques-statistiques-d-une-variable-aleatoire">
-<h3>Caractéristiques statistiques d’une variable aléatoire<a class="headerlink" href="#caracteristiques-statistiques-d-une-variable-aleatoire" title="Lien vers cette rubrique">#</a></h3>
+<h3>Caractéristiques statistiques d’une variable aléatoire<a class="headerlink" href="#caracteristiques-statistiques-d-une-variable-aleatoire" title="Lien permanent vers cette rubrique">#</a></h3>
 <ul>
 <li><p>L”<em>espérance</em> d’une variable aléatoire <span class="math notranslate nohighlight">\(x\)</span>, notée <span class="math notranslate nohighlight">\(\mathbb{E}[x]\)</span>, correspond à la valeur moyenne des réalisations :</p>
 <div class="math notranslate nohighlight">
@@ -613,9 +615,9 @@ C’est la racine carrée de la variance :</p>
 </section>
 </section>
 <section id="densite-spectrale-de-puissance">
-<h2>Densité spectrale de puissance<a class="headerlink" href="#densite-spectrale-de-puissance" title="Lien vers cette rubrique">#</a></h2>
+<h2>Densité spectrale de puissance<a class="headerlink" href="#densite-spectrale-de-puissance" title="Lien permanent vers cette rubrique">#</a></h2>
 <section id="autocorrelation-statistique">
-<h3>Autocorrélation statistique<a class="headerlink" href="#autocorrelation-statistique" title="Lien vers cette rubrique">#</a></h3>
+<h3>Autocorrélation statistique<a class="headerlink" href="#autocorrelation-statistique" title="Lien permanent vers cette rubrique">#</a></h3>
 <p>L’autocorrélation statistique adapte l”<a class="reference external" href="https://vincmazet.github.io/signal1/xcorr/intercorrelation.html#autocorrelation">autocorrélation temporelle</a> au caractère statistique d’un signal aléatoire.
 Ainsi pour un signal aléatoire <span class="math notranslate nohighlight">\(x\)</span>, son autocorrélation statistique s’écrit :</p>
 <div class="math notranslate nohighlight">
@@ -624,7 +626,7 @@ R_x[m] = \mathbb{E}\Big[ x[n+m] x[n] \Big].
 \]</div>
 </section>
 <section id="id1">
-<h3>Densité spectrale de puissance<a class="headerlink" href="#id1" title="Lien vers cette rubrique">#</a></h3>
+<h3>Densité spectrale de puissance<a class="headerlink" href="#id1" title="Lien permanent vers cette rubrique">#</a></h3>
 <p>La densité spectrale de puissance (<em>power spectral density</em>) est la transformée de Fourier à temps discret de l’autocorrélation statistique :</p>
 <div class="math notranslate nohighlight">
 \[
@@ -662,7 +664,7 @@ en notant qu'en intégrant la densité (de puissance), on obtient le tout (la pu
 --></section>
 </section>
 <section id="le-bruit-dans-les-signaux">
-<h2>Le bruit dans les signaux<a class="headerlink" href="#le-bruit-dans-les-signaux" title="Lien vers cette rubrique">#</a></h2>
+<h2>Le bruit dans les signaux<a class="headerlink" href="#le-bruit-dans-les-signaux" title="Lien permanent vers cette rubrique">#</a></h2>
 <p>On appelle <em>bruit</em> les modifications non souhaitées et inconnues
 que subit un signal lors de son acquisition, de son enregistrement, de son traitement ou de sa transmission.</p>
 <p>Ce qu’on appelle bruit dépend très fortement du contexte <a class="reference internal" href="../annexes/refs.html#c-refs"><span class="std std-ref">[Jutten 2018]</span></a>.
@@ -677,7 +679,7 @@ Comme les modifications apportées par le bruit sont inconnues,
 alors ce dernier est modélisé par un signal aléatoire dont les amplitudes sont des variables aléatoires.
 La densité de probabilité du bruit peut être gaussienne, uniforme, de Poisson, etc.</p>
 <section id="le-bruit-blanc">
-<h3>Le bruit blanc<a class="headerlink" href="#le-bruit-blanc" title="Lien vers cette rubrique">#</a></h3>
+<h3>Le bruit blanc<a class="headerlink" href="#le-bruit-blanc" title="Lien permanent vers cette rubrique">#</a></h3>
 <p>Un bruit <span class="math notranslate nohighlight">\(b[n]\)</span> <em>blanc</em> est un signal aléatoire d’espérance nulle et de densité spectrale de puissance constante.
 Cela implique que la puissance du bruit est répartie de manière uniforme sur les fréquences, justifiant l’appelation de « blanc » par analogie avec la lumière.</p>
 <p>En notant <span class="math notranslate nohighlight">\(\sigma_b^2\)</span> la valeur constante de la densité spectrale de puissance,
@@ -699,7 +701,7 @@ R_b[0] = \mathbb{E}\Big[ b[n+0] b[n] \Big] = \mathbb{E}\Big[ b^2 \Big] = \mathbb
 \]</div>
 </section>
 <section id="le-bruit-blanc-i-i-d">
-<h3>Le bruit blanc i.i.d.<a class="headerlink" href="#le-bruit-blanc-i-i-d" title="Lien vers cette rubrique">#</a></h3>
+<h3>Le bruit blanc i.i.d.<a class="headerlink" href="#le-bruit-blanc-i-i-d" title="Lien permanent vers cette rubrique">#</a></h3>
 <p>un bruit blanc <span class="math notranslate nohighlight">\(b[n]\)</span> est <em>indépendant et identiquement distribué</em> (i.i.d.) si :</p>
 <ul class="simple">
 <li><p>ses échantillons sont sans relation les uns avec les autres (ils sont indépendants),</p></li>
@@ -707,7 +709,7 @@ R_b[0] = \mathbb{E}\Big[ b[n+0] b[n] \Big] = \mathbb{E}\Big[ b^2 \Big] = \mathbb
 </ul>
 </section>
 <section id="le-bruit-blanc-gaussien-additif">
-<h3>Le bruit blanc gaussien additif<a class="headerlink" href="#le-bruit-blanc-gaussien-additif" title="Lien vers cette rubrique">#</a></h3>
+<h3>Le bruit blanc gaussien additif<a class="headerlink" href="#le-bruit-blanc-gaussien-additif" title="Lien permanent vers cette rubrique">#</a></h3>
 <p>Le bruit blanc gaussien additif (AWGN : <em>additive white Gaussian noise</em>)
 est un modèle très répandu et assez simple de bruit qui possède les caractéristiques suivantes :</p>
 <ul class="simple">
@@ -731,9 +733,9 @@ est bruité par un bruit blanc gaussien additif <span class="math notranslate no
 Les signaux sont représentés dans la <a class="reference internal" href="#f-bruit-exemple-bruit-blanc"><span class="std std-numref">Fig. 29</span></a>
 et peuvent être écoutés ci-après.</p>
 <figure class="align-default" id="f-bruit-exemple-bruit-blanc">
-<a class="reference internal image-reference" href="../_images/exemple-bruit-blanc.svg"><img alt="../_images/exemple-bruit-blanc.svg" src="../_images/exemple-bruit-blanc.svg" style="width: 100%;" /></a>
+<a class="reference internal image-reference" href="../_images/exemple-bruit-blanc.svg"><img alt="../_images/exemple-bruit-blanc.svg" src="../_images/exemple-bruit-blanc.svg" width="100%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 29 </span><span class="caption-text">Signal <span class="math notranslate nohighlight">\(x\)</span>, bruit blanc <span class="math notranslate nohighlight">\(b\)</span>, et la somme <span class="math notranslate nohighlight">\(x+b\)</span>.</span><a class="headerlink" href="#f-bruit-exemple-bruit-blanc" title="Lien vers cette image">#</a></p>
+<p><span class="caption-number">Fig. 29 </span><span class="caption-text">Signal <span class="math notranslate nohighlight">\(x\)</span>, bruit blanc <span class="math notranslate nohighlight">\(b\)</span>, et la somme <span class="math notranslate nohighlight">\(x+b\)</span>.</span><a class="headerlink" href="#f-bruit-exemple-bruit-blanc" title="Lien permanent vers cette image">#</a></p>
 </figcaption>
 </figure>
 <p>Signal <span class="math notranslate nohighlight">\(x\)</span> :</p>
@@ -770,7 +772,7 @@ et peuvent être écoutés ci-après.</p>
 </div>
 </section>
 <section id="rapport-signal-a-bruit">
-<h3>Rapport signal à bruit<a class="headerlink" href="#rapport-signal-a-bruit" title="Lien vers cette rubrique">#</a></h3>
+<h3>Rapport signal à bruit<a class="headerlink" href="#rapport-signal-a-bruit" title="Lien permanent vers cette rubrique">#</a></h3>
 <p>Le rapport signal-à-bruit (RSB, ou en anglais SNR : <em>signal-to-noise ratio</em>) est une mesure de l’intensité du bruit dans un signal.
 Il correspond au rapport entre la puissance du signal <span class="math notranslate nohighlight">\(x\)</span> et la puissance du bruit <span class="math notranslate nohighlight">\(b\)</span>
 et est généralement exprimé en décibels :</p>
@@ -787,9 +789,9 @@ P_b = \frac{1}{N} \sum_{n=0}^{N-1} |b[n]|^2.
 \]</div>
 <p>Notez que dans le cas d’un bruit blanc, la puissance du bruit <span class="math notranslate nohighlight">\(P_b\)</span> est égale à la variance du bruit.</p>
 <figure class="align-default" id="f-ssp-rsb">
-<a class="reference internal image-reference" href="../_images/rsb.svg"><img alt="../_images/rsb.svg" src="../_images/rsb.svg" style="width: 100%;" /></a>
+<a class="reference internal image-reference" href="../_images/rsb.svg"><img alt="../_images/rsb.svg" src="../_images/rsb.svg" width="100%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 30 </span><span class="caption-text">Exemples d’une même sinusoïde bruitée à différents RSB.</span><a class="headerlink" href="#f-ssp-rsb" title="Lien vers cette image">#</a></p>
+<p><span class="caption-number">Fig. 30 </span><span class="caption-text">Exemples d’une même sinusoïde bruitée à différents RSB.</span><a class="headerlink" href="#f-ssp-rsb" title="Lien permanent vers cette image">#</a></p>
 </figcaption>
 </figure>
 <p>Le RSB n’est bien évidemment pas utilisé dans un traitement réel,

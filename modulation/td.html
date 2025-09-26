@@ -1,12 +1,13 @@
 
+
 <!DOCTYPE html>
 
 
-<html lang="fr" data-content_root="../" >
+<html lang="fr" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Excercices sur feuille &#8212; Traitement du signal 2</title>
   
@@ -28,14 +29,14 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=109105fe" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=949a1ff5" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
-    <link rel="stylesheet" type="text/css" href="../_static/jbvinc.css?v=8dc5e944" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.4cbf315f70debaebd550c87a6162cf0f.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/jbvinc.css" />
     <link rel="stylesheet" type="text/css" href="../_static/.ipynb_checkpoints/jbvinc-checkpoint.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -43,23 +44,21 @@
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../_static/documentation_options.js?v=72dce1d2"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
-    <script src="../_static/copybutton.js?v=ff8fa330"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js?v=bcf87968"></script>
-    <script src="../_static/translations.js?v=041d0952"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/translations.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'modulation/td';</script>
@@ -180,11 +179,17 @@
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Révisions</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../revisions/td.html">Exercices sur feuille</a><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../revisions/td.html">Exercices sur feuille</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../revisions/tdc.html">Corrections</a></li>
-</ul><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary>
+</ul>
 </details></li>
-<li class="toctree-l1"><a class="reference internal" href="../revisions/tp.html">Exercices sur machine</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../revisions/tp.html">Exercices sur machine</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc1.html">Représentation d’un signal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc2.html">Transformée de Fourier discrète</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc3.html">Analyse spectrale</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc4.html">Produit de convolution</a></li>
+</ul>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Filtrage</span></p>
 <ul class="nav bd-sidenav">
@@ -395,11 +400,11 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="excercices-sur-feuille">
-<h1>Excercices sur feuille<a class="headerlink" href="#excercices-sur-feuille" title="Lien vers cette rubrique">#</a></h1>
+<h1>Excercices sur feuille<a class="headerlink" href="#excercices-sur-feuille" title="Lien permanent vers cette rubrique">#</a></h1>
 <section id="modulation-analogique">
-<h2>Modulation analogique<a class="headerlink" href="#modulation-analogique" title="Lien vers cette rubrique">#</a></h2>
+<h2>Modulation analogique<a class="headerlink" href="#modulation-analogique" title="Lien permanent vers cette rubrique">#</a></h2>
 <section id="exercice-1">
-<h3>Exercice 1<a class="headerlink" href="#exercice-1" title="Lien vers cette rubrique">#</a></h3>
+<h3>Exercice 1<a class="headerlink" href="#exercice-1" title="Lien permanent vers cette rubrique">#</a></h3>
 <!-- Source : Oppenheim exo 8.3 -->
 <p>Le signal <span class="math notranslate nohighlight">\(m(t)\)</span> est à bande limitée : <span class="math notranslate nohighlight">\(M(f)=0\)</span> pour <span class="math notranslate nohighlight">\(|f|&gt;1\)</span> kHz.
 Il est modulé en amplitude par une porteuse sinusoïdale de fréquence <span class="math notranslate nohighlight">\(f_p=1\)</span> kHz :</p>
@@ -408,27 +413,27 @@ Il est modulé en amplitude par une porteuse sinusoïdale de fréquence <span cl
   x(t) = m(t) \sin(2\pi f_p t)
 \]</div>
 <p>Sa démodulation est effectuée par le dispositif suivant :</p>
-<a class="reference internal image-reference" href="../_images/chaine-modulation.svg"><img alt="../_images/chaine-modulation.svg" class="align-center" src="../_images/chaine-modulation.svg" style="width: 300px;" /></a>
+<a class="reference internal image-reference" href="../_images/chaine-modulation.svg"><img alt="../_images/chaine-modulation.svg" class="align-center" src="../_images/chaine-modulation.svg" width="300px" /></a>
 <p>où le filtre passe-bas <span class="math notranslate nohighlight">\(h(t)\)</span> est idéal, de gain 2 et de fréquence de coupure <span class="math notranslate nohighlight">\(f_c=1\)</span> kHz.
 Déterminez <span class="math notranslate nohighlight">\(y(t)\)</span>.</p>
 </section>
 <section id="exercice-2">
-<h3>Exercice 2<a class="headerlink" href="#exercice-2" title="Lien vers cette rubrique">#</a></h3>
+<h3>Exercice 2<a class="headerlink" href="#exercice-2" title="Lien permanent vers cette rubrique">#</a></h3>
 <p>Un message <span class="math notranslate nohighlight">\(m(t)\)</span> est modulé en amplitude avec une porteuse de fréquence <span class="math notranslate nohighlight">\(f_p\)</span> et de phase nulle.
 Le signal <span class="math notranslate nohighlight">\(y(t)\)</span> est issu d’une démodulation cohérente avec une porteuse de fréquence <span class="math notranslate nohighlight">\(f_q\)</span>.
 Calculez la transformée de Fourier de <span class="math notranslate nohighlight">\(y(t)\)</span> lorsque <span class="math notranslate nohighlight">\(f_q \neq f_p\)</span>.</p>
 </section>
 <section id="exercice-3">
-<h3>Exercice 3<a class="headerlink" href="#exercice-3" title="Lien vers cette rubrique">#</a></h3>
+<h3>Exercice 3<a class="headerlink" href="#exercice-3" title="Lien permanent vers cette rubrique">#</a></h3>
 <!-- ancien chiffrement du son Canal+ -->
 <!-- Source : Ventre exo 2.1 -->
 <p>Lorsque Canal+ émettait encore en analogique,
 le son <span class="math notranslate nohighlight">\(s(t)\)</span> était chiffré en inversant son spectre comme schématisé ci-dessous.
 Proposez une technique pour réaliser cette opération.</p>
-<a class="reference internal image-reference" href="../_images/canalplus.svg"><img alt="../_images/canalplus.svg" class="align-center" src="../_images/canalplus.svg" style="width: 600px;" /></a>
+<a class="reference internal image-reference" href="../_images/canalplus.svg"><img alt="../_images/canalplus.svg" class="align-center" src="../_images/canalplus.svg" width="600px" /></a>
 </section>
 <section id="exercice-4">
-<h3>Exercice 4<a class="headerlink" href="#exercice-4" title="Lien vers cette rubrique">#</a></h3>
+<h3>Exercice 4<a class="headerlink" href="#exercice-4" title="Lien permanent vers cette rubrique">#</a></h3>
 <!-- Ventre exo 2.5 -->
 <p>Un enregistrement stéréo est composé des voies gauche <span class="math notranslate nohighlight">\(g(t)\)</span> et droite <span class="math notranslate nohighlight">\(d(t)\)</span>.
 Le signal composite stéréo <span class="math notranslate nohighlight">\(x(t)\)</span> est défini spectralement sur la figure ci-après (seule la partie positive est représentée) :
@@ -436,7 +441,7 @@ les voies gauche et droite sont transmises par multiplexage fréquentiel.
 La somme <span class="math notranslate nohighlight">\(g(t)+d(t)\)</span> est transmise en bande de base (c’est-à-dire autour de 0 Hz) ;
 la différence <span class="math notranslate nohighlight">\(g(t)-d(t)\)</span> est transmise à la fréquence <span class="math notranslate nohighlight">\(f_p=38\)</span> kHz ; <!-- (en modulation double bande sans porteuse) -->
 enfin, une sous-porteuse à 19 kHz est également transmise pour faciliter la synchronisation du démodulateur.</p>
-<a class="reference internal image-reference" href="../_images/composite-stereo.svg"><img alt="../_images/composite-stereo.svg" class="align-center" src="../_images/composite-stereo.svg" style="width: 400px;" /></a>
+<a class="reference internal image-reference" href="../_images/composite-stereo.svg"><img alt="../_images/composite-stereo.svg" class="align-center" src="../_images/composite-stereo.svg" width="400px" /></a>
 <ol class="arabic simple">
 <li><p>Justifiez les choix utilisés.</p></li>
 <li><p>Donnez l’expression de <span class="math notranslate nohighlight">\(x(t)\)</span>.</p></li>
@@ -445,13 +450,13 @@ enfin, une sous-porteuse à 19 kHz est également transmise pour faciliter la sy
 </section>
 </section>
 <section id="modulation-numerique">
-<h2>Modulation numérique<a class="headerlink" href="#modulation-numerique" title="Lien vers cette rubrique">#</a></h2>
+<h2>Modulation numérique<a class="headerlink" href="#modulation-numerique" title="Lien permanent vers cette rubrique">#</a></h2>
 <section id="exercice-5">
-<h3>Exercice 5<a class="headerlink" href="#exercice-5" title="Lien vers cette rubrique">#</a></h3>
+<h3>Exercice 5<a class="headerlink" href="#exercice-5" title="Lien permanent vers cette rubrique">#</a></h3>
 <p>Représentez la séquence binaire <code>01011</code> modulée en NRZ bipolaire, Manchester et AMI.</p>
 </section>
 <section id="exercice-6">
-<h3>Exercice 6<a class="headerlink" href="#exercice-6" title="Lien vers cette rubrique">#</a></h3>
+<h3>Exercice 6<a class="headerlink" href="#exercice-6" title="Lien permanent vers cette rubrique">#</a></h3>
 <p>Représentez les constellations des modulations suivantes :</p>
 <ul>
 <li><p>OOK (<em>on-off keying</em>) définie dans <a class="reference external" href="https://en.wikipedia.org/w/index.php?title=On-off_keying&amp;amp;oldid=669950443">Wikipédia</a> par :</p>
@@ -468,7 +473,7 @@ while its absence for the same duration represents a binary zero.</p>
 </ul>
 </section>
 <section id="exercice-7">
-<h3>Exercice 7<a class="headerlink" href="#exercice-7" title="Lien vers cette rubrique">#</a></h3>
+<h3>Exercice 7<a class="headerlink" href="#exercice-7" title="Lien permanent vers cette rubrique">#</a></h3>
 <ul class="simple">
 <li><p>Représentez la forme d’onde <span class="math notranslate nohighlight">\(h_1(t)\)</span> :</p></li>
 </ul>

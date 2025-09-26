@@ -1,12 +1,13 @@
 
+
 <!DOCTYPE html>
 
 
-<html lang="fr" data-content_root="../" >
+<html lang="fr" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Traitement des signaux bruités &#8212; Traitement du signal 2</title>
   
@@ -28,14 +29,14 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=109105fe" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=949a1ff5" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
-    <link rel="stylesheet" type="text/css" href="../_static/jbvinc.css?v=8dc5e944" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.4cbf315f70debaebd550c87a6162cf0f.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/jbvinc.css" />
     <link rel="stylesheet" type="text/css" href="../_static/.ipynb_checkpoints/jbvinc-checkpoint.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -43,23 +44,21 @@
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../_static/documentation_options.js?v=72dce1d2"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
-    <script src="../_static/copybutton.js?v=ff8fa330"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js?v=bcf87968"></script>
-    <script src="../_static/translations.js?v=041d0952"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/translations.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'ssp/traitement-bruit';</script>
@@ -180,11 +179,17 @@
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Révisions</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../revisions/td.html">Exercices sur feuille</a><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../revisions/td.html">Exercices sur feuille</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../revisions/tdc.html">Corrections</a></li>
-</ul><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary>
+</ul>
 </details></li>
-<li class="toctree-l1"><a class="reference internal" href="../revisions/tp.html">Exercices sur machine</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../revisions/tp.html">Exercices sur machine</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc1.html">Représentation d’un signal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc2.html">Transformée de Fourier discrète</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc3.html">Analyse spectrale</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../revisions/tpc4.html">Produit de convolution</a></li>
+</ul>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Filtrage</span></p>
 <ul class="nav bd-sidenav">
@@ -400,7 +405,7 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="traitement-des-signaux-bruites">
-<span id="c-ssp-traitement"></span><h1>Traitement des signaux bruités<a class="headerlink" href="#traitement-des-signaux-bruites" title="Lien vers cette rubrique">#</a></h1>
+<span id="c-ssp-traitement"></span><h1>Traitement des signaux bruités<a class="headerlink" href="#traitement-des-signaux-bruites" title="Lien permanent vers cette rubrique">#</a></h1>
 <p>Nous présentons trois types de techniques de traitement de signaux bruités :</p>
 <ul class="simple">
 <li><p>la détection de signal, c’est-à-dire déterminer si un signal particulier est présent dans des données bruitées,</p></li>
@@ -410,11 +415,11 @@ document.write(`
 <p>Sauf indication contraire, nous supposons que le bruit est blanc, gaussien et additif :
 par conséquent, le signal observé <span class="math notranslate nohighlight">\(y\)</span> est la somme d’un signal non bruité <span class="math notranslate nohighlight">\(x\)</span> et d’un bruit <span class="math notranslate nohighlight">\(b\)</span>.</p>
 <section id="detection-de-signaux">
-<h2>Détection de signaux<a class="headerlink" href="#detection-de-signaux" title="Lien vers cette rubrique">#</a></h2>
+<h2>Détection de signaux<a class="headerlink" href="#detection-de-signaux" title="Lien permanent vers cette rubrique">#</a></h2>
 <p>Lorsque l’on parle de « détecter un signal », cela signifie répondre à la question : « le signal <span class="math notranslate nohighlight">\(x\)</span> est-il présent dans le signal observé <span class="math notranslate nohighlight">\(y\)</span> ? ».
 Différentes techniques de détection existent, en fonction des connaissances que l’on a sur le signal recherché <span class="math notranslate nohighlight">\(x\)</span>.</p>
 <section id="detection-de-signaux-periodiques-inconnus-de-periode-inconnue">
-<h3>Détection de signaux périodiques inconnus de période inconnue<a class="headerlink" href="#detection-de-signaux-periodiques-inconnus-de-periode-inconnue" title="Lien vers cette rubrique">#</a></h3>
+<h3>Détection de signaux périodiques inconnus de période inconnue<a class="headerlink" href="#detection-de-signaux-periodiques-inconnus-de-periode-inconnue" title="Lien permanent vers cette rubrique">#</a></h3>
 <p>Dans le cas où l’on cherche dans l’observation un signal <span class="math notranslate nohighlight">\(x\)</span> périodique, mais qu’on ne connait ni sa période ni sa forme,
 alors l’autocorrélation de <span class="math notranslate nohighlight">\(y\)</span> permet de déterminer si le signal <span class="math notranslate nohighlight">\(x\)</span> est présent et quelle est sa période.
 On rappelle que l”<a class="reference external" href="https://vincmazet.github.io/signal1/xcorr/intercorrelation.html#autocorrelation">autocorrélation</a>
@@ -435,16 +440,15 @@ R_y[m] &amp;= \sum_{n=-\infty}^{+\infty} y[n+m] y[n] \\
 <p>Finalement, l’autocorrélation <span class="math notranslate nohighlight">\(R_y\)</span> est égale à l’autocorrélation de <span class="math notranslate nohighlight">\(x\)</span> (sauf en zéro).
 Si <span class="math notranslate nohighlight">\(x\)</span> est bien présent dans l’observation, alors <span class="math notranslate nohighlight">\(R_y\)</span> est périodique et sa période est égale à la période de <span class="math notranslate nohighlight">\(x\)</span>.</p>
 <figure class="align-default" id="f-ssp-detection1">
-<img alt="../_images/detection1.svg" src="../_images/detection1.svg" />
-<figcaption>
+<img alt="../_images/detection1.svg" src="../_images/detection1.svg" /><figcaption>
 <p><span class="caption-number">Fig. 31 </span><span class="caption-text">Le signal <span class="math notranslate nohighlight">\(y\)</span> est la somme du signal <span class="math notranslate nohighlight">\(x\)</span> (périodique, mais de forme et de période inconnues) et d’un bruit blanc <span class="math notranslate nohighlight">\(b\)</span>.
 L’autocorrélation <span class="math notranslate nohighlight">\(R_{y}\)</span> fait apparaître un motif périodique de période 50
-qui confirme la présence dans <span class="math notranslate nohighlight">\(y\)</span> d’un signal de même période.</span><a class="headerlink" href="#f-ssp-detection1" title="Lien vers cette image">#</a></p>
+qui confirme la présence dans <span class="math notranslate nohighlight">\(y\)</span> d’un signal de même période.</span><a class="headerlink" href="#f-ssp-detection1" title="Lien permanent vers cette image">#</a></p>
 </figcaption>
 </figure>
 </section>
 <section id="detection-de-signaux-periodiques-inconnus-de-periode-connue">
-<h3>Détection de signaux périodiques inconnus de période connue<a class="headerlink" href="#detection-de-signaux-periodiques-inconnus-de-periode-connue" title="Lien vers cette rubrique">#</a></h3>
+<h3>Détection de signaux périodiques inconnus de période connue<a class="headerlink" href="#detection-de-signaux-periodiques-inconnus-de-periode-connue" title="Lien permanent vers cette rubrique">#</a></h3>
 <p>Ce cas est plus favorable que le précédent car on dispose d’une information supplémentaire.
 On cherche à déterminer si l’observation <span class="math notranslate nohighlight">\(y\)</span> correspond au signal périodique <span class="math notranslate nohighlight">\(x\)</span> (de période <span class="math notranslate nohighlight">\(T\)</span>) bruité par un bruit blanc <span class="math notranslate nohighlight">\(b\)</span>.
 Le principe de détection consiste à effectuer l’intercorrélation de <span class="math notranslate nohighlight">\(y\)</span> avec un signal auxiliaire <span class="math notranslate nohighlight">\(z\)</span> périodique et de période <span class="math notranslate nohighlight">\(T\)</span>
@@ -460,17 +464,16 @@ R_{yz}[m] &amp;= \sum_{n=-\infty}^{+\infty} y[n+m] z[n] \\
 alors que <span class="math notranslate nohighlight">\(R_{bz}\)</span> est nulle puisque <span class="math notranslate nohighlight">\(b\)</span> et <span class="math notranslate nohighlight">\(z\)</span> sont décorrélés.
 Ainsi, <span class="math notranslate nohighlight">\(R_{yz}\)</span> sera périodique de période <span class="math notranslate nohighlight">\(T\)</span> si le signal <span class="math notranslate nohighlight">\(x\)</span> est présent.</p>
 <figure class="align-default" id="f-ssp-detection2">
-<img alt="../_images/detection2.svg" src="../_images/detection2.svg" />
-<figcaption>
+<img alt="../_images/detection2.svg" src="../_images/detection2.svg" /><figcaption>
 <p><span class="caption-number">Fig. 32 </span><span class="caption-text">Le signal observé <span class="math notranslate nohighlight">\(y\)</span> est la somme du signal périodique <span class="math notranslate nohighlight">\(x\)</span> (de forme inconnue mais de période connue) et d’un bruit blanc <span class="math notranslate nohighlight">\(b\)</span>.
 Le signal auxiliaire <span class="math notranslate nohighlight">\(z\)</span> est ici une sinusoïde de même période que <span class="math notranslate nohighlight">\(x\)</span>.
 L’intercorrélation <span class="math notranslate nohighlight">\(R_{yz}\)</span> fait apparaître un motif périodique de période 50
-qui confirme la présence dans <span class="math notranslate nohighlight">\(y\)</span> d’un signal de même période.</span><a class="headerlink" href="#f-ssp-detection2" title="Lien vers cette image">#</a></p>
+qui confirme la présence dans <span class="math notranslate nohighlight">\(y\)</span> d’un signal de même période.</span><a class="headerlink" href="#f-ssp-detection2" title="Lien permanent vers cette image">#</a></p>
 </figcaption>
 </figure>
 </section>
 <section id="detection-d-un-motif">
-<h3>Détection d’un motif<a class="headerlink" href="#detection-d-un-motif" title="Lien vers cette rubrique">#</a></h3>
+<h3>Détection d’un motif<a class="headerlink" href="#detection-d-un-motif" title="Lien permanent vers cette rubrique">#</a></h3>
 <p>Un « motif » est un signal déterministe connu et de durée finie.
 La technique suivante permet de déterminer si le motif est présent dans l’observation <span class="math notranslate nohighlight">\(y\)</span>,
 et si oui à obtenir son instant d’apparition.
@@ -486,23 +489,22 @@ cette technique est un filtrage, qu’on appelle « filtrage adapté » (<em>ma
 On peut montrer qu’elle est la solution optimale pour maximiser le RSB dans le cadre d’un bruit additif.
 Elle est notamment utilisé dans des applications radar ou en communications numériques.</p>
 <figure class="align-default" id="f-ssp-filtre-adapte">
-<img alt="../_images/filtre-adapte.svg" src="../_images/filtre-adapte.svg" />
-<figcaption>
+<img alt="../_images/filtre-adapte.svg" src="../_images/filtre-adapte.svg" /><figcaption>
 <p><span class="caption-number">Fig. 33 </span><span class="caption-text">Le motif <span class="math notranslate nohighlight">\(x\)</span> est une porte et le signal observé <span class="math notranslate nohighlight">\(y\)</span> correspond à <span class="math notranslate nohighlight">\(x\)</span> décalé de <span class="math notranslate nohighlight">\(k=60\)</span> échantillons
 et bruité par un bruit blanc gaussien de RSB 15 dB.
 Seules les corrélations de <span class="math notranslate nohighlight">\(x\)</span> avec <span class="math notranslate nohighlight">\(x\)</span> et <span class="math notranslate nohighlight">\(y\)</span> présentent un maximum clair,
-ce qui indique la présence du motif à cet instant.</span><a class="headerlink" href="#f-ssp-filtre-adapte" title="Lien vers cette image">#</a></p>
+ce qui indique la présence du motif à cet instant.</span><a class="headerlink" href="#f-ssp-filtre-adapte" title="Lien permanent vers cette image">#</a></p>
 </figcaption>
 </figure>
 <p><a class="exercise btn btn-light" href="td.html#exercice-4" role="button">4</a></p>
 </section>
 </section>
 <section id="debruitage-de-signaux">
-<h2>Débruitage de signaux<a class="headerlink" href="#debruitage-de-signaux" title="Lien vers cette rubrique">#</a></h2>
+<h2>Débruitage de signaux<a class="headerlink" href="#debruitage-de-signaux" title="Lien permanent vers cette rubrique">#</a></h2>
 <p>Débruiter un signal, c’est réduire le plus possible le bruit présent dans le signal.
 Sauf cas très particulier, il n’est pas possible d’éliminer complètement le bruit puisqu’il est inconnu.</p>
 <section id="debruitage-d-un-signal-unique">
-<h3>Débruitage d’un signal unique<a class="headerlink" href="#debruitage-d-un-signal-unique" title="Lien vers cette rubrique">#</a></h3>
+<h3>Débruitage d’un signal unique<a class="headerlink" href="#debruitage-d-un-signal-unique" title="Lien permanent vers cette rubrique">#</a></h3>
 <p>On observe un signal <span class="math notranslate nohighlight">\(x\)</span> bruité par un bruit blanc gaussien additif :</p>
 <div class="math notranslate nohighlight">
 \[
@@ -531,9 +533,9 @@ z = [?,\, 7,\, 8,\, 9,\, 8,\, 6,\, 2,\, 2,\, 3,\, 4,\, 3,\, 3,\, ?]
 <p>où les deux points d’interrogation correspondent à des échantillons qu’on ne peut pas calculer.</p>
 <p>La <a class="reference internal" href="#f-ssp-filtre-moyenneur-exemple"><span class="std std-numref">Fig. 34</span></a> représente ces deux signaux.</p>
 <figure class="align-default" id="f-ssp-filtre-moyenneur-exemple">
-<a class="reference internal image-reference" href="../_images/filtre-moyenneur-exemple.svg"><img alt="../_images/filtre-moyenneur-exemple.svg" src="../_images/filtre-moyenneur-exemple.svg" style="width: 600px;" /></a>
+<a class="reference internal image-reference" href="../_images/filtre-moyenneur-exemple.svg"><img alt="../_images/filtre-moyenneur-exemple.svg" src="../_images/filtre-moyenneur-exemple.svg" width="600px" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 34 </span><span class="caption-text">Signaux <span class="math notranslate nohighlight">\(y\)</span> (en bleu) et <span class="math notranslate nohighlight">\(z\)</span> (en orange).</span><a class="headerlink" href="#f-ssp-filtre-moyenneur-exemple" title="Lien vers cette image">#</a></p>
+<p><span class="caption-number">Fig. 34 </span><span class="caption-text">Signaux <span class="math notranslate nohighlight">\(y\)</span> (en bleu) et <span class="math notranslate nohighlight">\(z\)</span> (en orange).</span><a class="headerlink" href="#f-ssp-filtre-moyenneur-exemple" title="Lien permanent vers cette image">#</a></p>
 </figcaption>
 </figure>
 </div>
@@ -549,9 +551,8 @@ Comme on l’observe sur la <a class="reference internal" href="#f-ssp-filtre-mo
 plus le nombre d’échantillons moyennés <span class="math notranslate nohighlight">\(M\)</span> est grand, plus le bruit sera atténué.
 Mais la forme du signal d’intérêt <span class="math notranslate nohighlight">\(x\)</span> sera lissée.</p>
 <figure class="align-default" id="f-ssp-filtre-moyenneur">
-<img alt="../_images/filtre-moyenneur.svg" src="../_images/filtre-moyenneur.svg" />
-<figcaption>
-<p><span class="caption-number">Fig. 35 </span><span class="caption-text">Application d’un filtre moyenneur sur le signal observé <span class="math notranslate nohighlight">\(y\)</span> (qui est la somme du signal d’intérêt <span class="math notranslate nohighlight">\(x\)</span> et d’un bruit).</span><a class="headerlink" href="#f-ssp-filtre-moyenneur" title="Lien vers cette image">#</a></p>
+<img alt="../_images/filtre-moyenneur.svg" src="../_images/filtre-moyenneur.svg" /><figcaption>
+<p><span class="caption-number">Fig. 35 </span><span class="caption-text">Application d’un filtre moyenneur sur le signal observé <span class="math notranslate nohighlight">\(y\)</span> (qui est la somme du signal d’intérêt <span class="math notranslate nohighlight">\(x\)</span> et d’un bruit).</span><a class="headerlink" href="#f-ssp-filtre-moyenneur" title="Lien permanent vers cette image">#</a></p>
 </figcaption>
 </figure>
 <p>Le filtre moyenneur est une très bonne première approche pour débruiter un signal.
@@ -563,7 +564,7 @@ sur un graphique ou un écran très petit.</p>
 <p><a class="exercise btn btn-light" href="td.html#exercice-5" role="button">5</a></p>
 </section>
 <section id="debruitage-de-plusieurs-realisations-d-un-meme-signal">
-<h3>Débruitage de plusieurs réalisations d’un même signal<a class="headerlink" href="#debruitage-de-plusieurs-realisations-d-un-meme-signal" title="Lien vers cette rubrique">#</a></h3>
+<h3>Débruitage de plusieurs réalisations d’un même signal<a class="headerlink" href="#debruitage-de-plusieurs-realisations-d-un-meme-signal" title="Lien permanent vers cette rubrique">#</a></h3>
 <p>Dans le cas où l’on dispose de <span class="math notranslate nohighlight">\(I\)</span> mesures d’un même signal <span class="math notranslate nohighlight">\(x\)</span> :</p>
 <div class="math notranslate nohighlight">
 \[
@@ -572,11 +573,10 @@ sur un graphique ou un écran très petit.</p>
 <p>et que le bruit est centré (<span class="math notranslate nohighlight">\(\mathbb{E}[b_i]=0\)</span>), alors la moyenne des <span class="math notranslate nohighlight">\(y_i\)</span> permet d’augmenter le RSB d’un facteur <span class="math notranslate nohighlight">\(10\log(I)\)</span>.
 Aussi, plus il y a de signaux moyennés, meilleur sera le débruitage.</p>
 <figure class="align-default" id="f-ssp-moyennage">
-<img alt="../_images/moyennage.svg" src="../_images/moyennage.svg" />
-<figcaption>
+<img alt="../_images/moyennage.svg" src="../_images/moyennage.svg" /><figcaption>
 <p><span class="caption-number">Fig. 36 </span><span class="caption-text">Moyennage de plusieurs réalisations <span class="math notranslate nohighlight">\(y_i\)</span> d’un même signal <span class="math notranslate nohighlight">\(x\)</span>.
 Le premier graphe ci-dessous représente 50 réalisations superposées (en gris),
-l’une d’elle est en bleu pour être visible.</span><a class="headerlink" href="#f-ssp-moyennage" title="Lien vers cette image">#</a></p>
+l’une d’elle est en bleu pour être visible.</span><a class="headerlink" href="#f-ssp-moyennage" title="Lien permanent vers cette image">#</a></p>
 </figcaption>
 </figure>
 <p>En photographie, le moyennage de plusieurs images d’une même scène permet de réduire le bruit présent dans la photographie.
@@ -586,14 +586,14 @@ elle-même acquises avec un temps de pose très long (plusieurs dizaines de minu
 </section>
 </section>
 <section id="approximation-par-moindres-carres">
-<h2>Approximation par moindres carrés<a class="headerlink" href="#approximation-par-moindres-carres" title="Lien vers cette rubrique">#</a></h2>
+<h2>Approximation par moindres carrés<a class="headerlink" href="#approximation-par-moindres-carres" title="Lien permanent vers cette rubrique">#</a></h2>
 <p>La méthode des moindres carrés (<em>least squares method</em>) a été proposée par Gauss et Legendre à la fin du XVII<sup>e</sup> siècle.
 Dans le cadre de l’approximation, elle permet de décrire un signal bruité par un modèle mathématique.</p>
 <section id="problematique">
-<h3>Problématique<a class="headerlink" href="#problematique" title="Lien vers cette rubrique">#</a></h3>
+<h3>Problématique<a class="headerlink" href="#problematique" title="Lien permanent vers cette rubrique">#</a></h3>
 <p>On considère donc le cas où les observations <span class="math notranslate nohighlight">\(y\)</span> sont la somme d’un signal <span class="math notranslate nohighlight">\(x=f_{\theta}\)</span> bruité :</p>
 <div class="math notranslate nohighlight" id="equation-e-mc-y">
-<span class="eqno">(2)<a class="headerlink" href="#equation-e-mc-y" title="Lien vers cette équation">#</a></span>\[\forall n, \quad y[n] = f_{\theta}[n] + b[n]\]</div>
+<span class="eqno">(2)<a class="headerlink" href="#equation-e-mc-y" title="Lien permanent vers cette équation">#</a></span>\[\forall n, \quad y[n] = f_{\theta}[n] + b[n]\]</div>
 <p>où :</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(f_{\theta}\)</span> est une fonction paramétrique (sinusoïde, polynôme, etc.) connue,</p></li>
@@ -611,10 +611,10 @@ ou une exponentielle (<span class="math notranslate nohighlight">\(f_{\theta}[n]
 Mais par simplicité, nous nous concentrons dans cette section sur les fonctions <span class="math notranslate nohighlight">\(f_{\theta}\)</span> linéaires en <span class="math notranslate nohighlight">\(\theta\)</span>,
 et en particulier des fonctions <span class="math notranslate nohighlight">\(f_{\theta}\)</span> polynomiale :</p>
 <div class="math notranslate nohighlight" id="equation-e-mc-f">
-<span class="eqno">(3)<a class="headerlink" href="#equation-e-mc-f" title="Lien vers cette équation">#</a></span>\[\forall n, \quad f_{\theta}[n] = \theta_0 + \theta_1 n + \theta_2 n^2 + \dots + \theta_M n^M.\]</div>
+<span class="eqno">(3)<a class="headerlink" href="#equation-e-mc-f" title="Lien permanent vers cette équation">#</a></span>\[\forall n, \quad f_{\theta}[n] = \theta_0 + \theta_1 n + \theta_2 n^2 + \dots + \theta_M n^M.\]</div>
 </section>
 <section id="ecriture-matricielle">
-<h3>Écriture matricielle<a class="headerlink" href="#ecriture-matricielle" title="Lien vers cette rubrique">#</a></h3>
+<h3>Écriture matricielle<a class="headerlink" href="#ecriture-matricielle" title="Lien permanent vers cette rubrique">#</a></h3>
 <p>Dans la suite, les calculs sont effectués avec la représentation vectorielle.
 Les abscisses des échantillons sont regroupés dans le vecteur <span class="math notranslate nohighlight">\(n = \begin{bmatrix} n_1 &amp; \dots &amp; n_N \end{bmatrix}^T\)</span>.
 Puisque d’après l’équation <a class="reference internal" href="#equation-e-mc-f">(3)</a> :</p>
@@ -658,7 +658,7 @@ y[n_N] = \theta_0 + \theta_1 n_N + \theta_2 n_N^2 + \dots + \theta_M n_N^M + b[n
 \end{split}\]</div>
 </section>
 <section id="minimisation-du-critere-des-moindres-carres">
-<h3>Minimisation du critère des moindres carrés<a class="headerlink" href="#minimisation-du-critere-des-moindres-carres" title="Lien vers cette rubrique">#</a></h3>
+<h3>Minimisation du critère des moindres carrés<a class="headerlink" href="#minimisation-du-critere-des-moindres-carres" title="Lien permanent vers cette rubrique">#</a></h3>
 <p>L’objectif est de retrouver <span class="math notranslate nohighlight">\(\theta\)</span> à partir de <span class="math notranslate nohighlight">\(y\)</span>.
 Il est logique de choisir <span class="math notranslate nohighlight">\(\theta\)</span> comme le paramètre qui minimise les différences entre <span class="math notranslate nohighlight">\(y\)</span> et <span class="math notranslate nohighlight">\(f_\theta\)</span>.
 Mathématiquement, il faut donc minimiser</p>
@@ -699,24 +699,22 @@ et on peut montrer que :</p>
 c’est donc la valeur de <span class="math notranslate nohighlight">\(\theta\)</span> qui permet d’avoir une fonction <span class="math notranslate nohighlight">\(f_{\theta}\)</span> qui approxime au mieux les données <span class="math notranslate nohighlight">\(y\)</span>.</p>
 </section>
 <section id="illustration">
-<h3>Illustration<a class="headerlink" href="#illustration" title="Lien vers cette rubrique">#</a></h3>
+<h3>Illustration<a class="headerlink" href="#illustration" title="Lien permanent vers cette rubrique">#</a></h3>
 <p>La solution obtenue est issue du calcul <span class="math notranslate nohighlight">\(\boldsymbol{\theta} = (\boldsymbol{H}^T\boldsymbol{H})^{-1} \boldsymbol{H}^T\boldsymbol{y}\)</span>.
 Sur l’exemple de la <a class="reference internal" href="#f-ssp-moindres-carres"><span class="std std-numref">Fig. 37</span></a>, l’observation <span class="math notranslate nohighlight">\(y\)</span> est une version bruitée d’un polynôme <span class="math notranslate nohighlight">\(x\)</span>.
 L’approximation par moindres carrés est plus appréciable que celle obtenue avec le filtre moyenneur
 car on bénéficie ici du fait que le signal inconnu est un polynôme.</p>
 <figure class="align-default" id="f-ssp-moindres-carres">
-<img alt="../_images/moindres-carres.svg" src="../_images/moindres-carres.svg" />
-<figcaption>
+<img alt="../_images/moindres-carres.svg" src="../_images/moindres-carres.svg" /><figcaption>
 <p><span class="caption-number">Fig. 37 </span><span class="caption-text">Les données <span class="math notranslate nohighlight">\(y\)</span> sont approximées par un polynôme d’ordre 3 avec la méthode des moindres carrés.
-Le résultat est comparé avec un filtre moyenneur de taille 20, qui donne une estimation moins « propre ».</span><a class="headerlink" href="#f-ssp-moindres-carres" title="Lien vers cette image">#</a></p>
+Le résultat est comparé avec un filtre moyenneur de taille 20, qui donne une estimation moins « propre ».</span><a class="headerlink" href="#f-ssp-moindres-carres" title="Lien permanent vers cette image">#</a></p>
 </figcaption>
 </figure>
 <p>La figure <a class="reference internal" href="#f-ssp-moindres-carres-differences"><span class="std std-numref">Fig. 38</span></a> représente en orange les différences entre l’observation et l’estimation.
 C’est la somme de ces différences qui est minimisée par la méthode des moindres carrés.</p>
 <figure class="align-default" id="f-ssp-moindres-carres-differences">
-<img alt="../_images/moindres-carres-differences.svg" src="../_images/moindres-carres-differences.svg" />
-<figcaption>
-<p><span class="caption-number">Fig. 38 </span><span class="caption-text">Mise en évidence des erreurs à minimiser.</span><a class="headerlink" href="#f-ssp-moindres-carres-differences" title="Lien vers cette image">#</a></p>
+<img alt="../_images/moindres-carres-differences.svg" src="../_images/moindres-carres-differences.svg" /><figcaption>
+<p><span class="caption-number">Fig. 38 </span><span class="caption-text">Mise en évidence des erreurs à minimiser.</span><a class="headerlink" href="#f-ssp-moindres-carres-differences" title="Lien permanent vers cette image">#</a></p>
 </figcaption>
 </figure>
 <p><a class="exercise btn btn-light" href="td.html#exercice-7" role="button">7</a></p>
