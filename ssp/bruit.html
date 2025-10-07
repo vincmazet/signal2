@@ -65,7 +65,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Recherche" href="../search.html" />
     <link rel="next" title="Traitement des signaux bruités" href="traitement-bruit.html" />
-    <link rel="prev" title="Exercices sur machine" href="../filtrage/tp.html" />
+    <link rel="prev" title="Filtrage numérique" href="../filtrage/tpc.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="fr"/>
   </head>
@@ -202,8 +202,14 @@
 <li class="toctree-l1"><a class="reference internal" href="../filtrage/rif.html">Filtres RIF</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../filtrage/rii.html">Filtres RII</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../filtrage/analogiques.html">Filtres analogiques</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../filtrage/td.html">Exercices sur feuille</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../filtrage/tp.html">Exercices sur machine</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../filtrage/td.html">Exercices sur feuille</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../filtrage/tdc.html">Corrections</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../filtrage/tp.html">Exercices sur machine</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../filtrage/tpc.html">Filtrage numérique</a></li>
+</ul>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Traitement statistique du signal</span></p>
 <ul class="current nav bd-sidenav">
@@ -646,7 +652,7 @@ Elle indique comment la puissance du signal aléatoire se localise en fonction d
   \int_{-1/2}^{+1/2} S_x(f) df = R_x(0) = P_x
   \]</div>
 </li>
-<li><p>La densité spectrale de puissance ne caractérise pas entièrement un signal aléatoire : deux signaux aléatoires différents peuvent avoir la même densité spectrale de puissance !</p></li>
+<li><p>La densité spectrale de puissance ne caractérise pas entièrement un signal aléatoire : deux signaux aléatoires peuvent avoir la même densité spectrale de puissance mais être différents !</p></li>
 </ul>
 <!-- 
 Démo
@@ -837,12 +843,12 @@ ce qui permet de comparer les performances du traitement réalisé avec d’autr
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../filtrage/tp.html"
+       href="../filtrage/tpc.html"
        title="page précédente">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">précédent</p>
-        <p class="prev-next-title">Exercices sur machine</p>
+        <p class="prev-next-title">Filtrage numérique</p>
       </div>
     </a>
     <a class="right-next"

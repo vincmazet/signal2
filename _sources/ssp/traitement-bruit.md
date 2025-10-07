@@ -231,16 +231,17 @@ Dans le cadre de l'approximation, elle permet de décrire un signal bruité par 
 
 ### Problématique
 
-On considère donc le cas où les observations $y$ sont la somme d'un signal $x=f_{\theta}$ bruité :
+On considère le cas où les observations $y$ contiennent $N$ échantillons
+et sont la somme d'un signal $x=f_{\theta}$ bruité :
 
 ```{math}
 :label: E:mc:y
-\forall n, \quad y[n] = f_{\theta}[n] + b[n]
+\forall n\in\{0,\dots,N-1\}, \quad y[n] = f_{\theta}[n] + b[n]
 ```
 
 où :
 * $f_{\theta}$ est une fonction paramétrique (sinusoïde, polynôme, etc.) connue,
-* $\theta$ est un ensemble de paramètres $\theta_0, \theta_1, \dots, \theta_M$ inconnus,
+* $\theta$ est un ensemble de paramètres $\theta_0, \theta_1, \dots, \theta_{M-1}$ inconnus,
 * $f_{\theta}[n]$ est la valeur de la fonction $f_{\theta}$ en $n$,
 * $b$ est un bruit de moyenne nulle.
 
@@ -249,38 +250,32 @@ Si $f$ n'est pas linéaire, alors il faut utiliser une méthode de moindres carr
 ```
 
 De manière générale, $f$ peut être n'importe quelle fonction paramétrée,
-comme un polynôme d'ordre 2 ($f_{\theta}[n] = \theta_0 + \theta_1 n + \theta_2 n^2$)
-ou une exponentielle ($f_{\theta}[n] = \theta_0 \exp(\theta_1 n)$).
-Mais par simplicité, nous nous concentrons dans cette section sur les fonctions $f_{\theta}$ linéaires en $\theta$,
-et en particulier des fonctions $f_{\theta}$ polynomiale :
+comme par exemple :
+* un polynôme de degré 2 : $f_{\theta}[n] = \theta_0 + \theta_1 n + \theta_2 n^2$,
+* une exponentielle : $f_{\theta}[n] = \theta_0 \exp(\theta_1 n)$.
+
+Par simplicité, nous nous concentrons dans cette section sur les fonctions $f_{\theta}$ linéaires en $\theta$,
+et en particulier des fonctions $f_{\theta}$ polynomiales :
 
 ```{math}
 :label: E:mc:f
-\forall n, \quad f_{\theta}[n] = \theta_0 + \theta_1 n + \theta_2 n^2 + \dots + \theta_M n^M.
+\forall n, \quad f_{\theta}[n] = \theta_0 + \theta_1 n + \theta_2 n^2 + \dots + \theta_{M-1} n^{M-1}.
 ```
+
+L'objectif est d'estimer la valeur des $M$ inconnues $\theta_m$ où $m\in\{0,\dots,M-1\}$.
 
 ### Écriture matricielle
 
 Dans la suite, les calculs sont effectués avec la représentation vectorielle.
-Les abscisses des échantillons sont regroupés dans le vecteur $n = \begin{bmatrix} n_1 & \dots & n_N \end{bmatrix}^T$.
-Puisque d'après l'équation {eq}`E:mc:f` :
+En considérant toutes les valeurs que prend $n$,
+l'équation {eq}`E:mc:y` devient un système de $N$ équations à $M$ inconnues :
 
 $$
 \begin{cases}
-f_{\theta}[n_1] = \theta_0 + \theta_1 n_1 + \theta_2 n_1^2 + \dots + \theta_M n_1^M \\
+y[0] = \theta_0 + \theta_1 0 + \theta_2 0^2 + \dots + \theta_{M-1} 0^{M-1} + b[0] \\
+y[1] = \theta_0 + \theta_1 1 + \theta_2 1^2 + \dots + \theta_{M-1} 1^{M-1} + b[1] \\
 \quad\vdots \\
-f_{\theta}[n_N] = \theta_0 + \theta_1 n_N + \theta_2 n_N^2 + \dots + \theta_M n_N^M
-\end{cases}
-$$
-
-alors l'équation du modèle {eq}`E:mc:y` devient un système de $N$ équations
-à $M+1$ inconnues :
-
-$$
-\begin{cases}
-y[n_1] = \theta_0 + \theta_1 n_1 + \theta_2 n_1^2 + \dots + \theta_M n_1^M + b[n_1] \\
-\quad\vdots \\
-y[n_N] = \theta_0 + \theta_1 n_N + \theta_2 n_N^2 + \dots + \theta_M n_N^M + b[n_N]
+y[N-1] = \theta_0 + \theta_1 (N-1) + \theta_2 (N-1)^2 + \dots + \theta_{M-1} (N-1)^{M-1} + b[N-1]
 \end{cases}
 $$
 
@@ -297,13 +292,18 @@ $$
 où :
 
 $$
-\boldsymbol{y} = \begin{bmatrix} y[n_1] \\ \vdots \\ y[n_N] \end{bmatrix},
+\boldsymbol{y} = \begin{bmatrix} y[0] \\ \vdots \\ y[N-1] \end{bmatrix},
 \quad
-\boldsymbol{H} = \begin{bmatrix} 1 & n_1 & \dots & n_1^M \\ \vdots & \vdots & & \vdots \\ 1 & n_N & \dots & n_N^M \end{bmatrix},
+\boldsymbol{H} = \begin{bmatrix}
+    1 & 0 & \dots & 0^{M-1} \\
+    1 & 1 & \dots & 1^{M-1} \\
+    \vdots & \vdots & & \vdots \\
+    1 & N-1 & \dots & (N-1)^{M-1}
+\end{bmatrix},
 \quad
 \boldsymbol{\theta} = \begin{bmatrix} \theta_0 \\ \vdots \\ \theta_M \end{bmatrix}
 \quad\text{et}\qquad
-\boldsymbol{b} = \begin{bmatrix} b[n_1] \\ \vdots \\ b[n_N] \end{bmatrix}
+\boldsymbol{b} = \begin{bmatrix} b[0] \\ \vdots \\ b[N-1] \end{bmatrix}
 $$
 
 
@@ -314,11 +314,11 @@ Il est logique de choisir $\theta$ comme le paramètre qui minimise les différe
 Mathématiquement, il faut donc minimiser
 
 $$
-\mathcal{J} = \sum_{n=1}^N \left(y[n] - f_{\theta}[n]\right)^2.
+\mathcal{J} = \sum_{n=0}^{N-1} \left(y[n] - f_{\theta}[n]\right)^2.
 $$
 
 La parenthèse, qui exprime la différence entre $y$ et $f_{\theta}$ en chaque échantillon $n$,
-est mise au carré car les calculs sont plus simples à effectuer qu'avec une valeur absolue.
+est au carré car les calculs sont plus simples à effectuer qu'avec une valeur absolue.
 On cherche donc à minimiser les différences au carrés, d'où le nom de la méthode.
 Remarquez que $\mathcal{J}$ est le carré de la norme du signal $y - f_{\theta}$ :
 

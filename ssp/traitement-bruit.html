@@ -202,8 +202,14 @@
 <li class="toctree-l1"><a class="reference internal" href="../filtrage/rif.html">Filtres RIF</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../filtrage/rii.html">Filtres RII</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../filtrage/analogiques.html">Filtres analogiques</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../filtrage/td.html">Exercices sur feuille</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../filtrage/tp.html">Exercices sur machine</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../filtrage/td.html">Exercices sur feuille</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../filtrage/tdc.html">Corrections</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../filtrage/tp.html">Exercices sur machine</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../filtrage/tpc.html">Filtrage numérique</a></li>
+</ul>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Traitement statistique du signal</span></p>
 <ul class="current nav bd-sidenav">
@@ -591,13 +597,14 @@ elle-même acquises avec un temps de pose très long (plusieurs dizaines de minu
 Dans le cadre de l’approximation, elle permet de décrire un signal bruité par un modèle mathématique.</p>
 <section id="problematique">
 <h3>Problématique<a class="headerlink" href="#problematique" title="Lien permanent vers cette rubrique">#</a></h3>
-<p>On considère donc le cas où les observations <span class="math notranslate nohighlight">\(y\)</span> sont la somme d’un signal <span class="math notranslate nohighlight">\(x=f_{\theta}\)</span> bruité :</p>
+<p>On considère le cas où les observations <span class="math notranslate nohighlight">\(y\)</span> contiennent <span class="math notranslate nohighlight">\(N\)</span> échantillons
+et sont la somme d’un signal <span class="math notranslate nohighlight">\(x=f_{\theta}\)</span> bruité :</p>
 <div class="math notranslate nohighlight" id="equation-e-mc-y">
-<span class="eqno">(2)<a class="headerlink" href="#equation-e-mc-y" title="Lien permanent vers cette équation">#</a></span>\[\forall n, \quad y[n] = f_{\theta}[n] + b[n]\]</div>
+<span class="eqno">(2)<a class="headerlink" href="#equation-e-mc-y" title="Lien permanent vers cette équation">#</a></span>\[\forall n\in\{0,\dots,N-1\}, \quad y[n] = f_{\theta}[n] + b[n]\]</div>
 <p>où :</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(f_{\theta}\)</span> est une fonction paramétrique (sinusoïde, polynôme, etc.) connue,</p></li>
-<li><p><span class="math notranslate nohighlight">\(\theta\)</span> est un ensemble de paramètres <span class="math notranslate nohighlight">\(\theta_0, \theta_1, \dots, \theta_M\)</span> inconnus,</p></li>
+<li><p><span class="math notranslate nohighlight">\(\theta\)</span> est un ensemble de paramètres <span class="math notranslate nohighlight">\(\theta_0, \theta_1, \dots, \theta_{M-1}\)</span> inconnus,</p></li>
 <li><p><span class="math notranslate nohighlight">\(f_{\theta}[n]\)</span> est la valeur de la fonction <span class="math notranslate nohighlight">\(f_{\theta}\)</span> en <span class="math notranslate nohighlight">\(n\)</span>,</p></li>
 <li><p><span class="math notranslate nohighlight">\(b\)</span> est un bruit de moyenne nulle.</p></li>
 </ul>
@@ -606,34 +613,29 @@ Dans le cadre de l’approximation, elle permet de décrire un signal bruité pa
 <p>Si <span class="math notranslate nohighlight">\(f\)</span> n’est pas linéaire, alors il faut utiliser une méthode de moindres carrés non linéaires.</p>
 </aside>
 <p>De manière générale, <span class="math notranslate nohighlight">\(f\)</span> peut être n’importe quelle fonction paramétrée,
-comme un polynôme d’ordre 2 (<span class="math notranslate nohighlight">\(f_{\theta}[n] = \theta_0 + \theta_1 n + \theta_2 n^2\)</span>)
-ou une exponentielle (<span class="math notranslate nohighlight">\(f_{\theta}[n] = \theta_0 \exp(\theta_1 n)\)</span>).
-Mais par simplicité, nous nous concentrons dans cette section sur les fonctions <span class="math notranslate nohighlight">\(f_{\theta}\)</span> linéaires en <span class="math notranslate nohighlight">\(\theta\)</span>,
-et en particulier des fonctions <span class="math notranslate nohighlight">\(f_{\theta}\)</span> polynomiale :</p>
+comme par exemple :</p>
+<ul class="simple">
+<li><p>un polynôme de degré 2 : <span class="math notranslate nohighlight">\(f_{\theta}[n] = \theta_0 + \theta_1 n + \theta_2 n^2\)</span>,</p></li>
+<li><p>une exponentielle : <span class="math notranslate nohighlight">\(f_{\theta}[n] = \theta_0 \exp(\theta_1 n)\)</span>.</p></li>
+</ul>
+<p>Par simplicité, nous nous concentrons dans cette section sur les fonctions <span class="math notranslate nohighlight">\(f_{\theta}\)</span> linéaires en <span class="math notranslate nohighlight">\(\theta\)</span>,
+et en particulier des fonctions <span class="math notranslate nohighlight">\(f_{\theta}\)</span> polynomiales :</p>
 <div class="math notranslate nohighlight" id="equation-e-mc-f">
-<span class="eqno">(3)<a class="headerlink" href="#equation-e-mc-f" title="Lien permanent vers cette équation">#</a></span>\[\forall n, \quad f_{\theta}[n] = \theta_0 + \theta_1 n + \theta_2 n^2 + \dots + \theta_M n^M.\]</div>
+<span class="eqno">(3)<a class="headerlink" href="#equation-e-mc-f" title="Lien permanent vers cette équation">#</a></span>\[\forall n, \quad f_{\theta}[n] = \theta_0 + \theta_1 n + \theta_2 n^2 + \dots + \theta_{M-1} n^{M-1}.\]</div>
+<p>L’objectif est d’estimer la valeur des <span class="math notranslate nohighlight">\(M\)</span> inconnues <span class="math notranslate nohighlight">\(\theta_m\)</span> où <span class="math notranslate nohighlight">\(m\in\{0,\dots,M-1\}\)</span>.</p>
 </section>
 <section id="ecriture-matricielle">
 <h3>Écriture matricielle<a class="headerlink" href="#ecriture-matricielle" title="Lien permanent vers cette rubrique">#</a></h3>
 <p>Dans la suite, les calculs sont effectués avec la représentation vectorielle.
-Les abscisses des échantillons sont regroupés dans le vecteur <span class="math notranslate nohighlight">\(n = \begin{bmatrix} n_1 &amp; \dots &amp; n_N \end{bmatrix}^T\)</span>.
-Puisque d’après l’équation <a class="reference internal" href="#equation-e-mc-f">(3)</a> :</p>
+En considérant toutes les valeurs que prend <span class="math notranslate nohighlight">\(n\)</span>,
+l’équation <a class="reference internal" href="#equation-e-mc-y">(2)</a> devient un système de <span class="math notranslate nohighlight">\(N\)</span> équations à <span class="math notranslate nohighlight">\(M\)</span> inconnues :</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{cases}
-f_{\theta}[n_1] = \theta_0 + \theta_1 n_1 + \theta_2 n_1^2 + \dots + \theta_M n_1^M \\
+y[0] = \theta_0 + \theta_1 0 + \theta_2 0^2 + \dots + \theta_{M-1} 0^{M-1} + b[0] \\
+y[1] = \theta_0 + \theta_1 1 + \theta_2 1^2 + \dots + \theta_{M-1} 1^{M-1} + b[1] \\
 \quad\vdots \\
-f_{\theta}[n_N] = \theta_0 + \theta_1 n_N + \theta_2 n_N^2 + \dots + \theta_M n_N^M
-\end{cases}
-\end{split}\]</div>
-<p>alors l’équation du modèle <a class="reference internal" href="#equation-e-mc-y">(2)</a> devient un système de <span class="math notranslate nohighlight">\(N\)</span> équations
-à <span class="math notranslate nohighlight">\(M+1\)</span> inconnues :</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-\begin{cases}
-y[n_1] = \theta_0 + \theta_1 n_1 + \theta_2 n_1^2 + \dots + \theta_M n_1^M + b[n_1] \\
-\quad\vdots \\
-y[n_N] = \theta_0 + \theta_1 n_N + \theta_2 n_N^2 + \dots + \theta_M n_N^M + b[n_N]
+y[N-1] = \theta_0 + \theta_1 (N-1) + \theta_2 (N-1)^2 + \dots + \theta_{M-1} (N-1)^{M-1} + b[N-1]
 \end{cases}
 \end{split}\]</div>
 <aside class="margin sidebar">
@@ -648,13 +650,18 @@ y[n_N] = \theta_0 + \theta_1 n_N + \theta_2 n_N^2 + \dots + \theta_M n_N^M + b[n
 <p>où :</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
-\boldsymbol{y} = \begin{bmatrix} y[n_1] \\ \vdots \\ y[n_N] \end{bmatrix},
+\boldsymbol{y} = \begin{bmatrix} y[0] \\ \vdots \\ y[N-1] \end{bmatrix},
 \quad
-\boldsymbol{H} = \begin{bmatrix} 1 &amp; n_1 &amp; \dots &amp; n_1^M \\ \vdots &amp; \vdots &amp; &amp; \vdots \\ 1 &amp; n_N &amp; \dots &amp; n_N^M \end{bmatrix},
+\boldsymbol{H} = \begin{bmatrix}
+    1 &amp; 0 &amp; \dots &amp; 0^{M-1} \\
+    1 &amp; 1 &amp; \dots &amp; 1^{M-1} \\
+    \vdots &amp; \vdots &amp; &amp; \vdots \\
+    1 &amp; N-1 &amp; \dots &amp; (N-1)^{M-1}
+\end{bmatrix},
 \quad
 \boldsymbol{\theta} = \begin{bmatrix} \theta_0 \\ \vdots \\ \theta_M \end{bmatrix}
 \quad\text{et}\qquad
-\boldsymbol{b} = \begin{bmatrix} b[n_1] \\ \vdots \\ b[n_N] \end{bmatrix}
+\boldsymbol{b} = \begin{bmatrix} b[0] \\ \vdots \\ b[N-1] \end{bmatrix}
 \end{split}\]</div>
 </section>
 <section id="minimisation-du-critere-des-moindres-carres">
@@ -664,10 +671,10 @@ Il est logique de choisir <span class="math notranslate nohighlight">\(\theta\)<
 Mathématiquement, il faut donc minimiser</p>
 <div class="math notranslate nohighlight">
 \[
-\mathcal{J} = \sum_{n=1}^N \left(y[n] - f_{\theta}[n]\right)^2.
+\mathcal{J} = \sum_{n=0}^{N-1} \left(y[n] - f_{\theta}[n]\right)^2.
 \]</div>
 <p>La parenthèse, qui exprime la différence entre <span class="math notranslate nohighlight">\(y\)</span> et <span class="math notranslate nohighlight">\(f_{\theta}\)</span> en chaque échantillon <span class="math notranslate nohighlight">\(n\)</span>,
-est mise au carré car les calculs sont plus simples à effectuer qu’avec une valeur absolue.
+est au carré car les calculs sont plus simples à effectuer qu’avec une valeur absolue.
 On cherche donc à minimiser les différences au carrés, d’où le nom de la méthode.
 Remarquez que <span class="math notranslate nohighlight">\(\mathcal{J}\)</span> est le carré de la norme du signal <span class="math notranslate nohighlight">\(y - f_{\theta}\)</span> :</p>
 <div class="math notranslate nohighlight">
