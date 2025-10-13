@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Modulation sur porteuse &#8212; Traitement du signal 2</title>
+    <title>Modulation numérique sur porteuse &#8212; Traitement du signal 2</title>
   
   
   
@@ -65,7 +65,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Recherche" href="../search.html" />
     <link rel="next" title="Excercices sur feuille" href="td.html" />
-    <link rel="prev" title="Modulation en bande de base" href="bande-de-base.html" />
+    <link rel="prev" title="Modulation numérique en bande de base" href="bande-de-base.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="fr"/>
   </head>
@@ -215,15 +215,18 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../ssp/bruit.html">Bruit dans les signaux</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ssp/traitement-bruit.html">Traitement des signaux bruités</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ssp/td.html">Exercices sur feuille</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../ssp/td.html">Exercices sur feuille</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ssp/tdc.html">Corrections</a></li>
+</ul>
+</details></li>
 <li class="toctree-l1"><a class="reference internal" href="../ssp/tp.html">Exercices sur machine</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Modulation</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="analogique.html">Modulation analogique</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bande-de-base.html">Modulation en bande de base</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Modulation sur porteuse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bande-de-base.html">Modulation numérique en bande de base</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Modulation numérique sur porteuse</a></li>
 <li class="toctree-l1"><a class="reference internal" href="td.html">Excercices sur feuille</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tp.html">Exercices sur machine</a></li>
 </ul>
@@ -371,7 +374,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Modulation sur porteuse</h1>
+    <h1>Modulation numérique sur porteuse</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -382,9 +385,8 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modulation">Modulation</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modulation-a-deplacement-d-amplitude">Modulation à déplacement d’amplitude</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modulation-a-deplacement-de-phase">Modulation à déplacement de phase</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modulation-d-amplitude-en-quadrature">Modulation d’amplitude en quadrature</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#principe">Principe</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#constellation">Constellation</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#demodulation-en-presence-de-bruit">Démodulation en présence de bruit</a></li>
@@ -399,210 +401,158 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="modulation-sur-porteuse">
-<span id="c-modulation-porteuse"></span><h1>Modulation sur porteuse<a class="headerlink" href="#modulation-sur-porteuse" title="Lien permanent vers cette rubrique">#</a></h1>
-<p>Une modulation sur porteuse permet de générer un signal
-dont la bande passante est presque entièrement incluse dans une bande de fréquence éloignée de 0 Hz.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="modulation-numerique-sur-porteuse">
+<span id="c-modulation-porteuse"></span><h1>Modulation numérique sur porteuse<a class="headerlink" href="#modulation-numerique-sur-porteuse" title="Lien permanent vers cette rubrique">#</a></h1>
+<p>En modulation numérique, le message <span class="math notranslate nohighlight">\(m\)</span> est discret et ses valeurs sont des symboles binaires (0 ou 1)
+ou <span class="math notranslate nohighlight">\(M\)</span>-aires (<span class="math notranslate nohighlight">\(M=16\)</span> en hexadécimal par exemple).</p>
 <section id="modulation">
 <h2>Modulation<a class="headerlink" href="#modulation" title="Lien permanent vers cette rubrique">#</a></h2>
-<p>Les modulations sur porteuse linéaires affectent à chaque symbole du message une forme d’onde <span class="math notranslate nohighlight">\(h\)</span> multipliée par une sinusoïde de fréquence <span class="math notranslate nohighlight">\(f_p\)</span>
-dont l’amplitude <span class="math notranslate nohighlight">\(a_k\)</span> et la phase <span class="math notranslate nohighlight">\(\varphi_k\)</span> dépendent du symbole <span class="math notranslate nohighlight">\(k\)</span> :</p>
+<section id="principe">
+<h3>Principe<a class="headerlink" href="#principe" title="Lien permanent vers cette rubrique">#</a></h3>
+<p>Une modulation numérique sur porteuse est une modulation en amplitude et en phase d’un message numérique.
+À chaque symbole <span class="math notranslate nohighlight">\(k\)</span> du message numérique sont associés : une amplitude <span class="math notranslate nohighlight">\(A_k\)</span> et une phase <span class="math notranslate nohighlight">\(\varphi_k\)</span>.
+Le signal modulé <span class="math notranslate nohighlight">\(x(t)\)</span> s’écrit donc :</p>
 <div class="math notranslate nohighlight">
 \[
-x(t) = \sum_{k=-\infty}^{+\infty} a_k h(t-kd) \cos(2\pi f_p t + \varphi_k).
+x(t) = \sum_{k=0}^{N-1}  A_k h(t-kd) \cos(2\pi f_p t + \varphi_k)
 \]</div>
-<p>Ce signal est la partie réelle du signal complexe <span class="math notranslate nohighlight">\(\bar{x}(t)\)</span> :</p>
+<p>où <span class="math notranslate nohighlight">\(N\)</span> est le nombre de symboles dans le message,
+<span class="math notranslate nohighlight">\(f_p\)</span> est la fréquence de la porteuse
+et <span class="math notranslate nohighlight">\(h(t-kd)\)</span> est une porte de durée <span class="math notranslate nohighlight">\(d\)</span>
+qui permet de fenêtrer l’effet du symbole <span class="math notranslate nohighlight">\(k\)</span> à l’intervalle <span class="math notranslate nohighlight">\([kd, (k+1)d]\)</span> :</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
-\bar{x}(t) &amp;= \sum_{k=-\infty}^{+\infty} a_k h(t-kd) \exp\big(j(2\pi f_p t + \varphi_k)\big) \\
-           &amp;= \sum_{k=-\infty}^{+\infty} a_k h(t-kd) \exp(j(2\pi f_p t) \exp(j\varphi_k) \\
-           &amp;= \sum_{k=-\infty}^{+\infty} A_k h(t-kd) \exp(j2\pi f_p t)
+h(t-kd) =
+\begin{cases}
+  1 &amp;\text{si}\quad kd \leq t &lt; (k+1)d \\
+  0 &amp;\text{sinon}
+\end{cases}
 \end{split}\]</div>
-<p>où <span class="math notranslate nohighlight">\(A_k = a_k \exp(j\varphi_k)\)</span> est l’amplitude complexe de la modulation,
-qui peut se noter également sous forme cartésienne <span class="math notranslate nohighlight">\(A_k = \alpha_k + j\beta_k\)</span>.
-On peut alors montrer que la modulation sur porteuse revient à deux modulations en bande de base multipliées
-par des porteuses sinusoïdales de même fréquence <span class="math notranslate nohighlight">\(f_p\)</span> en quadrature de phase :</p>
+<p>En utilisant les propriétés de trigonométrie, on peut montrer que <span class="math notranslate nohighlight">\(x(t)\)</span> s’écrit comme la somme de deux termes :</p>
 <div class="math notranslate nohighlight">
 \[
 x(t) = \underbrace{ \sum_{k=-\infty}^{+\infty} \alpha_k h(t-kd) \cos(2\pi f_p t) }_{ \text{Composante en phase} }
-     - \underbrace{ \sum_{k=-\infty}^{+\infty} \beta_k  h(t-kd) \sin(2\pi f_p t) }_{ \text{Composante en quadrature} }.
+     + \underbrace{ \sum_{k=-\infty}^{+\infty} \beta_k  h(t-kd) \sin(2\pi f_p t) }_{ \text{Composante en quadrature} }.
 \]</div>
+<p>où <span class="math notranslate nohighlight">\(\alpha_k =   A_k \cos(\varphi_k)\)</span> et <span class="math notranslate nohighlight">\(\beta_k  = - A_k \sin(\varphi_k)\)</span>.</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 <span class="sd-summary-text">Démonstration</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text">En notant l’amplitude complexe sous la forme cartésienne <span class="math notranslate nohighlight">\(A_k = \alpha_k + j\beta_k\)</span>, le signal complexe s’écrit :</p>
+<p class="sd-card-text">Puisque <span class="math notranslate nohighlight">\(\cos(a+b) = \cos a \cdot \cos b - \sin a \cdot \sin b\)</span>, alors :</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
-\bar{x}(t) &amp;= \sum_{k=-\infty}^{+\infty} (\alpha_k + j\beta_k) h(t-kd) \exp(j2\pi f_p t) \\
-           &amp;= \sum_{k=-\infty}^{+\infty} (\alpha_k + j\beta_k) h(t-kd) \left( \cos(2\pi f_p t)+j\sin(2\pi f_p t) \right) \\
-           &amp;= \sum_{k=-\infty}^{+\infty}     \alpha_k h(t-kd) \cos(2\pi f_p t) - \beta_k h(t-kd) \sin(2\pi f_p t) \\
-           &amp;\;  + j \sum_{k=-\infty}^{+\infty} \alpha_k h(t-kd) \sin(2\pi f_p t) + \beta_k h(t-kd) \cos(2\pi f_p t) \\
+x(t) &amp;= \sum_{k=0}^{N-1}  A_k h(t-kd) \cos(2\pi f_p t + \varphi_k) \\
+     &amp;= \sum_{k=-\infty}^{+\infty} A_k h(t-kd) \big[ \cos(2\pi f_p t)\cos(\varphi_k) - \sin(2\pi f_p t)\sin(\varphi_k) \big] \\
 \end{split}\]</div>
-<p class="sd-card-text">Le signal <span class="math notranslate nohighlight">\(x(t)\)</span> est la partie réelle de <span class="math notranslate nohighlight">\(\bar{x}(t)\)</span> et vaut bien :</p>
+<p class="sd-card-text">Et donc en développant l’expression :</p>
 <div class="math notranslate nohighlight">
-\[
-x(t) = \sum_{k=-\infty}^{+\infty} \alpha_k h(t-kd) \cos(2\pi f_p t) - \beta_k h(t-kd) \sin(2\pi f_p t).
-\]</div>
+\[\begin{split}
+x(t) &amp;= \sum_{k=-\infty}^{+\infty} \big[ A_k h(t-kd) \cos(2\pi f_p t)\cos(\varphi_k) - A_k h(t-kd) \sin(2\pi f_p t)\sin(\varphi_k) \big] \\
+     &amp;= \sum_{k=-\infty}^{+\infty} \underbrace{   A_k \cos(\varphi_k) }_{\alpha_k} h(t-kd) \cos(2\pi f_p t)
+      + \sum_{k=-\infty}^{+\infty} \underbrace{ - A_k \sin(\varphi_k) }_{\beta_k} h(t-kd) \sin(2\pi f_p t).
+\end{split}\]</div>
 </div>
-</details><p>Pour réaliser une modulation sur porteuse, il faut donc définir trois types de quantités :</p>
-<ul>
-<li><p>la fréquence de la porteuse <span class="math notranslate nohighlight">\(f_p\)</span>, qui est choisie en fonction des contraintes liées à l’application
-(capacité à traverser les obstacles, capacités du matériel, normes, etc.) ;</p></li>
-<li><p>la forme d’onde <span class="math notranslate nohighlight">\(h(t)\)</span>, qui est le plus souvent la même que la forme d’onde de la modulation NRZ (soit une porte de durée <span class="math notranslate nohighlight">\(d\)</span>) ;</p></li>
-<li><p>les amplitudes complexes <span class="math notranslate nohighlight">\(A_k\)</span>, ou de manière équivalente les amplitudes réelles <span class="math notranslate nohighlight">\(\alpha_k\)</span> et <span class="math notranslate nohighlight">\(\beta_k\)</span>,
-ou encore les modules <span class="math notranslate nohighlight">\(a_k\)</span> et les phases <span class="math notranslate nohighlight">\(\varphi_k\)</span>.
-Il se trouve que les modulations sur porteuse sont très souvent utilisées dans le cas de signaux <span class="math notranslate nohighlight">\(M\)</span>-aires avec <span class="math notranslate nohighlight">\(M\)</span> grand.
-On préfère donc représenter les amplitudes <span class="math notranslate nohighlight">\(A_k\)</span> graphiquement (dans le plan complexe)
-plutôt que sous la forme d’un tableau qui pourrait être très long.
-Cette représentation graphique s’appelle une constellation :
+</details><p>Une modulation numérique sur porteuse est donc la somme de deux signaux modulés en amplitude !</p>
+<p>Pour réaliser une modulation numérique sur porteuse, il faut donc définir la fréquence de la porteuse <span class="math notranslate nohighlight">\(f_p\)</span> et les amplitudes <span class="math notranslate nohighlight">\(\alpha_k\)</span> et <span class="math notranslate nohighlight">\(\beta_k\)</span> :</p>
+<ul class="simple">
+<li><p>la fréquence de la porteuse <span class="math notranslate nohighlight">\(f_p\)</span> est choisie en fonction des contraintes liées à l’application (capacité à traverser les obstacles, capacités du matériel, normes, etc.) ;</p></li>
+<li><p>les amplitudes <span class="math notranslate nohighlight">\(\alpha_k\)</span> et <span class="math notranslate nohighlight">\(\beta_k\)</span> sont définies en choisissant, pour chacun des types des symboles, un couple <span class="math notranslate nohighlight">\((\alpha_k,\beta_k)\)</span> qui lui est propre.</p></li>
+</ul>
+</section>
+<section id="constellation">
+<h3>Constellation<a class="headerlink" href="#constellation" title="Lien permanent vers cette rubrique">#</a></h3>
+<p>Il se trouve que les modulations numériques sur porteuse sont très souvent utilisées dans le cas de signaux <span class="math notranslate nohighlight">\(M\)</span>-aires avec <span class="math notranslate nohighlight">\(M\)</span> grand.
+On utilise donc généralement une représentation graphique qu’on appelle « constellation »
+(<a class="reference internal" href="#f-modulation-4qam"><span class="std std-numref">Fig. 45</span></a>):
 c’est un graphe 2D où chaque point correspond à un symbole dont les coordonnées sont les amplitudes <span class="math notranslate nohighlight">\(\alpha_k\)</span> et <span class="math notranslate nohighlight">\(\beta_k\)</span>.
-Les axes sont donc nommés <span class="math notranslate nohighlight">\(I\)</span> (pour <em>in-phase component</em>) et <span class="math notranslate nohighlight">\(Q\)</span> (pour <em>quadrature component</em>).</p>
-<div class="exemple admonition">
-<p class="admonition-title">Exemple</p>
-<p>La modulation 4-QAM est une modulation 4-aire dont le tableau de correspondance est :</p>
-<div class="pst-scrollable-table-container"><table class="table">
-<thead>
-<tr class="row-odd"><th class="head"><p><span class="math notranslate nohighlight">\(m_k\)</span></p></th>
-<th class="head"><p><span class="math notranslate nohighlight">\(\alpha_k\)</span></p></th>
-<th class="head"><p><span class="math notranslate nohighlight">\(\beta_k\)</span></p></th>
-<th class="head"><p><span class="math notranslate nohighlight">\(a_k\)</span></p></th>
-<th class="head"><p><span class="math notranslate nohighlight">\(\varphi_k\)</span></p></th>
-<th class="head"><p><span class="math notranslate nohighlight">\(A_k\)</span></p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(0\)</span></p></td>
-<td><p><span class="math notranslate nohighlight">\(+1\)</span></p></td>
-<td><p><span class="math notranslate nohighlight">\(+1\)</span></p></td>
-<td><p><span class="math notranslate nohighlight">\(\sqrt{2}\)</span></p></td>
-<td><p><span class="math notranslate nohighlight">\(\pi/4\)</span></p></td>
-<td><p><span class="math notranslate nohighlight">\(1+j\)</span></p></td>
-</tr>
-<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(1\)</span></p></td>
-<td><p><span class="math notranslate nohighlight">\(-1\)</span></p></td>
-<td><p><span class="math notranslate nohighlight">\(+1\)</span></p></td>
-<td><p><span class="math notranslate nohighlight">\(\sqrt{2}\)</span></p></td>
-<td><p><span class="math notranslate nohighlight">\(3\pi/4\)</span></p></td>
-<td><p><span class="math notranslate nohighlight">\(-1+j\)</span></p></td>
-</tr>
-<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(2\)</span></p></td>
-<td><p><span class="math notranslate nohighlight">\(-1\)</span></p></td>
-<td><p><span class="math notranslate nohighlight">\(-1\)</span></p></td>
-<td><p><span class="math notranslate nohighlight">\(\sqrt{2}\)</span></p></td>
-<td><p><span class="math notranslate nohighlight">\(-3\pi/4\)</span></p></td>
-<td><p><span class="math notranslate nohighlight">\(-1-j\)</span></p></td>
-</tr>
-<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(3\)</span></p></td>
-<td><p><span class="math notranslate nohighlight">\(+1\)</span></p></td>
-<td><p><span class="math notranslate nohighlight">\(-1\)</span></p></td>
-<td><p><span class="math notranslate nohighlight">\(\sqrt{2}\)</span></p></td>
-<td><p><span class="math notranslate nohighlight">\(-\pi/4\)</span></p></td>
-<td><p><span class="math notranslate nohighlight">\(1-j\)</span></p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>La constellation associée est la suivante :</p>
-<a class="reference internal image-reference" href="../_images/code-4qam.svg"><img alt="../_images/code-4qam.svg" class="align-center" src="../_images/code-4qam.svg" width="300px" /></a>
-</div>
+Les axes sont nommés <span class="math notranslate nohighlight">\(I\)</span> (pour <em>in-phase component</em>) et <span class="math notranslate nohighlight">\(Q\)</span> (pour <em>quadrature component</em>).</p>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
 <p>Chaque point de la constellation correspond à une amplitude des composantes en phase et en quadrature,
 lesquelles sont directement reliées à l’énergie du signal.
 Par conséquent, l’énergie du signal est directement reliée au module des points de la constellation.
 En d’autres termes, plus l’espace occupé par la constellation est important,
 plus l’énergie nécessaire pour générer le signal modulé est importante.</p>
-</li>
-</ul>
-<section id="modulation-a-deplacement-d-amplitude">
-<h3>Modulation à déplacement d’amplitude<a class="headerlink" href="#modulation-a-deplacement-d-amplitude" title="Lien permanent vers cette rubrique">#</a></h3>
-<p>Dans une modulation à déplacement d’amplitude (ASK pour <em>amplitude shift keying</em>),
-tous les symboles sont associés à une sinusoïde de même phase.</p>
-<p>Ainsi, si <span class="math notranslate nohighlight">\(\alpha_k\)</span> varie et <span class="math notranslate nohighlight">\(\beta_k=0\)</span>, alors chaque symbole est codé par un cosinus.
-À l’inverse, si <span class="math notranslate nohighlight">\(\alpha_k=0\)</span> et <span class="math notranslate nohighlight">\(\beta_k\)</span> varie, alors chaque symbole est codé par un sinus.
-En fait, toute constellation dont les points sont alignés sur une droite passant par l’origine est une modulation ASK
-(cela se vérifie en utilisant les règles de trigonométrie).</p>
-<div class="exemple docutils">
-<p>La modulation représentée par la constellation ci-dessous est bien ASK puisque les points sont alignés.
-Comme il y a 4 points dans la constellation, alors la modulation est 4-aire.
-On parle alors de modulation 4-ASK.</p>
-<a class="reference internal image-reference" href="../_images/code-4ask.svg"><img alt="../_images/code-4ask.svg" class="align-center" src="../_images/code-4ask.svg" width="300px" /></a>
-<p>Le signal associé au message <code>013302</code> est donc :</p>
-<a class="reference internal image-reference" href="../_images/signal-4ask.svg"><img alt="../_images/signal-4ask.svg" class="align-center" src="../_images/signal-4ask.svg" width="600px" /></a>
-</div>
-</section>
-<section id="modulation-a-deplacement-de-phase">
-<h3>Modulation à déplacement de phase<a class="headerlink" href="#modulation-a-deplacement-de-phase" title="Lien permanent vers cette rubrique">#</a></h3>
-<p>Dans une modulation à déplacement de phase (PSK pour <em>phase shift keying</em>),
-tous les symboles sont associés à une sinusoïde de même ampliltude, mais de phase différente.</p>
-<p>Tous les points d’une constellation PSK sont répartis sur un cercle de centre l’origine.
-On peut le vérifier en utilisant la trigonométrie,
-mais aussi parce que l’amplitude complexe <span class="math notranslate nohighlight">\(A_k\)</span> peut s’écrire sous la forme <span class="math notranslate nohighlight">\(a_k e^{j\varphi_k}\)</span>
-où <span class="math notranslate nohighlight">\(a_k\)</span> est constant et <span class="math notranslate nohighlight">\(\varphi_k\)</span> varie.</p>
-<div class="exemple docutils">
-<p>Un exemple de modulation 4-PSK est représentée ci-dessous.</p>
-<a class="reference internal image-reference" href="../_images/code-4psk.svg"><img alt="../_images/code-4psk.svg" class="align-center" src="../_images/code-4psk.svg" width="300px" /></a>
-<p>Le signal associé au message <code>013302</code> est donc :</p>
-<a class="reference internal image-reference" href="../_images/signal-4psk.svg"><img alt="../_images/signal-4psk.svg" class="align-center" src="../_images/signal-4psk.svg" width="600px" /></a>
-</div>
-</section>
-<section id="modulation-d-amplitude-en-quadrature">
-<h3>Modulation d’amplitude en quadrature<a class="headerlink" href="#modulation-d-amplitude-en-quadrature" title="Lien permanent vers cette rubrique">#</a></h3>
-<p>Lorsque le nombre de symboles <span class="math notranslate nohighlight">\(M\)</span> devient grand, les modulations ASK et PSK ne sont plus satisfaisantes
-pour utiliser efficacement l’énergie émise : elles occupent un espace trop important.
-En effet, si les points sont éloignés les uns des autres, alors l’énergie nécessaire pour fabriquer le signal augmente.
-À l’inverse, si les points sont trop rapprochés, alors il y a un risque de les confondre à la réception.
-Le mieux est donc de répartir les symboles dans une zone la plus compacte tout en espaçant le plus possible les points.
-On ne peut donc plus se retreindre à organiser les points sur une ligne (comme la modulation ASK)
-ou un cercle (comme la modulation PSK).</p>
-<p>La modulation d’amplitude en quadrature (QAM pour <em>quadrature amplitude modulation</em>) répond de façon simple à cette question.
-La <a class="reference internal" href="#f-qam"><span class="std std-numref">Fig. 45</span></a> donne quelques exemples de modulation QAM.</p>
-<figure class="align-default" id="f-qam">
-<img alt="../_images/code-qam.svg" src="../_images/code-qam.svg" /><figcaption>
-<p><span class="caption-number">Fig. 45 </span><span class="caption-text">Exemples de modulations QAM.</span><a class="headerlink" href="#f-qam" title="Lien permanent vers cette image">#</a></p>
+</aside>
+<figure class="align-default" id="f-modulation-4qam">
+<a class="reference internal image-reference" href="../_images/constellation-4qam.svg"><img alt="../_images/constellation-4qam.svg" src="../_images/constellation-4qam.svg" width="300px" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 45 </span><span class="caption-text">Exemple de constellation pour une modulation 4-QAM dont les <span class="math notranslate nohighlight">\(M=4\)</span> symboles 0, 1, 2 et 3
+sont associés respectivement aux couples <span class="math notranslate nohighlight">\((1,1)\)</span>, <span class="math notranslate nohighlight">\((-1,1)\)</span>, <span class="math notranslate nohighlight">\((-1,-1)\)</span> et <span class="math notranslate nohighlight">\((1,-1)\)</span>.</span><a class="headerlink" href="#f-modulation-4qam" title="Lien permanent vers cette image">#</a></p>
 </figcaption>
 </figure>
+<p>En fonction de l’organisation des points dans la constellation, on distingue trois types de modulations numériques sur porteuse :</p>
+<ul class="simple">
+<li><p>dans une <strong>modulation à déplacement d’amplitude</strong> (ASK : <em>amplitude shift keying</em>),
+les points de la constellation sont alignés sur une droite passant par l’origine.
+Ainsi, tous les symboles sont associés à une sinusoïde de même phase ;</p></li>
+<li><p>dans une <strong>modulation à déplacement de phase</strong> (PSK : <em>phase shift keying</em>),
+les points de la constellation sont répartis sur un cercle centré en l’origine.
+Ainsi, les symboles sont associés à une sinusoïde de même amplitude mais de phase différente ;</p></li>
+<li><p>dans une <strong>modulation d’amplitude en quadrature</strong> (QAM : <em>quadrature amplitude modulation</em>),
+les symboles se répartissent dans l’espace autour de l’origine.
+La modulation QAM est ainsi très intéressante lorsque le nombre de symboles <span class="math notranslate nohighlight">\(M\)</span> devient grand.</p></li>
+</ul>
+<figure class="align-default" id="f-modulation-ask-psk-qam">
+<a class="reference internal image-reference" href="../_images/constellation-ask-psk-qam.svg"><img alt="../_images/constellation-ask-psk-qam.svg" src="../_images/constellation-ask-psk-qam.svg" width="650px" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 46 </span><span class="caption-text">Exemple de constellations.</span><a class="headerlink" href="#f-modulation-ask-psk-qam" title="Lien permanent vers cette image">#</a></p>
+</figcaption>
+</figure>
+<!-- Le signal associé au message <code>013302</code> est donc :
+
+```{image} signal-4ask.svg
+:width: 600px
+:align: center
+```
+
+```{image} signal-4psk.svg
+:width: 600px
+:align: center
+``` -->
 <p><a class="exercise btn btn-light" href="td.html#exercice-6" role="button">6</a></p>
 </section>
 </section>
 <section id="demodulation-en-presence-de-bruit">
 <h2>Démodulation en présence de bruit<a class="headerlink" href="#demodulation-en-presence-de-bruit" title="Lien permanent vers cette rubrique">#</a></h2>
-<p>On s’intéresse dans cette section à la réception d’un signal analogique lorsque le canal est bruité et de bande passante infinie.
-Le signal reçu est :</p>
+<p>Le signal reçu après transmission via un canal bruité s’écrit :</p>
 <div class="math notranslate nohighlight">
 \[
 y(t) = x(t) + b(t)
 \]</div>
 <p>où <span class="math notranslate nohighlight">\(b(t)\)</span> et le bruit.</p>
-<p>On rappelle que les modulations linéaires sur porteuse correspondent à deux modulations en bande de base multipliées par des sinusoïdes en quadrature de phase.
-La première étape de la démodulation consiste à supprimer les sinusoïdes, pour se retrouver ensuite dans le cas de deux démodulations en bande de base.
-Pour supprimer les sinusoïdes, on peut effectuer une démodulation cohérente en multipliant le signal reçu <span class="math notranslate nohighlight">\(y\)</span> par la porteuse.</p>
+<p>Puisqu’une modulation numérique sur porteuse est la somme de deux signaux modulés en amplitude,
+la première étape de la démodulation consiste à effectuer une démodulation cohérente sur les composantes en phase et en quadrature.</p>
+<p>Par exemple, pour la composante en phase :</p>
 <div class="full-width docutils">
 <div class="math notranslate nohighlight">
 \[\begin{split}
 w(t) &amp;= y(t) \cos(2\pi f_p t) \\
      &amp;= \left[
           \sum_{k=-\infty}^{+\infty} \alpha_k h(t-kd) \cos(2\pi f_p t)
-        - \sum_{k=-\infty}^{+\infty} \beta_k  h(t-kd) \sin(2\pi f_p t)
+        + \sum_{k=-\infty}^{+\infty} \beta_k  h(t-kd) \sin(2\pi f_p t)
         + b(t)
        \right] \cos(2\pi f_p t) \\
      &amp;=   \sum_{k=-\infty}^{+\infty} \alpha_k h(t-kd) \frac{1}{2} \left(1+\cos(4\pi f_p t)\right)
-        - \sum_{k=-\infty}^{+\infty} \beta_k  h(t-kd) \frac{1}{2} \sin(4\pi f_p t)
+        + \sum_{k=-\infty}^{+\infty} \beta_k  h(t-kd) \frac{1}{2} \sin(4\pi f_p t)
         + b(t) \cos(2\pi f_p t) \\
      &amp;=   \underbrace{ \frac{1}{2} \sum_{k=-\infty}^{+\infty} \alpha_k h(t-kd) }_{\text{basse fréquence}}
         + \underbrace{ \frac{1}{2} \sum_{k=-\infty}^{+\infty} \alpha_k h(t-kd) \cos(4\pi f_p t) }_{\text{haute fréquence}}
-        - \underbrace{ \frac{1}{2} \sum_{k=-\infty}^{+\infty} \beta_k  h(t-kd) \sin(4\pi f_p t) }_{\text{haute fréquence}}
+        + \underbrace{ \frac{1}{2} \sum_{k=-\infty}^{+\infty} \beta_k  h(t-kd) \sin(4\pi f_p t) }_{\text{haute fréquence}}
         + \underbrace{ b(t) \cos(2\pi f_p t) }_{\text{bruit}}
 \end{split}\]</div>
 </div>
-<p>Le signal <span class="math notranslate nohighlight">\(w(t)\)</span> contient une composante basse fréquence, une composante haute fréquence et du bruit.
-Un filtre passe-bas de fréquence de coupure égale à <span class="math notranslate nohighlight">\(f_p\)</span> permet d’éliminer les composantes hautes fréquences.
-En effet, ces composantes haute fréquence sont centrées autour de <span class="math notranslate nohighlight">\(2f_p\)</span>.
-Le signal basse fréquence résultant est un signal en bande de base sur lequel on effectue une démodulation en bande de base
-(filtre adapté, échantillonnage, seuillage) pour obtenir les symboles associés aux amplitudes <span class="math notranslate nohighlight">\(\alpha_k\)</span>.</p>
+<p>Le signal <span class="math notranslate nohighlight">\(w(t)\)</span> est donc la somme d’un signal basse fréquence, d’un signal haute fréquence et de bruit.
+Comme les signaux haute fréquence sont des modulations sur porteuse centrées autour de <span class="math notranslate nohighlight">\(2f_p\)</span>,
+un filtre passe-bas de fréquence de coupure égale à <span class="math notranslate nohighlight">\(f_p\)</span> permet d’éliminer ces signaux (et une partie du bruit).
+Le signal basse fréquence résultant est un signal en bande de base
+sur lequel on effectue une démodulation en bande de base (filtre adapté, échantillonnage, seuillage)
+pour obtenir les symboles associés aux amplitudes <span class="math notranslate nohighlight">\(\alpha_k\)</span>.</p>
 <p>Pour obtenir les symboles associés aux amplitudes <span class="math notranslate nohighlight">\(\beta_k\)</span>, on procède de la même manière en multipliant le signal reçu par <span class="math notranslate nohighlight">\(\sin(2\pi f_p t)\)</span>.</p>
 <!-- Schéma d'un démodulateur -->
-<p>Pour terminer, notons que la démodulation cohérente nécessite de connaître parfaitement la fréquence et la phase de la porteuse,
-ce qui peut se faire avec une <a class="reference external" href="https://fr.wikipedia.org/wiki/Boucle_%C3%A0_phase_asservie">boucle à verrouillage de phase</a>
-ou une <a class="reference external" href="https://fr.wikipedia.org/wiki/Circuit_d%C3%A9tecteur_d%27enveloppe">détection d’enveloppe</a>.</p>
+<!-- Pour terminer, notons que la démodulation cohérente nécessite de connaître parfaitement la fréquence et la phase de la porteuse,
+ce qui peut se faire avec une [boucle à verrouillage de phase](https://fr.wikipedia.org/wiki/Boucle_%C3%A0_phase_asservie)
+ou une [détection d'enveloppe](https://fr.wikipedia.org/wiki/Circuit_d%C3%A9tecteur_d%27enveloppe). -->
 <p><a class="exercise btn btn-light" href="td.html#exercice-7" role="button">7</a></p>
 </section>
 </section>
@@ -643,7 +593,7 @@ ou une <a class="reference external" href="https://fr.wikipedia.org/wiki/Circuit
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">précédent</p>
-        <p class="prev-next-title">Modulation en bande de base</p>
+        <p class="prev-next-title">Modulation numérique en bande de base</p>
       </div>
     </a>
     <a class="right-next"
@@ -672,9 +622,8 @@ ou une <a class="reference external" href="https://fr.wikipedia.org/wiki/Circuit
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modulation">Modulation</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modulation-a-deplacement-d-amplitude">Modulation à déplacement d’amplitude</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modulation-a-deplacement-de-phase">Modulation à déplacement de phase</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modulation-d-amplitude-en-quadrature">Modulation d’amplitude en quadrature</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#principe">Principe</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#constellation">Constellation</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#demodulation-en-presence-de-bruit">Démodulation en présence de bruit</a></li>

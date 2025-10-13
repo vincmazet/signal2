@@ -79,7 +79,7 @@ L'intercorrélation $R_{yz}$ fait apparaître un motif périodique de période 5
 qui confirme la présence dans $y$ d'un signal de même période.
 ```
 
-
+(C:ssp:filtre-adapte)=
 ### Détection d'un motif
 
 Un « motif » est un signal déterministe connu et de durée finie.

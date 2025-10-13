@@ -4,26 +4,26 @@
 
 La modulation analogique consiste à transmettre une porteuse (une sinusoïde de fréquence $f_p$)
 dont l'un des paramètres (amplitude, phase ou fréquence instantanée) évolue dans le temps en fonction du message $m(t)$.
-* Un signal modulé en amplitude (AM pour _amplitude modulation_) a pour expression :
+* Un signal **modulé en amplitude** (AM : _amplitude modulation_) a pour expression :
 
   $$
-  x(t) = A(t) \sin(2\pi f_p t) ;
+  x(t) = A(t) \cos(2\pi f_p t) ;
   $$
 
   où $A(t)$ est une fonction de $m(t)$ ;
   
-* Un signal modulé en phase (PM pour _phase modulation_) a pour expression :
+* Un signal **modulé en phase** (PM : _phase modulation_) a pour expression :
 
   $$
-  x(t) = a \sin(2\pi f_p t + \varphi(t))
+  x(t) = a \cos(2\pi f_p t + \varphi(t))
   $$
 
   où $\varphi(t)$ est une fonction de $m(t)$ ;
 
-* Un signal modulé en fréquence (FM pour _frequency modulation_) a pour expression :
+* Un signal **modulé en fréquence** (FM : _frequency modulation_) a pour expression :
 
   $$
-  x(t) = a \sin(2\pi f(t) t)
+  x(t) = a \cos(2\pi f(t) t)
   $$
 
   où $f(t)$ est une fonction de $m(t)$.
@@ -41,7 +41,7 @@ qui est le produit d'un signal $A(t)$ (dépendant du message $m(t)$) par une por
 La modulation d'amplitude la plus simple est lorsque $A(t) = m(t)$ :
 
 $$
-x(t) = m(t) \sin(2\pi f_p t)
+x(t) = m(t) \cos(2\pi f_p t)
 $$
 
 ```{figure} modulation-analogique-1.svg
@@ -59,9 +59,9 @@ autour de $-f_p$ et $+f_p$ :
 
 $$
 X(f)
-&= M(f) * \mathcal{F}[\sin(2\pi f_p t)](f) \\
-&= M(f) * \frac{1}{2j}\left[\delta(f-f_p)-\delta(f+f_p)\right] \\
-&= \frac{1}{2j}\left[M(f-f_p)-M(f+f_p)\right]
+&= M(f) * \mathcal{F}[\cos(2\pi f_p t)](f) \\
+&= M(f) * \frac{1}{2}\left[\delta(f-f_p)+\delta(f+f_p)\right] \\
+&= \frac{1}{2}\left[M(f-f_p)+M(f+f_p)\right]
 $$
 
 ```{figure} modulation-analogique-2.svg
@@ -73,12 +73,12 @@ Effet de la modulation sur le spectre.
 ```
 
 ```{margin}
-Attention, ce problème n'est pas du repliement spectral car il n'y a pas de fréquence d'échantillonnage ici.
+Attention, ce n'est pas du repliement spectral car il n'y a pas de fréquence d'échantillonnage ici.
 ```
 
-Il convient de faire attention à éviter qu'il n'y ait pas de chevauchement
-entre les deux parties du spectre, donc il faut faire en sorte que $f_p>f_\text{max}$.
-Si cette condition n'est pas remplie, alors la démodulation n'est pas en mesure de retrouver le message original.
+Il convient de faire attention à éviter un chevauchement entre les deux parties du spectre,
+donc il faut faire en sorte que $f_p$ soit supérieure à la bande passante du signal $m(t)$.
+Si cette condition n'est pas remplie, alors la démodulation ne pourra pas retrouver le message original.
 
 
 ## Démodulation
@@ -88,7 +88,7 @@ La plus efficace, bien que délicate à mettre en pratique, est la _démodulatio
 Cela consiste dans un premier temps à multiplier le signal reçu $y(t)$ par la porteuse :
 
 $$
-w(t) = y(t) \sin(2\pi f_p t)
+w(t) = y(t) \cos(2\pi f_p t)
 $$
 
 soit en fréquentiel :
@@ -96,10 +96,13 @@ soit en fréquentiel :
 ```{div} full-width
 $$
 W(f)
-&= Y(f) * \frac{1}{2j}\left[\delta(f-f_p)-\delta(f+f_p)\right] \\
-&= \frac{1}{2j}\left[Y(f-f_p)-Y(f+f_p)\right] \\
-&= \frac{1}{2j}\left[ \frac{1}{2j}\big(M(f-2f_p)-M(f+f_p-f_p)\big) - \frac{1}{2j}\big(M(f-f_p+f_p)- M(f+2f_p)\big) \right] \\
-&= -\frac{1}{4} M(f-2f_p) + \frac{1}{2} M(f) - \frac{1}{4} (f+2f_p)
+&= Y(f) * \frac{1}{2}\left[\delta(f-f_p)+\delta(f+f_p)\right] \\
+&= \frac{1}{2}\left[Y(f-f_p)+Y(f+f_p)\right] \\
+&= \frac{1}{2}\left[
+      \frac{1}{2} \big( M(f-2f_p) + M(f+f_p-f_p) \big)
+    + \frac{1}{2} \big( M(f-f_p+f_p) + M(f+2f_p) \big)
+    \right] \\
+&= \frac{1}{4} M(f-2f_p) + \frac{1}{2} M(f) + \frac{1}{4} (f+2f_p)
 $$
 ```
 

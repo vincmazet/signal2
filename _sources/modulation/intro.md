@@ -1,23 +1,19 @@
 # Introduction
 
 
-La transmission d'une information d'un émetteur vers un (ou plusieurs) récepteur(s) est
-effectuée en transmettant un signal qui porte l'information du message à transmettre.
-Ce signal doit respecter certaines caractéristiques pour que la transmission se fasse correctement :
-* le signal doit être adapté au milieu de transmission (câble électrique, fibre optique, atmosphère, etc.).
-  Or ce dernier n'est capable de transmettre que certaines plages fréquences,
-  ce qui implique que le signal doit être centré autour d'une fréquence qui peut transiter à travers le milieu ;
-* on peut vouloir transmettre en même temps plusieurs signaux à travers le même milieu,
-  comme par exemple en radio.
-  Le multiplexage est une technique qui permet de transmettre des signaux différents à travers le même milieu
-  tout en assurant une séparation de ceux-ci au niveau du récepteur ;
-* d'autres contraintes peuvent également jouer sur le choix des caractéristiques que doit respecter le signal,
-  comme par exemple la robustesse du codage face aux perturbations ou la facilité de décodage.
+La transmission d'un message depuis un émetteur vers un récepteur
+se fait en envoyant un signal porteur de l'information du message.
+Le message peut être analogique (voix, mesure d'une quantité physique...) ou numérique (texte, vidéo...),
+mais dans tous les cas, le signal émis est forcément analogique
+puisque le canal de transmission est un système physique (atmosphère, fibre optique, câble électrique, etc.).
+Or ce dernier n'est capable de transmettre que certaines plages fréquences,
+ce qui implique que le signal émis doit être centré autour d'une fréquence qui peut transiter à travers le canal.
 
-Le traitement appliqué au message pour l'adapter au milieu de transmission est appelé _modulation_.
-L'opération inverse est la _démodulation_.
-Le milieu de transmission est souvent appelé _canal_.
-À moins d'être parfait, le canal modifie le signal porteur de l'information.
+Si le message n'est pas analogique ou ne peut être transmis tel quel,
+alors il est indispensable de le traiter pour l'adapter au canal de transmission :
+ce traitement est appelé _modulation_, l'opération inverse est la _démodulation_.
+
+Le canal modifie le signal porteur de l'information :
 On le modélise généralement comme étant un filtre passe-bas $g$
 suivi d'un bruitage par un bruit additif $b$ ({numref}`F:modulation-demodulation`).
 
@@ -29,12 +25,18 @@ width: 100%
 Modèle de canal de transmission.
 ```
 
-On distingue deux types de modulations :
-* la _[modulation analogique](C:modulation:analogique)_ lorsque le message est analogique (par exemple un signal de parole) ;
-* la _modulation numérique_ lorsque le message est numérique
+Dans ce cours, nous ne considérons que les modulations linéaires, qui sont les plus simples et les plus répandues.
+On distingue deux types de modulations, selon la nature du message.
+
+* la _[modulation analogique](C:modulation:analogique)_ permet de transmettre un message analogique
+  (par exemple un signal de parole).
+  La modulation analogique nécessite l'utilisation d'une porteuse,
+  qui permet au signal de parcourir de longues distances dans des milieux très divers.
+
+* la _modulation numérique_ permet de transmettre un message numérique
   (par exemple un fichier sonore informatique).
-  Dans ce cas, le message peut être binaire (il ne porte que des 0 et des 1)
-  ou $M$-aire (il porte des entiers entre 0 et $M-1$).
+  Dans ce cas, le message peut être binaire (il n'est constitué que des symboles 0 et 1) ou $M$-aire
+  (il est constitué à partir de $M$ symboles différents ; par exemple $M=16$ pour un message hexadécimal).
   Une modulation numérique consiste à associer à chaque symbole du message un signal de durée $d$.
   Plus précisément, une modulation numérique consiste à modifier l'amplitude d'un signal spécifique
   en fonction du symbole (on parle de modulation linéaire).
@@ -46,8 +48,6 @@ On distingue deux types de modulations :
     génère des signaux de bande passante réduite
     et centrée autour d'une fréquence spécifique appelée fréquence porteuse (_carrier_).
     Elle est utilisée principalement pour les communications sans fil.
-
-Notez que dans tous les cas, le signal transmis est analogique puisque le canal est un milieu physique.
 
 <!-- Dans le cadre de ce cours, nous traiterons uniquement les modulations PAM linéaires.
 Ainsi, la modulation en déplacement de fréquence (**FSK** pour _frequency shift keying_),

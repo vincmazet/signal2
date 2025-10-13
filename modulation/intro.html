@@ -215,15 +215,18 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../ssp/bruit.html">Bruit dans les signaux</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ssp/traitement-bruit.html">Traitement des signaux bruités</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ssp/td.html">Exercices sur feuille</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../ssp/td.html">Exercices sur feuille</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ssp/tdc.html">Corrections</a></li>
+</ul>
+</details></li>
 <li class="toctree-l1"><a class="reference internal" href="../ssp/tp.html">Exercices sur machine</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Modulation</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="analogique.html">Modulation analogique</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bande-de-base.html">Modulation en bande de base</a></li>
-<li class="toctree-l1"><a class="reference internal" href="porteuse.html">Modulation sur porteuse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bande-de-base.html">Modulation numérique en bande de base</a></li>
+<li class="toctree-l1"><a class="reference internal" href="porteuse.html">Modulation numérique sur porteuse</a></li>
 <li class="toctree-l1"><a class="reference internal" href="td.html">Excercices sur feuille</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tp.html">Exercices sur machine</a></li>
 </ul>
@@ -385,24 +388,17 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="introduction">
 <h1>Introduction<a class="headerlink" href="#introduction" title="Lien permanent vers cette rubrique">#</a></h1>
-<p>La transmission d’une information d’un émetteur vers un (ou plusieurs) récepteur(s) est
-effectuée en transmettant un signal qui porte l’information du message à transmettre.
-Ce signal doit respecter certaines caractéristiques pour que la transmission se fasse correctement :</p>
-<ul class="simple">
-<li><p>le signal doit être adapté au milieu de transmission (câble électrique, fibre optique, atmosphère, etc.).
+<p>La transmission d’un message depuis un émetteur vers un récepteur
+se fait en envoyant un signal porteur de l’information du message.
+Le message peut être analogique (voix, mesure d’une quantité physique…) ou numérique (texte, vidéo…),
+mais dans tous les cas, le signal émis est forcément analogique
+puisque le canal de transmission est un système physique (atmosphère, fibre optique, câble électrique, etc.).
 Or ce dernier n’est capable de transmettre que certaines plages fréquences,
-ce qui implique que le signal doit être centré autour d’une fréquence qui peut transiter à travers le milieu ;</p></li>
-<li><p>on peut vouloir transmettre en même temps plusieurs signaux à travers le même milieu,
-comme par exemple en radio.
-Le multiplexage est une technique qui permet de transmettre des signaux différents à travers le même milieu
-tout en assurant une séparation de ceux-ci au niveau du récepteur ;</p></li>
-<li><p>d’autres contraintes peuvent également jouer sur le choix des caractéristiques que doit respecter le signal,
-comme par exemple la robustesse du codage face aux perturbations ou la facilité de décodage.</p></li>
-</ul>
-<p>Le traitement appliqué au message pour l’adapter au milieu de transmission est appelé <em>modulation</em>.
-L’opération inverse est la <em>démodulation</em>.
-Le milieu de transmission est souvent appelé <em>canal</em>.
-À moins d’être parfait, le canal modifie le signal porteur de l’information.
+ce qui implique que le signal émis doit être centré autour d’une fréquence qui peut transiter à travers le canal.</p>
+<p>Si le message n’est pas analogique ou ne peut être transmis tel quel,
+alors il est indispensable de le traiter pour l’adapter au canal de transmission :
+ce traitement est appelé <em>modulation</em>, l’opération inverse est la <em>démodulation</em>.</p>
+<p>Le canal modifie le signal porteur de l’information :
 On le modélise généralement comme étant un filtre passe-bas <span class="math notranslate nohighlight">\(g\)</span>
 suivi d’un bruitage par un bruit additif <span class="math notranslate nohighlight">\(b\)</span> (<a class="reference internal" href="#f-modulation-demodulation"><span class="std std-numref">Fig. 39</span></a>).</p>
 <figure class="align-default" id="f-modulation-demodulation">
@@ -411,13 +407,17 @@ suivi d’un bruitage par un bruit additif <span class="math notranslate nohighl
 <p><span class="caption-number">Fig. 39 </span><span class="caption-text">Modèle de canal de transmission.</span><a class="headerlink" href="#f-modulation-demodulation" title="Lien permanent vers cette image">#</a></p>
 </figcaption>
 </figure>
-<p>On distingue deux types de modulations :</p>
+<p>Dans ce cours, nous ne considérons que les modulations linéaires, qui sont les plus simples et les plus répandues.
+On distingue deux types de modulations, selon la nature du message.</p>
 <ul class="simple">
-<li><p>la <em><a class="reference internal" href="analogique.html#c-modulation-analogique"><span class="std std-ref">modulation analogique</span></a></em> lorsque le message est analogique (par exemple un signal de parole) ;</p></li>
-<li><p>la <em>modulation numérique</em> lorsque le message est numérique
+<li><p>la <em><a class="reference internal" href="analogique.html#c-modulation-analogique"><span class="std std-ref">modulation analogique</span></a></em> permet de transmettre un message analogique
+(par exemple un signal de parole).
+La modulation analogique nécessite l’utilisation d’une porteuse,
+qui permet au signal de parcourir de longues distances dans des milieux très divers.</p></li>
+<li><p>la <em>modulation numérique</em> permet de transmettre un message numérique
 (par exemple un fichier sonore informatique).
-Dans ce cas, le message peut être binaire (il ne porte que des 0 et des 1)
-ou <span class="math notranslate nohighlight">\(M\)</span>-aire (il porte des entiers entre 0 et <span class="math notranslate nohighlight">\(M-1\)</span>).
+Dans ce cas, le message peut être binaire (il n’est constitué que des symboles 0 et 1) ou <span class="math notranslate nohighlight">\(M\)</span>-aire
+(il est constitué à partir de <span class="math notranslate nohighlight">\(M\)</span> symboles différents ; par exemple <span class="math notranslate nohighlight">\(M=16\)</span> pour un message hexadécimal).
 Une modulation numérique consiste à associer à chaque symbole du message un signal de durée <span class="math notranslate nohighlight">\(d\)</span>.
 Plus précisément, une modulation numérique consiste à modifier l’amplitude d’un signal spécifique
 en fonction du symbole (on parle de modulation linéaire).
@@ -433,7 +433,6 @@ Elle est utilisée principalement pour les communications sans fil.</p></li>
 </ul>
 </li>
 </ul>
-<p>Notez que dans tous les cas, le signal transmis est analogique puisque le canal est un milieu physique.</p>
 <!-- Dans le cadre de ce cours, nous traiterons uniquement les modulations PAM linéaires.
 Ainsi, la modulation en déplacement de fréquence (**FSK** pour _frequency shift keying_),
 pour laquelle les symboles sont représentés par des sinusoïdes de fréquence différente,

@@ -42,7 +42,7 @@ le son $s(t)$ était chiffré en inversant son spectre comme schématisé ci-des
 Proposez une technique pour réaliser cette opération.
 
 ```{image} canalplus.svg
-:width: 600px
+:width: 100%
 :align: center
 ```
 

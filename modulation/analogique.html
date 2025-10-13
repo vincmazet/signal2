@@ -64,7 +64,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'modulation/analogique';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Recherche" href="../search.html" />
-    <link rel="next" title="Modulation en bande de base" href="bande-de-base.html" />
+    <link rel="next" title="Modulation numérique en bande de base" href="bande-de-base.html" />
     <link rel="prev" title="Introduction" href="intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="fr"/>
@@ -215,15 +215,18 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../ssp/bruit.html">Bruit dans les signaux</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ssp/traitement-bruit.html">Traitement des signaux bruités</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ssp/td.html">Exercices sur feuille</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../ssp/td.html">Exercices sur feuille</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ssp/tdc.html">Corrections</a></li>
+</ul>
+</details></li>
 <li class="toctree-l1"><a class="reference internal" href="../ssp/tp.html">Exercices sur machine</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Modulation</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Modulation analogique</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bande-de-base.html">Modulation en bande de base</a></li>
-<li class="toctree-l1"><a class="reference internal" href="porteuse.html">Modulation sur porteuse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bande-de-base.html">Modulation numérique en bande de base</a></li>
+<li class="toctree-l1"><a class="reference internal" href="porteuse.html">Modulation numérique sur porteuse</a></li>
 <li class="toctree-l1"><a class="reference internal" href="td.html">Excercices sur feuille</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tp.html">Exercices sur machine</a></li>
 </ul>
@@ -399,24 +402,24 @@ document.write(`
 <p>La modulation analogique consiste à transmettre une porteuse (une sinusoïde de fréquence <span class="math notranslate nohighlight">\(f_p\)</span>)
 dont l’un des paramètres (amplitude, phase ou fréquence instantanée) évolue dans le temps en fonction du message <span class="math notranslate nohighlight">\(m(t)\)</span>.</p>
 <ul>
-<li><p>Un signal modulé en amplitude (AM pour <em>amplitude modulation</em>) a pour expression :</p>
+<li><p>Un signal <strong>modulé en amplitude</strong> (AM : <em>amplitude modulation</em>) a pour expression :</p>
 <div class="math notranslate nohighlight">
 \[
-  x(t) = A(t) \sin(2\pi f_p t) ;
+  x(t) = A(t) \cos(2\pi f_p t) ;
   \]</div>
 <p>où <span class="math notranslate nohighlight">\(A(t)\)</span> est une fonction de <span class="math notranslate nohighlight">\(m(t)\)</span> ;</p>
 </li>
-<li><p>Un signal modulé en phase (PM pour <em>phase modulation</em>) a pour expression :</p>
+<li><p>Un signal <strong>modulé en phase</strong> (PM : <em>phase modulation</em>) a pour expression :</p>
 <div class="math notranslate nohighlight">
 \[
-  x(t) = a \sin(2\pi f_p t + \varphi(t))
+  x(t) = a \cos(2\pi f_p t + \varphi(t))
   \]</div>
 <p>où <span class="math notranslate nohighlight">\(\varphi(t)\)</span> est une fonction de <span class="math notranslate nohighlight">\(m(t)\)</span> ;</p>
 </li>
-<li><p>Un signal modulé en fréquence (FM pour <em>frequency modulation</em>) a pour expression :</p>
+<li><p>Un signal <strong>modulé en fréquence</strong> (FM : <em>frequency modulation</em>) a pour expression :</p>
 <div class="math notranslate nohighlight">
 \[
-  x(t) = a \sin(2\pi f(t) t)
+  x(t) = a \cos(2\pi f(t) t)
   \]</div>
 <p>où <span class="math notranslate nohighlight">\(f(t)\)</span> est une fonction de <span class="math notranslate nohighlight">\(m(t)\)</span>.</p>
 </li>
@@ -433,7 +436,7 @@ qui est le produit d’un signal <span class="math notranslate nohighlight">\(A(
 La modulation d’amplitude la plus simple est lorsque <span class="math notranslate nohighlight">\(A(t) = m(t)\)</span> :</p>
 <div class="math notranslate nohighlight">
 \[
-x(t) = m(t) \sin(2\pi f_p t)
+x(t) = m(t) \cos(2\pi f_p t)
 \]</div>
 <figure class="align-default" id="f-analogique-1">
 <a class="reference internal image-reference" href="../_images/modulation-analogique-1.svg"><img alt="../_images/modulation-analogique-1.svg" src="../_images/modulation-analogique-1.svg" width="500px" /></a>
@@ -448,9 +451,9 @@ autour de <span class="math notranslate nohighlight">\(-f_p\)</span> et <span cl
 <div class="math notranslate nohighlight">
 \[\begin{split}
 X(f)
-&amp;= M(f) * \mathcal{F}[\sin(2\pi f_p t)](f) \\
-&amp;= M(f) * \frac{1}{2j}\left[\delta(f-f_p)-\delta(f+f_p)\right] \\
-&amp;= \frac{1}{2j}\left[M(f-f_p)-M(f+f_p)\right]
+&amp;= M(f) * \mathcal{F}[\cos(2\pi f_p t)](f) \\
+&amp;= M(f) * \frac{1}{2}\left[\delta(f-f_p)+\delta(f+f_p)\right] \\
+&amp;= \frac{1}{2}\left[M(f-f_p)+M(f+f_p)\right]
 \end{split}\]</div>
 <figure class="align-default" id="f-analogique-2">
 <a class="reference internal image-reference" href="../_images/modulation-analogique-2.svg"><img alt="../_images/modulation-analogique-2.svg" src="../_images/modulation-analogique-2.svg" width="500px" /></a>
@@ -460,11 +463,11 @@ X(f)
 </figure>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
-<p>Attention, ce problème n’est pas du repliement spectral car il n’y a pas de fréquence d’échantillonnage ici.</p>
+<p>Attention, ce n’est pas du repliement spectral car il n’y a pas de fréquence d’échantillonnage ici.</p>
 </aside>
-<p>Il convient de faire attention à éviter qu’il n’y ait pas de chevauchement
-entre les deux parties du spectre, donc il faut faire en sorte que <span class="math notranslate nohighlight">\(f_p&gt;f_\text{max}\)</span>.
-Si cette condition n’est pas remplie, alors la démodulation n’est pas en mesure de retrouver le message original.</p>
+<p>Il convient de faire attention à éviter un chevauchement entre les deux parties du spectre,
+donc il faut faire en sorte que <span class="math notranslate nohighlight">\(f_p\)</span> soit supérieure à la bande passante du signal <span class="math notranslate nohighlight">\(m(t)\)</span>.
+Si cette condition n’est pas remplie, alors la démodulation ne pourra pas retrouver le message original.</p>
 </section>
 <section id="demodulation">
 <h2>Démodulation<a class="headerlink" href="#demodulation" title="Lien permanent vers cette rubrique">#</a></h2>
@@ -473,17 +476,20 @@ La plus efficace, bien que délicate à mettre en pratique, est la <em>démodula
 Cela consiste dans un premier temps à multiplier le signal reçu <span class="math notranslate nohighlight">\(y(t)\)</span> par la porteuse :</p>
 <div class="math notranslate nohighlight">
 \[
-w(t) = y(t) \sin(2\pi f_p t)
+w(t) = y(t) \cos(2\pi f_p t)
 \]</div>
 <p>soit en fréquentiel :</p>
 <div class="full-width docutils">
 <div class="math notranslate nohighlight">
 \[\begin{split}
 W(f)
-&amp;= Y(f) * \frac{1}{2j}\left[\delta(f-f_p)-\delta(f+f_p)\right] \\
-&amp;= \frac{1}{2j}\left[Y(f-f_p)-Y(f+f_p)\right] \\
-&amp;= \frac{1}{2j}\left[ \frac{1}{2j}\big(M(f-2f_p)-M(f+f_p-f_p)\big) - \frac{1}{2j}\big(M(f-f_p+f_p)- M(f+2f_p)\big) \right] \\
-&amp;= -\frac{1}{4} M(f-2f_p) + \frac{1}{2} M(f) - \frac{1}{4} (f+2f_p)
+&amp;= Y(f) * \frac{1}{2}\left[\delta(f-f_p)+\delta(f+f_p)\right] \\
+&amp;= \frac{1}{2}\left[Y(f-f_p)+Y(f+f_p)\right] \\
+&amp;= \frac{1}{2}\left[
+      \frac{1}{2} \big( M(f-2f_p) + M(f+f_p-f_p) \big)
+    + \frac{1}{2} \big( M(f-f_p+f_p) + M(f+2f_p) \big)
+    \right] \\
+&amp;= \frac{1}{4} M(f-2f_p) + \frac{1}{2} M(f) + \frac{1}{4} (f+2f_p)
 \end{split}\]</div>
 </div>
 <figure class="align-default" id="f-analogique-3">
@@ -606,7 +612,7 @@ La sortie du comparateur de phase est une tension proportionnelle à la différe
        title="page suivante">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">suivant</p>
-        <p class="prev-next-title">Modulation en bande de base</p>
+        <p class="prev-next-title">Modulation numérique en bande de base</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
