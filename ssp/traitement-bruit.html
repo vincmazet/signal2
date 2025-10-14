@@ -650,20 +650,24 @@ y[N-1] = \theta_0 + \theta_1 (N-1) + \theta_2 (N-1)^2 + \dots + \theta_{M-1} (N-
 \[
 \boldsymbol{y} = \boldsymbol{H} \boldsymbol{\theta} + \boldsymbol{b}
 \]</div>
-<p>où :</p>
+<p>où la matrice <span class="math notranslate nohighlight">\(\boldsymbol{H}\)</span> est de taille <span class="math notranslate nohighlight">\(N \times M\)</span> et regroupe les vecteurs des abscisses aux puissances <span class="math notranslate nohighlight">\(0\)</span> à <span class="math notranslate nohighlight">\(M-1\)</span> :</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\boldsymbol{H} =
+\begin{bmatrix}
+    0^0     &amp; 0^1     &amp; 0^2     &amp; \dots &amp; 0^{M-1}     \\
+    1^0     &amp; 1^1     &amp; 1^2     &amp; \dots &amp; 1^{M-1}     \\
+    \vdots  &amp; \vdots  &amp; \vdots  &amp;       &amp; \vdots      \\
+    (N-1)^0 &amp; (N-1)^1 &amp; (N-1)^2 &amp; \dots &amp; (N-1)^{M-1}
+\end{bmatrix}.
+\end{split}\]</div>
+<p>et :</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \boldsymbol{y} = \begin{bmatrix} y[0] \\ \vdots \\ y[N-1] \end{bmatrix},
 \quad
-\boldsymbol{H} = \begin{bmatrix}
-    1 &amp; 0 &amp; \dots &amp; 0^{M-1} \\
-    1 &amp; 1 &amp; \dots &amp; 1^{M-1} \\
-    \vdots &amp; \vdots &amp; &amp; \vdots \\
-    1 &amp; N-1 &amp; \dots &amp; (N-1)^{M-1}
-\end{bmatrix},
+\boldsymbol{\theta} = \begin{bmatrix} \theta_0 \\ \vdots \\ \theta_{M-1} \end{bmatrix},
 \quad
-\boldsymbol{\theta} = \begin{bmatrix} \theta_0 \\ \vdots \\ \theta_M \end{bmatrix}
-\quad\text{et}\qquad
 \boldsymbol{b} = \begin{bmatrix} b[0] \\ \vdots \\ b[N-1] \end{bmatrix}
 \end{split}\]</div>
 </section>

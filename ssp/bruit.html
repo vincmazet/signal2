@@ -439,7 +439,26 @@ sur un signal qui n’a pas encore été mesuré et qui est donc considéré al�
 <p>Pour analyser et traiter ces signaux, on se base sur leurs propriétés statistiques,
 telles que leur moyenne ou une distribution de probabilité : nous allons donc commencer par quelques rappels de probabilités.
 Enfin, nous ne considérons que les signaux discrets dans ce chapitre pour simplifier le propos.</p>
-<section id="rappels-de-probabilite">
+<!--
+[Jutten] DSP, stationnarité et ergodicité
+Par définition, un signal aléatoire ne peut pas être décrit par une loi mathématique qui prédit sa valeur à chaque instant, car cette valeur n’est pas prédictible analytiquement. En revanche, on peut décrire ses propriétés à l’aide de probabilités et de statistiques. Mathématiquement, un signal aléatoire sera considéré comme la réalisation d’un processus aléatoire (random process), et la valeur prise à un instant ti comme une variable aléatoire (VA).
+Un processus aléatoire (ou stochastique) est une famille de fonctions X(t), réelles ou complexes, définies dans un espace de probabilité, c’est-à-dire dépendant de deux variables, dont l’une est le temps t (usuellement, mais cela peut être l’espace pour des images), et dont l’autre est la variable ζ de l’espace des épreuves Ω.
+(une VA est définie à partir de sa densité de probabilité) une variable aléatoire
+X(ti) ou Xi, dont le comportement nécessite la connaissance de sa densité de probabilité. (espérance, moyenne et son estimation : Eq 6.7-6.9)
+(Stationnarité au sens strict) Un processus aléatoire est dit stationnaire au sens strict si toutes ses propriétés statistiques sont invariantes à un changement d’origine du temps.
+(Stationnarité au sens large) Un processus aléatoire est dit stationnaire au sens large si toutes ses propriétés statistiques d’ordre 1 et 2 sont invariantes à un changement d’origine du temps.
+(Ergodicité) Un processus aléatoire est dit ergodique si les valeurs moyennes statistiques (d’ensemble sur ζ) sont égales aux valeurs moyennes temporelles (sur une seule réalisation). La conséquence de cette hypothèse est très importante en pratique. Elle permet de remplacer les calculs de moments statistiques (qui supposent connues les densités de probabilité ou les fonctions de répartition) par les moyennes temporelles sur une seule réalisation (observation). En pratique, faire une estimation de la moyenne temporelle sur une fenêtre de taille infinie est impossible. Il faut se contenter d’une approximation calculée sur une fenêtre de taille finie, qui tendra asymptotiquement, avec la taille de la fenêtre, vers la moyenne temporelle. Cette hypothèse d’ergodicité est cependant difficile à vérifier. On admettra fréquemment que les processus aléatoires usuels sont ergodiques.
+(voir au début du chapitre la définition d'un processus aléatoire)
+Comme pour les signaux certains à puissance moyenne finie, la transformée de Fourier d’une réalisation xi (t) d’un processus aléatoire n’existe pas, car l’intégrale ne converge pas. On peut définir la densité spectrale de puissance (DSP) comme la limite de la DSP sur une fenêtre de largeur T , lorsque T → +∞, si la limite existe
+(Théorème de Wiener-Khintchine) La densité spectrale de puissance d’un processus aléatoire stationnaire au sens large est la transformée de Fourier de sa fonction d’autocorrélation.
+Remarques
+1. Ce théorème donne une définition unique de la DSP, valide pour des signaux certains et aléatoires.
+2. Pour des signaux aléatoires, ce théorème fournit une méthode pratique de calcul de la DSP.
+3. Si la DSP d’un signal aléatoire, Sxx(f), est connue, on peut en déduire la fonction d’autocorrélation Rxx(τ) par transformée de Fourier inverse
+On appelle bruit blanc un processus aléatoire W dont la densité spectrale de puissance est constante, ∀f. Le bruit à DSP constante est dit blanc par analogie avec la lumière blanche qui contient toutes les longueurs d’onde de la lumière visible. Le bruit blanc correspond à un modèle purement théorique. En effet, il est physiquement irréalisable car il contient des fréquences infinies et sa puissance moyenne est infinie. C’est cependant un modèle très pratique et utile pour représenter des signaux dont le spectre est constant, au moins sur une large bande de fréquence.
+(Théomème de la limite centrale) La distribution statistique d’une somme de n variables aléatoires indépendantes, possédant la même loi de probabilité, tend asymptotiquement (lorsque n → +∞) vers une distribution gaussienne, quelle que soit la distribution des variables individuelles. Ce théorème joue un rôle important en théorie du signal, car il justifie que de nombreux phénomènes aléatoires, résultant de la superposition de très nombreux phénomènes aléatoires individuels indépendants, soient modélisés par une loi gaussienne.
+Exo possible : exo 6.7.4
+--><section id="rappels-de-probabilite">
 <h2>Rappels de probabilité<a class="headerlink" href="#rappels-de-probabilite" title="Lien permanent vers cette rubrique">#</a></h2>
 <p>Une <em>variable aléatoire</em> est une variable mathématique dont la valeur n’est pas fixée.
 Lors d’une expérience ou après l’acquisition d’un signal,

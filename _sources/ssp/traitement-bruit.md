@@ -289,22 +289,28 @@ $$
 \boldsymbol{y} = \boldsymbol{H} \boldsymbol{\theta} + \boldsymbol{b}
 $$
 
-où :
+où la matrice $\boldsymbol{H}$ est de taille $N \times M$ et regroupe les vecteurs des abscisses aux puissances $0$ à $M-1$ :
+
+$$
+\boldsymbol{H} =
+\begin{bmatrix}
+    0^0     & 0^1     & 0^2     & \dots & 0^{M-1}     \\
+    1^0     & 1^1     & 1^2     & \dots & 1^{M-1}     \\
+    \vdots  & \vdots  & \vdots  &       & \vdots      \\
+    (N-1)^0 & (N-1)^1 & (N-1)^2 & \dots & (N-1)^{M-1}
+\end{bmatrix}.
+$$
+
+et :
 
 $$
 \boldsymbol{y} = \begin{bmatrix} y[0] \\ \vdots \\ y[N-1] \end{bmatrix},
 \quad
-\boldsymbol{H} = \begin{bmatrix}
-    1 & 0 & \dots & 0^{M-1} \\
-    1 & 1 & \dots & 1^{M-1} \\
-    \vdots & \vdots & & \vdots \\
-    1 & N-1 & \dots & (N-1)^{M-1}
-\end{bmatrix},
+\boldsymbol{\theta} = \begin{bmatrix} \theta_0 \\ \vdots \\ \theta_{M-1} \end{bmatrix},
 \quad
-\boldsymbol{\theta} = \begin{bmatrix} \theta_0 \\ \vdots \\ \theta_M \end{bmatrix}
-\quad\text{et}\qquad
 \boldsymbol{b} = \begin{bmatrix} b[0] \\ \vdots \\ b[N-1] \end{bmatrix}
 $$
+
 
 
 ### Minimisation du critère des moindres carrés
