@@ -219,7 +219,11 @@
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Corrections</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1"><a class="reference internal" href="tp.html">Exercices sur machine</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="tp.html">Exercices sur machine</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="tpc1.html">Lissage par filtre moyenneur</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tpc2.html">Approximation et extrapolation par moindres carrés</a></li>
+</ul>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Modulation</span></p>
 <ul class="nav bd-sidenav">
@@ -227,8 +231,14 @@
 <li class="toctree-l1"><a class="reference internal" href="../modulation/analogique.html">Modulation analogique</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../modulation/bande-de-base.html">Modulation numérique en bande de base</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../modulation/porteuse.html">Modulation numérique sur porteuse</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../modulation/td.html">Excercices sur feuille</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../modulation/tp.html">Exercices sur machine</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../modulation/td.html">Excercices sur feuille</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../modulation/tdc.html">Corrections</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../modulation/tp.html">Exercices sur machine</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../modulation/tpc.html">Démodulation d’un message numérique modulé en bande de base</a></li>
+</ul>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Annexes</span></p>
 <ul class="nav bd-sidenav">
@@ -440,16 +450,16 @@ document.write(`
 <h3>Exercice 3<a class="headerlink" href="#exercice-3" title="Lien permanent vers cette rubrique">#</a></h3>
 <p>Pour rappel, l’espérance d’un bruit blanc est nulle.</p>
 <ul>
-<li><p>Par définition de l’estimateur de la variance, l’écart-type <span class="math notranslate nohighlight">\(\sigma_b\)</span> du bruit est égal à la racine carrée de la puissance du bruit puisque</p>
+<li><p>Par définition de l’estimateur de la variance, l’écart-type <span class="math notranslate nohighlight">\(\sigma_b\)</span> du bruit est égal à la racine carrée de la puissance du bruit multipliée par <span class="math notranslate nohighlight">\(\frac{N}{N-1}\)</span> puisque</p>
 <div class="math notranslate nohighlight">
 \[
-  \sigma_b^2 = \frac{1}{N} \sum_{n=1}^N b_n^2 = P_b.
+  \sigma_b^2 = \frac{1}{N-1} \sum_{n=1}^N b_n^2 = \frac{N}{N-1}P_b.
   \]</div>
 </li>
 <li><p>Expression de l’écart-type du bruit en fonction du RSB et des échantillons du signal <span class="math notranslate nohighlight">\(x\)</span> :</p>
 <div class="math notranslate nohighlight">
 \[
-  \sigma_b = 10^{-\text{RSB}/20} \sqrt{ \frac{\sum_n x_n^2}{N} }.
+  \sigma_b = 10^{-\text{RSB}/20} \sqrt{ \frac{\sum_n x_n^2}{N-1} }.
   \]</div>
 </li>
 </ul>
