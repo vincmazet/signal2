@@ -124,8 +124,7 @@ site:
   
   options:
     outline_maxdepth: 2
-    # favicon: src/logo-signal2-site.svg
-    favicon: src/favicon.ico
+    favicon: src/logo-signal2-site.svg
     logo: src/logo-signal2-site.svg
     hide_authors: true
     hide_myst_branding: true
