@@ -62,14 +62,14 @@ project:
     - file: revisions/intro.md
       children:   
       - file: revisions/td.md
-        children:
-        - file: revisions/tdc.md
+        # children:
+        # - file: revisions/tdc.md
       - file: revisions/tp.md
-        children:
-        - file: revisions/tpc1.ipynb
-        - file: revisions/tpc2.ipynb
-        - file: revisions/tpc3.ipynb
-        - file: revisions/tpc4.ipynb
+        # children:
+        # - file: revisions/tpc1.ipynb
+        # - file: revisions/tpc2.ipynb
+        # - file: revisions/tpc3.ipynb
+        # - file: revisions/tpc4.ipynb
 
 
     - file: filtrage/intro.md
@@ -83,11 +83,11 @@ project:
       - file: filtrage/rii.md
       - file: filtrage/analogiques.md
       - file: filtrage/td.md
-        children:
-        - file: filtrage/tdc.md
+        # children:
+        # - file: filtrage/tdc.md
       - file: filtrage/tp.md
-        children:
-        - file: filtrage/tpc.ipynb
+        # children:
+        # - file: filtrage/tpc.ipynb
 
     # - file: ssp/bruit
     # - file: ssp/traitement-bruit
