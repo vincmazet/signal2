@@ -4,40 +4,46 @@
 
 ## Bibliographie
 
+* (B:Dimopoulos2012)=
+  H.G. Dimopoulos.
+  *Analog Electronic Filters: Theory, Design and Synthesis*.
+  Springer, 2012.
+  [Accessible via la BU](https://bu.unistra.fr/opac/resource/analog-electronic-filters-theory-design-and-synthesis/BUS05364115).
+
 * [Hsu 1995]
   H.P. Hsu.
-  _Signals and Systems_.
+  *Signals and Systems*.
   Schaum’s Outline.
   McGraw Hill, 1995.
   Cote : 006.4 HSU.
   
 * [Jutten 2018]
   C. Jutten.
-  _Théorie du signal_.
+  *Théorie du signal*.
   Univ. Grenoble Alpes - Polytech Grenoble, 2018.
   [Téléchargeable librement](https://www.gipsa-lab.grenoble-inp.fr/~christian.jutten/mescours/Cours_Theorie_Signal_2018.pdf)
 
 * (B:Kaiser1974)=
   J.F. Kaiser.
   «&nbsp;Non recursive digital filter design using the Io-sinh window function&nbsp;»,
-  _International Symposium on Circuits and Systems_, 1974.
+  *International Symposium on Circuits and Systems*, 1974.
 
 * (B:Oppenheim1989)=
   [Oppenheim 1989]
   A.V. Oppenheim, R.W. Schafer et J.R. Buck.
-  _Discrete-Time Signal Processing_.
+  *Discrete-Time Signal Processing*.
   Prentice Hall, 2e édition, 1989.
   Cote : 621.382 2 OPP.
 
 * [Oppenheim 1996]
   A.V. Oppenheim, A.S. Willsky et S. Hamid Nawab.
-  _Signals & Systems_.
+  *Signals & Systems*.
   Prentice Hall, 1996.
   Cote : 621.382 2 OPP.
 
 * [Prandoni 2008]
   P. Prandoni, M. Vetterli.
-  _Signal Processing for Communications_.
+  *Signal Processing for Communications*.
   EPFL Press, 2008.
   Cote : 621.382 2 PRA.
   [Téléchargeable librement](https://www.sp4comm.org/download.html).
@@ -45,7 +51,7 @@
 * (B:Tustin1947)=
   A. Tustin.
   «&nbsp;A method of analysing the behaviour of linear systems in terms of time series&nbsp;».
-  _Journal of the Institution of Electrical Engineers, Part IIA: Automatic Regulators and Servo Mechanisms_,
+  *Journal of the Institution of Electrical Engineers, Part IIA: Automatic Regulators and Servo Mechanisms*,
    vol.&nbsp;94, 1947.
   
 * [Wikipedia]
@@ -53,10 +59,16 @@
   puis continuez à explorer !
   N'hésitez pas également à lire la [version en anglais](https://en.wikipedia.org/wiki/Signal_processing),
   souvent plus complète.
-  
+
+* (B:Winder2022)=
+  S. Winder.
+  *Analog and Digital Filter Design*.
+  Elsevier Science, 2002.
+  [Accessible via la BU](https://bu.unistra.fr/opac/resource/analog-and-digital-filter-design/BUS01584158).
+
 * [Zumbahlen 2007]
   H. Zumbahlen.
-  _Basic Linear Design_.
+  *Basic Linear Design*.
   Analog Devices, 2007.
   [Téléchargeable librement](https://www.analog.com/en/education/education-library/linear-circuit-design-handbook.html).
   
