@@ -83,8 +83,8 @@ project:
       - file: filtrage/rii.md
       - file: filtrage/analogiques.md
       - file: filtrage/td.md
-        # children:
-        # - file: filtrage/tdc.md
+        children:
+        - file: filtrage/tdc.md
       - file: filtrage/tp.md
         # children:
         # - file: filtrage/tpc.ipynb
