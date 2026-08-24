@@ -17,6 +17,11 @@
   Univ. Grenoble Alpes - Polytech Grenoble, 2018.
   [Téléchargeable librement](https://www.gipsa-lab.grenoble-inp.fr/~christian.jutten/mescours/Cours_Theorie_Signal_2018.pdf)
 
+* (B:Kaiser1974)=
+  J.F. Kaiser.
+  «&nbsp;Non recursive digital filter design using the Io-sinh window function&nbsp;»,
+  _International Symposium on Circuits and Systems_, 1974.
+
 * (B:Oppenheim1989)=
   [Oppenheim 1989]
   A.V. Oppenheim, R.W. Schafer et J.R. Buck.
@@ -36,6 +41,12 @@
   EPFL Press, 2008.
   Cote : 621.382 2 PRA.
   [Téléchargeable librement](https://www.sp4comm.org/download.html).
+
+* (B:Tustin1947)=
+  A. Tustin.
+  «&nbsp;A method of analysing the behaviour of linear systems in terms of time series&nbsp;».
+  _Journal of the Institution of Electrical Engineers, Part IIA: Automatic Regulators and Servo Mechanisms_,
+   vol.&nbsp;94, 1947.
   
 * [Wikipedia]
   Wikipedia : commencez par l'article [Traitement du signal](https://fr.wikipedia.org/wiki/Traitement_du_signal)

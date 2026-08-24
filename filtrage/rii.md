@@ -68,7 +68,13 @@ le signal étant indéfiniment réinjecté dans le filtre, la sortie peut être 
 
 ## Transformation bilinéaire
 
+% Source de la référence Tustin 1974
+% https://ccrma.stanford.edu/~jos/fp/footnode.html#foot29753
+% https://dsp.stackexchange.com/questions/356/where-did-arnold-tustin-first-introduce-the-bilinear-transform
+
+
 La transformation bilinéaire est la méthode la plus simple pour concevoir un filtre RII.
+L'utilisation de cette transformée mathématique pour la conception de filtre est habituellement attribuée à [Tustin, 1947](#B:Tustin1947).
 Elle s'applique sur un filtre analogique pour le transformer en filtre numérique.
 De ce fait, l'application de la transformation bilinéaire suit les étapes ci-dessous,
 en partant d'un gabarit numérique.

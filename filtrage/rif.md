@@ -209,6 +209,7 @@ Et oui, en traitement du signal, la porte peut servir de fenêtre ! 🤔
 
 La méthode des fenêtres reprend l'idée précédente (troncature de la réponse impulsionnelle d'un filtre idéal)
 mais la fenêtre n'est pas forcément une porte.
+Cette idée est généralement attribuée à [Kaiser, 1974](#B:Kaiser1974).
 Chaque fenêtre aura ses propres caractéristiques et un compromis devra être fait
 pour choisir entre une bande de transition réduite, des osccillations en bande passante faibles
 et une atténuation suffisante, tout en ayant un ordre réduit.
