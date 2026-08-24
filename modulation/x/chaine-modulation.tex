@@ -1,0 +1,35 @@
+\documentclass{standalone}
+\usepackage{pstricks, pst-plot}
+\begin{document}
+
+\psset{unit=10mm,linewidth=.5pt}
+\begin{pspicture*}(0,0)(6,2.5)
+
+% Grille
+% \psgrid[gridcolor=red,subgridcolor=yellow]
+
+% Formes et flèches
+\psline{->}(0,.5)(1.1,.5)
+\psline{->}(1.5,2)(1.5,0.9)
+\pscircle(1.5,.5){.4}
+\psline{->}(1.9,.5)(3.5,.5)
+\psframe(3.5,0)(5,1)
+\psline{->}(5,.5)(6,.5)
+
+% Labels
+\rput[bl](0,.6){$x(t)$}
+\rput[b](1.5,2.1){$\cos(2\pi f_p t)$}
+\rput[c](1.5,.5){\Large$\times$}
+\rput[b](2.7,.6){$w(t)$}
+\rput(4.25,1.3){$h(t)$}
+\rput[br](6,.6){$y(t)$}
+
+% Filtre passe-bas
+\psline{->}(3.9,0.4)(3.9,0.9)
+\psline{->}(3.9,0.4)(4.6,0.4)
+\psline[linewidth=.8pt]{-}(3.9,0.7)(4.25,0.7)(4.25,0.4)
+\rput[t](4.25,0.3){\scriptsize$f_c$}
+
+\end{pspicture*}
+
+\end{document}
