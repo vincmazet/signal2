@@ -80,27 +80,27 @@ d'ondulation en bande passante 3 dB et d'atténuation en bande atténuée 30 dB.
 % quite à ce que les données (voire le script js) soit généré par du code Python.
 % En tout cas, je n'ai pas réussi à faire fonctionner ipywidgets.
 
-`````{tab-set}
-````{tab-item} Gain
-```{image} figs/fana-gain.svg
-```
-````
+:::::{tab-set}
+::::{tab-item} Gain
+:::{image} figs/fana-gain.svg
+:::
+::::
 
-````{tab-item} Phase
-```{image} figs/fana-phase.svg
-```
-````
+::::{tab-item} Phase
+:::{image} figs/fana-phase.svg
+:::
+::::
 
-````{tab-item} Réponse impulsionnelle
-```{image} figs/fana-impulse.svg
-```
-````
+::::{tab-item} Réponse impulsionnelle
+:::{image} figs/fana-impulse.svg
+:::
+::::
 
-````{tab-item} Retard de groupe
-```{image} figs/fana-gd.svg
-```
-````
-`````
+::::{tab-item} Retard de groupe
+:::{image} figs/fana-gd.svg
+:::
+::::
+:::::
 
 Des résultats précédents, on peut en déduire les principales différences et caractéristiques des filtres.
 

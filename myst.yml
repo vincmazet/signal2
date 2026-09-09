@@ -62,14 +62,14 @@ project:
     - file: revisions/intro.md
       children:   
       - file: revisions/td.md
-        # children:
-        # - file: revisions/tdc.md
+        children:
+        - file: revisions/tdc.md
       - file: revisions/tp.md
-        # children:
-        # - file: revisions/tpc1.ipynb
-        # - file: revisions/tpc2.ipynb
-        # - file: revisions/tpc3.ipynb
-        # - file: revisions/tpc4.ipynb
+        children:
+        - file: revisions/tpc1.ipynb
+        - file: revisions/tpc2.ipynb
+        - file: revisions/tpc3.ipynb
+        - file: revisions/tpc4.ipynb
 
 
     - file: filtrage/intro.md
@@ -130,3 +130,5 @@ site:
     hide_myst_branding: true
     folders: true
     style: src/style.css
+
+  parts:
