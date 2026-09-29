@@ -191,7 +191,7 @@ e^{-t(s+c)} = e^{-t(\sigma+j\omega+c)} = e^{-t(\sigma+c)} e^{-j\omega t}.
 $$
 
 Lorsque $t$ tend vers l'infini, $e^{-j\omega t}$ ne diverge pas
-(souvenez-vous que [l'expontielle complexe a une forme de tire-bouchon](https://vincmazet.github.io/signal1/elementaire/signaux-elementaires.html#exponentielle-complexe)).
+(souvenez-vous que [l'expontielle complexe a une forme de tire-bouchon](https://vincmazet.github.io/signal1/elementaire/signaux-elementaires/#exponentielle-complexe)).
 
 En ce qui concerne l'exponentielle réelle $e^{-t(\sigma+c)}$, trois cas sont possibles :
 * si $\sigma+c > 0$ alors $e^{-t(\sigma+c)}$ est une exponentielle décroissante et tend vers 0,

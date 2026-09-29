@@ -119,7 +119,7 @@ La condition la plus forte définit le plan de convergence, où la transformée 
 
 Réponse impulsionnelle $h_1$ :
 
-$$H_1(s) = \frac{3}{s+2} - \frac{2}{s+1} \quad\text{si}\; \sigma>-2$$
+$$H_1(s) = \frac{3}{s+2} - \frac{2}{s+1} \quad\text{si}\; \sigma>-1$$
 
 La région de convergence correspond au plan complexe où la partie réelle de $s$ est supérieure à $-2$.
 $H_1$ possède deux pôles ($-1$ et $-2$) et un zéro ($1$).
