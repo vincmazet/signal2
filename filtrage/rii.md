@@ -3,7 +3,7 @@
 
 ## Réponse impulsionnelle
 
-Un filtre RII a une réponse impulsionnelle qui ne s'annule jamais au délà d'un certain échantillon :
+Un filtre RII a une réponse impulsionnelle qui ne s'annule jamais complètement au délà d'un certain échantillon&nbsp;:
 
 $$
 h[n] =
@@ -23,7 +23,7 @@ $$
 
 $N$ (le degré du dénominateur) est l'ordre du filtre.
 
-Les filtres RII sont parfois appelés filtres ARMA car la fonction de transfert est le quotient entre :
+Les filtres RII sont parfois appelés filtres ARMA car la fonction de transfert est le quotient entre&nbsp;:
 * un numérateur correspondant à un filtre MA (on l'a vu précédemment),
 * et un dénominateur correspondant à un filtre appelé AR (*autoregressive*).
 
