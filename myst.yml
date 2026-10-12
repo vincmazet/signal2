@@ -83,19 +83,27 @@ project:
       - file: filtrage/rii.md
       - file: filtrage/analogiques.md
       - file: filtrage/td.md
-        # children:
-        # - file: filtrage/tdc.md
+        children:
+        - file: filtrage/tdc.md
       - file: filtrage/tp.md
-        # children:
-        # - file: filtrage/tpc.ipynb
+        children:
+        - file: filtrage/tpc.ipynb
 
-    # - file: ssp/bruit
-    # - file: ssp/traitement-bruit
-    # - file: ssp/td
-    # - file: ssp/tdc
-    # - file: ssp/tp
-    # - file: ssp/tpc1
-    # - file: ssp/tpc2
+    - file: ssp/intro.md
+      children:
+      - file: ssp/proba.md
+      - file: ssp/dsp.md
+      - file: ssp/bruit.md
+      - file: ssp/detection.md
+      - file: ssp/debruitage.md
+      - file: ssp/moindres-carres.md
+      - file: ssp/td.md
+        # children:
+        # - file: ssp/tdc
+      - file: ssp/tp.md
+        # children:
+        # - file: ssp/tpc1
+        # - file: ssp/tpc2
 
     # - file: modulation/intro
     # - file: modulation/analogique

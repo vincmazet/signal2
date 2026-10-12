@@ -17,7 +17,8 @@
   McGraw Hill, 1995.
   Cote : 006.4 HSU.
   
-* [Jutten 2018]
+* (B:Jutten2018)=
+  [Jutten 2018]
   C. Jutten.
   *Théorie du signal*.
   Univ. Grenoble Alpes - Polytech Grenoble, 2018.

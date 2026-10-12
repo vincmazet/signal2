@@ -134,6 +134,6 @@ Le **filtre de Cauer** (ou **filtre elliptique**) possède les caractéristiques
 
 :::{seealso} Pour aller plus loin
 Vous pouvez consulter les livres de 
-[Dimopoulos (2012)](B:Dimopoulos2012) et [Winder (2002)](B:Winder2022)
+[Dimopoulos (2012)](#B:Dimopoulos2012) et [Winder (2002)](#B:Winder2022)
 qui sont accessibles en version électronique depuis le site web de la bibliothèque universitaire.
 :::

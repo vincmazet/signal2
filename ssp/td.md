@@ -4,12 +4,14 @@
 
 ## Rappels de probabilité
 
+(P:ssp:exercice-1)=
 ### Exercice 1
 
 * Représenter la densité de probabilité $\mathcal{U}[0\ ; 1]$.
 * Calculez l'espérance et l'écart-type d'une variable aléatoire distribuée suivant une loi uniforme $\ \mathcal{U}[0\ ; 1]$.
 
 
+(P:ssp:exercice-2)=
 ### Exercice 2
 
 Calculez une estimation de l'espérance et de l'écart-type de la série de $N=4$ échantillons ci-dessous :
@@ -21,6 +23,7 @@ $$
 
 ## Le bruit dans les signaux
 
+(P:ssp:exercice-3)=
 ### Exercice 3
 
 Un signal à temps discret $x$ est bruité par un bruit blanc gaussien additif.
@@ -32,6 +35,7 @@ Un signal à temps discret $x$ est bruité par un bruit blanc gaussien additif.
 
 ## Traitement des signaux bruités
 
+(P:ssp:exercice-4)=
 ### Exercice 4
 
 On rappelle que le filtre adapté correspond à l'intercorrélation $R_{yx}$
@@ -45,13 +49,13 @@ entre un signal observé $y$ et le motif recherché $x$.
 Cette dernière question montre que le filtre adapté s'exprime également comme une convolution :
 c'est donc bien un filtre dont la réponse impulsionnelle est $h$.
 
-
+(P:ssp:exercice-5)=
 ### Exercice 5
 
 Montrez que le filtre moyenneur peut s'écrire comme une convolution entre le signal observé $y$
 et une porte $h$.
 
-
+(P:ssp:exercice-6)=
 ### Exercice 6
 
 On dispose de $I$ mesures $y_i$ d'un même signal $x$ :
@@ -72,7 +76,7 @@ où les bruits $b_i$ sont supposés blancs gaussiens additifs.
 
 * Montrez finalement que le RSB du signal moyenné est égal au RSB d'un signal $y_i$ plus un facteur $10\log(I)$.
 
-
+(P:ssp:exercice-7)=
 ### Exercice 7
 
 * Déterminez le polynôme de degré 0 (une constante, donc...) qui approxime au mieux
