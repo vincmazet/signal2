@@ -17,6 +17,7 @@ Comme les modifications apportées par le bruit sont inconnues,
 alors ce dernier est modélisé par un signal aléatoire dont les amplitudes sont des variables aléatoires.
 La densité de probabilité du bruit peut être gaussienne, uniforme, de Poisson, etc.
 
+<!------------------------------------------------------------------------------------------------>
 
 ## Le bruit blanc
 
@@ -44,6 +45,7 @@ $$
 R_b[0] = \mathbb{E}\Big[ b[n+0] b[n] \Big] = \mathbb{E}\Big[ b^2 \Big] = \mathbb{V}\Big[ b \Big].
 $$
 
+<!------------------------------------------------------------------------------------------------>
 
 ## Le bruit blanc i.i.d.
 
@@ -51,6 +53,7 @@ un bruit blanc $b[n]$ est *indépendant et identiquement distribué* (i.i.d.) si
 - ses échantillons sont sans relation les uns avec les autres (ils sont indépendants),
 - ses échantillons ont tous la même densité de probabilité (ils sont identiquement distribués).
 
+<!------------------------------------------------------------------------------------------------>
 
 ## Le bruit blanc gaussien additif
 
@@ -92,7 +95,9 @@ est bruité par un bruit blanc gaussien additif $b$.
 
 ::::
 
+<!------------------------------------------------------------------------------------------------>
 
+(P:ssp:rsb)=
 ## Rapport signal à bruit
 
 Le rapport signal-à-bruit (RSB, ou en anglais SNR : *signal-to-noise ratio*) est une mesure de l'intensité du bruit dans un signal.

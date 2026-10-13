@@ -1,4 +1,4 @@
-(C:ssp:detection)=
+(P:ssp:detection)=
 # Détection de signaux
 
 
@@ -70,7 +70,7 @@ qui confirme la présence dans $y$ d'un signal de même période.
 
 <!------------------------------------------------------------------------------------------------>
 
-(C:ssp:filtre-adapte)=
+(P:ssp:filtre-adapte)=
 ## Détection d'un motif
 
 Un « motif » est un signal déterministe connu et de durée finie.

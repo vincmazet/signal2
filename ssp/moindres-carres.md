@@ -1,4 +1,4 @@
-(C:ssp:moindres-carres)=
+(P:ssp:moindres-carres)=
 # Approximation par moindres carrés
 
 

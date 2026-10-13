@@ -27,10 +27,10 @@ sur un signal qui n'a pas encore été mesuré et qui est donc considéré aléa
 :::
 
 Ce chapitre commence par définir les outils de base du traitement statistique du signal,
-puis présente plusieurs problèmes classiques et propose des méthodes adaptées pour les résoudre.
-Pour simplifier le propos, nous ne considérons que les signaux discrets dans ce chapitre.
+dont la notion de @P:ssp:rsb.
+Nous présentons ensuite trois types de techniques de traitement de signaux bruités :
+* la [détection de signal](#P:ssp:detection), c'est-à-dire déterminer si un signal particulier est présent dans des données bruitées,
+* le [débruitage](#P:ssp:debruitage), c'est-à-dire réduire le plus possible le bruit présent dans un signal,
+* l'[approximation](#P:ssp:moindres-carres), c'est-à-dire estimer le signal sous-jacent dans des données bruitées.
 
-Nous présentons trois types de techniques de traitement de signaux bruités :
-* la détection de signal, c'est-à-dire déterminer si un signal particulier est présent dans des données bruitées,
-* le débruitage, c'est-à-dire réduire le plus possible le bruit présent dans un signal,
-* l'approximation, c'est-à-dire estimer le signal sous-jacent dans des données bruitées.
+Pour simplifier le propos, nous ne considérons dans ce chapitre que des signaux discrets.

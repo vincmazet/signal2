@@ -1,4 +1,4 @@
-(C:ssp:debruitage)=
+(P:ssp:debruitage)=
 # Débruitage de signaux
 
 
