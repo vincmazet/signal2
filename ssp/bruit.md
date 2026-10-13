@@ -75,7 +75,7 @@ $$
 ::::{admonition} Exemple
 :class: exemple
 
-Dans cet exemple, une sinusoïde $x$ de 440 Hz (correspondant à la note _la_)
+Dans cet exemple, une sinusoïde $x$ de 440 Hz (correspondant à la note *la*)
 est bruité par un bruit blanc gaussien additif $b$.
 
 :::{dropdown} Signal $x$

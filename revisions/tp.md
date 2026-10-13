@@ -3,7 +3,8 @@
 
 Comme la séance précédente, ce TP est un rappel des notions de première année.
 
-Ouvrez Jupyter Lab en tapant dans un terminal :
+Dans un terminal, lisez bien les instructions pour activer l'environnement Python dédié.
+Ouvrez ensuite Jupyter Lab en tapant :
 ```
 jupyter lab
 ```
