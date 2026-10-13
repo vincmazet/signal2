@@ -52,8 +52,7 @@ c'est donc bien un filtre dont la réponse impulsionnelle est $h$.
 (P:ssp:exercice-5)=
 ### Exercice 5
 
-Montrez que le filtre moyenneur peut s'écrire comme une convolution entre le signal observé $y$
-et une porte $h$.
+Montrez que le filtre moyenneur peut s'écrire comme une convolution entre le signal observé $y$ et une porte $h$.
 
 (P:ssp:exercice-6)=
 ### Exercice 6
