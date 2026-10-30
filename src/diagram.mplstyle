@@ -1,0 +1,14 @@
+# Styles pour les diagrammes, schémas
+# "Communications numériques", Vincent Mazet, 2022
+
+
+## FONT
+
+font.family     : sans-serif
+font.size       : 22.0
+font.sans-serif : Source Sans Pro
+
+
+## LaTeX
+
+text.usetex : True

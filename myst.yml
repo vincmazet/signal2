@@ -105,14 +105,17 @@ project:
         # - file: ssp/tpc1
         # - file: ssp/tpc2
 
-    # - file: modulation/intro
-    # - file: modulation/analogique
-    # - file: modulation/bande-de-base
-    # - file: modulation/porteuse
-    # - file: modulation/td
-    # - file: modulation/tdc
-    # - file: modulation/tp
-    # - file: modulation/tpc
+    - file: modulation/intro
+      children:
+      - file: modulation/analogique
+      - file: modulation/bande-de-base
+      - file: modulation/porteuse
+      - file: modulation/td
+        # children:
+        # - file: modulation/tdc
+      - file: modulation/tp
+        # children:
+        # - file: modulation/tpc
 
     - file: annexes/intro.md
       children:
