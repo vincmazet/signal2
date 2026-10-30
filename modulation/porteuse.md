@@ -109,9 +109,9 @@ En fonction de l'organisation des points dans la constellation, on distingue tro
 Exemple de constellations.
 :::
 
-Par exemple, le signal associé au message <code>013302</code> est donc :
 
 ::::{admonition} Exemple
+Par exemple, le signal associé au message <code>013302</code> est donc :
 :::{figure} figs/signal-4ask.svg
 :width: 90%
 :align: center
